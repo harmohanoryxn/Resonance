@@ -1,0 +1,1 @@
+﻿CREATE NONCLUSTERED INDEX [IX_FK_RfidDirectionRfidDetection] ON [dbo].[RfidDetection]    ([rfidDirectionId])    ON [PRIMARY];

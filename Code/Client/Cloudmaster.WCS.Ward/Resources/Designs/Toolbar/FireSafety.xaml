@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="ToolbarFireSafetyIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="M 3,3L 61.9999,3L 61.9999,58L 3,58L 3,3 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FFF7F7F7"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M 32.9803,15.3118L 14.798,43L 50.9997,43M 50.9997,43L 32.8176,15.3118">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="5" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

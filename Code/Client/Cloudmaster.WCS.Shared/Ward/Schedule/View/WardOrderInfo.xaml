@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="WCS.Shared.Ward.Schedule.WardOrderInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Schedule="clr-namespace:WCS.Shared.Schedule" mc:Ignorable="d">
+	
+	<Grid DockPanel.Dock="Left" Width="240">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="0">
+			<TextBlock Style="{StaticResource OrderInformationFontStyle}" Text="{Binding Path=OrderDepartmentName}" FontSize="12" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="0"/>
+			<Schedule:DeviceInfoView Height="20" Width="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" DataContext="{Binding Path=OrderCoordinator.Order.DepartmentLocationPresence}" Grid.Column="4"/>
+
+		</StackPanel>
+
+		<TextBlock Style="{StaticResource OrderInformationFontStyle}" Text="{Binding Path=OrderCoordinator.Order.ProcedureDescription}" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1"/>
+
+		
+				<!--<TextBlock Style="{StaticResource OrderInformationFontStyle}" FontSize="12" Foreground="DodgerBlue">
+					<TextBlock.Text>
+						<MultiBinding  ConverterParameter="{}{0}" Converter="{StaticResource stringFormatConverter}">
+							<Binding Path="OrderCoordinator.Order.Patient.DepartmentName" /> 
+						</MultiBinding>
+					</TextBlock.Text>
+			</TextBlock>
+			<Schedule:DeviceInfoView Height="20" Width="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15,0,0,0" DataContext="{Binding Path=OrderCoordinator.Order.DepartmentLocationPresence}" Grid.Column="4"/>
+
+		</StackPanel>
+
+
+		<TextBlock Style="{StaticResource OrderInformationFontStyle}" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="1">
+					<TextBlock.Text>
+						<MultiBinding  ConverterParameter="{}{0}" Converter="{StaticResource stringFormatConverter}">
+							<Binding Path="OrderCoordinator.Order.ProcedureDescription" />
+						</MultiBinding>
+					</TextBlock.Text>
+		</TextBlock>
+
+
+		<TextBlock Style="{StaticResource OrderInformationFontStyle}" HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Row="2">
+					<TextBlock.Text>
+						<MultiBinding  ConverterParameter="{}{0}" Converter="{StaticResource stringFormatConverter}">
+							<Binding Path="OrderCoordinator.Order.ClinicalIndicators" />
+						</MultiBinding>
+					</TextBlock.Text>
+		</TextBlock>-->
+
+	</Grid>
+</UserControl>

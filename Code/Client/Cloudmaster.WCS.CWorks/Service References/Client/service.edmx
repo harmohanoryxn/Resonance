@@ -1,0 +1,166 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="Cloudmaster.WCS.CWorks.DataService.CWorksModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="asset">
+        <Key>
+          <PropertyRef Name="AssetNumber" />
+        </Key>
+        <Property Name="AssetDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="AssetNumber" Type="Edm.String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="EmployeeNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="LocationNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="AssetCatCode" Type="Edm.String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="Status" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ModelNumber" Type="Edm.String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="SerialNumber" Type="Edm.String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="DateAcquired" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="DateSold" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="PurchasePrice" Type="Edm.Double" Nullable="true" />
+        <Property Name="SalvageValue" Type="Edm.Double" Nullable="true" />
+        <Property Name="CurrentValue" Type="Edm.Double" Nullable="true" />
+        <Property Name="Comments" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo1" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo2" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo3" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo4" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo5" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo6" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo7" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo8" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo9" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo10" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo11" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo12" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo13" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo14" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo15" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo16" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo17" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo18" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo19" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NameplateInfo20" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="NextSchedMaint" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="Warranty_Contract" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Warranty_ContractExpiry" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="Warranty_ContractNotes" Type="Edm.String" Nullable="true" MaxLength="4000" Unicode="true" FixedLength="false" />
+        <Property Name="Contractor" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="Vendor" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="PartsListNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="DepartmentNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="FailureCauseID" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Criticality" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="DataDisposed" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="NotesToTech" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" p8:StoreGeneratedPattern="Computed" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CurrentCircHours" Type="Edm.Double" Nullable="true" />
+        <Property Name="EstLife" Type="Edm.Double" Nullable="true" />
+        <Property Name="Manufacturer" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="SiteCode" Type="Edm.String" Nullable="true" MaxLength="10" Unicode="true" FixedLength="false" />
+        <Property Name="OpNo" Type="Edm.String" Nullable="true" MaxLength="20" Unicode="true" FixedLength="false" />
+        <Property Name="CycleTime" Type="Edm.Double" Nullable="true" />
+        <Property Name="SubStore" Type="Edm.String" Nullable="true" MaxLength="10" Unicode="true" FixedLength="false" />
+        <Property Name="StockNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="SupplierTransfer" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="TradeId" Type="Edm.Int32" Nullable="true" />
+        <Property Name="upsize_ts" Type="Edm.Binary" Nullable="true" MaxLength="8" FixedLength="true" p8:StoreGeneratedPattern="Computed" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="msrepl_tran_version" Type="Edm.Guid" Nullable="true" />
+      </EntityType>
+      <EntityType Name="worequest">
+        <Key>
+          <PropertyRef Name="RequestNo" />
+        </Key>
+        <Property Name="RequestNo" Type="Edm.String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+        <Property Name="SiteCode" Type="Edm.String" Nullable="true" MaxLength="10" Unicode="true" FixedLength="false" />
+        <Property Name="RequestStatus" Type="Edm.Int32" Nullable="true" />
+        <Property Name="ReceivedDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="ProblemDesc" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="RequiredDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="worktradeid" Type="Edm.Int32" Nullable="true" />
+        <Property Name="WorkType" Type="Edm.Int32" Nullable="true" />
+        <Property Name="WorkPriority" Type="Edm.Int32" Nullable="true" />
+        <Property Name="EmployeeNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="AssetNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="WorkorderNo" Type="Edm.String" Nullable="true" MaxLength="20" Unicode="true" FixedLength="false" />
+        <Property Name="Remarks" Type="Edm.String" Nullable="true" MaxLength="4000" Unicode="true" FixedLength="false" />
+        <Property Name="LocationNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="ExtFilePath" Type="Edm.String" Nullable="true" MaxLength="900" Unicode="true" FixedLength="false" />
+        <Property Name="CreatedBy" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="CancelledBy" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="RaisedViaWeb" Type="Edm.Int32" Nullable="true" />
+        <Property Name="DepartmentNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="upsize_ts" Type="Edm.Binary" Nullable="true" MaxLength="8" FixedLength="true" p8:StoreGeneratedPattern="Computed" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="msrepl_tran_version" Type="Edm.Guid" Nullable="true" />
+      </EntityType>
+      <EntityType Name="workorder">
+        <Key>
+          <PropertyRef Name="WorkorderNo" />
+        </Key>
+        <Property Name="WorkorderNo" Type="Edm.String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+        <Property Name="RequestorNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="EmployeeNo" Type="Edm.String" Nullable="true" MaxLength="30" Unicode="true" FixedLength="false" />
+        <Property Name="AssetNo" Type="Edm.String" Nullable="true" MaxLength="30" Unicode="true" FixedLength="false" />
+        <Property Name="LocationNo" Type="Edm.String" Nullable="true" MaxLength="30" Unicode="true" FixedLength="false" />
+        <Property Name="ProblemDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="DateReceived" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="EstDateStart" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="EstDateEnd" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="ActDateStart" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="ActDateEnd" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="DateRequired" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="DateHandover" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="EstDuration" Type="Edm.Double" Nullable="true" />
+        <Property Name="ActionTaken" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="FailureCauseCode" Type="Edm.String" Nullable="true" MaxLength="30" Unicode="true" FixedLength="false" />
+        <Property Name="EmployeeID2" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="WorkType" Type="Edm.Int32" Nullable="true" />
+        <Property Name="CauseDescription" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="PreventionTaken" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="WorkStatus" Type="Edm.Int32" Nullable="true" />
+        <Property Name="WorkPriority" Type="Edm.Int32" Nullable="true" />
+        <Property Name="WOCost" Type="Edm.Double" Nullable="true" />
+        <Property Name="PMTarStartDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="PMTarCompDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="WOTrade" Type="Edm.Int32" Nullable="true" />
+        <Property Name="AsstartDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="AssEndDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="PMNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="TaskNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="AcceptedBy" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="WOLaborCost" Type="Edm.Double" Nullable="true" />
+        <Property Name="WODICost" Type="Edm.Double" Nullable="true" />
+        <Property Name="WOPartCost" Type="Edm.Double" Nullable="true" />
+        <Property Name="PMtype" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="PMMetReading" Type="Edm.Double" Nullable="true" />
+        <Property Name="SiteCode" Type="Edm.String" Nullable="true" MaxLength="10" Unicode="true" FixedLength="false" />
+        <Property Name="DeptNo" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="CustFeedback" Type="Edm.String" Nullable="true" MaxLength="10" Unicode="true" FixedLength="false" />
+        <Property Name="WOcloseby" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="DownTime" Type="Edm.Double" Nullable="true" />
+        <Property Name="LineDowntime" Type="Edm.Double" Nullable="true" />
+        <Property Name="MTask" Type="Edm.Int32" Nullable="true" />
+        <Property Name="Notes" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="MPMID" Type="Edm.Int64" Nullable="true" />
+        <Property Name="Attachment" Type="Edm.String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="AttachmentDescription" Type="Edm.String" Nullable="true" MaxLength="255" Unicode="true" FixedLength="false" />
+        <Property Name="upsize_ts" Type="Edm.Binary" Nullable="true" MaxLength="8" FixedLength="true" p8:StoreGeneratedPattern="Computed" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="msrepl_tran_version" Type="Edm.Guid" Nullable="true" />
+        <Property Name="cost_center_no" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="cost_center_id" Type="Edm.Int32" Nullable="true" />
+        <Property Name="print_date" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="assto" Type="Edm.String" Nullable="true" MaxLength="1024" Unicode="true" FixedLength="false" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="Cloudmaster.WCS.CWorks.DataService" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="CWorksConnectionSettings" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <FunctionImport Name="CreateWorkRequest" ReturnType="Edm.String" m:HttpMethod="GET">
+          <Parameter Name="description" Type="Edm.String" Mode="In" />
+          <Parameter Name="requestsPin" Type="Edm.String" Mode="In" />
+          <Parameter Name="locationNo" Type="Edm.String" Mode="In" />
+          <Parameter Name="deptNo" Type="Edm.String" Mode="In" />
+        </FunctionImport>
+        <EntitySet Name="assets" EntityType="Cloudmaster.WCS.CWorks.DataService.CWorksModel.asset" />
+        <EntitySet Name="worequests" EntityType="Cloudmaster.WCS.CWorks.DataService.CWorksModel.worequest" />
+        <EntitySet Name="workorders" EntityType="Cloudmaster.WCS.CWorks.DataService.CWorksModel.workorder" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

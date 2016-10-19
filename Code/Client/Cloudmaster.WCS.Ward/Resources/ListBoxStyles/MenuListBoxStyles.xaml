@@ -1,0 +1,96 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Cloudmaster.WCS.Controls.Converters;assembly=Cloudmaster.WCS.Controls"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="../BorderStyles.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="MenuListBoxFontStyle">
+        <Setter Property="Label.FontSize" Value="48" />
+        <Setter Property="Label.FontFamily" Value="Segoe UI" />
+        <Setter Property="Label.Foreground" Value="#3590D0" />
+    </Style>
+
+    <Style x:Key="MenuWarningFontStyle">
+        <Setter Property="Label.FontSize" Value="18" />
+        <Setter Property="Label.FontFamily" Value="Segoe UI" />
+        <Setter Property="Label.Foreground" Value="WhiteSmoke" />
+    </Style>
+
+
+    <Style x:Key="SelectedMenuListBoxFontStyle" BasedOn="{StaticResource MenuListBoxFontStyle}">
+        <Setter Property="Label.Foreground" Value="Black" />
+    </Style>
+
+
+    <Style x:Key="MenuListBoxStyle" TargetType="ListBoxItem">        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                        
+                    
+                    <Border x:Name="outerBorder" BorderThickness="0" VerticalAlignment="Top" Grid.Column="0"
+                            Background="White" Height="80" Opacity="0.8"
+                            >
+
+                        <ContentPresenter x:Name="contentPresenter" 
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MenuListBoxFontStyle}"
+                            />
+
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.MouseDown" >
+                                <EventTrigger.Actions>
+                                    <SoundPlayerAction Source="../Media/Sounds/ButtonOver.wav" />
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+<!--
+
+                        <Border x:Name="warning" Grid.Column="1" Width="180" Opacity="0.7"
+                            Height="40" 
+                            Visibility="Collapsed"
+                            BorderBrush="Black" BorderThickness="1"
+                            VerticalAlignment="Top"
+                            >
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0,1.5">
+                                    <GradientStop Color="#D63535" Offset="0.0" />
+                                    <GradientStop Color="DarkRed" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <Label Content="WARNING" Style="{StaticResource MenuWarningFontStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            
+                        </Border>
+                            -->
+                            
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="outerBorder" Property="Height" Value="160" />
+                            <Setter TargetName="outerBorder" Property="Opacity" Value="1" />
+                            <!--<Setter TargetName="warning" Property="Opacity" Value="1" />-->
+                            <Setter TargetName="contentPresenter" Property="Style" Value="{StaticResource SelectedMenuListBoxFontStyle}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

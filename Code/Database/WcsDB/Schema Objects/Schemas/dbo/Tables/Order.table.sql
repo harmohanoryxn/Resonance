@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Order] (
+    [orderId] int IDENTITY(1,1) NOT NULL,
+    [externalSourceId] int  NOT NULL,
+    [externalId] nvarchar(50)  NOT NULL,
+    [orderNumber] nvarchar(20)  NULL,
+    [procedureTime] datetime  NULL,
+    [orderStatusId] int  NOT NULL,
+    [completedTime] datetime  NULL,
+    [admissionId] int  NOT NULL,
+    [clinicalIndicator] nvarchar(200)  NULL,
+    [estimatedProcedureDuration] int  NULL,
+    [Procedure_procedureId] int  NOT NULL,
+    [Department_locationId] int  NOT NULL,
+    [OrderingDoctor_doctorId] int  NULL,
+    [isHidden]             BIT         NOT NULL,
+    [acknowledged]         BIT         NOT NULL,
+    [acknowledgedTime]     DATETIME    NULL,
+    [acknowledgedBy]       NVARCHAR (20)  NULL,
+	[history]			   NVARCHAR(200)  NULL,
+	[diagnosis]			   NVARCHAR(200)  NULL,
+	[currentCardiologist]  NVARCHAR(200)  NULL,
+	[requiresSupervision]  BIT NOT NULL DEFAULT(0),
+	[requiresFootwear]  BIT NOT NULL DEFAULT(0),
+	[requiresMedicalRecords]  BIT NOT NULL DEFAULT(0)
+	CONSTRAINT UC_Order_External UNIQUE ([externalSourceId], [externalId])
+);

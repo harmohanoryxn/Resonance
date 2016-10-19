@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.cloudmaster.ie/2012/01/WCS/1" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.cloudmaster.ie/2012/01/WCS/1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.cloudmaster.ie/2012/01/WCS/1/Imports">
+      <xsd:import schemaLocation="http://localhost:53840/DataServices.svc?xsd=xsd0" namespace="http://schemas.cloudmaster.ie/2012/01/WCS/1" />
+      <xsd:import schemaLocation="http://localhost:53840/DataServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataServices_GetOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrders" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetOrdersByLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByLocation" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetOrdersByLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_AddNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNote" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_AddNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNote" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_DeleteNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNote" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_DeleteNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateProcedureTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcedureTime" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateProcedureTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcedureTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateArrivalTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArrivalTime" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateArrivalTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateArrivalTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateCompletedTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompletedTime" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_UpdateCompletedTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompletedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevices" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetConnectionsByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectionsByDate" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetConnectionsByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectionsByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_AcknowledgeNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:AcknowledgeNotification" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_AcknowledgeNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AcknowledgeNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetTrackingReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetTrackingReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetTrackingReportByDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingReportByDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IDataServices_GetTrackingReportByDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrackingReportByDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDataServices">
+    <wsdl:operation name="GetOrders">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetOrders" message="tns:IDataServices_GetOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetOrdersResponse" message="tns:IDataServices_GetOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByLocation">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetOrdersByLocation" message="tns:IDataServices_GetOrdersByLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetOrdersByLocationResponse" message="tns:IDataServices_GetOrdersByLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AddNote" message="tns:IDataServices_AddNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AddNoteResponse" message="tns:IDataServices_AddNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNote">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateNote" message="tns:IDataServices_UpdateNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateNoteResponse" message="tns:IDataServices_UpdateNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNote">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/DeleteNote" message="tns:IDataServices_DeleteNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/DeleteNoteResponse" message="tns:IDataServices_DeleteNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProcedureTime">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateProcedureTime" message="tns:IDataServices_UpdateProcedureTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateProcedureTimeResponse" message="tns:IDataServices_UpdateProcedureTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArrivalTime">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateArrivalTime" message="tns:IDataServices_UpdateArrivalTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateArrivalTimeResponse" message="tns:IDataServices_UpdateArrivalTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompletedTime">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateCompletedTime" message="tns:IDataServices_UpdateCompletedTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateCompletedTimeResponse" message="tns:IDataServices_UpdateCompletedTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDevices">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetDevices" message="tns:IDataServices_GetDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetDevicesResponse" message="tns:IDataServices_GetDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionsByDate">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetConnectionsByDate" message="tns:IDataServices_GetConnectionsByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetConnectionsByDateResponse" message="tns:IDataServices_GetConnectionsByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AcknowledgeNotification">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AcknowledgeNotification" message="tns:IDataServices_AcknowledgeNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AcknowledgeNotificationResponse" message="tns:IDataServices_AcknowledgeNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingReport">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetTrackingReport" message="tns:IDataServices_GetTrackingReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetTrackingReportResponse" message="tns:IDataServices_GetTrackingReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrackingReportByDepartment">
+      <wsdl:input wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetTrackingReportByDepartment" message="tns:IDataServices_GetTrackingReportByDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetTrackingReportByDepartmentResponse" message="tns:IDataServices_GetTrackingReportByDepartment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

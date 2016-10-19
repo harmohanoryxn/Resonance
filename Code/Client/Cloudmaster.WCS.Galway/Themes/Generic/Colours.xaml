@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+	<Color x:Key="00White">#FFFFFFFF</Color>
+	<Color x:Key="FFWhite">#00FFFFFF</Color>
+	<Color x:Key="33Gray">#33000000</Color>
+	
+	<Color x:Key="White">White</Color>
+	<Color x:Key="Black">Black</Color>
+	<Color x:Key="Red">Red</Color>
+	<Color x:Key="Gold">Gold</Color>
+	<Color x:Key="Blue">Blue</Color>
+	<Color x:Key="OrangeColour">Orange</Color>
+
+   <Color x:Key="LightText">White</Color>
+	<Color x:Key="DarkText">Black</Color>
+	<Color x:Key="DefaultTextColour">Black</Color>
+	<Color x:Key="DisabledTextColour">Gray</Color>
+	<Color x:Key="AlternativeTextColour">#3590D0</Color>
+	<Color x:Key="SubTextColour">#765C9B</Color>
+	<Color x:Key="TimeTextColour">#1586D4</Color>
+	<Color x:Key="ListBoxTextColour">#765C9B</Color>
+
+	<Color x:Key="LogoBeige">#FFBEA073</Color>
+	<Color x:Key="LogoLightGreen">#FF177C49</Color>
+	<Color x:Key="LogoDarkGreen">#FF006432</Color>
+
+	<Color x:Key="CriticalAlert">Firebrick</Color>
+	<Color x:Key="WarningAlert">OrangeRed</Color>
+	<Color x:Key="BadgeAlert1">Yellow</Color>
+	<Color x:Key="BadgeAlert2">OrangeRed</Color>
+
+	<Color x:Key="HoverColor">#FF393939</Color>
+
+	<Color x:Key="YellowColor">Yellow</Color>
+	<Color x:Key="GreenColor">#2E705B</Color>
+
+	<Color x:Key="SelectedColor">#66FFEFD5</Color>
+	<Color x:Key="SelectedBorderColor">Black</Color>
+	
+	<Color x:Key="ScheduleBorderColor">#328564</Color>
+	<Color x:Key="ScheduleGrayColor">Gray</Color>
+	<Color x:Key="ScheduleGridColor">LightSteelBlue</Color>
+
+	<Color x:Key="accent">RoyalBlue</Color>
+	<Color x:Key="lightYellowHighlight">LightYellow</Color>
+
+	<Color x:Key="OutsideOfficeHoursColour">Lavender</Color>
+	<Color x:Key="RequiresAttentionColour">#66BABAC2</Color>
+	<Color x:Key="ModifiedColour">#33B3C3FF</Color>
+
+	<Color x:Key="StartFastingColour">#F7F1D8</Color>
+	<Color x:Key="EndFastingColour">#DCD0A1</Color>
+	<Color x:Key="StartPrepColour">#CADCE9</Color>
+	<Color x:Key="EndPrepColour">#728FA7</Color>
+	<Color x:Key="StartOrderColour">#D0E0A3</Color>
+	<Color x:Key="EndOrderColour">#8B9B5A</Color>
+	<Color x:Key="StartNotesColour">#F1DD9F</Color>
+	<Color x:Key="EndNotesColour">#EBD590</Color>
+	<Color x:Key="StartDisabledColour">#D4D4D8</Color>
+	<Color x:Key="EndDisabledColour">#BABAC2</Color>
+	<Color x:Key="StartTBAColour">#878787</Color>
+	<Color x:Key="EndTBAColour">#5A5A5A</Color>
+	<Color x:Key="StartWarningColour">#E27F74</Color>
+	<Color x:Key="EndWarningColour">#BC6157</Color>
+	<Color x:Key="StartInjectionColour">#D8A5C8</Color>
+	<Color x:Key="EndInjectionColour">#976989</Color>
+
+
+	<Color x:Key="StartAppleColour1Colour">#4B4E4E</Color>
+	<Color x:Key="EndAppleColour1Colour">#595C5C</Color>
+
+	<Color x:Key="StartAppleColour2Colour">#A4A9AC</Color>
+	<Color x:Key="EndAppleColour2Colour">#BEC3C6</Color>
+
+	<Color x:Key="StartAppleColour3Colour">#EE628B</Color>
+	<Color x:Key="EndAppleColour3Colour">#FF79A1</Color>
+
+	<Color x:Key="StartAppleColour4Colour">#5FB447</Color>
+	<Color x:Key="EndAppleColour4Colour">#7ECF66</Color>
+
+	<Color x:Key="StartAppleColour5Colour">#5893CA</Color>
+	<Color x:Key="EndAppleColour5Colour">#72ABE1</Color>
+
+	<Color x:Key="StartAppleColour6Colour">#910703</Color>
+	<Color x:Key="EndAppleColour6Colour">#AB1F14</Color>
+
+	<Color x:Key="StartAppleColour7Colour">#202F41</Color>
+	<Color x:Key="EndAppleColour7Colour">#283648</Color>
+
+	<Color x:Key="StartAppleColour8Colour">#151916</Color>
+	<Color x:Key="EndAppleColour8Colour">#202220</Color>
+
+	<Color x:Key="StartAppleColour9Colour">#C69C67</Color>
+	<Color x:Key="EndAppleColour9Colour">#C79C6A</Color>
+
+	<Color x:Key="StartAppleColour10Colour">#C8C3B1</Color>
+	<Color x:Key="EndAppleColour10Colour">#D6D2C0</Color>
+
+
+</ResourceDictionary>

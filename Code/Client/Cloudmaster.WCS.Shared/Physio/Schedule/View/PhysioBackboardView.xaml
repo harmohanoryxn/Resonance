@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="WCS.Shared.Physio.Schedule.PhysioBackboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Controls1="clr-namespace:WCS.Shared.Controls" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" Width="280" HorizontalAlignment="Right" BorderBrush="{StaticResource peeBorderBrush}" BorderThickness="1,0,0,0">
+
+	<UserControl.Resources>
+		<sys:String x:Key="inProgressStatus">In Progress</sys:String>
+		<sys:String x:Key="completedStatus">Completed</sys:String>
+		<sys:String x:Key="cancelledStatus">Cancelled</sys:String>
+		<sys:String x:Key="hiddenStatus">Hidden</sys:String>
+	</UserControl.Resources>
+
+	<DockPanel LastChildFill="True" HorizontalAlignment="Center">
+
+		<StackPanel  DockPanel.Dock="Bottom" HorizontalAlignment="Center"  Margin="0,0,0,10" >
+            <TextBlock Text="Developed by Cloudmaster" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+			<TextBlock Text="{Binding Path=Main.ApplicationVersion,StringFormat=Version {0}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+			<TextBlock Text="{Binding Path=Main.ClientName,StringFormat=Client {0}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+			<TextBlock Text="{Binding Path=Main.ServerName,StringFormat=Server {0}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+		</StackPanel>
+
+		<Border HorizontalAlignment="Center" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15,10,0,5">
+			<WrapPanel>
+				<TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=LastSynchronised, StringFormat= 'Updated {0:d/MM/yy} '}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+				<TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=LastSynchronised, StringFormat= '{}{0:h:mm} '}" FontWeight="Bold" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+				<TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=LastSynchronised, StringFormat= {}{0:tt}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+			</WrapPanel>
+		</Border>
+
+		<TextBlock Text="Orders Options" Style="{StaticResource PeelHeader1FontStyle}" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="15,10,0,5"/>
+		<Border Background="{StaticResource peeBorderBrush}" DockPanel.Dock="Top"  CornerRadius="0" Margin="0,0,0,0" BorderThickness="1" BorderBrush="{StaticResource peeBorderBrush}">
+			<StackPanel Orientation="Vertical" Margin="0">
+				<RadioButton IsChecked="{Binding Path=ShowInProgress}"  GroupName="orderStatus" Style="{StaticResource PeelRadioButtonStyle}" Margin="0,0,0,0.5" Controls1:CornerEdge.Radius="0,0,0,0"  Content="{StaticResource inProgressStatus}" Command="{Binding Path=FilterOrderStatusCommand}" CommandParameter="{StaticResource inProgressStatus}"/>
+				<RadioButton IsChecked="{Binding Path=ShowCompleted}" GroupName="orderStatus" Style="{StaticResource PeelRadioButtonStyle}" Margin="0,0.5,0,0.5" Content="{StaticResource completedStatus}" Command="{Binding Path=FilterOrderStatusCommand}" CommandParameter="{StaticResource completedStatus}"/>
+				<RadioButton IsChecked="{Binding Path=ShowCancelled}" GroupName="orderStatus" Style="{StaticResource PeelRadioButtonStyle}" Margin="0,0.5,0,0.5" Content="{StaticResource cancelledStatus}" Command="{Binding Path=FilterOrderStatusCommand}" CommandParameter="{StaticResource cancelledStatus}"/>
+				<RadioButton IsChecked="{Binding Path=ShowHidden}" GroupName="orderStatus" Style="{StaticResource PeelRadioButtonStyle}" Margin="0,0.5,0,0" Controls1:CornerEdge.Radius="0,0,0,0" Content="{StaticResource hiddenStatus}" Command="{Binding Path=FilterOrderStatusCommand}" CommandParameter="{StaticResource hiddenStatus}"/>
+			</StackPanel>
+		</Border>
+
+		<Border/>
+
+	</DockPanel>
+</UserControl> 

@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="WCS.Shared.Schedule.NotificationItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Schedule="clr-namespace:WCS.Shared.Schedule"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" Height="46"
+             xmlns:DataServices="clr-namespace:Cloudmaster.WCS.DataServicesInvoker.DataServices;assembly=WCS.DataServicesInvoker">
+
+	<UserControl.Resources>
+		<Converters:NotificationTimeToWidthConverter x:Key="widthConverter"/>
+		<Converters:NotificationOffsetConverter x:Key="leftConverter"/>
+		<Converters:NotificationStartTimeToOpacityConverter x:Key="notificationStartTimeToOpacityConverter"/>
+		<Converters:NotificationBrushConverter x:Key="notificationBrushConverter"/>
+		<Converters:NotificationStartTimeToVisibilityConverter x:Key="notificationStartTimeToVisabilityConverter"/>
+        <Converters:NotificationTypeToVisibilityConverter x:Key="notificationTypeToVisibilityConverter"/>
+	</UserControl.Resources>
+
+	<UserControl.Width>
+		<MultiBinding Converter="{StaticResource widthConverter}">
+			<Binding Path="PriorTime"/>
+			<Binding Path="Duration"/>
+			<Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type Schedule:ScheduleItemCanvas}}"/>
+			<Binding Path="StartTime"/>
+		</MultiBinding>
+	</UserControl.Width>
+	<UserControl.Margin>
+		<MultiBinding Converter="{StaticResource leftConverter}">
+			<Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type Schedule:ScheduleItemCanvas}}"/>
+			<Binding Path="StartTime"/>
+			<Binding Path="Duration"/>
+			<Binding Path="PriorTime"/>
+		</MultiBinding>
+	</UserControl.Margin>
+
+	<Grid  Margin="0,2,0,2" Opacity="{Binding Path=StartTime, Converter={StaticResource notificationStartTimeToOpacityConverter}}" >
+		<Schedule:WcsOrderBorder x:Name="theOrder" Margin="0"  BorderBrush="{StaticResource NotificationBorderBrush}" BorderThickness="1">
+			<Schedule:WcsOrderBorder.Background>
+				<MultiBinding Converter="{StaticResource notificationBrushConverter}">
+					<MultiBinding.Bindings>
+						<Binding RelativeSource="{RelativeSource Self}" />
+						<Binding Path="StartTime"/>
+						<Binding Path="IsAcknowledged"/>
+					</MultiBinding.Bindings>
+				</MultiBinding>
+			</Schedule:WcsOrderBorder.Background>
+		</Schedule:WcsOrderBorder>
+        
+        <TextBlock  Text="{Binding Path=Description}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,-30,0" Foreground="{StaticResource lightTextBrush}" IsHitTestVisible="False">
+            <TextBlock.Visibility>
+                <MultiBinding Converter="{StaticResource notificationTypeToVisibilityConverter}">
+                        <MultiBinding.Bindings>
+                            <Binding Path="NotificationType"/>
+                            <Binding Source="{x:Static DataServices:NotificationType.Prep}"/>
+                    </MultiBinding.Bindings>
+                    </MultiBinding>
+            </TextBlock.Visibility>
+        </TextBlock>
+
+		<Border  x:Name="glyph" Height="20" Width="20" Background="{StaticResource NotificationPendingIconBrush}" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-10,-10,0,0">
+			<Border.Visibility>
+				<MultiBinding Converter="{StaticResource notificationStartTimeToVisabilityConverter}">
+					<MultiBinding.Bindings>
+						<Binding Path="StartTime"/>
+						<Binding Path="IsAcknowledged"/>
+					</MultiBinding.Bindings>
+				</MultiBinding>
+			</Border.Visibility>
+		</Border>
+
+        <Border  x:Name="glyphPhysio" Height="16" Width="16" Background="{StaticResource NotificationPhysioIconBrush}" IsHitTestVisible="False" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                 Margin="3,13,0,0"
+                 >
+            <Border.Visibility>
+                <MultiBinding Converter="{StaticResource notificationTypeToVisibilityConverter}">
+                        <MultiBinding.Bindings>
+                            <Binding Path="NotificationType"/>
+                            <Binding Source="{x:Static DataServices:NotificationType.Physio}"/>
+                    </MultiBinding.Bindings>
+                    </MultiBinding>
+            </Border.Visibility>
+        </Border>
+
+	</Grid>
+
+</UserControl>
+ 

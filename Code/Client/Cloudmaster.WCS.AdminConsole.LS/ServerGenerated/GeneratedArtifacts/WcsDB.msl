@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="WcsDBObjectContext" StorageEntityContainer="WcsDBStore">
+    <EntitySetMapping Name="Configurations">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.Configuration)">
+        <MappingFragment StoreEntitySet="Configuration">
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ConfigurationType_ConfigurationTypeId" ColumnName="ConfigurationType_ConfigurationTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigurationLocations">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.ConfigurationLocation)">
+        <MappingFragment StoreEntitySet="ConfigurationLocation">
+          <ScalarProperty Name="configurationLocationId" ColumnName="configurationLocationId" />
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigurationTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.ConfigurationType)">
+        <MappingFragment StoreEntitySet="ConfigurationType">
+          <ScalarProperty Name="ConfigurationTypeId" ColumnName="ConfigurationTypeId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connections">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.Connection)">
+        <MappingFragment StoreEntitySet="Connection">
+          <ScalarProperty Name="connectionId" ColumnName="connectionId" />
+          <ScalarProperty Name="connectionTime" ColumnName="connectionTime" />
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.Device)">
+        <MappingFragment StoreEntitySet="Device">
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="ipAddress" ColumnName="ipAddress" />
+          <ScalarProperty Name="lastConnection" ColumnName="lastConnection" />
+          <ScalarProperty Name="lockTimeout" ColumnName="lockTimeout" />
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.Location)">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="patientType" ColumnName="patientType" />
+          <ScalarProperty Name="contactInfo" ColumnName="contactInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.Log)">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="logId" ColumnName="logId" />
+          <ScalarProperty Name="c_Date" ColumnName="Date" />
+          <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Logger" ColumnName="Logger" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationRules">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.NotificationRule)">
+        <MappingFragment StoreEntitySet="NotificationRule">
+          <ScalarProperty Name="notificationRuleId" ColumnName="notificationRuleId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="priorToProcedureTime" ColumnName="priorToProcedureTime" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="isAcknowledgmentRequired" ColumnName="isAcknowledgmentRequired" />
+          <ScalarProperty Name="Procedure_procedureId" ColumnName="Procedure_procedureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pins">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.Pin)">
+        <MappingFragment StoreEntitySet="Pin">
+          <ScalarProperty Name="pinId" ColumnName="pinId" />
+          <ScalarProperty Name="Device_deviceId" ColumnName="Device_deviceId" />
+          <ScalarProperty Name="pin1" ColumnName="pin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedures">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.Procedure)">
+        <MappingFragment StoreEntitySet="Procedure">
+          <ScalarProperty Name="procedureId" ColumnName="procedureId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="ProcedureCategory_procedureCategoryId" ColumnName="ProcedureCategory_procedureCategoryId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcedureCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.ProcedureCategory)">
+        <MappingFragment StoreEntitySet="ProcedureCategory">
+          <ScalarProperty Name="procedureCategoryId" ColumnName="procedureCategoryId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="includeInMerge" ColumnName="includeInMerge" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExternalSources">
+      <EntityTypeMapping TypeName="IsTypeOf(WcsDB.ExternalSource)">
+        <MappingFragment StoreEntitySet="ExternalSource">
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="source" ColumnName="source" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

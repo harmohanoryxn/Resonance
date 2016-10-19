@@ -1,0 +1,132 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="../BorderStyles.xaml" />
+        
+        <ResourceDictionary Source="../FontStyles.xaml" />
+        
+        <ResourceDictionary Source="../Designs/TickIcon.xaml" />
+
+        <ResourceDictionary Source="../Designs/CloseIcon.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- Start Radio Button Font Style -->
+    
+    <Style x:Key="RadioButtonFontStyle">
+        <Setter Property="Label.FontSize" Value="24" />
+        <Setter Property="Label.FontFamily" Value="Segoe UI" />
+        <Setter Property="Label.Foreground" Value="Black" />
+    </Style>
+
+    <!-- End Radio Button Font Style -->
+
+    <!-- Start Pass  Radio Button Font Style -->
+    
+    <ControlTemplate x:Key="PassRadioButtonStyle" TargetType="{x:Type RadioButton}">
+
+        <StackPanel Orientation="Horizontal" x:Name="contents" Cursor="Hand" Background="White">
+            <Border x:Name="outerBorder" Width="140" Height="48"
+                    Style="{StaticResource OuterBorderStyle}"
+                    >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0,1.5">
+                        <GradientStop Color="#40AD83" Offset="0.0" />
+                        <GradientStop Color="#255F47" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Border x:Name="innerBorder"
+                        Style="{StaticResource InnerBorderStyle}"
+                        >
+                    
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                    
+                        <Rectangle Fill="{StaticResource TickIcon}" Width="24" Height="24" Margin="16,0" />
+
+                        <Label Style="{StaticResource SubTitleFont}" Content="Pass" Padding="0" Foreground="WhiteSmoke" Margin="6,4" />
+
+                    </StackPanel>
+                </Border>
+            </Border>
+        <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="Border.MouseDown" >
+                    <EventTrigger.Actions>
+                        <SoundPlayerAction Source="../Media/Sounds/ButtonClick.wav" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </StackPanel.Triggers>
+        </StackPanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="False">
+                <Setter TargetName="outerBorder" Property="Background" Value="DarkGray" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="contents" Property="Opacity" Value="1" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- End Pass Radio Button Font Style -->
+
+    <!-- Start Fail Radio Button Font Style -->
+
+    <ControlTemplate x:Key="FailRadioButtonStyle" TargetType="{x:Type RadioButton}">
+
+        <StackPanel Orientation="Horizontal" x:Name="contents" Cursor="Hand" Background="White">
+            
+            
+            <Border x:Name="outerBorder" Width="140" Height="48"
+                    Style="{StaticResource OuterBorderStyle}"
+                    >
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0,1.5">
+                        <GradientStop Color="#D63535" Offset="0.0" />
+                        <GradientStop Color="DarkRed" Offset="1.0" />
+                    </LinearGradientBrush> 
+                </Border.Background>
+                <Border x:Name="innerBorder"
+                        Style="{StaticResource InnerBorderStyle}"
+                        >
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+
+                        <Rectangle Fill="{StaticResource CloseIconWhite}" Width="24" Height="24" Margin="16,0" />
+
+                        <Label Style="{StaticResource SubTitleFont}" Content="Fail" Padding="0" Foreground="WhiteSmoke" Margin="6,4" />
+
+                    </StackPanel>
+
+                </Border>
+
+            </Border>
+
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="Border.MouseDown" >
+                    <EventTrigger.Actions>
+                        <SoundPlayerAction Source="../Media/Sounds/ButtonClick.wav" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+
+            </StackPanel.Triggers>
+        </StackPanel>
+
+        <ControlTemplate.Triggers>
+
+            <Trigger Property="IsChecked" Value="False">
+                <Setter TargetName="outerBorder" Property="Background" Value="DarkGray" />
+            </Trigger>
+
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="contents" Property="Opacity" Value="1" />
+            </Trigger>
+
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- End Fail Radio Button Font Style -->
+
+</ResourceDictionary>

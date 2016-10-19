@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="WCS.Shared.Schedule.WardLocationTimerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="30">
+	<Grid>
+		<TextBlock Style="{StaticResource GroupHeaderLocationStyle}" Margin="0" VerticalAlignment="Center" Text="{Binding Path=CurrentLocation, StringFormat=Latest Location: \{0\}}" />
+		<!--<Viewbox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="2" Visibility="{Binding Path=IsInCurrentLocation, Converter={StaticResource argBooleanToVisibilityConverter}, ConverterParameter=VisibleIfTrue}"  >
+			<View:LocationTimer />
+		</Viewbox>-->
+	</Grid>
+</UserControl>

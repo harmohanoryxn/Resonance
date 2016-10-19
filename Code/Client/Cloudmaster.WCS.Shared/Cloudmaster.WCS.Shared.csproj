@@ -1,0 +1,1077 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2352339-AC26-448F-8753-6B63294EEC2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WCS.Shared</RootNamespace>
+    <AssemblyName>Cloudmaster.WCS.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;BRYAN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.WPF4, Version=3.0.0.19994, Culture=neutral, PublicKeyToken=63eb5c012e0b3c1c, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Libraries\MvvmLight\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=737bc70442f2c4af, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reactive">
+      <HintPath>..\..\..\Libraries\Microsoft\Rx\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\Libraries\Microsoft\Expression\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admissions\Schedule\AdmissionsBedObservableCollection.cs" />
+    <Compile Include="Admissions\Schedule\ViewModel\AdmissionBedViewModel.cs" />
+    <Compile Include="Admissions\Schedule\ViewModel\WaitingPatientViewModel.cs" />
+    <Compile Include="Admissions\Schedule\ViewModel\AdmissionsTopWard.cs" />
+    <Compile Include="Admissions\Schedule\ViewModel\AdmissionsWardViewModel.cs" />
+    <Compile Include="Admissions\Schedule\View\AdmissionsScheduleView.xaml.cs">
+      <DependentUpon>AdmissionsScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admissions\Schedule\View\AdmissionsWardView.xaml.cs">
+      <DependentUpon>AdmissionsWardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admissions\Schedule\View\AdmissionPatientInfo.xaml.cs">
+      <DependentUpon>AdmissionPatientInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admissions\Schedule\View\AdmissionsBedMapView.xaml.cs">
+      <DependentUpon>AdmissionsBedMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alerts\AlertsView.xaml.cs">
+      <DependentUpon>AlertsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alerts\AlertsBase.cs" />
+    <Compile Include="Alerts\AlertViewModel.cs" />
+    <Compile Include="Alerts\ErrorBarViewModel.cs" />
+    <Compile Include="Alerts\IAlertable.cs" />
+    <Compile Include="Alerts\ErrorDisplayView.xaml.cs">
+      <DependentUpon>ErrorDisplayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Browser\View\PeelControl.xaml.cs">
+      <DependentUpon>PeelControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Beds\ViewModel\RoomViewModel.cs" />
+    <Compile Include="Beds\ViewModel\TopRoom.cs" />
+    <Compile Include="Beds\View\BedCautionHorizontalLegend.xaml.cs">
+      <DependentUpon>BedCautionHorizontalLegend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\View\BedMapView.xaml.cs">
+      <DependentUpon>BedMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\View\BedStatusVerticalLegend.xaml.cs">
+      <DependentUpon>BedStatusVerticalLegend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\CleaningBackboardView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\CleaningCombinedScheduleView.xaml.cs">
+      <DependentUpon>CleaningCombinedScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\CleaningMapScheduleView.xaml.cs">
+      <DependentUpon>CleaningMapScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\View\BedCardView.xaml.cs">
+      <DependentUpon>BedCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\ViewModel\CleaningViewModel.cs" />
+    <Compile Include="Cleaning\Schedule\ViewModel\CleaningScheduleViewModel.cs" />
+    <Compile Include="Beds\View\BedCautionVerticalLegend.xaml.cs">
+      <DependentUpon>BedCautionVerticalLegend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\View\BedStatusHorizontalLegend.xaml.cs">
+      <DependentUpon>BedStatusHorizontalLegend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\CleaningView.xaml.cs">
+      <DependentUpon>CleaningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\CleaningScheduleView.xaml.cs">
+      <DependentUpon>CleaningScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\View\BedView.xaml.cs">
+      <DependentUpon>BedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\View\BedInfo.xaml.cs">
+      <DependentUpon>BedInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\LocationClockView.xaml.cs">
+      <DependentUpon>LocationClockView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\View\BedHistoryView.xaml.cs">
+      <DependentUpon>BedHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\RoomHeader.xaml.cs">
+      <DependentUpon>RoomHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\CleaningRoomObservableCollection.cs" />
+    <Compile Include="Cleaning\Schedule\View\RoomTimelineView.xaml.cs">
+      <DependentUpon>RoomTimelineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaning\Schedule\View\CleaningActionBar.xaml.cs">
+      <DependentUpon>CleaningActionBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeaconControl.xaml.cs">
+      <DependentUpon>BeaconControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FocusExtension.cs" />
+    <Compile Include="Controls\PiePiece.cs" />
+    <Compile Include="Converters\AdmissionsBedMapToPathConverter.cs" />
+    <Compile Include="Converters\AndGateToVisabilityConverter.cs" />
+    <Compile Include="Converters\ConfigurationsTypeSubsetConverter.cs" />
+    <Compile Include="Converters\ConfigurationsVisibleLocationsDefaultLocationNameConverter.cs" />
+    <Compile Include="Converters\ConfigurationToThumbnailBrushConverter.cs" />
+    <Compile Include="Converters\AvailabilityToStyleConverter.cs" />
+    <Compile Include="Converters\BooleanToSelectedBackgroundConvertor.cs" />
+    <Compile Include="Converters\BooleanToSelectedMarginConvertor.cs" />
+    <Compile Include="Converters\ConfigurationsTypeSubsetAnyToVisibilityConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConvertor.cs" />
+    <Compile Include="Converters\NotificationTypeToVisibilityConverter.cs" />
+    <Compile Include="Converters\RfidLocationConverters.cs" />
+    <Compile Include="Converters\HistoryGeometryPathConverter.cs" />
+    <Compile Include="Converters\SliderItemLabelConverter.cs" />
+    <Compile Include="Converters\SliderBrushConverter.cs" />
+    <Compile Include="Converters\SliderWidthConverter.cs" />
+    <Compile Include="Converters\SliderOffsetConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Converters\StartTimeToEndTimeConverter.cs" />
+    <Compile Include="Converters\NonCoreHistoryConverter.cs" />
+    <Compile Include="Converters\CoreHistoryConverter.cs" />
+    <Compile Include="Converters\MinutesToAngleConverter.cs" />
+    <Compile Include="Converters\MinutesToBrushConverter.cs" />
+    <Compile Include="Converters\NullOrEmptyStringToVisibilityConverter.cs" />
+    <Compile Include="Converters\LeftArrowMarginConverter.cs" />
+    <Compile Include="Converters\RightArrowMarginConverter.cs" />
+    <Compile Include="Converters\ScheduleMarginConverter.cs" />
+    <Compile Include="Admissions\Schedule\AdmissionsPatientObservableCollection.cs" />
+    <Compile Include="Admissions\Schedule\AdmissionsWardObservableCollection.cs" />
+    <Compile Include="Admissions\Schedule\ViewModel\AdmissionsScheduleViewModel.cs" />
+    <Compile Include="Admissions\Schedule\ViewModel\AdmissionsViewModel.cs" />
+    <Compile Include="Admissions\Schedule\View\AdmissionsActionBar.xaml.cs">
+      <DependentUpon>AdmissionsActionBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admissions\Schedule\View\AdmissionsBackboardView.xaml.cs" />
+    <Compile Include="Admissions\Schedule\View\AdmissionsCombinedScheduleView.xaml.cs">
+      <DependentUpon>AdmissionsCombinedScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admissions\Schedule\View\AdmissionsView.xaml.cs">
+      <DependentUpon>AdmissionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admissions\Schedule\View\AdmissionsRoomHeader.xaml.cs">
+      <DependentUpon>AdmissionsRoomHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admissions\Schedule\View\AdmissionsTimelineView.xaml.cs">
+      <DependentUpon>AdmissionsTimelineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Discharge\Schedule\DischargeBedObservableCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\DischargeRoomObservableCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\DischargeViewType.cs" />
+    <Compile Include="Discharge\Schedule\ViewModel\DischargeBedViewModel.cs" />
+    <Compile Include="Discharge\Schedule\ViewModel\DischargeScheduleViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\ViewModel\DischargeViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\ViewModel\DischargeRoomViewModel.cs" />
+    <Compile Include="Discharge\Schedule\ViewModel\DischargeTopRoom.cs" />
+    <Compile Include="Discharge\Schedule\View\DischargeBedInfo.xaml.cs">
+      <DependentUpon>DischargeBedInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeBedCardView.xaml.cs">
+      <DependentUpon>DischargeBedCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeBedView.xaml.cs">
+      <DependentUpon>DischargeBedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeActionBar.xaml.cs">
+      <DependentUpon>DischargeActionBar.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeBackboardView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeCombinedScheduleView.xaml.cs">
+      <DependentUpon>DischargeCombinedScheduleView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeMapScheduleView.xaml.cs">
+      <DependentUpon>DischargeMapScheduleView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeScheduleView.xaml.cs">
+      <DependentUpon>DischargeScheduleView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeView.xaml.cs">
+      <DependentUpon>DischargeView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeRoomTimelineView.xaml.cs">
+      <DependentUpon>DischargeRoomTimelineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeSlider.xaml.cs">
+      <DependentUpon>DischargeSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Discharge\Schedule\View\DischargeSliderItem.xaml.cs">
+      <DependentUpon>DischargeSliderItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Location\ViewModel\MovementViewModel.cs" />
+    <Compile Include="Location\RfidLocationTemplateSelector.cs" />
+    <Compile Include="Location\View\CurrentDetection.xaml.cs">
+      <DependentUpon>CurrentDetection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Location\View\CurrentLocation.xaml.cs">
+      <DependentUpon>CurrentLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\View\RfidDetectionItemView.xaml.cs">
+      <DependentUpon>RfidDetectionItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioActionBar.xaml.cs">
+      <DependentUpon>PhysioActionBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\AdmissionsDataRecurringPoller .cs" />
+    <Compile Include="Schedule\DischargeBedsRecurringPoller.cs" />
+    <Compile Include="Schedule\MultiDayTimelineGridlines.cs" />
+    <Compile Include="Schedule\MultiDayTimelineHeader.cs" />
+    <Compile Include="Schedule\ViewModel\IBackbordable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\ViewModel\TimelineItemObservableCollection.cs" />
+    <Compile Include="Schedule\ViewModel\TraceLogViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\UpdatingViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\WcsScheduleItemObservableCollection4.cs" />
+    <Compile Include="Orders\View\HistoryItemView.xaml.cs">
+      <DependentUpon>HistoryItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\View\OrderHistoryView.xaml.cs">
+      <DependentUpon>OrderHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfLogicalTreeHelper.cs" />
+    <Compile Include="Location\View\TrackingLocationView.xaml.cs">
+      <DependentUpon>TrackingLocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Location\View\TrackingView.xaml.cs">
+      <DependentUpon>TrackingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\ViewModel\RfidMovementCollection.cs" />
+    <Compile Include="Physio\Schedule\ViewModel\LocationMovementCollection.cs" />
+    <Compile Include="Schedule\ViewModel\WcsScheduleItemObservableCollection3.cs" />
+    <Compile Include="Schedule\View\ScreenBootstrap.cs" />
+    <Compile Include="Controls\BedStatus.cs" />
+    <Compile Include="Controls\ClippingBorder.cs" />
+    <Compile Include="Controls\DispatcherExtensions.cs" />
+    <Compile Include="Controls\FlashingControl.xaml.cs">
+      <DependentUpon>FlashingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBoxExtenders.cs" />
+    <Compile Include="Controls\ListBoxExtensions.cs" />
+    <Compile Include="Controls\PopupBehavior.cs" />
+    <Compile Include="Controls\Selection.cs" />
+    <Compile Include="Controls\CornerEdge.cs" />
+    <Compile Include="Converters\AllOrdersToAllPatientTimlineConverter.cs" />
+    <Compile Include="Converters\AmountOfNotesConverter.cs" />
+    <Compile Include="Converters\AreSameConverter.cs" />
+    <Compile Include="Converters\BedHighlightingToBrushConverter.cs" />
+    <Compile Include="Converters\BedMapPathConverters.cs" />
+    <Compile Include="Converters\BedStatusToBrushConverter.cs" />
+    <Compile Include="Converters\BedMapStatusToGeometryPathConverter.cs" />
+    <Compile Include="Converters\BooleanToSelectedOpacityConvertor.cs" />
+    <Compile Include="Converters\DetectionToFloorConverter.cs" />
+    <Compile Include="Converters\LocationConnectionToCodeConverter.cs" />
+    <Compile Include="Converters\OutPatientHoursToClipRectangleConverter.cs" />
+    <Compile Include="Converters\HasMoreThanOneNoteConverter.cs" />
+    <Compile Include="Converters\DoesPatientHaveMultipleOrdersToVisabilityConverter.cs" />
+    <Compile Include="Converters\TimeToStopwatchTimeConverter.cs" />
+    <Compile Include="Converters\IsPositiveNumberToVisabilityConverter.cs" />
+    <Compile Include="Converters\OverlayTypeToVisabilityConverter.cs" />
+    <Compile Include="Converters\NotificationTimeToWidthConverter.cs" />
+    <Compile Include="Converters\DoesPatientHaveMultipleOrdersConverter.cs" />
+    <Compile Include="Converters\BedStatusConverter.cs" />
+    <Compile Include="Converters\BedStatusToNotBoolConverter.cs" />
+    <Compile Include="Converters\DateTimeToStringConverter.cs" />
+    <Compile Include="Converters\PositionToCornerRadiusConverters.cs" />
+    <Compile Include="Converters\NotificationBrushConverter.cs" />
+    <Compile Include="Converters\NotificationStartTimeToVisibilityConverter.cs" />
+    <Compile Include="Converters\PatientGroupingConverter.cs" />
+    <Compile Include="Converters\SynchronisedBrushConverter.cs" />
+    <Compile Include="Converters\TimelineGeometryPathConverter.cs" />
+    <Compile Include="Converters\TimelineItemWidthConverter.cs" />
+    <Compile Include="Department\DepartmentPatientObservableCollection.cs" />
+    <Compile Include="Department\OverlayType.cs" />
+    <Compile Include="Department\Schedule\ViewModel\DepartmentSchedule2ViewModel.cs" />
+    <Compile Include="Department\Schedule\View\DepartmentOrderHeader2.xaml.cs">
+      <DependentUpon>DepartmentOrderHeader2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Department\Schedule\View\DepartmentScheduleView2.xaml.cs">
+      <DependentUpon>DepartmentScheduleView2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\PhysioOrderObservableCollection.cs" />
+    <Compile Include="Physio\PhysioPatientObservableCollection.cs" />
+    <Compile Include="Physio\Schedule\ViewModel\PhysioPatientViewModel.cs" />
+    <Compile Include="Physio\Schedule\ViewModel\PhysioScheduleViewModel.cs" />
+    <Compile Include="Physio\Schedule\ViewModel\PhysioViewModel.cs" />
+    <Compile Include="Department\Schedule\View\DepartmentActionBar.xaml.cs">
+      <DependentUpon>DepartmentActionBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\View\NavigationBar.xaml.cs">
+      <DependentUpon>NavigationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioBackboardView.xaml.cs">
+      <DependentUpon>PhysioBackboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioLocationTimerView.xaml.cs">
+      <DependentUpon>PhysioLocationTimerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioOrderHeader.xaml.cs">
+      <DependentUpon>PhysioOrderHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioOrderInfo.xaml.cs">
+      <DependentUpon>PhysioOrderInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioOrderView.xaml.cs">
+      <DependentUpon>PhysioOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioPatientTimelineView.xaml.cs">
+      <DependentUpon>PhysioPatientTimelineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioScheduleView.xaml.cs">
+      <DependentUpon>PhysioScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Physio\Schedule\View\PhysioView.xaml.cs">
+      <DependentUpon>PhysioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\ConfigurationRecurringPoller.cs" />
+    <Compile Include="Schedule\SingleDayTimelineGridlines.cs" />
+    <Compile Include="Schedule\SingleDayTimelineHeader.cs" />
+    <Compile Include="Schedule\DetectionRecurringPoller.cs" />
+    <Compile Include="Schedule\ScreenSelectionType.cs" />
+    <Compile Include="Schedule\ViewModel\BasePatientViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\INotificationItem.cs" />
+    <Compile Include="Schedule\View\ClinicalIndicatorView.xaml.cs">
+      <DependentUpon>ClinicalIndicatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\View\WardActionBar.xaml.cs">
+      <DependentUpon>WardActionBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\View\WardPatientTimelineView.xaml.cs">
+      <DependentUpon>WardPatientTimelineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\ViewModel\WardSchedule2ViewModel.cs" />
+    <Compile Include="Ward\Schedule\ViewModel\WardPatientViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\DeviceInfoViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\LocationClockViewModel.cs" />
+    <Compile Include="Department\Schedule\ViewModel\DepartmentPatientViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\WcsScheduleItemObservableCollection2.cs" />
+    <Compile Include="Schedule\View\TimelineAvailableBedView.xaml.cs">
+      <DependentUpon>TimelineAvailableBedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Department\Schedule\View\DepartmentPatientTimelineView.xaml.cs">
+      <DependentUpon>DepartmentPatientTimelineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\View\WardScheduleView2.xaml.cs">
+      <DependentUpon>WardScheduleView2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\WardPatientObservableCollection.cs" />
+    <Compile Include="Ward\Schedule\View\WardLocationTimerView.xaml.cs">
+      <DependentUpon>WardLocationTimerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\View\DeviceInfoView.xaml.cs">
+      <DependentUpon>DeviceInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\View\OrderItemsView.xaml.cs">
+      <DependentUpon>OrderItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beds\ViewModel\BedViewModel.cs" />
+    <Compile Include="Department\Schedule\View\DepartmentBackboardView.xaml.cs">
+      <DependentUpon>DepartmentBackboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Location\ViewModel\LocationViewModel.cs" />
+    <Compile Include="Location\ViewModel\DetectionViewModel.cs" />
+    <Compile Include="Location\ViewModel\LocationTrackingCoordinator.cs" />
+    <Compile Include="Schedule\TimelineAvailabilityHours.cs" />
+    <Compile Include="Schedule\ScheduleBackgroundBase.cs" />
+    <Compile Include="Schedule\TimelineOfficeHours.cs" />
+    <Compile Include="Schedule\PresenceRecurringPoller.cs" />
+    <Compile Include="Cleaning\Schedule\CleaningBedObservableCollection.cs" />
+    <Compile Include="Schedule\SynchronousStatus.cs" />
+    <Compile Include="Beds\ViewModel\BedCardViewModel.cs" />
+    <Compile Include="Orders\ViewModel\OrderCardViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\IUpdateableTimelineItem.cs" />
+    <Compile Include="Schedule\ViewModel\TimelineCoordinator.cs" />
+    <Compile Include="Schedule\ViewModel\ISynchroniseable.cs" />
+    <Compile Include="Orders\ViewModel\OrderViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schedule\ViewModel\TimelineItemType.cs" />
+    <Compile Include="Schedule\ViewModel\WcsScheduleItemObservableCollection.cs" />
+    <Compile Include="Schedule\View\BareScreenView.xaml.cs">
+      <DependentUpon>BareScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\View\OrderCardView.xaml.cs">
+      <DependentUpon>OrderCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\View\TimelineItemStretchedView.xaml.cs">
+      <DependentUpon>TimelineItemStretchedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitNotification.xaml.cs">
+      <DependentUpon>WaitNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\View\WardBackboardView.xaml.cs">
+      <DependentUpon>WardBackboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\View\WardOrderView.xaml.cs">
+      <DependentUpon>WardOrderView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ward\WardOrderObservableCollection.cs" />
+    <Compile Include="Timeline\ViewModel\TimelineRequiresCleaningViewModel.cs" />
+    <Compile Include="Timeline\ViewModel\TimelineVariableDurationEventViewModel.cs" />
+    <Compile Include="Timeline\ViewModel\TimelineServiceViewModel.cs" />
+    <Compile Include="Timeline\View\TimelineEventView.xaml.cs">
+      <DependentUpon>TimelineEventView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Timeline\View\TimelineFreeBedView.xaml.cs">
+      <DependentUpon>TimelineFreeBedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline\View\TimelineHighlighterView.xaml.cs">
+      <DependentUpon>TimelineHighlighterView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Timeline\View\TimelineNoteView.xaml.cs">
+      <DependentUpon>TimelineNoteView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Timeline\View\TimelineServiceView.xaml.cs">
+      <DependentUpon>TimelineServiceView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ward\Schedule\ViewModel\PatientViewModel.cs" />
+    <Compile Include="Ward\Schedule\View\WardOrderHeader.xaml.cs">
+      <DependentUpon>WardOrderHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\View\WardOrderInfo.xaml.cs">
+      <DependentUpon>WardOrderInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WcsMef.cs" />
+    <Compile Include="Controls\OrderCount.cs" />
+    <Compile Include="Converters\ArgNullableToBooleanConverter.cs" />
+    <Compile Include="Converters\ScheduleStatusToBoolConverter.cs" />
+    <Compile Include="Converters\EmptyCollectionConverter.cs" />
+    <Compile Include="Converters\EmptyStringConverter.cs" />
+    <Compile Include="Converters\OrderBrushConverter.cs" />
+    <Compile Include="Converters\StartTimeConverter.cs" />
+    <Compile Include="Converters\LocationConnectionToBrushConverter.cs" />
+    <Compile Include="Converters\TimeToStringConverter.cs" />
+    <Compile Include="Schedule\ScheduleState.cs" />
+    <Compile Include="Notes\ViewModel\ConversationNotesViewModel.cs" />
+    <Compile Include="Notes\View\ConversationNotesView.xaml.cs">
+      <DependentUpon>ConversationNotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notes\View\InlineNoteView.xaml.cs">
+      <DependentUpon>InlineNoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notes\View\InlineNotesView.xaml.cs">
+      <DependentUpon>InlineNotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notes\ViewModel\InLineNotesViewModel.cs" />
+    <Compile Include="Converters\NotePopupOffsetConverter.cs" />
+    <Compile Include="Orders\ViewModel\OrderScheduleItemType.cs" />
+    <Compile Include="Timeline\ViewModel\TimelineNoteViewModel.cs" />
+    <Compile Include="Department\Schedule\View\DepartmentOrderView.xaml.cs">
+      <DependentUpon>DepartmentOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\View\TimelineDataTemplateSelector.cs" />
+    <Compile Include="Schedule\View\TimelineItemView.xaml.cs">
+      <DependentUpon>TimelineItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\CleaningBedDataRecurringPoller .cs" />
+    <Compile Include="Schedule\View\GenericWcsScreenView.xaml.cs">
+      <DependentUpon>GenericWcsScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommandAction.cs" />
+    <Compile Include="ConfigurationHelper.cs" />
+    <Compile Include="Converters\AdditionMarkupExtension.cs" />
+    <Compile Include="Converters\BooleanToOppositeConvertor.cs" />
+    <Compile Include="Converters\BooleanToPassFailConvertor.cs" />
+    <Compile Include="Converters\ArgBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ConverterHelper.cs" />
+    <Compile Include="Converters\NotificationReequiredToVisibilityConverter.cs" />
+    <Compile Include="Converters\NotificationStartTimeToOpacityConverter.cs" />
+    <Compile Include="Converters\TimelineBrushConverter.cs" />
+    <Compile Include="Converters\NegativeConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\NullableBooleanConverter.cs" />
+    <Compile Include="Converters\NullableConverter.cs" />
+    <Compile Include="Converters\PercentageToColorConverter.cs" />
+    <Compile Include="Converters\RadioButtonConvertor.cs" />
+    <Compile Include="Converters\LocationToStringConverter.cs" />
+    <Compile Include="Converters\ViewIndexToHiddenVisibilityConverter.cs" />
+    <Compile Include="Converters\ViewModeToVisibilityConverter.cs" />
+    <Compile Include="Converters\WardCodeConvertor.cs" />
+    <Compile Include="Ward\Schedule\View\WardView.xaml.cs">
+      <DependentUpon>WardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ward\Schedule\ViewModel\WardViewModel.cs" />
+    <Compile Include="Schedule\OrdersRecurringPoller.cs" />
+    <Compile Include="Schedule\ViewModel\WcsScheduleViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\IOrderItem.cs" />
+    <Compile Include="Schedule\ViewModel\LocationSummaryViewModel.cs" />
+    <Compile Include="EventExtensions.cs" />
+    <Compile Include="Department\DepartmentOrderObservableCollection.cs" />
+    <Compile Include="GridLengthAnimation.cs" />
+    <Compile Include="IEnumerableExtensions.cs" />
+    <Compile Include="Security\LockView.xaml.cs">
+      <DependentUpon>LockView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security\LockViewModel.cs" />
+    <Compile Include="Department\Schedule\View\DepartmentView.xaml.cs">
+      <DependentUpon>DepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Department\Schedule\ViewModel\DepartmentViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\WcsViewModel.cs" />
+    <Compile Include="Notes\View\NoteView.xaml.cs">
+      <DependentUpon>NoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Converters\TimelineOffsetConverter.cs" />
+    <Compile Include="Converters\NotificationOffsetConverter.cs" />
+    <Compile Include="Converters\OrderOffsetConverter.cs" />
+    <Compile Include="Converters\OrderItemTimeToWidthConverter.cs" />
+    <Compile Include="Orders\ViewModel\OrderCoordinator.cs" />
+    <Compile Include="Timeline\ViewModel\TimelineEventViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\ITimelineItem.cs" />
+    <Compile Include="Schedule\ViewModel\MouseManipulation.cs" />
+    <Compile Include="Orders\ViewModel\OrderItemViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\NotificationItemViewModel.cs" />
+    <Compile Include="Notes\ViewModel\NoteViewModel.cs" />
+    <Compile Include="Schedule\ViewModel\TouchManipulation.cs" />
+    <Compile Include="Schedule\View\ScheduleItemCanvas.cs" />
+    <Compile Include="Orders\View\OrderItemsControl.xaml.cs">
+      <DependentUpon>OrderItemsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Location\ViewModel\RfidCardViewModel.cs" />
+    <Compile Include="Schedule\TimelineCurrentTimeTracer.cs" />
+    <Compile Include="Schedule\SchedulingGridSettings.cs" />
+    <Compile Include="Schedule\View\WcsNotificationBorder.cs" />
+    <Compile Include="Schedule\View\FlaggedTimelineItemView.xaml.cs">
+      <DependentUpon>FlaggedTimelineItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Location\View\RfidCardView.xaml.cs">
+      <DependentUpon>RfidCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\View\NotificationItemView.xaml.cs">
+      <DependentUpon>NotificationItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\View\OrderItemView.xaml.cs">
+      <DependentUpon>OrderItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Department\Schedule\View\DepartmentOrderInfo.xaml.cs">
+      <DependentUpon>DepartmentOrderInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule\View\WcsOrderBorder.cs" />
+    <Compile Include="Controls\BindablePasswordBox.cs" />
+    <Compile Include="Security\SecurityViewModel.cs" />
+    <Compile Include="ViewModelBaseExtensions.cs" />
+    <Compile Include="WpfExtensions.cs" />
+    <Compile Include="WpfHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Admissions\Schedule\View\AdmissionsScheduleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsWardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionPatientInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsBedMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alerts\AlertsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Alerts\ErrorDisplayView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Beds\View\BedCautionHorizontalLegend.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Beds\View\BedMapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Beds\View\BedStatusVerticalLegend.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Browser\View\PeelControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\CleaningBackboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\CleaningCombinedScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\CleaningMapScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Beds\View\BedCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Beds\View\BedCautionVerticalLegend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Beds\View\BedStatusHorizontalLegend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\CleaningView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\CleaningScheduleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Beds\View\BedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Beds\View\BedInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\LocationClockView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Beds\View\BedHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\RoomHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\RoomTimelineView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cleaning\Schedule\View\CleaningActionBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\BeaconControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FlashingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsActionBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsBackboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsCombinedScheduleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsRoomHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admissions\Schedule\View\AdmissionsTimelineView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentOrderHeader2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentScheduleView2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentActionBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeBedInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeBedCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeBedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeActionBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeBackboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeCombinedScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeMapScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeRoomTimelineView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Discharge\Schedule\View\DischargeSliderItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Location\View\CurrentDetection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Location\View\CurrentLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Location\View\TrackingLocationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Location\View\TrackingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\View\RfidDetectionItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioActionBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Schedule\View\NavigationBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioBackboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioLocationTimerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioOrderHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioOrderInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioOrderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioPatientTimelineView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioScheduleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Physio\Schedule\View\PhysioView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Schedule\View\ClinicalIndicatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\View\HistoryItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Orders\View\OrderHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardActionBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardPatientTimelineView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Schedule\View\TimelineAvailableBedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentPatientTimelineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardScheduleView2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardLocationTimerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Schedule\View\DeviceInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\View\OrderItemsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentBackboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Notes\View\ConversationNotesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Schedule\View\BareScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\View\OrderCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Schedule\View\TimelineItemStretchedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Timeline\View\TimelineEventView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Timeline\View\TimelineFreeBedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Timeline\View\TimelineHighlighterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Timeline\View\TimelineNoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Timeline\View\TimelineServiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardBackboardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardOrderHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardOrderInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Notes\View\InlineNoteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notes\View\InlineNotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Schedule\View\GenericWcsScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Schedule\View\TimelineItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ward\Schedule\View\WardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Security\LockView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notes\View\NoteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Orders\View\OrderItemsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Schedule\View\FlaggedTimelineItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Location\View\RfidCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Schedule\View\NotificationItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\View\OrderItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Department\Schedule\View\DepartmentOrderInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cloudmaster.WCS.Core\Cloudmaster.WCS.Core.csproj">
+      <Project>{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}</Project>
+      <Name>Cloudmaster.WCS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.DataServicesInvoker\Cloudmaster.WCS.DataServicesInvoker.csproj">
+      <Project>{458FA871-D757-4A37-BA7B-1F7662CEBC47}</Project>
+      <Name>Cloudmaster.WCS.DataServicesInvoker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.Galway.Core\Cloudmaster.WCS.Galway.Core.csproj">
+      <Project>{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}</Project>
+      <Name>Cloudmaster.WCS.Galway.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Browser\View\Assets\shadowPageLeft.png" />
+    <Resource Include="Browser\View\Assets\shadowPageRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

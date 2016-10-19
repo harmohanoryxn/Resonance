@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Cloudmaster.WCS.Controls.Tasks.SelectTarget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/RadioButtonStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel>
+            
+            <Label Content="Where do you want to send the work request?" Style="{StaticResource WizardTitleFont}" />
+
+            <RadioButton Content="Engineering" Template="{StaticResource StandardRadioButtonStyle}" />
+
+            <RadioButton Content="Accomidation" Template="{StaticResource StandardRadioButtonStyle}" />
+            
+        </StackPanel>
+    </Grid>
+</UserControl>

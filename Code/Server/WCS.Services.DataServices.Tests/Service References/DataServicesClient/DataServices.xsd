@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.cloudmaster.ie/2012/01/WCS/1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:53840/DataServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="GetOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="GetOrdersResult" nillable="true" type="q1:ArrayOfOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfOrder">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="q2:Order" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q3="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="ArrayOfOrder" nillable="true" type="q3:ArrayOfOrder" />
+  <xs:complexType name="Order">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Admission" nillable="true" type="q4:Admission" />
+      <xs:element minOccurs="0" name="ClinicalIndicators" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Notes" nillable="true" type="q5:ArrayOfNote" />
+      <xs:element xmlns:q6="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Notifications" nillable="true" type="q6:ArrayOfNotification" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Tracking" nillable="true" type="q7:Tracking" />
+      <xs:element xmlns:q8="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Updates" nillable="true" type="q8:ArrayOfUpdate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q9="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Order" nillable="true" type="q9:Order" />
+  <xs:complexType name="Admission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdmissionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdmitDateTime" type="xs:dateTime" />
+      <xs:element xmlns:q10="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="CriticalCareIndicators" nillable="true" type="q10:CriticalCareIndicators" />
+      <xs:element xmlns:q11="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Location" nillable="true" type="q11:Location" />
+      <xs:element xmlns:q12="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Patient" nillable="true" type="q12:Patient" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q13="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Admission" nillable="true" type="q13:Admission" />
+  <xs:complexType name="CriticalCareIndicators">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HasMRSAHistory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFallsRisk" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q14="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="CriticalCareIndicators" nillable="true" type="q14:CriticalCareIndicators" />
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q15="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Location" nillable="true" type="q15:Location" />
+  <xs:complexType name="Patient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GivenName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q16="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Patient" nillable="true" type="q16:Patient" />
+  <xs:complexType name="ArrayOfNote">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="q17:Note" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q18="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="ArrayOfNote" nillable="true" type="q18:ArrayOfNote" />
+  <xs:complexType name="Note">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q19="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Note" nillable="true" type="q19:Note" />
+  <xs:complexType name="ArrayOfNotification">
+    <xs:sequence>
+      <xs:element xmlns:q20="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" maxOccurs="unbounded" name="Notification" nillable="true" type="q20:Notification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q21="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="ArrayOfNotification" nillable="true" type="q21:ArrayOfNotification" />
+  <xs:complexType name="Notification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Acknowledged" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AcknowledgedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AcknowledgedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriorToProcedureTime" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q22="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Notification" nillable="true" type="q22:Notification" />
+  <xs:complexType name="Tracking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArrivalTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CompletedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ProcedureTimeLastUpdated" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q23="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Tracking" nillable="true" type="q23:Tracking" />
+  <xs:complexType name="ArrayOfUpdate">
+    <xs:sequence>
+      <xs:element xmlns:q24="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" maxOccurs="unbounded" name="Update" nillable="true" type="q24:Update" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q25="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="ArrayOfUpdate" nillable="true" type="q25:ArrayOfUpdate" />
+  <xs:complexType name="Update">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q26="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Update" nillable="true" type="q26:Update" />
+  <xs:element name="GetOrdersByLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="location" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="GetOrdersByLocationResult" nillable="true" type="q27:ArrayOfOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="note" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNoteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="note" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNoteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNoteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProcedureTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="procedureTime" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProcedureTimeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateArrivalTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateArrivalTimeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCompletedTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCompletedTimeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDevices">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDevicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="GetDevicesResult" nillable="true" type="q28:ArrayOfDevice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfDevice">
+    <xs:sequence>
+      <xs:element xmlns:q29="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" maxOccurs="unbounded" name="Device" nillable="true" type="q29:Device" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q30="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="ArrayOfDevice" nillable="true" type="q30:ArrayOfDevice" />
+  <xs:complexType name="Device">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastConnectionDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastIPAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q31="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Device" nillable="true" type="q31:Device" />
+  <xs:element name="GetConnectionsByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deviceName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConnectionsByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="GetConnectionsByDateResult" nillable="true" type="q32:ArrayOfConnection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfConnection">
+    <xs:sequence>
+      <xs:element xmlns:q33="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" maxOccurs="unbounded" name="Connection" nillable="true" type="q33:Connection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q34="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="ArrayOfConnection" nillable="true" type="q34:ArrayOfConnection" />
+  <xs:complexType name="Connection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConnectionTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IPAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q35="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="Connection" nillable="true" type="q35:Connection" />
+  <xs:element name="AcknowledgeNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="notificationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcknowledgeNotificationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrackingReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrackingReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="GetTrackingReportResult" nillable="true" type="q36:TrackingReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TrackingReport">
+    <xs:sequence>
+      <xs:element xmlns:q37="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="Intervals" nillable="true" type="q37:ArrayOfTrackingReportInterval" />
+      <xs:element minOccurs="0" name="PeriodInMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q38="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="TrackingReport" nillable="true" type="q38:TrackingReport" />
+  <xs:complexType name="ArrayOfTrackingReportInterval">
+    <xs:sequence>
+      <xs:element xmlns:q39="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" maxOccurs="unbounded" name="TrackingReportInterval" nillable="true" type="q39:TrackingReportInterval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q40="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="ArrayOfTrackingReportInterval" nillable="true" type="q40:ArrayOfTrackingReportInterval" />
+  <xs:complexType name="TrackingReportInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Arrived" type="xs:int" />
+      <xs:element minOccurs="0" name="Assigned" type="xs:int" />
+      <xs:element minOccurs="0" name="Completed" type="xs:int" />
+      <xs:element minOccurs="0" name="Created" type="xs:int" />
+      <xs:element minOccurs="0" name="Started" type="xs:int" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q41="http://schemas.cloudmaster.ie/2012/01/WCS/1" name="TrackingReportInterval" nillable="true" type="q41:TrackingReportInterval" />
+  <xs:element name="GetTrackingReportByDepartment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="department" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrackingReportByDepartmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.cloudmaster.ie/2012/01/WCS/1" minOccurs="0" name="GetTrackingReportByDepartmentResult" nillable="true" type="q42:TrackingReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

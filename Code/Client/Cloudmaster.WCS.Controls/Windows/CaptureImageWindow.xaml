@@ -1,0 +1,132 @@
+﻿<Window x:Class="Cloudmaster.WCS.Controls.Windows.CaptureImageWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Cloudmaster.WCS.Controls.Windows"
+    Title="Capture Image" 
+    xmlns:blendables="http://schemas.identitymine.com/blendables"
+        xmlns:Converters="clr-namespace:WebcamPlayer.UI.Converters;assembly=WCS.Webcam"
+        xmlns:WebcamPlayer="clr-namespace:CatenaLogic.Windows.Presentation.WebcamPlayer;assembly=WCS.Webcam"
+        xmlns:localinput="clr-namespace:WebcamPlayer.UI.Input;assembly=WCS.Webcam"
+        blendables:ChromelessWindow.ResizeBorderThickness="2"
+    blendables:ChromelessWindow.IsWindowDragHandle="True"
+    blendables:ChromelessWindow.GlassBorderThickness="2"
+    blendables:ChromelessWindow.IsGlassEffectEnabled="True"
+    blendables:ChromelessWindow.RadiusX="6"
+    blendables:ChromelessWindow.RadiusY="6"
+    WindowStartupLocation="CenterScreen" 
+    AllowsTransparency="False"
+    WindowStyle="None"
+    Loaded="WindowLoaded"
+    Template="{DynamicResource ChromelessWindowTemplate}" 
+    MinHeight="440" 
+    MinWidth="640" 
+    Width="800" 
+    Height="400"
+    Background="White"
+    BorderBrush="Black"
+    BorderThickness="2"
+    >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="../Resources/FontStyles.xaml" />
+                
+                <ResourceDictionary Source="../Resources/ButtonStyles.xaml" />
+
+                <ResourceDictionary Source="../Resources/ChromelessWindowStyles.xaml" />
+                
+                <ResourceDictionary>
+                    <ControlTemplate x:Key="ChromelessWindowTemplate" TargetType="{x:Type Window}">
+                        <AdornerDecorator>
+                            <Grid Background="White">
+
+                                <ContentPresenter  Margin="0,0,0,0"  />
+                                
+                                <Grid VerticalAlignment="Top" Height="40">
+
+                                    <StackPanel x:Name="MinMaxCloseStackPanel"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Center">
+                                        <Button x:Name="MinimizeButton" Command="local:CaptureImageWindow.ToggleMinimizedState" Style="{StaticResource MinMaxClose_Button}" ToolTip="Minimize" Margin="8">
+                                            <Image Source="{StaticResource MinimizeIcon}" Height="3" Width="30" Margin="0,12,0,0" />
+                                        </Button>
+                                        <Button x:Name="MaximizeButton"  Command="local:CaptureImageWindow.ToggleMaximizedState" Style="{StaticResource MinMaxClose_Button}" ToolTip="Maximize" Margin="8" >
+                                            <Image x:Name="MaximizeImage" Source="{StaticResource MaximizeIcon}" Height="14" Width="35" Margin="0,2,0,0" />
+                                        </Button>
+                                        <Button x:Name="CloseButton"  Command="local:CaptureImageWindow.CloseWindow" Style="{StaticResource MinMaxClose_Button}" ToolTip="Close" Margin="8">
+                                            <Image Source="{StaticResource CloseIcon}" Height="12" Width="32" Margin="0,2,0,0" />
+                                        </Button>
+                                    </StackPanel>
+
+                                </Grid>
+                            </Grid>
+                        </AdornerDecorator>
+                    </ControlTemplate>
+
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                                
+                    <!-- Converters -->
+                    <Converters:ThreeFourthConverter x:Key="ThreeFourthConverter" />
+
+                    <!-- Styles -->
+                    <Style x:Key="DefaultCapPlayer" TargetType="{x:Type WebcamPlayer:CapPlayer}">
+                        <Setter Property="Margin" Value="6" />
+                    </Style>
+
+                </ResourceDictionary>
+                
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <!-- Column definitions -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="280" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Camera" Grid.Row="0" Grid.Column="0" 
+               Style="{StaticResource HighlightedText}" 
+               Margin="8"
+               />
+
+        <Label Content="Preview" Grid.Row="0" Grid.Column="1" 
+               Style="{StaticResource HighlightedText}" 
+               Margin="8"
+               />
+
+        <WebcamPlayer:CapPlayer Grid.Row="1" Grid.Column="0" x:Name="webcamPlayer" Stretch="Fill" 
+                          Rotation="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:CaptureImageWindow}}, Path=WebcamRotation}"
+                          Height="{Binding ElementName=webcamPlayer, Path=ActualWidth, Converter={StaticResource ThreeFourthConverter}}"
+                          Device="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:CaptureImageWindow}}, Path=SelectedWebcam}"
+                          Margin="10"
+                          />
+
+
+        <Image Grid.Row="1" Grid.Column="1" Margin="10"
+           Source="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:CaptureImageWindow}}, Path=PreviewImage}" />
+
+
+            <Button Grid.Row="2" Grid.Column="0"
+                    Name="captureImageNowButton" Command="localinput:CaptureImageCommands.CaptureImage"
+                    ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                    Content="Capture"
+                    Template="{StaticResource MenuButtonStyle}"
+                    />
+
+            <Button Grid.Row="2" Grid.Column="1"
+                    Name="addImageButton" Command="localinput:CaptureImageCommands.AddImage"
+                    ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                    Content="Save"
+                    Template="{StaticResource MenuButtonStyle}"
+                    />
+    </Grid>
+</Window>

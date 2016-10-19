@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="fb93c215-c50f-4d99-b441-4367a0c53dd1" name="Administrator@WCS-DEMO01 2016-07-18 23:21:43" runUser="WCS-DEMO01\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="bf5f84f4-e0bb-4d16-a786-860904db41b8">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Administrator_WCS-DEMO01 2016-07-18 23_21_43" />
+  </TestSettings>
+  <Times creation="2016-07-18T23:21:43.9880094+01:00" queuing="2016-07-18T23:21:45.6442064+01:00" start="2016-07-18T23:21:45.9098229+01:00" finish="2016-07-18T23:22:32.7833229+01:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="61" executed="61" passed="49" error="0" failed="12" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="FilterByOrderStatusTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="1ceadb69-45fb-9717-0bfb-587b493621bd">
+      <Execution id="cf2c745e-fcdd-4bc9-9b90-985b6b804c10" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DepartmentOrderObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByOrderStatusTest" />
+    </UnitTest>
+    <UnitTest name="AddDeleteNoteTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="a212e1f0-7bc2-05c6-61d7-b8fcde1c7c77">
+      <Execution id="c8d48c0b-2d0a-4d52-bb51-782fd87c036c" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="AddDeleteNoteTest" />
+    </UnitTest>
+    <UnitTest name="AcknowledgeNotificationTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="ac28ed18-7833-2249-071f-de031c631001">
+      <Execution id="94328b89-def9-463e-9ef9-0666b44c183c" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="AcknowledgeNotificationTest" />
+    </UnitTest>
+    <UnitTest name="FilterByAdmissionStatusTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="147579d1-0816-7d01-6737-d0c879871a05">
+      <Execution id="3c64708b-28e5-4317-92a3-d7e03d6c9c84" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DepartmentOrderObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByAdmissionStatusTest" />
+    </UnitTest>
+    <UnitTest name="UpdateProcedureTimeTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="5ee44f0b-f581-d009-1bb2-ef38afd0bdc0">
+      <Execution id="10e0d874-f956-40e4-b084-20bc3fd0a075" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="UpdateProcedureTimeTest" />
+    </UnitTest>
+    <UnitTest name="PAT001RfidWaitingRoomTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="747e6c80-eaec-91a6-d616-a83fe8be9748">
+      <Execution id="23a2c21f-ef25-4608-95f9-6f4f1cc8a690" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.RfidTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="PAT001RfidWaitingRoomTest" />
+    </UnitTest>
+    <UnitTest name="UpdateProcedureTimeTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="dd302f63-b65f-08ec-a43e-ed2d5c5fa0d5">
+      <Execution id="d582de85-649d-4969-b7be-8399f65acb97" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrderViewModelTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="UpdateProcedureTimeTest" />
+    </UnitTest>
+    <UnitTest name="FilterByLocationTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="de2cd584-4eca-b743-8342-64583efb12aa">
+      <Execution id="5d89c44b-d0db-4fa2-bcfa-c36575a076d7" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ViewModel.DepartmentPatientObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByLocationTest" />
+    </UnitTest>
+    <UnitTest name="FilterByOrderStatusWithHiddenFlagTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="b6528b9d-e903-1b26-d4c9-51bbd40b6112">
+      <Execution id="113fdff6-1df6-42e0-8f90-8b4642c8778b" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DepartmentOrderObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByOrderStatusWithHiddenFlagTest" />
+    </UnitTest>
+    <UnitTest name="UpdateORD002ProcedureTime" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="85f1e53d-3933-541f-4ed8-0ceb9f95f26a">
+      <Execution id="3a4cebd5-9319-489f-8bf5-190133144e59" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DemoData, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="UpdateORD002ProcedureTime" />
+    </UnitTest>
+    <UnitTest name="SyncronizeTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="aed6e57c-8ae5-1ec4-7df4-be7cb9a3ba60">
+      <Execution id="16cffef5-eb4a-42ca-9536-42db867fa90e" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrderViewModelTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="SyncronizeTest" />
+    </UnitTest>
+    <UnitTest name="GetOrdersForOneDepartmentTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="6acbb951-eb71-fb99-8ddf-ab7f75a91729">
+      <Execution id="b29126fb-046a-439b-bfe7-eed88a3dba72" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetOrdersForOneDepartmentTest" />
+    </UnitTest>
+    <UnitTest name="UpdatingEstimatedDischargeDateShouldCreateAnUpdateRecordTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="3c343507-d1e1-44ae-6f0c-5e13d4222c04">
+      <Execution id="90b1e7eb-91ff-4e7e-8099-5e3d8c29edac" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DischargesTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="UpdatingEstimatedDischargeDateShouldCreateAnUpdateRecordTest" />
+    </UnitTest>
+    <UnitTest name="NoteOutTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="b165b39e-5b0c-abea-5b39-75b39d4ee541">
+      <Execution id="44f8eb23-74b3-432b-b729-f1ba275ecf60" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.TimelineCoordinatorTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="NoteOutTest" />
+    </UnitTest>
+    <UnitTest name="SyncronizeTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="47b9ccba-557d-f7c8-8675-f241e16046bb">
+      <Execution id="2471d1b7-678e-4cf5-80a5-69d0bfdc505c" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.LocationClockViewModelTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="SyncronizeTest" />
+    </UnitTest>
+    <UnitTest name="MarkBedAsCleanDirtyTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="1398ab92-924d-163f-bfbc-a6f5fe0e5f5b">
+      <Execution id="c90e73be-3373-4537-ade2-d0362311a3f3" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="MarkBedAsCleanDirtyTest" />
+    </UnitTest>
+    <UnitTest name="CheckEstimatedDischargeDateTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="83bcbc0b-361b-e46e-9078-10b2342962a1">
+      <Execution id="8e561a2a-6af0-4d87-bd89-1a14be0aacd0" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="CheckEstimatedDischargeDateTest" />
+    </UnitTest>
+    <UnitTest name="HideUnhideOrderTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="706b359a-a6a6-75cb-07b9-35e158a1398a">
+      <Execution id="d9eaaa01-fdd7-4120-bda9-568242e92e50" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="HideUnhideOrderTest" />
+    </UnitTest>
+    <UnitTest name="GetAllGetDischargesBedDataTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="adca6ef4-26ca-d134-e987-7c004554926e">
+      <Execution id="e76f9f05-ebe7-4dd2-bf16-4ae2694cee75" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DischargesTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetAllGetDischargesBedDataTest" />
+    </UnitTest>
+    <UnitTest name="CheckPatientRadiationRiskTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="5d2f9417-1f36-e1be-26e0-1ddd5ac50a01">
+      <Execution id="a897892b-5322-4670-9e82-927f0911e098" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="CheckPatientRadiationRiskTest" />
+    </UnitTest>
+    <UnitTest name="GetOrdersForAllLocationsTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="90b6d056-82b8-5748-e91c-81b6feec3e65">
+      <Execution id="13b7b95d-4732-4a97-bd25-87b980548f9e" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetOrdersForAllLocationsTest" />
+    </UnitTest>
+    <UnitTest name="GetAllFreeBedTimesForDateTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="16c84594-d480-7fae-20c2-e012b3376244">
+      <Execution id="efca8399-b1be-435f-a1da-a9c5b0752c17" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetAllFreeBedTimesForDateTest" />
+    </UnitTest>
+    <UnitTest name="SyncronizeAndThenUpdateProcedureTimeTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="86000e48-b18e-94a0-5184-f2457dcc7ac6">
+      <Execution id="71fbe6b8-48e2-4a0d-bcd3-95fd67bb8d40" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrderViewModelTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="SyncronizeAndThenUpdateProcedureTimeTest" />
+    </UnitTest>
+    <UnitTest name="AuthenticateFailTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="ca4b34fe-1f28-609f-1b42-a878fd7e8bbf">
+      <Execution id="00bd558f-a372-4f9f-92bc-f31b4babe6d7" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.SecurityTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="AuthenticateFailTest" />
+    </UnitTest>
+    <UnitTest name="FilterByLocationTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="94a7e3d7-1537-ec4c-f18f-0881118cd982">
+      <Execution id="f098c42a-a4f5-48ab-8cdf-61ac8f3a6307" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DepartmentOrderObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByLocationTest" />
+    </UnitTest>
+    <UnitTest name="CheckEmergencyRoomOrderTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="3691d567-a2db-4db2-56d6-acf052542f7c">
+      <Execution id="2a1cba69-ef60-4758-bce2-dacb7e6b2ed4" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="CheckEmergencyRoomOrderTest" />
+    </UnitTest>
+    <UnitTest name="GetConfigurationsTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="cc1ce465-d746-70be-3add-9bf2f1ef0704">
+      <Execution id="fa30133c-6a20-4412-9058-c148c10f22db" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ConfigurationTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetConfigurationsTest" />
+    </UnitTest>
+    <UnitTest name="InsertRfidDetectionsThatShouldHaveHappenedByNow" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="e77a3200-2992-57c3-5b1a-5d48c5a58186">
+      <Execution id="c29d8925-6084-48e3-8c81-86592f995f18" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DemoData, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="InsertRfidDetectionsThatShouldHaveHappenedByNow" />
+    </UnitTest>
+    <UnitTest name="BedWithTwoAdmissionsTodayShouldHaveAvailabilityBetweenThem" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="f6e6002e-b898-9c6f-c8b7-21e24965b8a3">
+      <Execution id="5c2c2532-9d7e-49f1-95ac-1fcef657be42" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="BedWithTwoAdmissionsTodayShouldHaveAvailabilityBetweenThem" />
+    </UnitTest>
+    <UnitTest name="NotificationTypeToVisibilityConverterTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="9b8d40e2-a4bb-0826-a917-2ab891e698a4">
+      <Execution id="856137e1-3267-4d09-806a-935403802706" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.Convertors.NotificationConverterTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="NotificationTypeToVisibilityConverterTest" />
+    </UnitTest>
+    <UnitTest name="BedsWithNoAdmissionShouldBeAvailableAllDayTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="523b7adc-ad80-0f78-7952-a9dae2ad02eb">
+      <Execution id="c69cffc0-3b89-4eb0-bbdb-b3b045ac5521" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="BedsWithNoAdmissionShouldBeAvailableAllDayTest" />
+    </UnitTest>
+    <UnitTest name="AddDeleteNoteTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="69e43193-dff0-9b53-8c23-823eac685799">
+      <Execution id="79ac5cdd-99c8-4f57-963d-9d7de8697617" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="AddDeleteNoteTest" />
+    </UnitTest>
+    <UnitTest name="PerformanceTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="ba15989c-8180-569b-80a6-97e9754ff77a">
+      <Execution id="fa6f4000-944b-40b5-a255-818a5c475e9b" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="PerformanceTest" />
+    </UnitTest>
+    <UnitTest name="BedWithAdmissionYesterdayRequiresDeepCleanTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="0bce5e76-a5ef-5b4b-35e3-68671967c55d">
+      <Execution id="28485d17-1538-4129-9796-819ed2e9682b" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="BedWithAdmissionYesterdayRequiresDeepCleanTest" />
+    </UnitTest>
+    <UnitTest name="LookAtOrderInDetailTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="01b49734-9a95-3356-f525-6254544b49b4">
+      <Execution id="ef6819e0-d1be-46f5-be14-e268662eaf84" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="LookAtOrderInDetailTest" />
+    </UnitTest>
+    <UnitTest name="CheckOrdersForPatientWithTwoAdmissionsTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="d4ebea90-2572-8675-7029-24a6b9f7912f">
+      <Execution id="ba15b832-489b-43a6-a47a-ef9a28905e35" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="CheckOrdersForPatientWithTwoAdmissionsTest" />
+    </UnitTest>
+    <UnitTest name="GetOrdersForOneWardTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="fd0a1761-2fa5-6106-02d8-2b29836676e9">
+      <Execution id="c15cd3d2-ca33-4703-bceb-448cb89cdb76" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetOrdersForOneWardTest" />
+    </UnitTest>
+    <UnitTest name="MarkBedsAsCleanDemoData" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="7c77a401-1bd8-0cca-c942-1457767d92c8">
+      <Execution id="f34a10f9-58fc-48a6-ae42-5236f327b403" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DemoData, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="MarkBedsAsCleanDemoData" />
+    </UnitTest>
+    <UnitTest name="GetPresenceDataTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="7c8c2656-5bd9-c7fe-d42d-102cc5d7d271">
+      <Execution id="3afaf258-8b98-4d1d-bae3-3255cde5a0f9" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DevicesTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetPresenceDataTest" />
+    </UnitTest>
+    <UnitTest name="CheckBedWeKnowIsARadiationRiskTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="65d5eac2-32cb-d2ae-fd45-4b45373c887e">
+      <Execution id="86113ddb-a3d4-411a-9a1c-8d6148df8cbe" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="CheckBedWeKnowIsARadiationRiskTest" />
+    </UnitTest>
+    <UnitTest name="ClearTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="7492517c-1d5e-2736-e8bf-432ea9c7d970">
+      <Execution id="2a3c78b8-02d1-46ec-9a5e-f95198c23ed3" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ClientAdmissionStatusTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="ClearTest" />
+    </UnitTest>
+    <UnitTest name="UpdateORD020ProcedureTime" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="1c87a1c1-4cf7-ccc7-0aee-6beb399d04fb">
+      <Execution id="f7a2d79e-fc71-472e-9def-ff26411deaa6" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DemoData, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="UpdateORD020ProcedureTime" />
+    </UnitTest>
+    <UnitTest name="IsSetMultipleTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="301daa25-1239-07c8-189c-e2e8bf397e49">
+      <Execution id="2433cb31-3b0b-4e4d-8966-49cc28fbc566" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ClientAdmissionStatusTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="IsSetMultipleTest" />
+    </UnitTest>
+    <UnitTest name="FilterByOrderStatusWithHiddenFlagTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="6035bdea-c63f-c9fd-76c4-96ad98562066">
+      <Execution id="18feddd7-98f3-42e7-b580-62c30ef75d45" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ViewModel.DepartmentPatientObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByOrderStatusWithHiddenFlagTest" />
+    </UnitTest>
+    <UnitTest name="ToggleTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="f0f46ff5-bf96-8082-2169-1050721c806e">
+      <Execution id="5789fbbe-ce7d-4677-b693-0778fee5cfb7" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ClientAdmissionStatusTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="ToggleTest" />
+    </UnitTest>
+    <UnitTest name="BedWithMrsaPatientAdmittedThisMorningShouldHavePositiveMrsaStatus" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="b8398a0a-8a70-1a54-ca66-d60fcfed232d">
+      <Execution id="f466a220-a2ee-41df-8b98-1a1a86417fce" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="BedWithMrsaPatientAdmittedThisMorningShouldHavePositiveMrsaStatus" />
+    </UnitTest>
+    <UnitTest name="AuthenticateSuccessTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="0a57bcbb-7ab6-367a-6f83-d95617eecd13">
+      <Execution id="35cda327-4fe7-40f6-a498-36fd05af1ee6" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.SecurityTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="AuthenticateSuccessTest" />
+    </UnitTest>
+    <UnitTest name="RelatedOrdersTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="aa578b34-4332-1a73-0f9c-1cecca014087">
+      <Execution id="6688ad5d-832b-4d05-9f0c-31c6f179a5c0" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="RelatedOrdersTest" />
+    </UnitTest>
+    <UnitTest name="OrderCompletedTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="807586a3-dd80-e35a-be55-8a7820ed2e2a">
+      <Execution id="c5942ccb-3d98-4ed8-9d6b-437603352f17" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.TimelineCoordinatorTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="OrderCompletedTest" />
+    </UnitTest>
+    <UnitTest name="GetAllFreeBedTimesForDateTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="180c2d50-017b-40d1-084e-d7b311e765f7">
+      <Execution id="0433b1c5-d96c-4d0e-9834-2db989f6720a" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DischargesTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetAllFreeBedTimesForDateTest" />
+    </UnitTest>
+    <UnitTest name="GetAdmissionsDataTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="430e986c-3de9-9b49-0030-51c2b6c4bff5">
+      <Execution id="d743f73b-57cb-40e9-a249-5c97006d9297" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.AdmissionsTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetAdmissionsDataTest" />
+    </UnitTest>
+    <UnitTest name="SyncronizeProcedureTimeTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="7a7a3263-10ac-0d9d-dc5c-c34b5219adf5">
+      <Execution id="56a010bc-e6ce-42f6-9f4e-18c5e4376a23" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrderViewModelTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="SyncronizeProcedureTimeTest" />
+    </UnitTest>
+    <UnitTest name="UpdateProcedureTimeWithSyncronizationDuringUpdateTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="9fd5787b-1fba-b8fb-7877-005945c878de">
+      <Execution id="597bb8fb-8a52-4b6c-9360-63b274e9cb24" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrderViewModelTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="UpdateProcedureTimeWithSyncronizationDuringUpdateTest" />
+    </UnitTest>
+    <UnitTest name="FilterByAdmissionTypeTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="62824bc3-7f37-c130-ae0b-5298764213da">
+      <Execution id="f01535f6-2f3f-472c-a873-09c94c19ac62" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.DepartmentOrderObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByAdmissionTypeTest" />
+    </UnitTest>
+    <UnitTest name="FilterByOrderStatusTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="b0e39bf3-43ea-a19c-d6f5-eff49b5d247c">
+      <Execution id="1b1039bf-578e-429c-b049-dc2457bad1ec" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ViewModel.DepartmentPatientObservableCollectionTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="FilterByOrderStatusTest" />
+    </UnitTest>
+    <UnitTest name="PAT001RfidTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="08de56d0-12bd-2f75-df12-b0e872d63c53">
+      <Execution id="fcba958f-2ccd-406a-9d8c-03372e05d262" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.RfidTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="PAT001RfidTest" />
+    </UnitTest>
+    <UnitTest name="BedWithDischargeTodayShouldHaveAvailabilityAfterThat" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="8fa087a8-93f9-6da4-bee8-c86ba4b78f1d">
+      <Execution id="28303051-861b-4760-b352-581fd1076eff" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="BedWithDischargeTodayShouldHaveAvailabilityAfterThat" />
+    </UnitTest>
+    <UnitTest name="IsSetTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="26f93875-1d21-0229-f2f4-3637c209cbf2">
+      <Execution id="b44d282d-0e85-412c-8a6f-b08085983430" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ClientAdmissionStatusTests, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="IsSetTest" />
+    </UnitTest>
+    <UnitTest name="BedWithAdmissionArrivingAfterStartOfDayShouldHaveAvailabilityBeforeThat" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="01735ac9-1fac-3146-5daa-b75d7f765f49">
+      <Execution id="e2dca222-650d-4f3a-a09e-9b03602a9ce5" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.CleanTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="BedWithAdmissionArrivingAfterStartOfDayShouldHaveAvailabilityBeforeThat" />
+    </UnitTest>
+    <UnitTest name="DeleteNoteFailTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="2ed6a8bd-1f45-d715-61c1-545276912be4">
+      <Execution id="d5b5ca45-04d8-46e3-a15e-68e9519954b5" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="DeleteNoteFailTest" />
+    </UnitTest>
+    <UnitTest name="GetLatestPollingTimeoutsTest" storage="../../../server/wcs.services.test/bin/debug/wcs.services.test.dll" id="23e97091-2ff8-3ecc-cebd-0b2b7d0dcc31">
+      <Execution id="a5a33f2d-d511-4472-b21c-12cd38bec953" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.ConfigurationTest, WCS.Services.Test, Version=3.2.0.3, Culture=neutral, PublicKeyToken=null" name="GetLatestPollingTimeoutsTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="430e986c-3de9-9b49-0030-51c2b6c4bff5" executionId="d743f73b-57cb-40e9-a249-5c97006d9297" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="69e43193-dff0-9b53-8c23-823eac685799" executionId="79ac5cdd-99c8-4f57-963d-9d7de8697617" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="523b7adc-ad80-0f78-7952-a9dae2ad02eb" executionId="c69cffc0-3b89-4eb0-bbdb-b3b045ac5521" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="01735ac9-1fac-3146-5daa-b75d7f765f49" executionId="e2dca222-650d-4f3a-a09e-9b03602a9ce5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0bce5e76-a5ef-5b4b-35e3-68671967c55d" executionId="28485d17-1538-4129-9796-819ed2e9682b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8fa087a8-93f9-6da4-bee8-c86ba4b78f1d" executionId="28303051-861b-4760-b352-581fd1076eff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8398a0a-8a70-1a54-ca66-d60fcfed232d" executionId="f466a220-a2ee-41df-8b98-1a1a86417fce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f6e6002e-b898-9c6f-c8b7-21e24965b8a3" executionId="5c2c2532-9d7e-49f1-95ac-1fcef657be42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65d5eac2-32cb-d2ae-fd45-4b45373c887e" executionId="86113ddb-a3d4-411a-9a1c-8d6148df8cbe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="83bcbc0b-361b-e46e-9078-10b2342962a1" executionId="8e561a2a-6af0-4d87-bd89-1a14be0aacd0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="16c84594-d480-7fae-20c2-e012b3376244" executionId="efca8399-b1be-435f-a1da-a9c5b0752c17" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1398ab92-924d-163f-bfbc-a6f5fe0e5f5b" executionId="c90e73be-3373-4537-ade2-d0362311a3f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ba15989c-8180-569b-80a6-97e9754ff77a" executionId="fa6f4000-944b-40b5-a255-818a5c475e9b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7492517c-1d5e-2736-e8bf-432ea9c7d970" executionId="2a3c78b8-02d1-46ec-9a5e-f95198c23ed3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="301daa25-1239-07c8-189c-e2e8bf397e49" executionId="2433cb31-3b0b-4e4d-8966-49cc28fbc566" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="26f93875-1d21-0229-f2f4-3637c209cbf2" executionId="b44d282d-0e85-412c-8a6f-b08085983430" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f0f46ff5-bf96-8082-2169-1050721c806e" executionId="5789fbbe-ce7d-4677-b693-0778fee5cfb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cc1ce465-d746-70be-3add-9bf2f1ef0704" executionId="fa30133c-6a20-4412-9058-c148c10f22db" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="23e97091-2ff8-3ecc-cebd-0b2b7d0dcc31" executionId="a5a33f2d-d511-4472-b21c-12cd38bec953" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9b8d40e2-a4bb-0826-a917-2ab891e698a4" executionId="856137e1-3267-4d09-806a-935403802706" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e77a3200-2992-57c3-5b1a-5d48c5a58186" executionId="c29d8925-6084-48e3-8c81-86592f995f18" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c77a401-1bd8-0cca-c942-1457767d92c8" executionId="f34a10f9-58fc-48a6-ae42-5236f327b403" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="85f1e53d-3933-541f-4ed8-0ceb9f95f26a" executionId="3a4cebd5-9319-489f-8bf5-190133144e59" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1c87a1c1-4cf7-ccc7-0aee-6beb399d04fb" executionId="f7a2d79e-fc71-472e-9def-ff26411deaa6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="147579d1-0816-7d01-6737-d0c879871a05" executionId="3c64708b-28e5-4317-92a3-d7e03d6c9c84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="62824bc3-7f37-c130-ae0b-5298764213da" executionId="f01535f6-2f3f-472c-a873-09c94c19ac62" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94a7e3d7-1537-ec4c-f18f-0881118cd982" executionId="f098c42a-a4f5-48ab-8cdf-61ac8f3a6307" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1ceadb69-45fb-9717-0bfb-587b493621bd" executionId="cf2c745e-fcdd-4bc9-9b90-985b6b804c10" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b6528b9d-e903-1b26-d4c9-51bbd40b6112" executionId="113fdff6-1df6-42e0-8f90-8b4642c8778b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c8c2656-5bd9-c7fe-d42d-102cc5d7d271" executionId="3afaf258-8b98-4d1d-bae3-3255cde5a0f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="180c2d50-017b-40d1-084e-d7b311e765f7" executionId="0433b1c5-d96c-4d0e-9834-2db989f6720a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="adca6ef4-26ca-d134-e987-7c004554926e" executionId="e76f9f05-ebe7-4dd2-bf16-4ae2694cee75" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3c343507-d1e1-44ae-6f0c-5e13d4222c04" executionId="90b1e7eb-91ff-4e7e-8099-5e3d8c29edac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="47b9ccba-557d-f7c8-8675-f241e16046bb" executionId="2471d1b7-678e-4cf5-80a5-69d0bfdc505c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac28ed18-7833-2249-071f-de031c631001" executionId="94328b89-def9-463e-9ef9-0666b44c183c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a212e1f0-7bc2-05c6-61d7-b8fcde1c7c77" executionId="c8d48c0b-2d0a-4d52-bb51-782fd87c036c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3691d567-a2db-4db2-56d6-acf052542f7c" executionId="2a1cba69-ef60-4758-bce2-dacb7e6b2ed4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d4ebea90-2572-8675-7029-24a6b9f7912f" executionId="ba15b832-489b-43a6-a47a-ef9a28905e35" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d2f9417-1f36-e1be-26e0-1ddd5ac50a01" executionId="a897892b-5322-4670-9e82-927f0911e098" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ed6a8bd-1f45-d715-61c1-545276912be4" executionId="d5b5ca45-04d8-46e3-a15e-68e9519954b5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="90b6d056-82b8-5748-e91c-81b6feec3e65" executionId="13b7b95d-4732-4a97-bd25-87b980548f9e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6acbb951-eb71-fb99-8ddf-ab7f75a91729" executionId="b29126fb-046a-439b-bfe7-eed88a3dba72" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fd0a1761-2fa5-6106-02d8-2b29836676e9" executionId="c15cd3d2-ca33-4703-bceb-448cb89cdb76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="706b359a-a6a6-75cb-07b9-35e158a1398a" executionId="d9eaaa01-fdd7-4120-bda9-568242e92e50" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="01b49734-9a95-3356-f525-6254544b49b4" executionId="ef6819e0-d1be-46f5-be14-e268662eaf84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aa578b34-4332-1a73-0f9c-1cecca014087" executionId="6688ad5d-832b-4d05-9f0c-31c6f179a5c0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5ee44f0b-f581-d009-1bb2-ef38afd0bdc0" executionId="10e0d874-f956-40e4-b084-20bc3fd0a075" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="86000e48-b18e-94a0-5184-f2457dcc7ac6" executionId="71fbe6b8-48e2-4a0d-bcd3-95fd67bb8d40" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7a7a3263-10ac-0d9d-dc5c-c34b5219adf5" executionId="56a010bc-e6ce-42f6-9f4e-18c5e4376a23" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aed6e57c-8ae5-1ec4-7df4-be7cb9a3ba60" executionId="16cffef5-eb4a-42ca-9536-42db867fa90e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dd302f63-b65f-08ec-a43e-ed2d5c5fa0d5" executionId="d582de85-649d-4969-b7be-8399f65acb97" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9fd5787b-1fba-b8fb-7877-005945c878de" executionId="597bb8fb-8a52-4b6c-9360-63b274e9cb24" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="08de56d0-12bd-2f75-df12-b0e872d63c53" executionId="fcba958f-2ccd-406a-9d8c-03372e05d262" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="747e6c80-eaec-91a6-d616-a83fe8be9748" executionId="23a2c21f-ef25-4608-95f9-6f4f1cc8a690" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ca4b34fe-1f28-609f-1b42-a878fd7e8bbf" executionId="00bd558f-a372-4f9f-92bc-f31b4babe6d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0a57bcbb-7ab6-367a-6f83-d95617eecd13" executionId="35cda327-4fe7-40f6-a498-36fd05af1ee6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b165b39e-5b0c-abea-5b39-75b39d4ee541" executionId="44f8eb23-74b3-432b-b729-f1ba275ecf60" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="807586a3-dd80-e35a-be55-8a7820ed2e2a" executionId="c5942ccb-3d98-4ed8-9d6b-437603352f17" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de2cd584-4eca-b743-8342-64583efb12aa" executionId="5d89c44b-d0db-4fa2-bcfa-c36575a076d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b0e39bf3-43ea-a19c-d6f5-eff49b5d247c" executionId="1b1039bf-578e-429c-b049-dc2457bad1ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6035bdea-c63f-c9fd-76c4-96ad98562066" executionId="18feddd7-98f3-42e7-b580-62c30ef75d45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d743f73b-57cb-40e9-a249-5c97006d9297" testId="430e986c-3de9-9b49-0030-51c2b6c4bff5" testName="GetAdmissionsDataTest" computerName="WCS-DEMO01" duration="00:00:04.3641297" startTime="2016-07-18T23:21:46.1441904+01:00" endTime="2016-07-18T23:21:50.9096629+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d743f73b-57cb-40e9-a249-5c97006d9297">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;19&gt;. Actual:&lt;15&gt;. </Message>
+          <StackTrace>   at WCS.Services.Test.AdmissionsTest.GetAdmissionsDataTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\AdmissionsTest.cs:line 27
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="79ac5cdd-99c8-4f57-963d-9d7de8697617" testId="69e43193-dff0-9b53-8c23-823eac685799" testName="AddDeleteNoteTest" computerName="WCS-DEMO01" duration="00:00:01.9473544" startTime="2016-07-18T23:21:50.9096629+01:00" endTime="2016-07-18T23:21:52.8783499+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="79ac5cdd-99c8-4f57-963d-9d7de8697617">
+    </UnitTestResult>
+    <UnitTestResult executionId="c69cffc0-3b89-4eb0-bbdb-b3b045ac5521" testId="523b7adc-ad80-0f78-7952-a9dae2ad02eb" testName="BedsWithNoAdmissionShouldBeAvailableAllDayTest" computerName="WCS-DEMO01" duration="00:00:00.3264196" startTime="2016-07-18T23:21:52.8783499+01:00" endTime="2016-07-18T23:21:53.2064644+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c69cffc0-3b89-4eb0-bbdb-b3b045ac5521">
+    </UnitTestResult>
+    <UnitTestResult executionId="e2dca222-650d-4f3a-a09e-9b03602a9ce5" testId="01735ac9-1fac-3146-5daa-b75d7f765f49" testName="BedWithAdmissionArrivingAfterStartOfDayShouldHaveAvailabilityBeforeThat" computerName="WCS-DEMO01" duration="00:00:00.3311127" startTime="2016-07-18T23:21:53.2064644+01:00" endTime="2016-07-18T23:21:53.5502034+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e2dca222-650d-4f3a-a09e-9b03602a9ce5">
+    </UnitTestResult>
+    <UnitTestResult executionId="28485d17-1538-4129-9796-819ed2e9682b" testId="0bce5e76-a5ef-5b4b-35e3-68671967c55d" testName="BedWithAdmissionYesterdayRequiresDeepCleanTest" computerName="WCS-DEMO01" duration="00:00:01.1569442" startTime="2016-07-18T23:21:53.5502034+01:00" endTime="2016-07-18T23:21:54.7064164+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="28485d17-1538-4129-9796-819ed2e9682b">
+    </UnitTestResult>
+    <UnitTestResult executionId="28303051-861b-4760-b352-581fd1076eff" testId="8fa087a8-93f9-6da4-bee8-c86ba4b78f1d" testName="BedWithDischargeTodayShouldHaveAvailabilityAfterThat" computerName="WCS-DEMO01" duration="00:00:00.1729349" startTime="2016-07-18T23:21:54.7064164+01:00" endTime="2016-07-18T23:21:54.8939104+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="28303051-861b-4760-b352-581fd1076eff">
+    </UnitTestResult>
+    <UnitTestResult executionId="f466a220-a2ee-41df-8b98-1a1a86417fce" testId="b8398a0a-8a70-1a54-ca66-d60fcfed232d" testName="BedWithMrsaPatientAdmittedThisMorningShouldHavePositiveMrsaStatus" computerName="WCS-DEMO01" duration="00:00:00.1928676" startTime="2016-07-18T23:21:54.8939104+01:00" endTime="2016-07-18T23:21:55.0970289+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f466a220-a2ee-41df-8b98-1a1a86417fce">
+    </UnitTestResult>
+    <UnitTestResult executionId="5c2c2532-9d7e-49f1-95ac-1fcef657be42" testId="f6e6002e-b898-9c6f-c8b7-21e24965b8a3" testName="BedWithTwoAdmissionsTodayShouldHaveAvailabilityBetweenThem" computerName="WCS-DEMO01" duration="00:00:00.1780486" startTime="2016-07-18T23:21:55.1126534+01:00" endTime="2016-07-18T23:21:55.2845229+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5c2c2532-9d7e-49f1-95ac-1fcef657be42">
+    </UnitTestResult>
+    <UnitTestResult executionId="86113ddb-a3d4-411a-9a1c-8d6148df8cbe" testId="65d5eac2-32cb-d2ae-fd45-4b45373c887e" testName="CheckBedWeKnowIsARadiationRiskTest" computerName="WCS-DEMO01" duration="00:00:00.3440933" startTime="2016-07-18T23:21:55.2845229+01:00" endTime="2016-07-18T23:21:55.6438864+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="86113ddb-a3d4-411a-9a1c-8d6148df8cbe">
+    </UnitTestResult>
+    <UnitTestResult executionId="8e561a2a-6af0-4d87-bd89-1a14be0aacd0" testId="83bcbc0b-361b-e46e-9078-10b2342962a1" testName="CheckEstimatedDischargeDateTest" computerName="WCS-DEMO01" duration="00:00:00.5912736" startTime="2016-07-18T23:21:55.6438864+01:00" endTime="2016-07-18T23:21:56.2376174+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e561a2a-6af0-4d87-bd89-1a14be0aacd0">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;7/18/2016 8:00:00 PM&gt;. Actual:&lt;7/18/2016 12:00:20 AM&gt;. </Message>
+          <StackTrace>   at WCS.Services.Test.CleanTest.CheckEstimatedDischargeDateTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\CleanTest.cs:line 68
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="efca8399-b1be-435f-a1da-a9c5b0752c17" testId="16c84594-d480-7fae-20c2-e012b3376244" testName="GetAllFreeBedTimesForDateTest" computerName="WCS-DEMO01" duration="00:00:01.0482459" startTime="2016-07-18T23:21:56.2376174+01:00" endTime="2016-07-18T23:21:57.2844589+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="efca8399-b1be-435f-a1da-a9c5b0752c17">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method WCS.Services.Test.CleanTest.GetAllFreeBedTimesForDateTest threw exception: 
+System.InvalidOperationException: Sequence contains no matching element</Message>
+          <StackTrace>    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WCS.Services.Test.CleanTest.GetAllFreeBedTimesForDateTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\CleanTest.cs:line 89
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c90e73be-3373-4537-ade2-d0362311a3f3" testId="1398ab92-924d-163f-bfbc-a6f5fe0e5f5b" testName="MarkBedAsCleanDirtyTest" computerName="WCS-DEMO01" duration="00:00:00.5580253" startTime="2016-07-18T23:21:57.2844589+01:00" endTime="2016-07-18T23:21:57.8469409+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c90e73be-3373-4537-ade2-d0362311a3f3">
+    </UnitTestResult>
+    <UnitTestResult executionId="fa6f4000-944b-40b5-a255-818a5c475e9b" testId="ba15989c-8180-569b-80a6-97e9754ff77a" testName="PerformanceTest" computerName="WCS-DEMO01" duration="00:00:00.2085257" startTime="2016-07-18T23:21:57.8469409+01:00" endTime="2016-07-18T23:21:58.0500594+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fa6f4000-944b-40b5-a255-818a5c475e9b">
+    </UnitTestResult>
+    <UnitTestResult executionId="2a3c78b8-02d1-46ec-9a5e-f95198c23ed3" testId="7492517c-1d5e-2736-e8bf-432ea9c7d970" testName="ClearTest" computerName="WCS-DEMO01" duration="00:00:00.0018026" startTime="2016-07-18T23:21:58.0500594+01:00" endTime="2016-07-18T23:21:58.0656839+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2a3c78b8-02d1-46ec-9a5e-f95198c23ed3">
+    </UnitTestResult>
+    <UnitTestResult executionId="2433cb31-3b0b-4e4d-8966-49cc28fbc566" testId="301daa25-1239-07c8-189c-e2e8bf397e49" testName="IsSetMultipleTest" computerName="WCS-DEMO01" duration="00:00:00.0004936" startTime="2016-07-18T23:21:58.0656839+01:00" endTime="2016-07-18T23:21:58.0813084+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2433cb31-3b0b-4e4d-8966-49cc28fbc566">
+    </UnitTestResult>
+    <UnitTestResult executionId="b44d282d-0e85-412c-8a6f-b08085983430" testId="26f93875-1d21-0229-f2f4-3637c209cbf2" testName="IsSetTest" computerName="WCS-DEMO01" duration="00:00:00.0004845" startTime="2016-07-18T23:21:58.0813084+01:00" endTime="2016-07-18T23:21:58.0813084+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b44d282d-0e85-412c-8a6f-b08085983430">
+    </UnitTestResult>
+    <UnitTestResult executionId="5789fbbe-ce7d-4677-b693-0778fee5cfb7" testId="f0f46ff5-bf96-8082-2169-1050721c806e" testName="ToggleTest" computerName="WCS-DEMO01" duration="00:00:00.0007087" startTime="2016-07-18T23:21:58.0969329+01:00" endTime="2016-07-18T23:21:58.0969329+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5789fbbe-ce7d-4677-b693-0778fee5cfb7">
+    </UnitTestResult>
+    <UnitTestResult executionId="fa30133c-6a20-4412-9058-c148c10f22db" testId="cc1ce465-d746-70be-3add-9bf2f1ef0704" testName="GetConfigurationsTest" computerName="WCS-DEMO01" duration="00:00:00.2350167" startTime="2016-07-18T23:21:58.0969329+01:00" endTime="2016-07-18T23:21:58.3313004+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fa30133c-6a20-4412-9058-c148c10f22db">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;10&gt;. Actual:&lt;8&gt;. </Message>
+          <StackTrace>   at WCS.Services.Test.ConfigurationTest.GetConfigurationsTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\ConfigurationTest.cs:line 22
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a5a33f2d-d511-4472-b21c-12cd38bec953" testId="23e97091-2ff8-3ecc-cebd-0b2b7d0dcc31" testName="GetLatestPollingTimeoutsTest" computerName="WCS-DEMO01" duration="00:00:14.7626803" startTime="2016-07-18T23:21:58.3313004+01:00" endTime="2016-07-18T23:22:13.1277019+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a5a33f2d-d511-4472-b21c-12cd38bec953">
+      <Output>
+        <StdErr>log4net:ERROR [AdoNetAppender] Could not open database connection [Data Source=ix7e6jndvk.database.windows.net;Initial Catalog=WCS;Integrated Security=False;User ID=robrien@ix7e6jndvk;Password=%123admin;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False]
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---&gt; System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at log4net.Appender.AdoNetAppender.InitializeDatabaseConnection()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+log4net:ERROR XmlConfigurator: Failed to parse config file. Is the &lt;configSections&gt; specified as: &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=737bc70442f2c4af" /&gt;
+System.Configuration.ConfigurationErrorsException: An error occurred creating the configuration section handler for log4net: Could not load type 'log4net.Config.Log4NetConfigurationSectionHandler' from assembly 'System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. (C:\TFS\WCS\Content\Code\Database\WcsDB\DeploymentBatchFiles\TestResults\Administrator_WCS-DEMO01 2016-07-18 23_21_43\Out\WCS.Services.Test.DLL.config line 4) ---&gt; System.TypeLoadException: Could not load type 'log4net.Config.Log4NetConfigurationSectionHandler' from assembly 'System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+   at System.Configuration.TypeUtil.GetTypeWithReflectionPermission(IInternalConfigHost host, String typeString, Boolean throwOnError)
+   at System.Configuration.RuntimeConfigurationRecord.RuntimeConfigurationFactory.Init(RuntimeConfigurationRecord configRecord, FactoryRecord factoryRecord)
+   at System.Configuration.RuntimeConfigurationRecord.RuntimeConfigurationFactory.InitWithRestrictedPermissions(RuntimeConfigurationRecord configRecord, FactoryRecord factoryRecord)
+   at System.Configuration.RuntimeConfigurationRecord.CreateSectionFactory(FactoryRecord factoryRecord)
+   at System.Configuration.BaseConfigurationRecord.FindAndEnsureFactoryRecord(String configKey, Boolean&amp; isRootDeclaredHere)
+   --- End of inner exception stack trace ---
+   at System.Configuration.BaseConfigurationRecord.FindAndEnsureFactoryRecord(String configKey, Boolean&amp; isRootDeclaredHere)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object&amp; result, Object&amp; resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   at System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   at log4net.Config.XmlConfigurator.Configure(ILoggerRepository repository)</StdErr>
+        <DebugTrace>log4net:ERROR [AdoNetAppender] Could not open database connection [Data Source=ix7e6jndvk.database.windows.net;Initial Catalog=WCS;Integrated Security=False;User ID=robrien@ix7e6jndvk;Password=%123admin;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False]
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---&gt; System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at log4net.Appender.AdoNetAppender.InitializeDatabaseConnection()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+log4net:ERROR XmlConfigurator: Failed to parse config file. Is the &lt;configSections&gt; specified as: &lt;section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=737bc70442f2c4af" /&gt;
+System.Configuration.ConfigurationErrorsException: An error occurred creating the configuration section handler for log4net: Could not load type 'log4net.Config.Log4NetConfigurationSectionHandler' from assembly 'System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. (C:\TFS\WCS\Content\Code\Database\WcsDB\DeploymentBatchFiles\TestResults\Administrator_WCS-DEMO01 2016-07-18 23_21_43\Out\WCS.Services.Test.DLL.config line 4) ---&gt; System.TypeLoadException: Could not load type 'log4net.Config.Log4NetConfigurationSectionHandler' from assembly 'System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.
+   at System.Configuration.TypeUtil.GetTypeWithReflectionPermission(IInternalConfigHost host, String typeString, Boolean throwOnError)
+   at System.Configuration.RuntimeConfigurationRecord.RuntimeConfigurationFactory.Init(RuntimeConfigurationRecord configRecord, FactoryRecord factoryRecord)
+   at System.Configuration.RuntimeConfigurationRecord.RuntimeConfigurationFactory.InitWithRestrictedPermissions(RuntimeConfigurationRecord configRecord, FactoryRecord factoryRecord)
+   at System.Configuration.RuntimeConfigurationRecord.CreateSectionFactory(FactoryRecord factoryRecord)
+   at System.Configuration.BaseConfigurationRecord.FindAndEnsureFactoryRecord(String configKey, Boolean&amp; isRootDeclaredHere)
+   --- End of inner exception stack trace ---
+   at System.Configuration.BaseConfigurationRecord.FindAndEnsureFactoryRecord(String configKey, Boolean&amp; isRootDeclaredHere)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object&amp; result, Object&amp; resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   at System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   at log4net.Config.XmlConfigurator.Configure(ILoggerRepository repository)
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="856137e1-3267-4d09-806a-935403802706" testId="9b8d40e2-a4bb-0826-a917-2ab891e698a4" testName="NotificationTypeToVisibilityConverterTest" computerName="WCS-DEMO01" duration="00:00:00.1190080" startTime="2016-07-18T23:22:13.1277019+01:00" endTime="2016-07-18T23:22:13.2370734+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="856137e1-3267-4d09-806a-935403802706">
+    </UnitTestResult>
+    <UnitTestResult executionId="c29d8925-6084-48e3-8c81-86592f995f18" testId="e77a3200-2992-57c3-5b1a-5d48c5a58186" testName="InsertRfidDetectionsThatShouldHaveHappenedByNow" computerName="WCS-DEMO01" duration="00:00:02.4422229" startTime="2016-07-18T23:22:13.2370734+01:00" endTime="2016-07-18T23:22:15.6901199+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c29d8925-6084-48e3-8c81-86592f995f18">
+    </UnitTestResult>
+    <UnitTestResult executionId="f34a10f9-58fc-48a6-ae42-5236f327b403" testId="7c77a401-1bd8-0cca-c942-1457767d92c8" testName="MarkBedsAsCleanDemoData" computerName="WCS-DEMO01" duration="00:00:02.3240329" startTime="2016-07-18T23:22:15.6901199+01:00" endTime="2016-07-18T23:22:18.0181704+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f34a10f9-58fc-48a6-ae42-5236f327b403">
+    </UnitTestResult>
+    <UnitTestResult executionId="3a4cebd5-9319-489f-8bf5-190133144e59" testId="85f1e53d-3933-541f-4ed8-0ceb9f95f26a" testName="UpdateORD002ProcedureTime" computerName="WCS-DEMO01" duration="00:00:00.2120880" startTime="2016-07-18T23:22:18.0181704+01:00" endTime="2016-07-18T23:22:18.2369134+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a4cebd5-9319-489f-8bf5-190133144e59">
+    </UnitTestResult>
+    <UnitTestResult executionId="f7a2d79e-fc71-472e-9def-ff26411deaa6" testId="1c87a1c1-4cf7-ccc7-0aee-6beb399d04fb" testName="UpdateORD020ProcedureTime" computerName="WCS-DEMO01" duration="00:00:00.2860834" startTime="2016-07-18T23:22:18.2369134+01:00" endTime="2016-07-18T23:22:18.5494034+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f7a2d79e-fc71-472e-9def-ff26411deaa6">
+    </UnitTestResult>
+    <UnitTestResult executionId="3c64708b-28e5-4317-92a3-d7e03d6c9c84" testId="147579d1-0816-7d01-6737-d0c879871a05" testName="FilterByAdmissionStatusTest" computerName="WCS-DEMO01" duration="00:00:00.1792901" startTime="2016-07-18T23:22:18.5494034+01:00" endTime="2016-07-18T23:22:18.7212729+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3c64708b-28e5-4317-92a3-d7e03d6c9c84">
+    </UnitTestResult>
+    <UnitTestResult executionId="f01535f6-2f3f-472c-a873-09c94c19ac62" testId="62824bc3-7f37-c130-ae0b-5298764213da" testName="FilterByAdmissionTypeTest" computerName="WCS-DEMO01" duration="00:00:00.0024556" startTime="2016-07-18T23:22:18.7212729+01:00" endTime="2016-07-18T23:22:18.7368974+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f01535f6-2f3f-472c-a873-09c94c19ac62">
+    </UnitTestResult>
+    <UnitTestResult executionId="f098c42a-a4f5-48ab-8cdf-61ac8f3a6307" testId="94a7e3d7-1537-ec4c-f18f-0881118cd982" testName="FilterByLocationTest" computerName="WCS-DEMO01" duration="00:00:00.0024801" startTime="2016-07-18T23:22:18.7368974+01:00" endTime="2016-07-18T23:22:18.7368974+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f098c42a-a4f5-48ab-8cdf-61ac8f3a6307">
+    </UnitTestResult>
+    <UnitTestResult executionId="cf2c745e-fcdd-4bc9-9b90-985b6b804c10" testId="1ceadb69-45fb-9717-0bfb-587b493621bd" testName="FilterByOrderStatusTest" computerName="WCS-DEMO01" duration="00:00:00.0633789" startTime="2016-07-18T23:22:18.7525219+01:00" endTime="2016-07-18T23:22:18.8150199+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf2c745e-fcdd-4bc9-9b90-985b6b804c10">
+    </UnitTestResult>
+    <UnitTestResult executionId="113fdff6-1df6-42e0-8f90-8b4642c8778b" testId="b6528b9d-e903-1b26-d4c9-51bbd40b6112" testName="FilterByOrderStatusWithHiddenFlagTest" computerName="WCS-DEMO01" duration="00:00:00.0300503" startTime="2016-07-18T23:22:18.8150199+01:00" endTime="2016-07-18T23:22:18.8618934+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="113fdff6-1df6-42e0-8f90-8b4642c8778b">
+    </UnitTestResult>
+    <UnitTestResult executionId="3afaf258-8b98-4d1d-bae3-3255cde5a0f9" testId="7c8c2656-5bd9-c7fe-d42d-102cc5d7d271" testName="GetPresenceDataTest" computerName="WCS-DEMO01" duration="00:00:00.5258739" startTime="2016-07-18T23:22:18.8618934+01:00" endTime="2016-07-18T23:22:19.3618774+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3afaf258-8b98-4d1d-bae3-3255cde5a0f9">
+    </UnitTestResult>
+    <UnitTestResult executionId="0433b1c5-d96c-4d0e-9834-2db989f6720a" testId="180c2d50-017b-40d1-084e-d7b311e765f7" testName="GetAllFreeBedTimesForDateTest" computerName="WCS-DEMO01" duration="00:00:00.2774034" startTime="2016-07-18T23:22:19.3775019+01:00" endTime="2016-07-18T23:22:19.6431184+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0433b1c5-d96c-4d0e-9834-2db989f6720a">
+    </UnitTestResult>
+    <UnitTestResult executionId="e76f9f05-ebe7-4dd2-bf16-4ae2694cee75" testId="adca6ef4-26ca-d134-e987-7c004554926e" testName="GetAllGetDischargesBedDataTest" computerName="WCS-DEMO01" duration="00:00:00.1257033" startTime="2016-07-18T23:22:19.6431184+01:00" endTime="2016-07-18T23:22:19.7837389+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e76f9f05-ebe7-4dd2-bf16-4ae2694cee75">
+    </UnitTestResult>
+    <UnitTestResult executionId="90b1e7eb-91ff-4e7e-8099-5e3d8c29edac" testId="3c343507-d1e1-44ae-6f0c-5e13d4222c04" testName="UpdatingEstimatedDischargeDateShouldCreateAnUpdateRecordTest" computerName="WCS-DEMO01" duration="00:00:00.1279395" startTime="2016-07-18T23:22:19.7837389+01:00" endTime="2016-07-18T23:22:19.9243594+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="90b1e7eb-91ff-4e7e-8099-5e3d8c29edac">
+    </UnitTestResult>
+    <UnitTestResult executionId="2471d1b7-678e-4cf5-80a5-69d0bfdc505c" testId="47b9ccba-557d-f7c8-8675-f241e16046bb" testName="SyncronizeTest" computerName="WCS-DEMO01" duration="00:00:00.0009028" startTime="2016-07-18T23:22:19.9243594+01:00" endTime="2016-07-18T23:22:19.9243594+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2471d1b7-678e-4cf5-80a5-69d0bfdc505c">
+    </UnitTestResult>
+    <UnitTestResult executionId="94328b89-def9-463e-9ef9-0666b44c183c" testId="ac28ed18-7833-2249-071f-de031c631001" testName="AcknowledgeNotificationTest" computerName="WCS-DEMO01" duration="00:00:00.2190210" startTime="2016-07-18T23:22:19.9243594+01:00" endTime="2016-07-18T23:22:20.1431024+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="94328b89-def9-463e-9ef9-0666b44c183c">
+    </UnitTestResult>
+    <UnitTestResult executionId="c8d48c0b-2d0a-4d52-bb51-782fd87c036c" testId="a212e1f0-7bc2-05c6-61d7-b8fcde1c7c77" testName="AddDeleteNoteTest" computerName="WCS-DEMO01" duration="00:00:00.1848495" startTime="2016-07-18T23:22:20.1431024+01:00" endTime="2016-07-18T23:22:20.3462209+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8d48c0b-2d0a-4d52-bb51-782fd87c036c">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method WCS.Services.Test.OrdersTest.AddDeleteNoteTest threw exception: 
+System.InvalidOperationException: Sequence contains no matching element</Message>
+          <StackTrace>    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WCS.Services.Test.OrdersTest.AddDeleteNoteTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\OrdersTest.cs:line 155
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2a1cba69-ef60-4758-bce2-dacb7e6b2ed4" testId="3691d567-a2db-4db2-56d6-acf052542f7c" testName="CheckEmergencyRoomOrderTest" computerName="WCS-DEMO01" duration="00:00:00.1719834" startTime="2016-07-18T23:22:20.3462209+01:00" endTime="2016-07-18T23:22:20.5180904+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2a1cba69-ef60-4758-bce2-dacb7e6b2ed4">
+    </UnitTestResult>
+    <UnitTestResult executionId="ba15b832-489b-43a6-a47a-ef9a28905e35" testId="d4ebea90-2572-8675-7029-24a6b9f7912f" testName="CheckOrdersForPatientWithTwoAdmissionsTest" computerName="WCS-DEMO01" duration="00:00:00.3836419" startTime="2016-07-18T23:22:20.5180904+01:00" endTime="2016-07-18T23:22:20.9243274+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ba15b832-489b-43a6-a47a-ef9a28905e35">
+    </UnitTestResult>
+    <UnitTestResult executionId="a897892b-5322-4670-9e82-927f0911e098" testId="5d2f9417-1f36-e1be-26e0-1ddd5ac50a01" testName="CheckPatientRadiationRiskTest" computerName="WCS-DEMO01" duration="00:00:01.0096953" startTime="2016-07-18T23:22:20.9243274+01:00" endTime="2016-07-18T23:22:21.9399199+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a897892b-5322-4670-9e82-927f0911e098">
+    </UnitTestResult>
+    <UnitTestResult executionId="d5b5ca45-04d8-46e3-a15e-68e9519954b5" testId="2ed6a8bd-1f45-d715-61c1-545276912be4" testName="DeleteNoteFailTest" computerName="WCS-DEMO01" duration="00:00:00.1612548" startTime="2016-07-18T23:22:21.9399199+01:00" endTime="2016-07-18T23:22:22.1117894+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d5b5ca45-04d8-46e3-a15e-68e9519954b5">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method WCS.Services.Test.OrdersTest.DeleteNoteFailTest threw exception System.InvalidOperationException, but exception System.AccessViolationException was expected. Exception message: System.InvalidOperationException: Sequence contains no matching element</Message>
+          <StackTrace>    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WCS.Services.Test.OrdersTest.DeleteNoteFailTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\OrdersTest.cs:line 176
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="13b7b95d-4732-4a97-bd25-87b980548f9e" testId="90b6d056-82b8-5748-e91c-81b6feec3e65" testName="GetOrdersForAllLocationsTest" computerName="WCS-DEMO01" duration="00:00:00.2594914" startTime="2016-07-18T23:22:22.1117894+01:00" endTime="2016-07-18T23:22:22.3774059+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="13b7b95d-4732-4a97-bd25-87b980548f9e">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;43&gt;. Actual:&lt;45&gt;. </Message>
+          <StackTrace>   at WCS.Services.Test.OrdersTest.GetOrdersForAllLocationsTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\OrdersTest.cs:line 25
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b29126fb-046a-439b-bfe7-eed88a3dba72" testId="6acbb951-eb71-fb99-8ddf-ab7f75a91729" testName="GetOrdersForOneDepartmentTest" computerName="WCS-DEMO01" duration="00:00:00.2579538" startTime="2016-07-18T23:22:22.3774059+01:00" endTime="2016-07-18T23:22:22.6430224+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b29126fb-046a-439b-bfe7-eed88a3dba72">
+    </UnitTestResult>
+    <UnitTestResult executionId="c15cd3d2-ca33-4703-bceb-448cb89cdb76" testId="fd0a1761-2fa5-6106-02d8-2b29836676e9" testName="GetOrdersForOneWardTest" computerName="WCS-DEMO01" duration="00:00:00.3103452" startTime="2016-07-18T23:22:22.6430224+01:00" endTime="2016-07-18T23:22:22.9555124+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c15cd3d2-ca33-4703-bceb-448cb89cdb76">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;13&gt;. Actual:&lt;15&gt;. </Message>
+          <StackTrace>   at WCS.Services.Test.OrdersTest.GetOrdersForOneWardTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\OrdersTest.cs:line 44
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d9eaaa01-fdd7-4120-bda9-568242e92e50" testId="706b359a-a6a6-75cb-07b9-35e158a1398a" testName="HideUnhideOrderTest" computerName="WCS-DEMO01" duration="00:00:00.1857924" startTime="2016-07-18T23:22:22.9555124+01:00" endTime="2016-07-18T23:22:23.1586309+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d9eaaa01-fdd7-4120-bda9-568242e92e50">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method WCS.Services.Test.OrdersTest.HideUnhideOrderTest threw exception: 
+System.InvalidOperationException: Sequence contains no matching element</Message>
+          <StackTrace>    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WCS.Services.Test.OrdersTest.HideUnhideOrderTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\OrdersTest.cs:line 109
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ef6819e0-d1be-46f5-be14-e268662eaf84" testId="01b49734-9a95-3356-f525-6254544b49b4" testName="LookAtOrderInDetailTest" computerName="WCS-DEMO01" duration="00:00:00.2015884" startTime="2016-07-18T23:22:23.1586309+01:00" endTime="2016-07-18T23:22:23.3617494+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ef6819e0-d1be-46f5-be14-e268662eaf84">
+    </UnitTestResult>
+    <UnitTestResult executionId="6688ad5d-832b-4d05-9f0c-31c6f179a5c0" testId="aa578b34-4332-1a73-0f9c-1cecca014087" testName="RelatedOrdersTest" computerName="WCS-DEMO01" duration="00:00:00.1808658" startTime="2016-07-18T23:22:23.3617494+01:00" endTime="2016-07-18T23:22:23.5648679+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6688ad5d-832b-4d05-9f0c-31c6f179a5c0">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsNotNull failed. </Message>
+          <StackTrace>   at WCS.Services.Test.OrdersTest.RelatedOrdersTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\OrdersTest.cs:line 206
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="10e0d874-f956-40e4-b084-20bc3fd0a075" testId="5ee44f0b-f581-d009-1bb2-ef38afd0bdc0" testName="UpdateProcedureTimeTest" computerName="WCS-DEMO01" duration="00:00:00.1829846" startTime="2016-07-18T23:22:23.5648679+01:00" endTime="2016-07-18T23:22:23.7367374+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="10e0d874-f956-40e4-b084-20bc3fd0a075">
+    </UnitTestResult>
+    <UnitTestResult executionId="71fbe6b8-48e2-4a0d-bcd3-95fd67bb8d40" testId="86000e48-b18e-94a0-5184-f2457dcc7ac6" testName="SyncronizeAndThenUpdateProcedureTimeTest" computerName="WCS-DEMO01" duration="00:00:01.9976308" startTime="2016-07-18T23:22:23.7367374+01:00" endTime="2016-07-18T23:22:25.7522979+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="71fbe6b8-48e2-4a0d-bcd3-95fd67bb8d40">
+      <Output>
+        <DebugTrace>Start Time: 14:00:00
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="56a010bc-e6ce-42f6-9f4e-18c5e4376a23" testId="7a7a3263-10ac-0d9d-dc5c-c34b5219adf5" testName="SyncronizeProcedureTimeTest" computerName="WCS-DEMO01" duration="00:00:00.0020900" startTime="2016-07-18T23:22:25.7522979+01:00" endTime="2016-07-18T23:22:25.7679224+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="56a010bc-e6ce-42f6-9f4e-18c5e4376a23">
+      <Output>
+        <DebugTrace>Start Time: 14:00:00
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="16cffef5-eb4a-42ca-9536-42db867fa90e" testId="aed6e57c-8ae5-1ec4-7df4-be7cb9a3ba60" testName="SyncronizeTest" computerName="WCS-DEMO01" duration="00:00:00.0041569" startTime="2016-07-18T23:22:25.7679224+01:00" endTime="2016-07-18T23:22:25.7679224+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16cffef5-eb4a-42ca-9536-42db867fa90e">
+    </UnitTestResult>
+    <UnitTestResult executionId="d582de85-649d-4969-b7be-8399f65acb97" testId="dd302f63-b65f-08ec-a43e-ed2d5c5fa0d5" testName="UpdateProcedureTimeTest" computerName="WCS-DEMO01" duration="00:00:01.9878508" startTime="2016-07-18T23:22:25.7679224+01:00" endTime="2016-07-18T23:22:27.7678584+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d582de85-649d-4969-b7be-8399f65acb97">
+      <Output>
+        <DebugTrace>Start Time: 14:00:00
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="597bb8fb-8a52-4b6c-9360-63b274e9cb24" testId="9fd5787b-1fba-b8fb-7877-005945c878de" testName="UpdateProcedureTimeWithSyncronizationDuringUpdateTest" computerName="WCS-DEMO01" duration="00:00:02.1986250" startTime="2016-07-18T23:22:27.7678584+01:00" endTime="2016-07-18T23:22:29.9709129+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="597bb8fb-8a52-4b6c-9360-63b274e9cb24">
+      <Output>
+        <DebugTrace>Start Time: 14:00:00
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fcba958f-2ccd-406a-9d8c-03372e05d262" testId="08de56d0-12bd-2f75-df12-b0e872d63c53" testName="PAT001RfidTest" computerName="WCS-DEMO01" duration="00:00:00.3971180" startTime="2016-07-18T23:22:29.9865374+01:00" endTime="2016-07-18T23:22:30.3771499+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fcba958f-2ccd-406a-9d8c-03372e05d262">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;RADIOLOGY&gt;. Actual:&lt;WARD1&gt;. </Message>
+          <StackTrace>   at WCS.Services.Test.RfidTest.PAT001RfidTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\RfidTest.cs:line 72
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="23a2c21f-ef25-4608-95f9-6f4f1cc8a690" testId="747e6c80-eaec-91a6-d616-a83fe8be9748" testName="PAT001RfidWaitingRoomTest" computerName="WCS-DEMO01" duration="00:00:00.1657065" startTime="2016-07-18T23:22:30.3771499+01:00" endTime="2016-07-18T23:22:30.5490194+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23a2c21f-ef25-4608-95f9-6f4f1cc8a690">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method WCS.Services.Test.RfidTest.PAT001RfidWaitingRoomTest threw exception: 
+System.InvalidOperationException: Sequence contains no matching element</Message>
+          <StackTrace>    at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at WCS.Services.Test.RfidTest.PAT001RfidWaitingRoomTest() in C:\TFS\WCS\Content\Code\Server\WCS.Services.Test\RfidTest.cs:line 22
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="00bd558f-a372-4f9f-92bc-f31b4babe6d7" testId="ca4b34fe-1f28-609f-1b42-a878fd7e8bbf" testName="AuthenticateFailTest" computerName="WCS-DEMO01" duration="00:00:00.0618261" startTime="2016-07-18T23:22:30.5490194+01:00" endTime="2016-07-18T23:22:30.6115174+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="00bd558f-a372-4f9f-92bc-f31b4babe6d7">
+    </UnitTestResult>
+    <UnitTestResult executionId="35cda327-4fe7-40f6-a498-36fd05af1ee6" testId="0a57bcbb-7ab6-367a-6f83-d95617eecd13" testName="AuthenticateSuccessTest" computerName="WCS-DEMO01" duration="00:00:00.0048333" startTime="2016-07-18T23:22:30.6271419+01:00" endTime="2016-07-18T23:22:30.6271419+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35cda327-4fe7-40f6-a498-36fd05af1ee6">
+    </UnitTestResult>
+    <UnitTestResult executionId="44f8eb23-74b3-432b-b729-f1ba275ecf60" testId="b165b39e-5b0c-abea-5b39-75b39d4ee541" testName="NoteOutTest" computerName="WCS-DEMO01" duration="00:00:00.0069707" startTime="2016-07-18T23:22:30.6271419+01:00" endTime="2016-07-18T23:22:30.6427664+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="44f8eb23-74b3-432b-b729-f1ba275ecf60">
+    </UnitTestResult>
+    <UnitTestResult executionId="c5942ccb-3d98-4ed8-9d6b-437603352f17" testId="807586a3-dd80-e35a-be55-8a7820ed2e2a" testName="OrderCompletedTest" computerName="WCS-DEMO01" duration="00:00:00.0009920" startTime="2016-07-18T23:22:30.6427664+01:00" endTime="2016-07-18T23:22:30.6427664+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c5942ccb-3d98-4ed8-9d6b-437603352f17">
+    </UnitTestResult>
+    <UnitTestResult executionId="5d89c44b-d0db-4fa2-bcfa-c36575a076d7" testId="de2cd584-4eca-b743-8342-64583efb12aa" testName="FilterByLocationTest" computerName="WCS-DEMO01" duration="00:00:00.0753670" startTime="2016-07-18T23:22:30.6583909+01:00" endTime="2016-07-18T23:22:30.7365134+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5d89c44b-d0db-4fa2-bcfa-c36575a076d7">
+    </UnitTestResult>
+    <UnitTestResult executionId="1b1039bf-578e-429c-b049-dc2457bad1ec" testId="b0e39bf3-43ea-a19c-d6f5-eff49b5d247c" testName="FilterByOrderStatusTest" computerName="WCS-DEMO01" duration="00:00:00.0591061" startTime="2016-07-18T23:22:30.7521379+01:00" endTime="2016-07-18T23:22:30.7990114+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1b1039bf-578e-429c-b049-dc2457bad1ec">
+    </UnitTestResult>
+    <UnitTestResult executionId="18feddd7-98f3-42e7-b580-62c30ef75d45" testId="6035bdea-c63f-c9fd-76c4-96ad98562066" testName="FilterByOrderStatusWithHiddenFlagTest" computerName="WCS-DEMO01" duration="00:00:00.1511150" startTime="2016-07-18T23:22:30.7990114+01:00" endTime="2016-07-18T23:22:30.9552564+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="18feddd7-98f3-42e7-b580-62c30ef75d45">
+    </UnitTestResult>
+  </Results>
+</TestRun>

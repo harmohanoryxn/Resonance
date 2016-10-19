@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="WCS.Shared.Schedule.NavigationBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters"
+             xmlns:DataServices="clr-namespace:Cloudmaster.WCS.DataServicesInvoker.DataServices;assembly=WCS.DataServicesInvoker"
+             xmlns:Schedule1="clr-namespace:WCS.Shared.Schedule" mc:Ignorable="d" >
+
+	<UserControl.Resources>
+		<Converters:ConfigurationsTypeSubsetConverter x:Key="configurationsTypeSubsetConvert"/>
+		<Converters:ConfigurationsTypeSubsetAnyToVisibilityConverter x:Key="configurationsTypeSubsetAnyToVisibilityConverter"/>
+
+		<DataServices:DeviceConfigurationType x:Key="department">Department</DataServices:DeviceConfigurationType>
+		<DataServices:DeviceConfigurationType x:Key="ward">Ward</DataServices:DeviceConfigurationType>
+		<DataServices:DeviceConfigurationType x:Key="cleaning">Cleaning</DataServices:DeviceConfigurationType>
+		<DataServices:DeviceConfigurationType x:Key="physio">Physio</DataServices:DeviceConfigurationType>
+		<DataServices:DeviceConfigurationType x:Key="discharge">Discharge</DataServices:DeviceConfigurationType>
+		<DataServices:DeviceConfigurationType x:Key="admissions">Admissions</DataServices:DeviceConfigurationType>
+	</UserControl.Resources>
+
+	<DockPanel LastChildFill="True">
+
+		<Button Margin="15,5,30,5" Style="{StaticResource NavigationBackButtonStyle}" Background="Transparent" Height="170" Width="30" Command="{Binding Path=ToggleNavigationBarVisibilityCommand}" DockPanel.Dock="Left" Content="Back" VerticalAlignment="Top"/>
+
+		<ListBox Padding="0"  
+				 BorderBrush="Transparent"
+				 Background="Transparent" 
+				 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+				 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+				 ScrollViewer.PanningMode="HorizontalOnly">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel Orientation="Horizontal" IsItemsHost="True" />
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+
+
+			<StackPanel Orientation="Vertical" Margin="0,0,35,0" VerticalAlignment="Center" Visibility="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetAnyToVisibilityConverter}, ConverterParameter={StaticResource department}}">
+				<TextBlock Style="{StaticResource NavigationHeaderTextStyle}" Text="Departments"/>
+				<ListBox   ItemsSource="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetConvert}, ConverterParameter={StaticResource department}}"
+				   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" IsItemsHost="True" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+				</ListBox>
+			</StackPanel>
+
+			<StackPanel Orientation="Vertical" Margin="0,0,35,0" VerticalAlignment="Center" Visibility="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetAnyToVisibilityConverter}, ConverterParameter={StaticResource ward}}">
+				<TextBlock Style="{StaticResource NavigationHeaderTextStyle}" Text="Wards"/>
+				<ListBox   ItemsSource="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetConvert}, ConverterParameter={StaticResource ward}}"
+				   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" IsItemsHost="True" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+				</ListBox>
+			</StackPanel>
+
+			<StackPanel Orientation="Vertical" Margin="0,0,35,0" VerticalAlignment="Center" Visibility="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetAnyToVisibilityConverter}, ConverterParameter={StaticResource cleaning}}">
+				<TextBlock Style="{StaticResource NavigationHeaderTextStyle}" Text="Cleaning"/>
+				<ListBox   ItemsSource="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetConvert}, ConverterParameter={StaticResource cleaning}}"
+				   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" IsItemsHost="True" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+				</ListBox>
+			</StackPanel>
+
+			<StackPanel Orientation="Vertical" Margin="0,0,35,0" VerticalAlignment="Center" Visibility="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetAnyToVisibilityConverter}, ConverterParameter={StaticResource physio}}">
+				<TextBlock Style="{StaticResource NavigationHeaderTextStyle}" Text="Physio"/>
+				<ListBox   ItemsSource="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetConvert}, ConverterParameter={StaticResource physio}}"
+				   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" IsItemsHost="True" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+				</ListBox>
+			</StackPanel>
+
+			<StackPanel Orientation="Vertical" Margin="0,0,35,0" VerticalAlignment="Center" Visibility="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetAnyToVisibilityConverter}, ConverterParameter={StaticResource discharge}}">
+				<TextBlock Style="{StaticResource NavigationHeaderTextStyle}" Text="Discharge"/>
+				<ListBox   ItemsSource="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetConvert}, ConverterParameter={StaticResource discharge}}"
+				   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" IsItemsHost="True" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+				</ListBox>
+			</StackPanel>
+
+			<StackPanel Orientation="Vertical" Margin="0,0,35,0" VerticalAlignment="Center" Visibility="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetAnyToVisibilityConverter}, ConverterParameter={StaticResource admissions}}">
+				<TextBlock Style="{StaticResource NavigationHeaderTextStyle}" Text="Admissions"/>
+				<ListBox   ItemsSource="{Binding Path=DataContext.ConfigurationSource.View, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:ScreenBootstrap}}, Converter={StaticResource configurationsTypeSubsetConvert}, ConverterParameter={StaticResource admissions}}"
+				   VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal" IsItemsHost="True" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+				</ListBox>
+			</StackPanel>
+
+		</ListBox>
+
+	</DockPanel>
+</UserControl>

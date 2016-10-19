@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C990C9F-92B6-4D68-9792-DABE0D138D45}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cloudmaster.WCS.Controls</RootNamespace>
+    <AssemblyName>WCS.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\OpenXml\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF4, Version=3.0.0.19994, Culture=neutral, PublicKeyToken=63eb5c012e0b3c1c, processorArchitecture=MSIL" />
+    <Reference Include="IdentityMine.Windows, Version=1.0.0.2, Culture=neutral, PublicKeyToken=6381fa152b90aa01, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\IdentityMine\IdentityMine.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityMine.Windows.Essentials, Version=1.0.0.2, Culture=neutral, PublicKeyToken=6381fa152b90aa01, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\IdentityMine\IdentityMine.Windows.Essentials.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Microsoft\Expression\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Commands\AutoSaveCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\Commands\CheckCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\Commands\SectionCommands.cs" />
+    <Compile Include="Forms\Commands\FormCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\Commands\FormNavigationCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\Commands\ImageOperationCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\Commands\OfficeCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms\Commands\OutboxCommands.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Floorplan\ChairDisplay.cs" />
+    <Compile Include="Floorplan\ClockFaceTickBar.cs" />
+    <Compile Include="Floorplan\CompassSlider.cs" />
+    <Compile Include="Floorplan\CompassThumb.cs" />
+    <Compile Include="Floorplan\BedDisplay.cs" />
+    <Compile Include="Floorplan\CoffeeTableDisplay.cs" />
+    <Compile Include="Floorplan\AlertTimer.cs" />
+    <Compile Include="Floorplan\AlertDisplay.cs" />
+    <Compile Include="Forms\FormWizard.xaml.cs">
+      <DependentUpon>FormWizard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewCheck.xaml.cs">
+      <DependentUpon>ViewCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewForm.xaml.cs">
+      <DependentUpon>ViewForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewImage.xaml.cs">
+      <DependentUpon>ViewImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\OrdersHelper.cs" />
+    <Compile Include="Floorplan\WallDisplay.cs" />
+    <Compile Include="Floorplan\InventoryItemDisplay.cs" />
+    <Compile Include="Floorplan\DoorDisplay.cs" />
+    <Compile Include="Floorplan\CouchDisplay.cs" />
+    <Compile Include="Floorplan\PianoDisplay.cs" />
+    <Compile Include="Floorplan\RoundStairDisplay.cs" />
+    <Compile Include="Floorplan\StairwellDisplay.cs" />
+    <Compile Include="Floorplan\ToiletDisplay.cs" />
+    <Compile Include="Floorplan\EntranceDisplay.cs" />
+    <Compile Include="Floorplan\WoodenSeatDisplay.cs" />
+    <Compile Include="Floorplan\SeatDisplay.cs" />
+    <Compile Include="Floorplan\WorkstationDisplay.cs" />
+    <Compile Include="Floorplan\MetalStorageUnitDisplay.cs" />
+    <Compile Include="Floorplan\StorageUnitDisplay.cs" />
+    <Compile Include="Floorplan\MonitorDisplay.cs" />
+    <Compile Include="PanAndZoomBox.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Floorplan\RoomDisplay.cs" />
+    <Compile Include="Floorplan\TableDisplay.cs" />
+    <Compile Include="Tasks\Commands\WizardCommands.cs" />
+    <Compile Include="Tasks\EditDetails.xaml.cs">
+      <DependentUpon>EditDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tasks\SelectTarget.xaml.cs">
+      <DependentUpon>SelectTarget.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tasks\TasksWizard.xaml.cs">
+      <DependentUpon>TasksWizard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tasks\ViewResult.xaml.cs">
+      <DependentUpon>ViewResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CaptureImageWindow.xaml.cs">
+      <DependentUpon>CaptureImageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SignOffWindow.xaml.cs">
+      <DependentUpon>SignOffWindow.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Forms\FormWizard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Styles\ImageListBoxStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\ViewCheck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\ViewForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\ViewImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ButtonStyles\MenuButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\BorderStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ButtonStyles\NavigationButtons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ButtonStyles\RadioButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ButtonStyles\WizardButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ChromelessWindowStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Designs\BackArrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Designs\CloseIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Designs\LockIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Designs\NextArrow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Designs\TickIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\FontStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Styles\AutoSaveListBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Styles\ChecksListBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Styles\OutboxListBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tasks\EditDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tasks\SelectTarget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tasks\Styles\RadioButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tasks\TasksWizard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tasks\ViewResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\CaptureImageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SignOffWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cloudmaster.WCS.IO\Cloudmaster.WCS.IO.csproj">
+      <Project>{70CD0626-6F03-46AA-BF32-83CEFBEEEC4C}</Project>
+      <Name>Cloudmaster.WCS.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.Office\Cloudmaster.WCS.Office.csproj">
+      <Project>{0348BC0E-9697-4373-AE16-CAFA2ABD8775}</Project>
+      <Name>Cloudmaster.WCS.Office</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.Packaging\Cloudmaster.WCS.Packaging.csproj">
+      <Project>{538A725A-86CA-4DFA-A4E8-A2B136BD0E4E}</Project>
+      <Name>Cloudmaster.WCS.Packaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.Model\Cloudmaster.WCS.Model.csproj">
+      <Project>{661F6D20-5F07-4553-827D-7BCA63145042}</Project>
+      <Name>Cloudmaster.WCS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.Processing\Cloudmaster.WCS.Processing.csproj">
+      <Project>{B00DC8ED-9769-4C28-B9F1-CE3681E6AA91}</Project>
+      <Name>Cloudmaster.WCS.Processing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

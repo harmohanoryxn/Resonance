@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{ECD6D718-D1CF-4119-97F3-97C25A0DFBF9}") = "Cloudmaster.WCS.AdminConsole.LS", "Client\Cloudmaster.WCS.AdminConsole.LS\Cloudmaster.WCS.AdminConsole.LS.lsproj", "{7E2459AA-1141-49DF-90E5-7E4607353842}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "WcsDB", "Database\WcsDB\WcsDB.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://teamexplorer.tfsserver.com/cloudmaster
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Client\\Client.csproj
+		SccProjectTopLevelParentUniqueName1 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Cloudmaster.WCS.AdminConsole.LS.lsproj
+		SccProjectName1 = Client/Cloudmaster.WCS.AdminConsole.LS/Client
+		SccLocalPath1 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Client
+		SccProjectUniqueName2 = Client\\Cloudmaster.WCS.AdminConsole.LS\\ClientGenerated\\ClientGenerated.csproj
+		SccProjectTopLevelParentUniqueName2 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Cloudmaster.WCS.AdminConsole.LS.lsproj
+		SccProjectName2 = Client/Cloudmaster.WCS.AdminConsole.LS/ClientGenerated
+		SccLocalPath2 = Client\\Cloudmaster.WCS.AdminConsole.LS\\ClientGenerated
+		SccProjectUniqueName3 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Cloudmaster.WCS.AdminConsole.LS.lsproj
+		SccProjectName3 = Client/Cloudmaster.WCS.AdminConsole.LS
+		SccLocalPath3 = Client\\Cloudmaster.WCS.AdminConsole.LS
+		SccProjectUniqueName4 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Common\\Common.csproj
+		SccProjectTopLevelParentUniqueName4 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Cloudmaster.WCS.AdminConsole.LS.lsproj
+		SccProjectName4 = Client/Cloudmaster.WCS.AdminConsole.LS/Common
+		SccLocalPath4 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Common
+		SccProjectUniqueName5 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Server\\Server.csproj
+		SccProjectTopLevelParentUniqueName5 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Cloudmaster.WCS.AdminConsole.LS.lsproj
+		SccProjectName5 = Client/Cloudmaster.WCS.AdminConsole.LS/Server
+		SccLocalPath5 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Server
+		SccProjectUniqueName6 = Client\\Cloudmaster.WCS.AdminConsole.LS\\ServerGenerated\\ServerGenerated.csproj
+		SccProjectTopLevelParentUniqueName6 = Client\\Cloudmaster.WCS.AdminConsole.LS\\Cloudmaster.WCS.AdminConsole.LS.lsproj
+		SccProjectName6 = Client/Cloudmaster.WCS.AdminConsole.LS/ServerGenerated
+		SccLocalPath6 = Client\\Cloudmaster.WCS.AdminConsole.LS\\ServerGenerated
+		SccProjectUniqueName7 = Database\\WcsDB\\WcsDB.dbproj
+		SccProjectName7 = Database/WcsDB
+		SccLocalPath7 = Database\\WcsDB
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E2459AA-1141-49DF-90E5-7E4607353842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E2459AA-1141-49DF-90E5-7E4607353842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E2459AA-1141-49DF-90E5-7E4607353842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E2459AA-1141-49DF-90E5-7E4607353842}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B975311-E848-4C0D-9915-FC1407046A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B975311-E848-4C0D-9915-FC1407046A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B975311-E848-4C0D-9915-FC1407046A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B975311-E848-4C0D-9915-FC1407046A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBAE740C-15A0-49BC-8E41-9C35BEF0CCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBAE740C-15A0-49BC-8E41-9C35BEF0CCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBAE740C-15A0-49BC-8E41-9C35BEF0CCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBAE740C-15A0-49BC-8E41-9C35BEF0CCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620B0643-C0B8-480E-B2B1-07E555C4794A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620B0643-C0B8-480E-B2B1-07E555C4794A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620B0643-C0B8-480E-B2B1-07E555C4794A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620B0643-C0B8-480E-B2B1-07E555C4794A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B651054-F7A0-4787-974E-D7C4F875E6B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B651054-F7A0-4787-974E-D7C4F875E6B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B651054-F7A0-4787-974E-D7C4F875E6B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B651054-F7A0-4787-974E-D7C4F875E6B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94472D0-12FC-4414-B30F-745A49128F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94472D0-12FC-4414-B30F-745A49128F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94472D0-12FC-4414-B30F-745A49128F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94472D0-12FC-4414-B30F-745A49128F77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

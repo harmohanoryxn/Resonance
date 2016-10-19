@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../BorderStyles.xaml" />
+        <ResourceDictionary Source="../FontStyles.xaml" />
+        <ResourceDictionary Source="../Designs/NextArrow.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="WizardButtonStyle" TargetType="{x:Type Button}">
+
+        <Border x:Name="outerBorder" Width="160" Height="48"
+                Style="{StaticResource OuterBorderStyle}"
+                >
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0,1.5">
+                    <GradientStop Color="#40AD83" Offset="0.0" />
+                    <GradientStop Color="#255F47" Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <ContentPresenter Grid.Column="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource StandardButtonFont}"
+                        Margin="10, 7"
+                        />
+
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Border.MouseDown" >
+                    <EventTrigger.Actions>
+                        <SoundPlayerAction Source="../../Media/Sounds/ButtonClick.wav" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Border.Triggers>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="outerBorder" Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0,1">
+                            <GradientStop Color="#C8C7C5" Offset="0.0" />
+                            <GradientStop Color="#808080" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="outerBorder" Property="Background" Value="#509B83" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="outerBorder" Property="Background" Value="#BEA073" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+
+</ResourceDictionary>

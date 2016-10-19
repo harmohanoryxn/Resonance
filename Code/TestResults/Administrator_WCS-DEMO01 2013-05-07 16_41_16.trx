@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d5df11f7-eab3-4f25-9e87-540d22bf4c1f" name="Administrator@WCS-DEMO01 2013-05-07 16:41:16" runUser="WCS-DEMO01\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="61373a94-fbff-4c55-9706-8fcabc008c98">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Administrator_WCS-DEMO01 2013-05-07 16_41_16">
+      <DeploymentItem filename="C:\TFS\WCS\Content\Libraries\MvvmLight\GalaSoft.MvvmLight.Extras.WPF4.dll" />
+      <DeploymentItem filename="C:\TFS\WCS\Content\Code\Client\Cloudmaster.WCS.Shared\bin\Debug\Cloudmaster.WCS.Shared.dll" />
+      <DeploymentItem filename="C:\TFS\WCS\Content\Code\Client\Cloudmaster.WCS.Core\bin\Debug\Cloudmaster.WCS.Core.dll" />
+      <DeploymentItem filename="C:\TFS\WCS\Content\Code\Server\Cloudmaster.WCS.Services\bin\Debug\WCS.Services.dll" />
+      <DeploymentItem filename="C:\TFS\WCS\Content\Libraries\MvvmLight\System.Windows.Interactivity.dll" />
+      <DeploymentItem filename="C:\TFS\WCS\Content\Libraries\MvvmLight\GalaSoft.MvvmLight.WPF4.dll" />
+      <DeploymentItem filename="C:\TFS\WCS\Content\Output\Debug\DataServices\Wcs\WCS.Services.DataServices.dll" />
+      <DeploymentItem filename="C:\TFS\WCS\Content\Code\Client\Cloudmaster.WCS.DataServicesInvoker\bin\Debug\WCS.DataServicesInvoker.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-05-07T16:41:16.8717904+01:00" queuing="2013-05-07T16:41:17.3092876+01:00" start="2013-05-07T16:41:17.6217856+01:00" finish="2013-05-07T16:41:21.4655110+01:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetOrdersForAllLocationsTest" storage="c:\tfs\wcs\content\code\server\wcs.services.test\bin\debug\wcs.services.test.dll" id="90b6d056-82b8-5748-e91c-81b6feec3e65">
+      <Execution id="45fd8fbd-5e86-4d41-9fe3-733786714d50" />
+      <TestMethod codeBase="C:/TFS/WCS/Content/Code/Server/WCS.Services.Test/bin/Debug/WCS.Services.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WCS.Services.Test.OrdersTest, WCS.Services.Test, Version=3.1.0.3, Culture=neutral, PublicKeyToken=null" name="GetOrdersForAllLocationsTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="90b6d056-82b8-5748-e91c-81b6feec3e65" executionId="45fd8fbd-5e86-4d41-9fe3-733786714d50" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="45fd8fbd-5e86-4d41-9fe3-733786714d50" testId="90b6d056-82b8-5748-e91c-81b6feec3e65" testName="GetOrdersForAllLocationsTest" computerName="WCS-DEMO01" duration="00:00:01.5601311" startTime="2013-05-07T16:41:17.7311599+01:00" endTime="2013-05-07T16:41:19.6217728+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="45fd8fbd-5e86-4d41-9fe3-733786714d50">
+    </UnitTestResult>
+  </Results>
+</TestRun>

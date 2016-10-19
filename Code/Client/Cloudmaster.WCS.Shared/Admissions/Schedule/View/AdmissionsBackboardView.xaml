@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="WCS.Shared.Admissions.Schedule.AdmissionsBackboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:Controls1="clr-namespace:WCS.Shared.Controls" 
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" mc:Ignorable="d" Width="280" HorizontalAlignment="Right" BorderBrush="{StaticResource peeBorderBrush}" BorderThickness="1,0,0,0">
+
+	<UserControl.Resources>
+
+		<Converters:IsOnlyPositionToCornerRadiusConverter x:Key="isOnlyPositionToCornerRadiusConverter"/>
+		<Converters:IsTopPositionToCornerRadiusConverter x:Key="isTopPositionToCornerRadiusConverter"/>
+		<Converters:IsBottomPositionToCornerRadiusConverter x:Key="isBottomPositionToCornerRadiusConverter"/>
+
+		<sys:String x:Key="timelineView">Timeline</sys:String>
+		<sys:String x:Key="mapView">Map</sys:String>
+		<sys:String x:Key="combinedView">Combined</sys:String>
+
+	</UserControl.Resources>
+
+	<DockPanel LastChildFill="False" HorizontalAlignment="Center">
+
+        <StackPanel  DockPanel.Dock="Bottom" HorizontalAlignment="Center"  Margin="0,0,0,10" >
+			<TextBlock Text="Developed by Cloudmaster" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+			<TextBlock Text="{Binding Path=Main.ApplicationVersion,StringFormat=Version {0}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+            <TextBlock Text="{Binding Path=Main.ClientName,StringFormat=Client {0}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+            <TextBlock Text="{Binding Path=Main.ServerName,StringFormat=Server {0}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+		</StackPanel>
+ 
+		<Border HorizontalAlignment="Center" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15,10,0,5">
+			<WrapPanel>
+				<TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=LastSynchronised, StringFormat= 'Updated {0:d/MM/yy} '}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+				<TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=LastSynchronised, StringFormat= '{}{0:h:mm} '}" FontWeight="Bold" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+				<TextBlock FontSize="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=LastSynchronised, StringFormat= {}{0:tt}}" Foreground="{StaticResource BackboardBackgroungFontBrush}"/>
+			</WrapPanel>
+		</Border>
+
+		<!--<TextBlock Text="View" Style="{StaticResource PeelHeader1FontStyle}" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="15,10,0,5"/>
+		<Border Background="{StaticResource peeBorderBrush}" DockPanel.Dock="Top"  CornerRadius="6" Margin="0,0,0,0" BorderThickness="1" BorderBrush="{StaticResource peeBorderBrush}">
+			<StackPanel Orientation="Vertical" Margin="0">
+				<RadioButton IsChecked="{Binding Path=ShowTimelineView}"  GroupName="view" Style="{StaticResource PeelRadioButtonStyle}" Margin="0,0,0,0.5" Controls1:CornerEdge.Radius="6,6,0,0"  Content="{StaticResource timelineView}" Command="{Binding Path=ChangeViewCommand}" CommandParameter="{StaticResource timelineView}"/>
+				<RadioButton IsChecked="{Binding Path=ShowMapView}" GroupName="view" Style="{StaticResource PeelRadioButtonStyle}" Margin="0,0.5,0,0.5" Controls1:CornerEdge.Radius="0,0,0,0" Content="{StaticResource mapView}" Command="{Binding Path=ChangeViewCommand}" CommandParameter="{StaticResource mapView}"/>
+				<RadioButton IsChecked="{Binding Path=ShowCombinedView}" GroupName="view" Style="{StaticResource PeelRadioButtonStyle}" Margin="0,0.5,0,0" Controls1:CornerEdge.Radius="0,0,6,6" Content="{StaticResource combinedView}" Command="{Binding Path=ChangeViewCommand}" CommandParameter="{StaticResource combinedView}"/>
+			</StackPanel>
+		</Border>-->
+
+		<TextBlock Text="Location" Style="{StaticResource PeelHeader1FontStyle}" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="15,10,0,5"/>
+		<DockPanel LastChildFill="True">
+			<Controls1:ClippingBorder Background="{StaticResource peeBorderBrush}"  HorizontalAlignment="Right" CornerRadius="0" Margin="0,0,0,0" BorderThickness="1" BorderBrush="{StaticResource peeBorderBrush}" DockPanel.Dock="Top" >
+
+				<ListBox ItemsSource="{Binding Path=AlternativeLocations}" 
+					 SelectedItem="{Binding Path=SelectedLocation}"
+					 DisplayMemberPath="Code" AlternationCount="1000" 
+					 Width="200" Margin="0,0,0,0" BorderThickness="0" BorderBrush="{StaticResource peeBorderBrush}"
+					 VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Top" 
+						 ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+						 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+						   ScrollViewer.PanningMode="VerticalOnly">
+
+					<ListBox.ItemContainerStyle>
+						<Style TargetType="{x:Type ListBoxItem}">
+							<Setter Property="OverridesDefaultStyle" Value="true"/>
+							<Setter Property="IsTabStop" Value="false"/>
+							<Setter Property="VerticalContentAlignment" Value="Center"/>
+							<Setter Property="HorizontalContentAlignment" Value="Left"/>
+							<Setter Property="Width" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollContentPresenter}}, Path=ActualWidth}"/>
+							<Setter Property="Height" Value="30"/>
+							<Setter Property="Margin" Value="0,0.5,0,0.5"/>
+							<Setter Property="Template">
+								<Setter.Value>
+									<ControlTemplate TargetType="{x:Type ListBoxItem}">
+
+										<Grid x:Name="Grid" RenderTransformOrigin="0.5,0.5">
+											<Border x:Name="Background" Opacity="1" Background="{StaticResource WhiteBrush}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0"/>
+											<Border x:Name="Selected" Opacity="0" Background="#89CEFF" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0"  CornerRadius="{TemplateBinding Controls1:CornerEdge.Radius}"/>
+											<Border x:Name="Hover" Opacity="0" Background="{StaticResource HoverShineBrush}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="0"  CornerRadius="{TemplateBinding Controls1:CornerEdge.Radius}"/>
+
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="*"/>
+													<ColumnDefinition Width="Auto"/>
+												</Grid.ColumnDefinitions>
+
+												<TextBlock Text="{Binding Path=Name}"  Grid.Column="0" Style="{StaticResource PeelTextFontStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+												<Rectangle Grid.Column="1" x:Name="selectedRec"  Height="15" Width="15" Margin="2,2,15,2"/>
+											</Grid>
+										</Grid>
+
+
+										<ControlTemplate.Triggers>
+											<Trigger Property="IsMouseOver" Value="true">
+												<Setter TargetName="Hover" Property="Opacity" Value="1"/>
+											</Trigger>
+											<DataTrigger Binding="{Binding IsDefault}" Value="true">
+												<Setter TargetName="selectedRec" Property="Fill" Value="{StaticResource peelItemDefaultedBrush}"/>
+											</DataTrigger>
+											<Trigger Property="IsSelected" Value="true">
+												<Setter TargetName="Hover" Property="Opacity" Value="0"/>
+												<Setter TargetName="Selected" Property="Opacity" Value="1"/>
+												<Setter TargetName="selectedRec" Property="Fill" Value="{StaticResource peelItemSelectedBrush}"/>
+											</Trigger>
+											<!--<DataTrigger Value="True">
+												<DataTrigger.Binding>
+													<MultiBinding Converter="{StaticResource isOnlyPositionToCornerRadiusConverter}">
+														<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ListBox}}" Path="Items.Count" />
+														<Binding RelativeSource="{RelativeSource Self}" Path="(ItemsControl.AlternationIndex)" />
+													</MultiBinding>
+												</DataTrigger.Binding>
+												<Setter Property="Margin" Value="0,0.5,0,0.5"/>
+												<Setter TargetName="Background" Property="CornerRadius" Value="6"/>
+												<Setter TargetName="Selected" Property="CornerRadius" Value="6"/>
+												<Setter TargetName="Hover" Property="CornerRadius" Value="6"/>
+											</DataTrigger>
+											<DataTrigger Value="True">
+												<DataTrigger.Binding>
+													<MultiBinding Converter="{StaticResource isTopPositionToCornerRadiusConverter}">
+														<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ListBox}}" Path="Items.Count" />
+														<Binding RelativeSource="{RelativeSource Self}" Path="(ItemsControl.AlternationIndex)" />
+													</MultiBinding>
+												</DataTrigger.Binding>
+												<Setter Property="Margin" Value="0,0,0,0.5"/>
+												<Setter TargetName="Background" Property="CornerRadius" Value="6,6,0,0"/>
+												<Setter TargetName="Selected" Property="CornerRadius" Value="6,6,0,0"/>
+												<Setter TargetName="Hover" Property="CornerRadius" Value="6,6,0,0"/>
+
+											</DataTrigger>
+											<DataTrigger Value="True">
+												<DataTrigger.Binding>
+													<MultiBinding Converter="{StaticResource isBottomPositionToCornerRadiusConverter}">
+														<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ListBox}}" Path="Items.Count" />
+														<Binding RelativeSource="{RelativeSource Self}" Path="(ItemsControl.AlternationIndex)" />
+													</MultiBinding>
+												</DataTrigger.Binding>
+												<Setter Property="Margin" Value="0,0.5,0,0"/>
+												<Setter TargetName="Background" Property="CornerRadius" Value="0,0,6,6"/>
+												<Setter TargetName="Selected" Property="CornerRadius" Value="0,0,6,6"/>
+												<Setter TargetName="Hover" Property="CornerRadius" Value="0,0,6,6"/>
+											</DataTrigger>-->
+
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</ListBox.ItemContainerStyle>
+
+				</ListBox>
+				</Controls1:ClippingBorder>
+			<Border/>
+
+		</DockPanel>
+		 
+	</DockPanel>
+
+</UserControl>
+
+<!--<Grid Width="240" Height="39" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="1">
+			<StackPanel Orientation="Horizontal">
+				<TextBox Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Text="{Binding Path=PatientNameFilter, UpdateSourceTrigger=PropertyChanged}" Margin="5,1,1,1"/>
+				<Button Command="{Binding ClearFilterCommand}" Width="20" Height="20" Margin="5,1,1,1" IsEnabled="{Binding Path=PatientNameFilter, Converter={StaticResource emptyStringConverter}}"
+					>
+					<Button.Template>
+						<ControlTemplate TargetType="{x:Type Button}">
+							<Border>
+								<Path Height="20" Width="20" Stretch="Uniform" Data="{StaticResource CrossGeometry}" Fill="{StaticResource BlackBrush}"/>
+							</Border>
+						</ControlTemplate>
+					</Button.Template>
+				</Button>
+			</StackPanel>
+		</Grid>-->

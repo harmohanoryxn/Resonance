@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WCS.Shared.Location.CurrentDetection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" xmlns:Controls="clr-namespace:WCS.Shared.Controls"
+             mc:Ignorable="d" >
+	
+	<UserControl.Resources>
+		<Converters:RfidLocationToWidthConverter x:Key="rfidLocationToWidthConverter"/>
+		<Converters:RfidLocationToHeightConverter x:Key="rfidLocationToHeightConverter"/>
+		<Converters:RfidLocationGeometry x:Key="rfidLocationGeometry"/>
+	</UserControl.Resources>
+
+	<Path Width="{Binding Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=total}" 
+		  Height="{Binding Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=total}"
+		  HorizontalAlignment="Stretch"
+		  VerticalAlignment="Stretch"
+		  Data="{Binding Path=Code, Converter={StaticResource rfidLocationGeometry}}"
+		  Fill="#FFFFFFA3"
+		  Stroke="Black"
+		  StrokeThickness="1"/>
+		
+	
+</UserControl>

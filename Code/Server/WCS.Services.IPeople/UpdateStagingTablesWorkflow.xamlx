@@ -1,0 +1,58 @@
+﻿<WorkflowService mc:Ignorable="sap" ConfigurationName="UpdateOrdersWorkflow" sap:VirtualizedContainerService.HintSize="516,1171" Name="UpdateOrdersWorkflow" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:wsi="clr-namespace:WCS.Services.IPeople;assembly=WCS.Services.IPeople" xmlns:wsia="clr-namespace:WCS.Services.IPeople.Activities;assembly=WCS.Services.IPeople" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <p:Sequence sad:XamlDebuggerXmlReader.FileName="C:\TFS\WCS\Content\Code\Server\WCS.Services.IPeople\UpdateStagingTablesWorkflow.xamlx" sap:VirtualizedContainerService.HintSize="486,1141" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <p:DoWhile sap:VirtualizedContainerService.HintSize="464,1017" Condition="True">
+      <p:TryCatch sap:VirtualizedContainerService.HintSize="438,902">
+        <p:TryCatch.Try>
+          <p:Sequence sap:VirtualizedContainerService.HintSize="400,724">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <wsi:RetryByTime Attempts="{x:Null}" StartTime="{x:Null}" sap:VirtualizedContainerService.HintSize="226,120" MaxTime="00:10:00" RetryDelay="00:00:30">
+              <wsi:RetryByTime.Body>
+                <wsia:UpdateOrdersActivity ActivityExecutionTime="{x:Null}" IPeopleChannelName="{x:Null}" IPeopleConnectionString="{x:Null}" NumberOfRowsUpdated="{x:Null}" QueryExecutionTime="{x:Null}" UpdateExecutionTime="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" />
+              </wsi:RetryByTime.Body>
+            </wsi:RetryByTime>
+            <wsi:RetryByTime Attempts="{x:Null}" StartTime="{x:Null}" sap:VirtualizedContainerService.HintSize="226,120" MaxTime="00:10:00" RetryDelay="00:00:30">
+              <wsi:RetryByTime.Body>
+                <wsia:UpdateORCasesActivity ActivityExecutionTime="{x:Null}" IPeopleChannelName="{x:Null}" IPeopleConnectionString="{x:Null}" NumberOfRowsUpdated="{x:Null}" QueryExecutionTime="{x:Null}" UpdateExecutionTime="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" />
+              </wsi:RetryByTime.Body>
+            </wsi:RetryByTime>
+            <wsi:RetryByTime Attempts="{x:Null}" StartTime="{x:Null}" sap:VirtualizedContainerService.HintSize="226,120" MaxTime="00:10:00" RetryDelay="00:00:30">
+              <wsi:RetryByTime.Body>
+                <wsia:AddInPatientsActivity ActivityExecutionTime="{x:Null}" IPeopleChannelName="{x:Null}" IPeopleConnectionString="{x:Null}" NumberOfRowsUpdated="{x:Null}" QueryExecutionTime="{x:Null}" UpdateExecutionTime="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" />
+              </wsi:RetryByTime.Body>
+            </wsi:RetryByTime>
+            <wsi:RetryByTime Attempts="{x:Null}" StartTime="{x:Null}" sap:VirtualizedContainerService.HintSize="226,120" MaxTime="00:10:00" RetryDelay="00:00:30">
+              <wsi:RetryByTime.Body>
+                <wsia:AddOutPatientsActivity ActivityExecutionTime="{x:Null}" IPeopleChannelName="{x:Null}" IPeopleConnectionString="{x:Null}" NumberOfRowsUpdated="{x:Null}" QueryExecutionTime="{x:Null}" UpdateExecutionTime="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" />
+              </wsi:RetryByTime.Body>
+            </wsi:RetryByTime>
+          </p:Sequence>
+        </p:TryCatch.Try>
+        <p:TryCatch.Catches>
+          <p:Catch x:TypeArguments="wsi:RetryByTimeTimeoutException" sap:VirtualizedContainerService.HintSize="404,20">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <p:ActivityAction x:TypeArguments="wsi:RetryByTimeTimeoutException">
+              <p:ActivityAction.Argument>
+                <p:DelegateInArgument x:TypeArguments="wsi:RetryByTimeTimeoutException" Name="exception" />
+              </p:ActivityAction.Argument>
+              <wsia:SendEmail Body="{x:Null}" Cc="{x:Null}" From="{x:Null}" Bcc="support@cloudmaster.ie" sap:VirtualizedContainerService.HintSize="398,136" Subject="WCS IPeople Integration Failed" To="ruairi.obrien@galwayclinic.com" />
+            </p:ActivityAction>
+          </p:Catch>
+        </p:TryCatch.Catches>
+      </p:TryCatch>
+    </p:DoWhile>
+  </p:Sequence>
+</WorkflowService>

@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="WCS.Shared.Timeline.TimelineFreeBedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" mc:Ignorable="d" 
+			 Background="Transparent"
+			 x:Name="uc"
+			 Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type VirtualizingStackPanel}}}"
+			  >
+	<UserControl.Style>
+		<Style TargetType="{x:Type UserControl}">
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding Path=IsSelected}" Value="False">
+					<Setter Property="Opacity" Value="0.6"/>
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
+	</UserControl.Style>
+	
+	<UserControl.Resources>
+		<Converters:StringFormatConverter x:Key="stringFormatConverter"/>
+		<Converters:TimeToStringConverter x:Key="timeToStringConverter"/>
+	</UserControl.Resources>
+	
+	
+	<Grid Width="{Binding Path=ActualWidth, ElementName=uc}" Margin="1,1,1,1">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="25"/>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
+
+		<Path  Grid.Row="0" Grid.Column="0" Height="18" Stretch="Uniform"   VerticalAlignment="Bottom"
+			   Data="{StaticResource FreeRoomGeometry}"
+				 Stroke="{StaticResource BlackBrush}"
+				 Fill="{StaticResource BlackBrush}"
+				 StrokeThickness="0"/>
+ 
+		<TextBlock  Grid.Row="0" Grid.Column="1" Text="{Binding Path=Label}" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource DarkTextBrush}" FontSize="12">
+			<!--<TextBlock.Effect>
+				<DropShadowEffect Direction="270" BlurRadius="0" ShadowDepth="1" Color="{StaticResource LightText}" Opacity="0.25"/>
+			</TextBlock.Effect>-->
+		</TextBlock>
+ 
+		<TextBlock  Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Right"  VerticalAlignment="Center" Foreground="{StaticResource DarkTextBrush}" FontSize="12" Margin="0,0,3,0">
+				<TextBlock.Text>
+					<MultiBinding  ConverterParameter="{}{0}-{1}" Converter="{StaticResource stringFormatConverter}">
+						<Binding Path="StartTime" Converter="{StaticResource timeToStringConverter}" />
+						<Binding Path="EndTime"  Converter="{StaticResource timeToStringConverter}" />
+					</MultiBinding>
+				</TextBlock.Text>
+			<!--<TextBlock.Effect>
+				<DropShadowEffect Direction="270" BlurRadius="0" ShadowDepth="1" Color="{StaticResource LightText}" Opacity="0.25"/>
+			</TextBlock.Effect>-->
+		</TextBlock>
+		
+	</Grid>
+
+	
+</UserControl>

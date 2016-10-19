@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cloudmaster.WCS.Ward.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WardDisplayName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Ward</Value>
+    </Setting>
+    <Setting Name="RefreshInterval" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="SecurityLockInterval" Type="System.String" Scope="User">
+      <Value Profile="(Default)">120</Value>
+    </Setting>
+    <Setting Name="WardIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ACC2</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

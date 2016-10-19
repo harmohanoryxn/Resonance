@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="WCS.Shared.Beds.BedStatusHorizontalLegend"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  >
+	<Border x:Name="statuslegend"  BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}" Background="{StaticResource mainBackgroundBrush}" Height="30" Padding="5,0,5,0">
+		<StackPanel Orientation="Horizontal">
+			<StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+				<Border Background="{StaticResource BedCleanStatusBrush}" Margin="2" Width="20" Height="20" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}"/>
+				<TextBlock Text="= Clean" VerticalAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+				<Border Background="{StaticResource BedDirtyStatusBrush}" Margin="2" Width="20" Height="20" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}"/>
+				<TextBlock Text="= Dirty" VerticalAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+				<Border Background="{StaticResource BedDeepCleanRequiredBrush}" Margin="2" Width="20" Height="20" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}"/>
+				<TextBlock Text="= Deep Clean Required" VerticalAlignment="Center"/>
+			</StackPanel>
+			<!--<StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+				<Border Background="{StaticResource BedNotReadyStatusBrush}" Margin="2" Width="20" Height="20" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}"/>
+				<TextBlock Text="= Not Ready" VerticalAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+				<Border Background="{StaticResource BedOutOfOrderStatusBrush}" Margin="2" Width="20" Height="20" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}"/>
+				<TextBlock Text="= Out of Order" VerticalAlignment="Center"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+				<StackPanel Orientation="Horizontal">
+					<Border Background="{StaticResource BedReservedStatusBrush}" Margin="2" Width="20" Height="20" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}"/>
+					<TextBlock Text="= Reserved" VerticalAlignment="Center"/>
+				</StackPanel>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+				<Border Background="{StaticResource BedIsolationStatusBrush}" Margin="2" Width="20" Height="20" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource BadgeBorderBrush}"/>
+				<TextBlock Text="= Isolation" VerticalAlignment="Center"/>
+			</StackPanel>-->
+			<StackPanel Orientation="Horizontal">
+			</StackPanel>
+		</StackPanel>
+	</Border>
+</UserControl>

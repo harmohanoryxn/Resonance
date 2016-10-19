@@ -1,0 +1,183 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Textblock -->
+	<Style x:Key="DefaultTextStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontFamily" Value="Segoe UI" />
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="Foreground" Value="{StaticResource textBrush}" />
+	</Style>
+
+	<Style x:Key="LockScreenButtonFontStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="Foreground" Value="{StaticResource textInfoBrush}" />
+	</Style>
+
+	<Style x:Key="GroupHeaderNameStyle" TargetType="{x:Type TextBlock}"  BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="18" />
+	</Style>
+
+	<Style x:Key="CleaningEmphasisTextStyle" TargetType="{x:Type TextBlock}"  BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="FontWeight" Value="Bold" />
+	</Style>
+
+	<Style x:Key="GroupHeaderIdStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="Foreground" Value="ForestGreen" />
+		<Setter Property="FontSize" Value="13" />
+	</Style>
+
+	<Style x:Key="GroupHeaderDateStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="Foreground" Value="Purple" />
+		<Setter Property="FontSize" Value="15" />
+	</Style>
+
+	<Style x:Key="GroupHeaderLocationStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource textBrush}" />
+	</Style>
+
+	<Style x:Key="LocationTimeMajorTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="#343434" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="FontSize" Value="20" />
+	</Style>
+
+	<Style x:Key="LocationTimeMinorTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="#343434" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="FontSize" Value="10" />
+	</Style>
+
+	<Style x:Key="OrderInformationFontStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="TextBlock.FontSize" Value="11" />
+	</Style>
+
+	<Style x:Key="ActionBarTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="13" />
+		<Setter Property="Foreground" Value="{StaticResource WhiteBrush}" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+	</Style>
+
+
+
+    <!-- Card Styles -->
+
+    <Style x:Key="CardHeader1TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="24" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="{StaticResource textInfoBrush}" />
+	</Style>
+
+	<Style x:Key="CardHeader2TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="#525252" />
+	</Style>
+
+	<Style x:Key="CardHeader3TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="{StaticResource textBrush}" />
+	</Style>
+
+	<Style x:Key="CardTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="{StaticResource textBrush}" />
+	</Style>
+    
+    <!-- List Box Styles -->
+
+	<Style x:Key="listboxHeaderStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="13" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="{StaticResource WhiteBrush}" />
+	</Style>
+
+	<Style x:Key="listboxTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="{StaticResource textBrush}" />
+	</Style>
+
+	<Style x:Key="NavigationHeaderTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="24" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="{StaticResource lightTextBrush}" />
+	</Style>
+
+	<Style x:Key="NavigationLocationTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="{StaticResource lightTextBrush}" />
+	</Style>
+
+	<Style x:Key="AdmissionLocationNameMajorStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="Foreground" Value="ForestGreen" />
+		<Setter Property="FontSize" Value="15" />
+	</Style>
+
+	<Style x:Key="AdmissionLocationNameMinorStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource DefaultTextStyle}">
+		<Setter Property="Foreground" Value="ForestGreen" />
+		<Setter Property="FontSize" Value="13" />
+	</Style>
+    
+    <!-- Info Card Text Styles -->
+
+    <Style x:Key="InfoCardHeader1TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CardHeader1TextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource infoCardHeader1Brush}" />
+    </Style>
+
+    <Style x:Key="InfoCardHeader2TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CardHeader2TextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource infoCardHeader2Brush}" />
+    </Style>
+
+    <Style x:Key="InfoCardHeader3TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CardHeader3TextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource infoCardHeader3Brush}" />
+    </Style>
+
+    <Style x:Key="InfoCardTextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CardTextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource infoCardTextBrush}" />
+    </Style>
+    
+    <!-- RFID Card Text Styles -->
+
+    <Style x:Key="RFIDCardHeader2TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CardHeader2TextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource infoCardHeader2Brush}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style x:Key="RFIDCardHeader3TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CardHeader2TextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource infoCardHeader3Brush}" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="RFIDCardHeader4TextStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CardHeader2TextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource infoCardHeader2Brush}" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <!-- Label -->
+    
+	<Style x:Key="DefaultLabelStyle" TargetType="{x:Type Label}">
+		<Setter Property="FontFamily" Value="Segoe UI" />
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="Foreground" Value="{StaticResource textBrush}" />
+	</Style>
+
+</ResourceDictionary>

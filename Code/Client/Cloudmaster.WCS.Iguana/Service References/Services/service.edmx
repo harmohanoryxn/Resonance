@@ -1,0 +1,76 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="IguanaDatabaseModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="OrderMessage">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="orderControl" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="orderStatus" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="placerOrderNumberEI" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="placerOrderNumberNS" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="placerOrderNumberUID" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="patientId" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="familyName" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="givenName" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="secondAndFurtherGivenNames" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="location" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="room" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="bed" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="building" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="floor" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="serviceId" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="serviceText" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="priority" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="requestedDateTime" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="observationDateTime" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="observationEndDateTime" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="dateCreated" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="dateOfBirth" Type="Edm.DateTime" Nullable="true" />
+      </EntityType>
+      <EntityType Name="Admission">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="patientId" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="dateOfBirth" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="visitId" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="givenName" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="familyName" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="location" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="room" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="bed" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="admitDateTime" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="dischargeDateTime" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="dietType" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="dateCreated" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="expectedLenghtOfStay" Type="Edm.Double" Nullable="true" />
+        <Property Name="acutalLenghtOfStay" Type="Edm.Double" Nullable="true" />
+        <Property Name="patientType" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="true" />
+      </EntityType>
+      <EntityType Name="OrderMetadata">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="orderNumber" Type="Edm.String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+        <Property Name="isPrepWorkAcknowledged" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="isFastingAcknowledged" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="isExamAcknowledged" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="requestedDateTimeOverride" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="notes" Type="Edm.String" Nullable="true" MaxLength="250" Unicode="true" FixedLength="false" />
+        <Property Name="lastRequestedDateTimeOverrideModified" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="isInjectionAcknowledged" Type="Edm.Boolean" Nullable="false" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="ISM.Services.HL7.Iguana" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="IguanaDatabaseConnection" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="OrderMessages" EntityType="IguanaDatabaseModel.OrderMessage" />
+        <EntitySet Name="Admissions" EntityType="IguanaDatabaseModel.Admission" />
+        <EntitySet Name="OrderMetadatas" EntityType="IguanaDatabaseModel.OrderMetadata" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

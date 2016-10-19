@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        
+        <ResourceDictionary Source="ButtonStyles/MenuButtonStyles.xaml" />
+
+        <ResourceDictionary Source="ButtonStyles/NavigationButtons.xaml" />
+
+        <ResourceDictionary Source="ButtonStyles/RadioButtonStyles.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+
+</ResourceDictionary>

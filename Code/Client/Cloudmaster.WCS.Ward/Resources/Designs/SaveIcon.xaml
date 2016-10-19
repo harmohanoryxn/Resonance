@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="SaveIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 2,2L 81.9999,2L 81.9999,79.9999L 2,79.9999L 2,2 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 16.6666,2.00037L 69.9998,2.00037L 69.9998,39.0001L 16.6666,39.0001L 16.6666,2.00037 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 22.4166,54.0001L 61.1666,54.0001L 61.1666,80.0001L 22.4166,80.0001L 22.4166,54.0001 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="3" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 28.6664,67L 36.1664,67L 36.1664,80L 28.6664,80L 28.6664,67 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

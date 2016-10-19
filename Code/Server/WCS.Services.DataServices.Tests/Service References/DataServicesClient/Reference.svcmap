@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bbc350b7-ae43-461a-8adf-61ff0175d066" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53840/DataServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DataServices.wsdl" MetadataType="Wsdl" ID="5aa64a85-9ba3-4edb-95af-b112184f957e" SourceId="1" SourceUrl="http://localhost:53840/DataServices.svc?wsdl" />
+    <MetadataFile FileName="DataServices.xsd" MetadataType="Schema" ID="22e0a8d8-d22d-41c9-9cb8-4afd19709e25" SourceId="1" SourceUrl="http://localhost:53840/DataServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataServices.disco" MetadataType="Disco" ID="7fd5b196-2116-4e90-aa3b-6247dac7ca21" SourceId="1" SourceUrl="http://localhost:53840/DataServices.svc?disco" />
+    <MetadataFile FileName="DataServices1.xsd" MetadataType="Schema" ID="5ced9345-dcc9-43ad-bb5c-89d986919b89" SourceId="1" SourceUrl="http://localhost:53840/DataServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataServices1.wsdl" MetadataType="Wsdl" ID="4a5f077f-4631-486a-9c80-b03673e14e29" SourceId="1" SourceUrl="http://localhost:53840/DataServices.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

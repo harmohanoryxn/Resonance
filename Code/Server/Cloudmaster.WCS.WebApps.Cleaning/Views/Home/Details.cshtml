@@ -1,0 +1,96 @@
+﻿@model Cloudmaster.WCS.WebApps.Cleaning.Models.CleaningTableSummaryRow
+@using WCS.Services.DataServices;
+
+@{
+    ViewBag.Title = string.Format("{0} Details", Model.Key);
+    Layout = "~/Views/Shared/_MobileSwipePage.cshtml";
+}
+
+<div class="demo-page" id="details" data-role="page" data-theme="d">
+
+
+    <div class="ctsTime">@Model.CurrentTime</div>
+
+    <div class="ctsRow" >
+        <img src="~/Content/images/Icons/Close.png" onclick="location.href='@Url.Action("Overview", "Home")'"/>
+    </div>
+
+    <div class="ctsRow" style="margin-top:40px;">
+        <span class="ctsNavigationSelected">
+            @Model.Bed.Room.Name-@Model.Bed.Name
+        </span>
+    </div>
+
+    <div class="ctsDetailHeader" style="margin-top:40px;">
+        Admission Status
+    </div>
+
+    @if (Model.IsOccupied)
+    {
+        if (Model.IsDischargeTodayPending)
+        {
+            <div class="ctsDetail">Scheduled for discharge today</div>
+        }
+        else if (Model.IsDischargeTodayPending)
+        {
+            <div class="ctsDetail">Scheduled for discharge within 3 hours</div>   
+        }
+        else
+        {
+            <div class="ctsDetail">Occupied</div>
+        }
+    }
+    else
+    {
+        <div class="ctsDetail">Empty</div>
+    }
+
+    <div class="ctsDetailHeader">
+        Next Available
+    </div>
+
+    <div class="ctsDetail">
+        @if (Model.NextAvailableTime != null)
+        {
+            @Model.NextAvailableTime
+        }
+        else
+        {
+            <span>No scheduled availability</span>
+        }  
+    </div>
+
+    <div class="ctsDetailHeader">
+        Last Cleaned
+    </div>
+
+    <div class="ctsDetail">
+        @Model.LastCleaned
+    </div>
+
+    
+    <div class="ctsRow" style="width:600px;">
+
+        @if (Model.Bed.CurrentStatus ==  BedStatus.Clean) {
+            <button type="button" onclick="location.href='@Url.Action("Cleaned", "Home", new { id = @Model.Bed.BedId })'" disabled="true" style="width:600px;">Cleaned</button>
+        }
+        else
+        {
+            <button type="button" onclick="location.href='@Url.Action("Cleaned", "Home", new { id = @Model.Bed.BedId })'" style="width:600px;">Cleaned</button>
+        }
+
+        @if (Model.Bed.CurrentStatus ==  BedStatus.Clean) {
+            <button type="button" onclick="location.href='@Url.Action("RequiresCleaning", "Home", new { id = @Model.Bed.BedId })'" style="width:600px;">Requires Cleaning</button>
+        }
+        else
+        {
+            <button type="button" onclick="location.href='@Url.Action("RequiresCleaning", "Home", new { id = @Model.Bed.BedId })'" disabled="true" style="width:600px;">Requires Cleaning</button>
+        }
+    </div>
+
+    <div class="ctsRow">
+        
+    </div>
+
+</div>
+

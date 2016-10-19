@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="WCS.Shared.Admissions.Schedule.View.AdmissionsCombinedScheduleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Controls="clr-namespace:WCS.Shared.Controls" 
+             xmlns:Schedule1="clr-namespace:WCS.Shared.Admissions.Schedule"
+             xmlns:Schedule="clr-namespace:WCS.Shared.Schedule" mc:Ignorable="d"
+			 x:Name="acsv">
+
+	<UserControl.Resources>
+
+		<DataTemplate DataType="{x:Type Schedule1:AdmissionsWardViewModel}">
+			<Grid Width="400" Margin="0,5,0,15">
+				<TextBlock Text="{Binding Path=WardName}" Style="{StaticResource AdmissionLocationNameMinorStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"/>
+				<Viewbox>
+					<Schedule1:AdmissionsWardView/>
+				</Viewbox>
+				<Border Background="White" Opacity="0"/>
+				<!--Necessary Hack to recognise input-->
+			</Grid>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Schedule1:WaitingPatientViewModel}">
+			<Grid>
+				<Schedule1:AdmissionPatientInfo IsHitTestVisible="True"/>
+				<Border Background="White" Opacity="0"/>
+				<!--Necessary Hack to recognise input-->
+			</Grid>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="45" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="600"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="600"/>
+		</Grid.ColumnDefinitions>
+
+		<!-- List of Patients in the Holding Area -->
+		<Border BorderBrush="{StaticResource mainAccentBrush}" Grid.Row="2" Grid.Column="0" BorderThickness="0,0,1,0">
+			<Grid x:Name="patientContainer"  Grid.Row="1" Margin="0,0,0,0" >
+
+				<ListBox x:Name="listPatients" Margin="0" Padding="0" VerticalAlignment="Top"
+						 BorderBrush="White"
+						 Background="White"
+						 AlternationCount="1000" 
+						 Width="{Binding ElementName=patientContainer, Path=ActualWidth}" 
+						 Height="{Binding ElementName=patientContainer, Path=ActualHeight}"
+						 ItemsSource="{Binding Path=PatientsSource.View}"
+						 SelectedItem="{Binding Path=SelectedPatient}"
+						 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+						 ScrollViewer.VerticalScrollBarVisibility="Visible"
+						  ScrollViewer.PanningMode="VerticalOnly"
+						 IsSynchronizedWithCurrentItem="True"
+						 Controls:ListBoxExtenders.AutoScrollToCurrentItem="True">
+
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="0,0,0,150"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                </ListBox>
+			</Grid>
+		</Border>
+
+		<!-- Map of Selected Ward -->
+		<Grid  x:Name="map"  DataContext="{Binding Path=SelectedWard}" Grid.Row="1" Grid.Column="1" Margin="30,100,30,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+			<TextBlock Text="{Binding Path=WardName}" Style="{StaticResource AdmissionLocationNameMajorStyle}" />
+			<Viewbox Margin="0,10,0,0">
+				<Schedule1:AdmissionsWardView/>
+			</Viewbox>
+		</Grid>
+
+		<!-- List of Wards -->
+		<Border BorderBrush="{StaticResource mainAccentBrush}" Grid.Row="2" Grid.Column="2" BorderThickness="1,0,0,0">
+			<Grid x:Name="wardContainer"  Grid.Row="1" Margin="0,0,0,0" >
+
+				<ListBox x:Name="listWard" Margin="0" Padding="0" VerticalAlignment="Top"
+						 BorderBrush="White"
+						 Background="White"
+						 AlternationCount="1000" 
+						 Width="{Binding ElementName=wardContainer, Path=ActualWidth}" 
+						 Height="{Binding ElementName=wardContainer, Path=ActualHeight}"
+						 ItemsSource="{Binding Path=WardsSource.View}"
+						 SelectedItem="{Binding Path=SelectedWard}"
+						 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+						 ScrollViewer.VerticalScrollBarVisibility="Visible"
+						  ScrollViewer.PanningMode="VerticalOnly"
+						 IsSynchronizedWithCurrentItem="True"
+						 Controls:ListBoxExtenders.AutoScrollToCurrentItem="True">
+
+					<!--<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Viewbox>
+								<Schedule1:AdmissionsWardView/>
+							</Viewbox>
+						</DataTemplate>
+					</ListBox.ItemTemplate>-->
+
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="0,0,0,150"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                </ListBox>
+			</Grid>
+		</Border>
+
+		<Grid Grid.Row="0"  Width="400" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="35,5,0,0">
+			<TextBlock FontSize="24" Foreground="{StaticResource screenNameBrush}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=SelectedLocation.Name}" />
+			<Button Opacity="0"  Margin="0,0,0,0" Command="{Binding Path=DataContext.ToggleNavigationBarVisibilityCommand,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule:ScreenBootstrap}}}" />
+		</Grid>
+
+		<Button  Grid.Row="0" Height="25" Width="25" Margin="5,0,5,0"  Style="{StaticResource ManualLockButtonStyle}" Command="{Binding Path=ManualLockCommand}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+	</Grid>
+
+</UserControl>

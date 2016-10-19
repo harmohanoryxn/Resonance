@@ -1,0 +1,81 @@
+﻿@model Cloudmaster.WCS.WebApps.Cleaning.Models.CleaningTableSummaryViewModel
+@using HTML5.WPFPathsDemo.Helpers;
+@using WCS.Services.DataServices;
+
+@{
+    ViewBag.Title = "Ward 1 Summary";
+    Layout = "~/Views/Shared/_MobileSwipePage.cshtml";
+}
+
+
+<div class="demo-page" id="contact" data-role="page" data-theme="d" data-prev="@Url.Action("Overview", "Home")" data-dom-cache="true" data-url="@Url.Action("Summary", "Home")">
+
+     <div class="ctsTime">@Model.CurrentTime</div>
+
+    <div class="ctsLocation">WARD1</div>
+
+    <div class="ctsNavigationBar">
+        <span class="ctsNavigationSelected">forecast</span>
+        <span class="ctsNavigation">overview</span>
+    </div>
+
+    <div class="ctsTitle" style="margin-bottom: 20px;">Beds</div>
+
+    @foreach (var row in Model.SummaryRows) 
+    {
+        <a name="@row.Key"></a>
+        
+        <div class="ctsRow">
+            @if (row.Bed.CurrentStatus == BedStatus.Clean)
+            {
+                if (row.IsDischargeWithin3Hours)
+                {
+                    <span class="ctsStatusCol"><img src="~/Content/images/Icons/DischargePending.png" /></span>
+                }
+                else
+                {
+                    <span class="ctsStatusCol"><img src="~/Content/images/Icons/Clean.png" /></span>
+                }
+            }
+            else if (row.Bed.CurrentStatus == BedStatus.Dirty)
+            {
+                <span class="ctsStatusCol"><img src="~/Content/images/Icons/Dirty.png" /></span>
+            }
+            else if (row.Bed.CurrentStatus == BedStatus.RequiresDeepClean)
+            {
+                <span class="ctsStatusCol"><img src="~/Content/images/Icons/DeepClean.png" /></span>
+            }
+
+            @Html.ActionLink(row.Name, "Details", new { id = row.Bed.BedId }, new { @class = "ctsNameCol" } )
+
+            @if (row.IsOccupied)
+            {
+                <span class="ctsOccupiedCol"><img src="~/Content/images/Icons/Occupied.png" /></span>
+            }
+            else
+            {
+                <span class="ctsOccupiedCol"><img src="~/Content/images/Icons/Dash.png" /></span>
+            }
+
+            @if (row.NextAvailableTime != null)
+            {
+                <span class="ctsNextAvailableCol">@row.NextAvailableTime</span>
+            }
+            else
+            {
+                <span class="ctsNextAvailableCol">&nbsp;</span>
+            }
+            
+            @if (row.HasCriticalCareIndicatorsRelevantToCleaning)
+            {
+                <span class="ctsCriticalCareIndicatorsCol"><img src="~/Content/images/Icons/MRSA.png" /></span>
+            }
+
+        </div>
+        
+    }
+
+    
+       
+
+</div>

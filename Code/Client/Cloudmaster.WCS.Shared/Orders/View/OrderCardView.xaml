@@ -1,0 +1,281 @@
+﻿<UserControl x:Class="WCS.Shared.Orders.OrderCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Schedule="clr-namespace:WCS.Shared.Schedule" 
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters"
+             Background="{StaticResource cardBackgroundBrush}" BorderBrush="{StaticResource cardBorderBrush}" BorderThickness="0,0,1,0"
+             mc:Ignorable="d" x:Name="ocv" Width="830">
+    <UserControl.Resources>
+        <Converters:BooleanToVisibilityConvertor x:Key="booleanToVisibilityConvertor"/>
+    </UserControl.Resources>
+
+    <ScrollViewer PanningMode="VerticalOnly">
+            
+        <Grid>
+
+            <DockPanel Margin="0" Width="830" LastChildFill="True" Background="White">
+
+                <!-- Header -->
+            
+			    <Grid DockPanel.Dock="Top" Margin="0,0,0,0" Height="60" HorizontalAlignment="Stretch" Background="#0099FF">
+
+                    <TextBlock Style="{StaticResource InfoCardHeader1TextStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70,0,0,0">
+                        <TextBlock.Text>
+						    <MultiBinding  ConverterParameter="{}{0}, {1}" Converter="{StaticResource stringFormatConverter}">
+							    <Binding Path="OrderCoordinator.Order.Patient.FamilyName" />
+							    <Binding Path="OrderCoordinator.Order.Patient.GivenName" />
+						    </MultiBinding>
+					    </TextBlock.Text>
+                    </TextBlock>
+
+			    </Grid>
+
+
+                <!-- Patient Details -->
+
+                <TextBlock Text="Patient" Style="{StaticResource InfoCardHeader2TextStyle}" Margin="8,3,0,0" DockPanel.Dock="Top"/>
+
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top"	  Margin="0,0,0,10">
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="1" DockPanel.Dock="Top"   Height="30">
+                        <Grid>
+                            <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                                <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Identifier: " Margin="1"/>
+                                <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.Patient.IPeopleNumber}" />
+                            </WrapPanel>
+                        </Grid>
+                    </Border>
+                    <Border Background="{StaticResource WhiteBrush}" Margin="1,0,1,1" DockPanel.Dock="Left" Width="215"  Height="30">
+                        <WrapPanel VerticalAlignment="Top"  Margin="10,5,10,0">
+                            <TextBlock Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Name: " Margin="1"/>
+                            <TextBlock Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <TextBlock.Text>
+						            <MultiBinding  ConverterParameter="{}{0}, {1}" Converter="{StaticResource stringFormatConverter}">
+							            <Binding Path="OrderCoordinator.Order.Patient.FamilyName" />
+							            <Binding Path="OrderCoordinator.Order.Patient.GivenName" />
+						            </MultiBinding>
+					            </TextBlock.Text>
+                            </TextBlock>
+                        </WrapPanel>
+                    </Border>
+                    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Left" Width="215" Height="30">
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="DOB: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.Patient.DateOfBirth}" />
+                        </WrapPanel>
+                    </Border>
+
+                </DockPanel>
+
+                <!-- Clinical Indicators -->
+
+                <TextBlock Text="Critical Care Indicators" Style="{StaticResource InfoCardHeader2TextStyle}" Margin="8,3,0,0" DockPanel.Dock="Top"/>
+
+                <Schedule:ClinicalIndicatorView Width="160" Height="20" DataContext="{Binding Path=OrderCoordinator.Order}"  DockPanel.Dock="Top" Margin="0,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+
+                <!-- Location Details -->
+
+                <TextBlock Text="Location" Style="{StaticResource InfoCardHeader2TextStyle}" Margin="8,3,0,0" DockPanel.Dock="Top"/>
+            
+			    <DockPanel LastChildFill="False" DockPanel.Dock="Top"	  Margin="0,0,0,10">
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="1" DockPanel.Dock="Top"   Height="30">
+					    <Grid>
+						    <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                                <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Ward: " Margin="1"/>
+							    <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.WardLocationPresence.LocationFullName}" />
+						    </WrapPanel>
+						    <Schedule:DeviceInfoView Height="20" Width="20" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15,0,15,0" DataContext="{Binding Path=OrderCoordinator.Order.WardLocationPresence}" />
+					    </Grid>
+				    </Border>
+
+				    <Border Background="{StaticResource WhiteBrush}" Margin="1,0,1,1" DockPanel.Dock="Bottom" Height="30">
+					    <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}"  Text="Contact: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.WardLocationPresence.LocationContact}" />
+					    </WrapPanel>
+				    </Border>
+				    <Border Background="{StaticResource WhiteBrush}" Margin="1,0,1,1" DockPanel.Dock="Left" Width="215"  Height="30">
+					    <WrapPanel VerticalAlignment="Top"  Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Room: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=Patient.Room}" />
+					    </WrapPanel>
+				    </Border>
+				    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Left" Width="215" Height="30">
+					    <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Bed: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=Patient.Bed}" />
+					    </WrapPanel>
+				    </Border>
+
+			    </DockPanel>
+            
+                <!-- Admission Details -->
+
+                <TextBlock Text="Admission" Style="{StaticResource InfoCardHeader2TextStyle}" Margin="8,3,0,0" DockPanel.Dock="Top"/>
+            
+			    <DockPanel LastChildFill="False" DockPanel.Dock="Top"	  Margin="0,0,0,10">
+
+				    <Border Background="{StaticResource WhiteBrush}" Margin="1" DockPanel.Dock="Top"   Height="30">
+					    <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Admitted By: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=AdmittingDoctor}" />
+					    </WrapPanel>
+				    </Border>
+
+				    <Border Background="{StaticResource WhiteBrush}" Margin="1,0,1,1" DockPanel.Dock="Left" Width="215"  Height="30">
+					    <WrapPanel VerticalAlignment="Top"  Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Date: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=AdmitDateTime, StringFormat=dd/MM/yyyy}" />
+					    </WrapPanel>
+				    </Border>
+				    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Left" Width="215" Height="30">
+					    <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Time: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=AdmitDateTime, StringFormat=t}" />
+					    </WrapPanel>
+				    </Border>
+
+			    </DockPanel>
+
+                <!-- Order Details -->
+
+                <TextBlock Text="Order" Style="{StaticResource InfoCardHeader2TextStyle}" Margin="8,3,0,0" DockPanel.Dock="Top"/>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top"	  Margin="0,0,0,10">
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="1" DockPanel.Dock="Top" Height="30">
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Ordered By: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.OrderingDoctor}" />
+                        </WrapPanel>
+                    </Border>
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="1,0,1,1" DockPanel.Dock="Left" Width="215" Height="30">
+                        <WrapPanel VerticalAlignment="Top"  Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Date: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.ProcedureTime, StringFormat=dd/MM/yyyy}" />
+                        </WrapPanel>
+                    </Border>
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Left" Width="215" Height="30">
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Time: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.ProcedureTime, StringFormat=t}" />
+                        </WrapPanel>
+                    </Border>
+                </DockPanel>
+            
+                <!-- Additional Information-->
+
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top"	  Margin="0,0,0,10">
+
+                <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Top" Height="30">
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="History: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=History}" />
+                        </WrapPanel>
+                    </Border>
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Top" Height="30">
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}" VerticalAlignment="Center" Text="Diagnosis: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="{Binding Path=Diagnosis}" />
+                        </WrapPanel>
+                    </Border>
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="1,0,1,1" DockPanel.Dock="Top" Height="100">
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}"  Text="Current Cardiologist: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"  TextWrapping="Wrap" HorizontalAlignment="Left"  Text="{Binding Path=CurrentCardiologist}" />
+                        </WrapPanel>
+                    </Border>
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="1,0,1,1" DockPanel.Dock="Top" Height="100">
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <TextBlock Grid.Column="0"  Style="{StaticResource InfoCardHeader3TextStyle}"  Text="Clinical Indicators: " Margin="1"/>
+                            <TextBlock Grid.Column="1"  Style="{StaticResource InfoCardTextStyle}"  TextWrapping="Wrap" HorizontalAlignment="Left"  Text="{Binding Path=OrderCoordinator.Order.ClinicalIndicators}" />
+                        </WrapPanel>
+                    </Border>
+          
+                </DockPanel>
+
+                <!-- Requirements -->
+
+                <TextBlock Text="Requirements" Style="{StaticResource InfoCardHeader2TextStyle}" Margin="8,3,0,0" DockPanel.Dock="Top"/>
+
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top"	  Margin="0,0,0,10">
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Top" Height="30"
+                            Visibility="{Binding Path=RequiresSupervision, Converter={StaticResource booleanToVisibilityConvertor}}" 
+                            >
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <Border Background="{StaticResource RequirementsBackgroundBrush}" Height="20"
+                                 BorderBrush="{StaticResource BlackBrush}"
+                                 BorderThickness="1"
+                                 IsHitTestVisible="False" 
+                                 CornerRadius="2"
+                                 Margin="0,0,10,0"
+                                 >
+                                <Rectangle Width="14" Height="14" 
+                                      Fill="{StaticResource RequiresSupervisionBrush}"
+                                      Margin="4,0,4,0"
+                               />
+                            </Border>
+                            <TextBlock Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Requires Supervision" />
+                        </WrapPanel>
+                    </Border>
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Top" Height="30"
+                            Visibility="{Binding Path=RequiresFootwear, Converter={StaticResource booleanToVisibilityConvertor}}" 
+                            >
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <Border Background="{StaticResource RequirementsBackgroundBrush}" Height="20"
+                                 BorderBrush="{StaticResource BlackBrush}"
+                                 BorderThickness="1"
+                                 IsHitTestVisible="False" 
+                                 CornerRadius="2"
+                                 Margin="0,0,10,0"
+                                 >
+                                <Rectangle Width="14" Height="14" 
+                                      Fill="{StaticResource RequiresFootwearBrush}"
+                                      Margin="4,0,4,0"
+                               />
+                            </Border>
+                            <TextBlock Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Requires Footwear" />
+                        </WrapPanel>
+                    </Border>
+
+                    <Border Background="{StaticResource WhiteBrush}" Margin="0,0,1,1" DockPanel.Dock="Top" Height="30"
+                            Visibility="{Binding Path=RequiresMedicalRecords, Converter={StaticResource booleanToVisibilityConvertor}}" 
+                            >
+                        <WrapPanel VerticalAlignment="Top" Margin="10,5,10,0">
+                            <Border Background="{StaticResource RequirementsBackgroundBrush}" Height="20"
+                                 BorderBrush="{StaticResource BlackBrush}"
+                                 BorderThickness="1"
+                                 IsHitTestVisible="False" 
+                                 CornerRadius="2"
+                                 Margin="0,0,10,0"
+                                 >
+                                <Rectangle Width="14" Height="14" 
+                                      Fill="{StaticResource RequiresMedicalRecordsBrush}"
+                                      Margin="4,0,4,0"
+                               />
+                            </Border>
+                            <TextBlock Style="{StaticResource InfoCardTextStyle}"   VerticalAlignment="Center" HorizontalAlignment="Left"  Text="Requires Medical Records" />
+                        </WrapPanel>
+                    </Border>
+                
+                </DockPanel>
+
+
+                <Border/>
+		    </DockPanel>
+
+        </Grid>
+
+    </ScrollViewer>
+</UserControl>
+ 

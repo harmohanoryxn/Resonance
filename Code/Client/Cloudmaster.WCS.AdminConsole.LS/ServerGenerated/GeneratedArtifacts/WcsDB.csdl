@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Namespace="WcsDB" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <Association Name="FK_ConfigurationConfigurationLocation">
+    <End Role="Configuration" Type="WcsDB.Configuration" Multiplicity="1" />
+    <End Role="ConfigurationLocation" Type="WcsDB.ConfigurationLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration">
+        <PropertyRef Name="configurationId" />
+      </Principal>
+      <Dependent Role="ConfigurationLocation">
+        <PropertyRef Name="configurationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigurationConfigurationType">
+    <End Role="ConfigurationType" Type="WcsDB.ConfigurationType" Multiplicity="1" />
+    <End Role="Configuration" Type="WcsDB.Configuration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfigurationType">
+        <PropertyRef Name="ConfigurationTypeId" />
+      </Principal>
+      <Dependent Role="Configuration">
+        <PropertyRef Name="ConfigurationType_ConfigurationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigurationDevice">
+    <End Role="Configuration" Type="WcsDB.Configuration" Multiplicity="1" />
+    <End Role="Device" Type="WcsDB.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration">
+        <PropertyRef Name="configurationId" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="configurationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceConnection">
+    <End Role="Device" Type="WcsDB.Device" Multiplicity="1" />
+    <End Role="Connection" Type="WcsDB.Connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="deviceId" />
+      </Principal>
+      <Dependent Role="Connection">
+        <PropertyRef Name="deviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DevicePin">
+    <End Role="Device" Type="WcsDB.Device" Multiplicity="1" />
+    <End Role="Pin" Type="WcsDB.Pin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="deviceId" />
+      </Principal>
+      <Dependent Role="Pin">
+        <PropertyRef Name="Device_deviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationConfigurationLocation">
+    <End Role="Location" Type="WcsDB.Location" Multiplicity="1" />
+    <End Role="ConfigurationLocation" Type="WcsDB.ConfigurationLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="ConfigurationLocation">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationWCS_Device">
+    <End Role="Location" Type="WcsDB.Location" Multiplicity="1" />
+    <End Role="Device" Type="WcsDB.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationRuleProcedure">
+    <End Role="Procedure" Type="WcsDB.Procedure" Multiplicity="1" />
+    <End Role="NotificationRule" Type="WcsDB.NotificationRule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedure">
+        <PropertyRef Name="procedureId" />
+      </Principal>
+      <Dependent Role="NotificationRule">
+        <PropertyRef Name="Procedure_procedureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcedureCategoryProcedure">
+    <End Role="ProcedureCategory" Type="WcsDB.ProcedureCategory" Multiplicity="1" />
+    <End Role="Procedure" Type="WcsDB.Procedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcedureCategory">
+        <PropertyRef Name="procedureCategoryId" />
+      </Principal>
+      <Dependent Role="Procedure">
+        <PropertyRef Name="ProcedureCategory_procedureCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceProcedure">
+    <End Role="ExternalSource" Type="WcsDB.ExternalSource" Multiplicity="1" />
+    <End Role="Procedure" Type="WcsDB.Procedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="Procedure">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceProcedureCategory">
+    <End Role="ExternalSource" Type="WcsDB.ExternalSource" Multiplicity="1" />
+    <End Role="ProcedureCategory" Type="WcsDB.ProcedureCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="ProcedureCategory">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="configurationId" />
+    </Key>
+    <Property Name="configurationId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="ConfigurationType_ConfigurationTypeId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="ConfigurationLocations" Relationship="WcsDB.FK_ConfigurationConfigurationLocation" ToRole="ConfigurationLocation" FromRole="Configuration" />
+    <NavigationProperty Name="ConfigurationType" Relationship="WcsDB.FK_ConfigurationConfigurationType" ToRole="ConfigurationType" FromRole="Configuration" />
+    <NavigationProperty Name="Devices" Relationship="WcsDB.FK_ConfigurationDevice" ToRole="Device" FromRole="Configuration" />
+  </EntityType>
+  <EntityType Name="ConfigurationLocation">
+    <Key>
+      <PropertyRef Name="configurationLocationId" />
+    </Key>
+    <Property Name="configurationLocationId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="isDefault" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="configurationId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="locationId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Configuration" Relationship="WcsDB.FK_ConfigurationConfigurationLocation" ToRole="Configuration" FromRole="ConfigurationLocation" />
+    <NavigationProperty Name="Location" Relationship="WcsDB.FK_LocationConfigurationLocation" ToRole="Location" FromRole="ConfigurationLocation" />
+  </EntityType>
+  <EntityType Name="ConfigurationType">
+    <Key>
+      <PropertyRef Name="ConfigurationTypeId" />
+    </Key>
+    <Property Name="ConfigurationTypeId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Configurations" Relationship="WcsDB.FK_ConfigurationConfigurationType" ToRole="Configuration" FromRole="ConfigurationType" />
+  </EntityType>
+  <EntityType Name="Connection">
+    <Key>
+      <PropertyRef Name="connectionId" />
+    </Key>
+    <Property Name="connectionId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="connectionTime" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="deviceId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Device" Relationship="WcsDB.FK_DeviceConnection" ToRole="Device" FromRole="Connection" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="deviceId" />
+    </Key>
+    <Property Name="deviceId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="name" Type="String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="os" Type="String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="description" Type="String" MaxLength="200" ConcurrencyMode="Fixed" />
+    <Property Name="ipAddress" Type="String" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="lastConnection" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="lockTimeout" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="configurationId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="locationId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Configuration" Relationship="WcsDB.FK_ConfigurationDevice" ToRole="Configuration" FromRole="Device" />
+    <NavigationProperty Name="Connections" Relationship="WcsDB.FK_DeviceConnection" ToRole="Connection" FromRole="Device" />
+    <NavigationProperty Name="Pins" Relationship="WcsDB.FK_DevicePin" ToRole="Pin" FromRole="Device" />
+    <NavigationProperty Name="Location" Relationship="WcsDB.FK_LocationWCS_Device" ToRole="Location" FromRole="Device" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="locationId" />
+    </Key>
+    <Property Name="locationId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="code" Type="String" Nullable="false" MaxLength="20" ConcurrencyMode="Fixed" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="patientType" Type="String" MaxLength="20" ConcurrencyMode="Fixed" />
+    <Property Name="contactInfo" Type="String" MaxLength="20" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="ConfigurationLocations" Relationship="WcsDB.FK_LocationConfigurationLocation" ToRole="ConfigurationLocation" FromRole="Location" />
+    <NavigationProperty Name="Devices" Relationship="WcsDB.FK_LocationWCS_Device" ToRole="Device" FromRole="Location" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="logId" />
+      <PropertyRef Name="c_Date" />
+      <PropertyRef Name="Thread" />
+      <PropertyRef Name="Level" />
+      <PropertyRef Name="Logger" />
+      <PropertyRef Name="Message" />
+    </Key>
+    <Property Name="logId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="c_Date" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="ComputerName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Thread" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Level" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Logger" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="200" ConcurrencyMode="Fixed" />
+    <Property Name="Exception" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="NotificationRule">
+    <Key>
+      <PropertyRef Name="notificationRuleId" />
+    </Key>
+    <Property Name="notificationRuleId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="description" Type="String" MaxLength="200" ConcurrencyMode="Fixed" />
+    <Property Name="priorToProcedureTime" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="durationMinutes" Type="Int32" ConcurrencyMode="Fixed" />
+    <Property Name="isAcknowledgmentRequired" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Procedure_procedureId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Procedure" Relationship="WcsDB.FK_NotificationRuleProcedure" ToRole="Procedure" FromRole="NotificationRule" />
+  </EntityType>
+  <EntityType Name="Pin">
+    <Key>
+      <PropertyRef Name="pinId" />
+    </Key>
+    <Property Name="pinId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="pin1" Type="String" Nullable="false" MaxLength="20" ConcurrencyMode="Fixed" />
+    <Property Name="Device_deviceId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Device" Relationship="WcsDB.FK_DevicePin" ToRole="Device" FromRole="Pin" />
+  </EntityType>
+  <EntityType Name="Procedure">
+    <Key>
+      <PropertyRef Name="procedureId" />
+    </Key>
+    <Property Name="procedureId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="externalId" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="code" Type="String" Nullable="false" MaxLength="20" ConcurrencyMode="Fixed" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="200" ConcurrencyMode="Fixed" />
+    <Property Name="durationMinutes" Type="Int32" ConcurrencyMode="Fixed" />
+    <Property Name="ProcedureCategory_procedureCategoryId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="externalSourceId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="NotificationRules" Relationship="WcsDB.FK_NotificationRuleProcedure" ToRole="NotificationRule" FromRole="Procedure" />
+    <NavigationProperty Name="ProcedureCategory" Relationship="WcsDB.FK_ProcedureCategoryProcedure" ToRole="ProcedureCategory" FromRole="Procedure" />
+    <NavigationProperty Name="ExternalSource" Relationship="WcsDB.FK_ExternalSourceProcedure" ToRole="ExternalSource" FromRole="Procedure" />
+  </EntityType>
+  <EntityType Name="ProcedureCategory">
+    <Key>
+      <PropertyRef Name="procedureCategoryId" />
+    </Key>
+    <Property Name="procedureCategoryId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="externalId" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="includeInMerge" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="200" ConcurrencyMode="Fixed" />
+    <Property Name="externalSourceId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Procedures" Relationship="WcsDB.FK_ProcedureCategoryProcedure" ToRole="Procedure" FromRole="ProcedureCategory" />
+    <NavigationProperty Name="ExternalSource" Relationship="WcsDB.FK_ExternalSourceProcedureCategory" ToRole="ExternalSource" FromRole="ProcedureCategory" />
+  </EntityType>
+  <EntityType Name="ExternalSource">
+    <Key>
+      <PropertyRef Name="externalSourceId" />
+    </Key>
+    <Property Name="externalSourceId" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="source" Type="String" Nullable="false" MaxLength="20" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Procedures" Relationship="WcsDB.FK_ExternalSourceProcedure" ToRole="Procedure" FromRole="ExternalSource" />
+    <NavigationProperty Name="ProcedureCategories" Relationship="WcsDB.FK_ExternalSourceProcedureCategory" ToRole="ProcedureCategory" FromRole="ExternalSource" />
+  </EntityType>
+  <EntityContainer Name="WcsDBObjectContext">
+    <EntitySet Name="Configurations" EntityType="WcsDB.Configuration" />
+    <EntitySet Name="ConfigurationLocations" EntityType="WcsDB.ConfigurationLocation" />
+    <EntitySet Name="ConfigurationTypes" EntityType="WcsDB.ConfigurationType" />
+    <EntitySet Name="Connections" EntityType="WcsDB.Connection" />
+    <EntitySet Name="Devices" EntityType="WcsDB.Device" />
+    <EntitySet Name="Locations" EntityType="WcsDB.Location" />
+    <EntitySet Name="Logs" EntityType="WcsDB.Log" />
+    <EntitySet Name="NotificationRules" EntityType="WcsDB.NotificationRule" />
+    <EntitySet Name="Pins" EntityType="WcsDB.Pin" />
+    <EntitySet Name="Procedures" EntityType="WcsDB.Procedure" />
+    <EntitySet Name="ProcedureCategories" EntityType="WcsDB.ProcedureCategory" />
+    <EntitySet Name="ExternalSources" EntityType="WcsDB.ExternalSource" />
+    <AssociationSet Name="FK_ConfigurationConfigurationLocation" Association="WcsDB.FK_ConfigurationConfigurationLocation">
+      <End Role="Configuration" EntitySet="Configurations" />
+      <End Role="ConfigurationLocation" EntitySet="ConfigurationLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigurationConfigurationType" Association="WcsDB.FK_ConfigurationConfigurationType">
+      <End Role="ConfigurationType" EntitySet="ConfigurationTypes" />
+      <End Role="Configuration" EntitySet="Configurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigurationDevice" Association="WcsDB.FK_ConfigurationDevice">
+      <End Role="Configuration" EntitySet="Configurations" />
+      <End Role="Device" EntitySet="Devices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceConnection" Association="WcsDB.FK_DeviceConnection">
+      <End Role="Device" EntitySet="Devices" />
+      <End Role="Connection" EntitySet="Connections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DevicePin" Association="WcsDB.FK_DevicePin">
+      <End Role="Device" EntitySet="Devices" />
+      <End Role="Pin" EntitySet="Pins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationConfigurationLocation" Association="WcsDB.FK_LocationConfigurationLocation">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="ConfigurationLocation" EntitySet="ConfigurationLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationWCS_Device" Association="WcsDB.FK_LocationWCS_Device">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Device" EntitySet="Devices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationRuleProcedure" Association="WcsDB.FK_NotificationRuleProcedure">
+      <End Role="Procedure" EntitySet="Procedures" />
+      <End Role="NotificationRule" EntitySet="NotificationRules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcedureCategoryProcedure" Association="WcsDB.FK_ProcedureCategoryProcedure">
+      <End Role="ProcedureCategory" EntitySet="ProcedureCategories" />
+      <End Role="Procedure" EntitySet="Procedures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceProcedure" Association="WcsDB.FK_ExternalSourceProcedure">
+      <End Role="ExternalSource" EntitySet="ExternalSources" />
+      <End Role="Procedure" EntitySet="Procedures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceProcedureCategory" Association="WcsDB.FK_ExternalSourceProcedureCategory">
+      <End Role="ExternalSource" EntitySet="ExternalSources" />
+      <End Role="ProcedureCategory" EntitySet="ProcedureCategories" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

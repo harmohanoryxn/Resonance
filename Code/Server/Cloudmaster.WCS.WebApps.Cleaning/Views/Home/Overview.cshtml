@@ -1,0 +1,49 @@
+﻿@model Cloudmaster.WCS.WebApps.Cleaning.Models.CleaningTableSummaryViewModel
+@using HTML5.WPFPathsDemo.Helpers;
+
+@{
+    ViewBag.Title = "Ward 1 Overview";
+    Layout = "~/Views/Shared/_MobileSwipePage.cshtml";
+}
+
+<script>
+    @Html.DrawFloorplan("~/Content/Resources/Ward1.xml", "cleaningStatusHolder", "~/Content/Resources/Ward1.png", "#DCD00F",  Model.SummaryRows, 620,648)
+</script>
+
+<script>
+    @Html.DrawFloorplanReadyForCleaning("cleaningStatusHolder", "~/Content/Resources/Ward1.png", Model.SummaryRows, 620,648)
+</script>
+
+<script>
+    @Html.DrawFloorplan("~/Content/Resources/Ward1.xml", "occupancyHolder", "~/Content/Resources/Ward1.png", "#DCD00F",  Model.SummaryRows, 620,648)
+</script>
+
+<script>
+    @Html.DrawFloorplanCleaningStatus("occupancyHolder", "~/Content/Resources/Ward1.png", Model.SummaryRows, 620,648)
+</script>
+
+
+<div class="demo-page" id="index" data-role="page" data-theme="d" data-next="@Url.Action("Summary", "Home")" data-dom-cache="true" data-url="@Url.Action("Overview", "Home")">
+
+    <div class="ctsTime">@Model.CurrentTime</div>
+
+    <div class="ctsLocation">WARD1</div>
+
+    <div class="ctsNavigationBar">
+        <span class="ctsNavigationSelected">overview</span>
+        <span class="ctsNavigation">forecast</span>
+    </div>
+
+    <div class="ctsTitle">Free</div>
+
+    <div>
+        <div id="cleaningStatusHolder" style="width:620px; height:648px; display: inline; border: 0px;" />
+    </div>
+
+    <div class="ctsTitle">Status</div>
+
+    <div>
+        <div id="occupancyHolder" style="width:620px; height:648px; display: inline; border: 0px;" />
+    </div>
+
+</div>

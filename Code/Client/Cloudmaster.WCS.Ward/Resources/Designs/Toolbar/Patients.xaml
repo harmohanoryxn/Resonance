@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="ToolbarPatientsIcon" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="M 3,3L 62,3L 62,58L 3,58L 3,3 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FFF7F7F7"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M 28.4867,21.856L 28.4867,49.9785">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M 35.5627,21.856L 35.5627,49.9785">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M 41.186,33.3555L 41.2565,20.8685L 23.0001,20.8685L 23.0001,33.3555">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="3" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M 32.1371,35.681L 32.2494,20.7708">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="5" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="M 31.9594,10.4784C 34.0909,10.4784 35.8188,12.0258 35.8188,13.9347C 35.8188,15.8435 34.0908,17.3909 31.9594,17.3909C 29.8278,17.3909 28.0997,15.8435 28.0997,13.9347C 28.0997,12.0258 29.8278,10.4784 31.9594,10.4784 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

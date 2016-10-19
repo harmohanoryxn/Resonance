@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="WcsDBStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="WcsDBStore">
+    <EntitySet Name="Configuration" EntityType="WcsDBStore.Configuration" store:Type="Tables" Schema="dbo" Table="Configuration" />
+    <EntitySet Name="ConfigurationLocation" EntityType="WcsDBStore.ConfigurationLocation" store:Type="Tables" Schema="dbo" Table="ConfigurationLocation" />
+    <EntitySet Name="ConfigurationType" EntityType="WcsDBStore.ConfigurationType" store:Type="Tables" Schema="dbo" Table="ConfigurationType" />
+    <EntitySet Name="Connection" EntityType="WcsDBStore.Connection" store:Type="Tables" Schema="dbo" Table="Connection" />
+    <EntitySet Name="Device" EntityType="WcsDBStore.Device" store:Type="Tables" Schema="dbo" Table="Device" />
+    <EntitySet Name="Location" EntityType="WcsDBStore.Location" store:Type="Tables" Schema="dbo" Table="Location" />
+    <EntitySet Name="Log" EntityType="WcsDBStore.Log" store:Type="Tables" Schema="dbo" Table="Log" />
+    <EntitySet Name="NotificationRule" EntityType="WcsDBStore.NotificationRule" store:Type="Tables" Schema="dbo" Table="NotificationRule" />
+    <EntitySet Name="Pin" EntityType="WcsDBStore.Pin" store:Type="Tables" Schema="dbo" Table="Pin" />
+    <EntitySet Name="Procedure" EntityType="WcsDBStore.Procedure" store:Type="Tables" Schema="dbo" Table="Procedure" />
+    <EntitySet Name="ProcedureCategory" EntityType="WcsDBStore.ProcedureCategory" store:Type="Tables" Schema="dbo" Table="ProcedureCategory" />
+    <EntitySet Name="ExternalSource" EntityType="WcsDBStore.ExternalSource" store:Type="Tables" Schema="dbo" Table="ExternalSource" />
+    <AssociationSet Name="FK_ConfigurationConfigurationLocation" Association="WcsDBStore.FK_ConfigurationConfigurationLocation">
+      <End Role="Configuration" EntitySet="Configuration" />
+      <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigurationConfigurationType" Association="WcsDBStore.FK_ConfigurationConfigurationType">
+      <End Role="ConfigurationType" EntitySet="ConfigurationType" />
+      <End Role="Configuration" EntitySet="Configuration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigurationDevice" Association="WcsDBStore.FK_ConfigurationDevice">
+      <End Role="Configuration" EntitySet="Configuration" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceConnection" Association="WcsDBStore.FK_DeviceConnection">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Connection" EntitySet="Connection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DevicePin" Association="WcsDBStore.FK_DevicePin">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Pin" EntitySet="Pin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationConfigurationLocation" Association="WcsDBStore.FK_LocationConfigurationLocation">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationWCS_Device" Association="WcsDBStore.FK_LocationWCS_Device">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationRuleProcedure" Association="WcsDBStore.FK_NotificationRuleProcedure">
+      <End Role="Procedure" EntitySet="Procedure" />
+      <End Role="NotificationRule" EntitySet="NotificationRule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcedureCategoryProcedure" Association="WcsDBStore.FK_ProcedureCategoryProcedure">
+      <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+      <End Role="Procedure" EntitySet="Procedure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceProcedure" Association="WcsDBStore.FK_ExternalSourceProcedure">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="Procedure" EntitySet="Procedure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceProcedureCategory" Association="WcsDBStore.FK_ExternalSourceProcedureCategory">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="configurationId" />
+    </Key>
+    <Property Name="configurationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ConfigurationType_ConfigurationTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConfigurationLocation">
+    <Key>
+      <PropertyRef Name="configurationLocationId" />
+    </Key>
+    <Property Name="configurationLocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="isDefault" Type="bit" Nullable="false" />
+    <Property Name="configurationId" Type="int" Nullable="false" />
+    <Property Name="locationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConfigurationType">
+    <Key>
+      <PropertyRef Name="ConfigurationTypeId" />
+    </Key>
+    <Property Name="ConfigurationTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Connection">
+    <Key>
+      <PropertyRef Name="connectionId" />
+    </Key>
+    <Property Name="connectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="connectionTime" Type="datetime" Nullable="false" />
+    <Property Name="deviceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="deviceId" />
+    </Key>
+    <Property Name="deviceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="os" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="ipAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="lastConnection" Type="datetime" />
+    <Property Name="lockTimeout" Type="int" Nullable="false" />
+    <Property Name="configurationId" Type="int" Nullable="false" />
+    <Property Name="locationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="locationId" />
+    </Key>
+    <Property Name="locationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="patientType" Type="nvarchar" MaxLength="20" />
+    <Property Name="contactInfo" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="logId" />
+      <PropertyRef Name="Date" />
+      <PropertyRef Name="Thread" />
+      <PropertyRef Name="Level" />
+      <PropertyRef Name="Logger" />
+      <PropertyRef Name="Message" />
+    </Key>
+    <Property Name="logId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ComputerName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Thread" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Level" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Logger" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Exception" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="NotificationRule">
+    <Key>
+      <PropertyRef Name="notificationRuleId" />
+    </Key>
+    <Property Name="notificationRuleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="priorToProcedureTime" Type="int" Nullable="false" />
+    <Property Name="durationMinutes" Type="int" />
+    <Property Name="isAcknowledgmentRequired" Type="bit" Nullable="false" />
+    <Property Name="Procedure_procedureId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pin">
+    <Key>
+      <PropertyRef Name="pinId" />
+    </Key>
+    <Property Name="pinId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pin" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Device_deviceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Procedure">
+    <Key>
+      <PropertyRef Name="procedureId" />
+    </Key>
+    <Property Name="procedureId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="durationMinutes" Type="int" />
+    <Property Name="ProcedureCategory_procedureCategoryId" Type="int" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcedureCategory">
+    <Key>
+      <PropertyRef Name="procedureCategoryId" />
+    </Key>
+    <Property Name="procedureCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="includeInMerge" Type="bit" Nullable="false" />
+    <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExternalSource">
+    <Key>
+      <PropertyRef Name="externalSourceId" />
+    </Key>
+    <Property Name="externalSourceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="source" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_ConfigurationConfigurationLocation">
+    <End Role="Configuration" Type="WcsDBStore.Configuration" Multiplicity="1" />
+    <End Role="ConfigurationLocation" Type="WcsDBStore.ConfigurationLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration">
+        <PropertyRef Name="configurationId" />
+      </Principal>
+      <Dependent Role="ConfigurationLocation">
+        <PropertyRef Name="configurationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigurationConfigurationType">
+    <End Role="ConfigurationType" Type="WcsDBStore.ConfigurationType" Multiplicity="1" />
+    <End Role="Configuration" Type="WcsDBStore.Configuration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfigurationType">
+        <PropertyRef Name="ConfigurationTypeId" />
+      </Principal>
+      <Dependent Role="Configuration">
+        <PropertyRef Name="ConfigurationType_ConfigurationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigurationDevice">
+    <End Role="Configuration" Type="WcsDBStore.Configuration" Multiplicity="1" />
+    <End Role="Device" Type="WcsDBStore.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration">
+        <PropertyRef Name="configurationId" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="configurationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceConnection">
+    <End Role="Device" Type="WcsDBStore.Device" Multiplicity="1" />
+    <End Role="Connection" Type="WcsDBStore.Connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="deviceId" />
+      </Principal>
+      <Dependent Role="Connection">
+        <PropertyRef Name="deviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DevicePin">
+    <End Role="Device" Type="WcsDBStore.Device" Multiplicity="1" />
+    <End Role="Pin" Type="WcsDBStore.Pin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="deviceId" />
+      </Principal>
+      <Dependent Role="Pin">
+        <PropertyRef Name="Device_deviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationConfigurationLocation">
+    <End Role="Location" Type="WcsDBStore.Location" Multiplicity="1" />
+    <End Role="ConfigurationLocation" Type="WcsDBStore.ConfigurationLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="ConfigurationLocation">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationWCS_Device">
+    <End Role="Location" Type="WcsDBStore.Location" Multiplicity="1" />
+    <End Role="Device" Type="WcsDBStore.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationRuleProcedure">
+    <End Role="Procedure" Type="WcsDBStore.Procedure" Multiplicity="1" />
+    <End Role="NotificationRule" Type="WcsDBStore.NotificationRule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedure">
+        <PropertyRef Name="procedureId" />
+      </Principal>
+      <Dependent Role="NotificationRule">
+        <PropertyRef Name="Procedure_procedureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcedureCategoryProcedure">
+    <End Role="ProcedureCategory" Type="WcsDBStore.ProcedureCategory" Multiplicity="1" />
+    <End Role="Procedure" Type="WcsDBStore.Procedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcedureCategory">
+        <PropertyRef Name="procedureCategoryId" />
+      </Principal>
+      <Dependent Role="Procedure">
+        <PropertyRef Name="ProcedureCategory_procedureCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceProcedure">
+    <End Role="ExternalSource" Type="WcsDBStore.ExternalSource" Multiplicity="1" />
+    <End Role="Procedure" Type="WcsDBStore.Procedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="Procedure">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceProcedureCategory">
+    <End Role="ExternalSource" Type="WcsDBStore.ExternalSource" Multiplicity="1" />
+    <End Role="ProcedureCategory" Type="WcsDBStore.ProcedureCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="ProcedureCategory">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

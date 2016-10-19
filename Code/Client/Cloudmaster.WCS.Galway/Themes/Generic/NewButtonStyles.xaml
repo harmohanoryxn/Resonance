@@ -1,0 +1,148 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+
+	<Style x:Key="NotesButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="{StaticResource outboundNotesBrush}"/>
+		<Setter Property="Foreground" Value="{StaticResource WhiteBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Rectangle x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+							<Rectangle.Fill>
+								<DrawingBrush   Stretch="Uniform">
+									<DrawingBrush.Drawing>
+										<DrawingGroup>
+											<DrawingGroup.Children>
+												<GeometryDrawing  Brush="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}" Geometry="F1 M 12.5,0.5L 69.5001,0.5C 76.1275,0.5 81.5001,5.43298 81.5001,11.5181L 81.5001,63.0988C 81.5001,69.1839 76.1275,74.1169 69.5001,74.1169L 52.9741,73.9559L 18.6429,86.9608L 26.0732,74.4561L 12.5,74.1169C 5.87262,74.1169 0.5,69.1839 0.5,63.0988L 0.5,11.5181C 0.5,5.43298 5.87262,0.5 12.5,0.5 Z ">
+													<GeometryDrawing.Pen>
+														<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+													</GeometryDrawing.Pen>
+												</GeometryDrawing>
+											</DrawingGroup.Children>
+										</DrawingGroup>
+									</DrawingBrush.Drawing>
+								</DrawingBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Viewbox Stretch="Uniform">
+							<TextBlock x:Name="content" Text="{TemplateBinding Content}" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Margin="0,0,0,10"/>
+						</Viewbox>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="content" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<!--<Style.Triggers>
+			<DataTrigger Binding="{Binding Path=IsReadOnly}" Value="True">
+				<Setter   Property="IsEnabled" Value="false"/>
+			</DataTrigger>
+		</Style.Triggers>-->
+	</Style>
+
+	<Style x:Key="ManualLockButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="{StaticResource mainBackgroundBrush}"/>
+		<Setter Property="Foreground" Value="#EBEBEB"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Rectangle x:Name="rect" Opacity="1.0" Margin="0,0,0,1" Fill="{StaticResource lockBrush}"/>
+						<Viewbox Stretch="Uniform">
+							<TextBlock x:Name="content" Text="{TemplateBinding Content}" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Margin="0,0,0,10"/>
+						</Viewbox>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+	</Style>
+
+	<Style x:Key="NavigationBackButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="{StaticResource mainBackgroundBrush}"/>
+		<Setter Property="Foreground" Value="#EBEBEB"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Border Background="Transparent"/> <!-- Do Not Delete -->
+						<Rectangle x:Name="rect" Opacity="1.0" Margin="0,0,0,1" Width="30" Height="30" VerticalAlignment="Top">
+							<Rectangle.Fill>
+								<DrawingBrush   Stretch="Uniform">
+									<DrawingBrush.Drawing>
+										<DrawingGroup>
+											<DrawingGroup.Children>
+												<GeometryDrawing Geometry="F1 M 37.2488,1C 57.2684,1 73.4975,16.6124 73.4975,35.8712C 73.4975,55.1301 57.2684,70.7426 37.2488,70.7426C 17.2291,70.7426 1,55.1301 1,35.8712C 1,16.6124 17.2291,1 37.2488,1 Z ">
+													<GeometryDrawing.Pen>
+														<Pen Thickness="2" LineJoin="Round" Brush="{StaticResource WhiteBrush}"/>
+													</GeometryDrawing.Pen>
+												</GeometryDrawing>
+												<GeometryDrawing Brush="{StaticResource WhiteBrush}" Geometry="F1 M 33.4197,41.2239L 63.8202,41.1439L 63.7908,30.8118L 33.3904,30.8917L 33.3609,20.5596L 10.6246,36.2715L 33.4492,51.5562L 33.4197,41.2239 Z ">
+													<GeometryDrawing.Pen>
+														<Pen Thickness="1" LineJoin="Round" Brush="{StaticResource WhiteBrush}"/>
+													</GeometryDrawing.Pen>
+												</GeometryDrawing>
+											</DrawingGroup.Children>
+										</DrawingGroup>
+									</DrawingBrush.Drawing>
+								</DrawingBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+						
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+ 
+</ResourceDictionary>

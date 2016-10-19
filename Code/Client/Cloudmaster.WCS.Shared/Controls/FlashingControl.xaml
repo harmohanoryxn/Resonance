@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WCS.Shared.Controls.FlashingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" >
+    <Border >
+		<Border.Background>
+			<SolidColorBrush x:Name="backBrush" Color="Transparent" />
+		</Border.Background>
+		<Border.Triggers>
+			<EventTrigger RoutedEvent="Rectangle.Loaded">
+				<BeginStoryboard>
+					<Storyboard>
+                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="backBrush" RepeatBehavior ="Forever" Storyboard.TargetProperty="Color" BeginTime="0:0:0"  Duration="0:0:01">
+                            <DiscreteColorKeyFrame Value="Transparent" KeyTime="00:00:0.0" />
+                            <DiscreteColorKeyFrame Value="Red" KeyTime="00:00:0.5" />
+                        </ColorAnimationUsingKeyFrames>
+					</Storyboard>
+				</BeginStoryboard>
+			</EventTrigger>
+
+		</Border.Triggers>
+	</Border>
+</UserControl>

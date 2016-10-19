@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="03f72078-c31f-44e3-ab32-12763dd23b42" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DataServices31.xsd" MetadataType="Schema" ID="c8f89128-8c4a-4d30-aaaa-05e785043da6" SourceId="1" SourceUrl="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="DataServices32.xsd" MetadataType="Schema" ID="e9d526d8-b75b-4428-a735-044cc379abb6" SourceId="1" SourceUrl="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="DataServices2.wsdl" MetadataType="Wsdl" ID="9837c470-45ce-4a12-bd8a-90eeb2d6ec4b" SourceId="1" SourceUrl="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc?wsdl" />
+    <MetadataFile FileName="DataServices3.xsd" MetadataType="Schema" ID="2b93cdbc-f577-451d-9365-a0ff48a8f729" SourceId="1" SourceUrl="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="DataServices21.wsdl" MetadataType="Wsdl" ID="140a4759-986b-4f51-a92e-e7c08d39771d" SourceId="1" SourceUrl="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DataServices1.disco" MetadataType="Disco" ID="48938f9e-b2aa-4c53-9967-2d663740cee5" SourceId="1" SourceUrl="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

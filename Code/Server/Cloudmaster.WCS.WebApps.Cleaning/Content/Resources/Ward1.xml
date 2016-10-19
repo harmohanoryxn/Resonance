@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <DrawingBrush x:Key="WARD11011" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 431.078,599.392L 478.445,599.392L 478.445,635.377L 431.078,635.377L 431.078,599.392 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11172" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 434.42,279.377L 402.941,269.481C 405.439,262.795 407.936,256.109 409.485,248.763C 411.034,241.416 411.635,233.408 412.235,225.4L 443.95,225.153C 443.222,234.781 442.493,244.41 440.905,253.447C 439.316,262.484 436.868,270.931 434.42,279.377 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11171" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 398.424,268.3L 369.097,258.322C 371.185,252.446 373.272,246.57 374.669,240.952C 376.066,235.334 376.771,229.974 377.476,224.614L 407.92,224.614C 407.46,232.473 406.999,240.332 405.417,247.613C 403.834,254.894 401.129,261.597 398.424,268.3 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11164" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 376.917,217.333C 377.098,212.575 377.278,207.817 377.044,203.664C 376.809,199.511 376.16,195.963 375.51,192.414L 404.89,184.318C 406.365,188.761 407.841,193.204 408.346,198.707C 408.851,204.209 408.385,210.771 407.92,217.333L 376.917,217.333 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11163" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 412.835,217.004C 412.984,211.006 413.134,205.009 412.685,199.386C 412.235,193.764 411.186,188.516 410.136,183.268L 438.467,176.371C 440.466,184.518 442.464,192.664 443.285,199.536C 444.106,206.408 443.749,212.005 443.391,217.603L 412.835,217.004 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11162" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 436.968,171.573L 409.087,178.77C 406.836,172.208 404.585,165.646 402.016,160.523C 399.448,155.399 396.562,151.714 393.675,148.028L 420.209,132.387C 423.547,137.803 426.885,143.218 429.678,149.749C 432.471,156.28 434.72,163.926 436.968,171.573 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11161" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 374.461,187.616C 373.612,184.168 372.762,180.719 370.988,176.821C 369.215,172.922 366.516,168.574 363.818,164.226L 390.2,150.132C 392.798,154.081 395.397,158.029 397.72,162.802C 400.043,167.575 402.092,173.172 404.141,178.77L 374.461,187.616 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11154" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 359.042,158.276C 356.037,153.112 353.032,147.949 350.431,144.642C 347.829,141.336 345.631,139.887 343.432,138.437L 363.818,117.896C 367.815,121.294 371.813,124.693 375.346,128.906C 378.879,133.119 381.948,138.147 385.017,143.174L 359.042,158.276 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11153" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 388.089,141.017C 385.669,136.433 383.248,131.848 379.678,127.395C 376.107,122.942 371.387,118.62 366.666,114.297L 388.648,92.4766C 393.862,97.78 399.075,103.084 403.637,108.477C 408.199,113.87 412.109,119.354 416.02,124.837L 388.089,141.017 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11152" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 363.369,111.149C 360.62,107.95 357.872,104.752 353.334,101.28C 348.796,97.8083 342.467,94.0638 336.139,90.3192L 351.221,63.8917C 358.204,67.6671 365.186,71.4425 370.859,75.5452C 376.531,79.648 380.892,84.0782 385.254,88.5084L 363.369,111.149 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11151" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 339.211,136.163C 335.767,132.837 332.322,129.511 328.737,126.904C 325.153,124.297 321.429,122.41 317.705,120.522L 334.139,93.7562C 338.995,96.8353 343.851,99.9145 348.198,103.263C 352.545,106.612 356.383,110.23 360.221,113.848L 339.211,136.163 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11144" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 311.281,116.747C 306.998,114.949 302.716,113.151 298.693,111.643C 294.671,110.136 290.908,108.918 287.146,107.7L 295.015,77.563C 300.762,78.8625 306.508,80.162 311.854,82.2111C 317.2,84.2603 322.147,87.059 327.093,89.8578L 311.281,116.747 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11143" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 345.381,61.1451L 330.091,86.5593C 325.245,83.6105 320.398,80.6618 314.749,78.4568C 309.1,76.252 302.65,74.7911 296.199,73.3301L 304.609,44.877C 312.354,46.8762 320.098,48.8753 326.894,51.5866C 333.689,54.298 339.535,57.7216 345.381,61.1451 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11142" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 290.968,72.4653L 298.763,43.3776C 291.818,41.3785 284.872,39.3793 278.021,38.3938C 271.17,37.4082 264.412,37.4362 257.655,37.4643L 257.841,69.7289C 263.537,69.7914 269.233,69.8539 274.754,70.31C 280.276,70.766 285.622,71.6156 290.968,72.4653 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11141" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 283.174,106.051L 289.919,76.6635C 284.748,75.3765 279.576,74.0895 274.142,73.621C 268.708,73.1525 263.012,73.5023 257.316,73.8522L 256.817,104.342C 262.28,104.324 267.743,104.307 272.135,104.592C 276.528,104.876 279.851,105.464 283.174,106.051 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11132" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 249.555,37.4644C 239.126,37.5862 228.697,37.7081 217.851,39.6407C 207.005,41.5733 195.741,45.3167 184.477,49.06L 195.37,78.1841C 204.852,75.4782 214.333,72.7722 223.396,71.363C 232.458,69.9538 241.102,69.8414 249.747,69.7289L 249.555,37.4644 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11131" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 249.859,74.0021C 241.527,74.0396 233.195,74.0771 224.486,75.4033C 215.777,76.7296 206.691,79.3445 197.605,81.9595L 208.777,109.735C 215.451,107.882 222.125,106.03 229.078,105.091C 236.031,104.152 243.263,104.127 250.496,104.102L 249.859,74.0021 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11121" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 188.738,81.0117L 176.897,52.5237C 167.603,56.4221 158.309,60.3204 149.315,66.3928C 140.322,72.4653 131.628,80.7117 122.934,88.9582L 144.669,111.149C 151.414,104.152 158.159,97.1547 165.504,92.1318C 172.849,87.109 180.794,84.0603 188.738,81.0117 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11122" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 203.129,111.299L 191.181,84.6562C 183.221,87.9394 175.262,91.2226 168.01,96.0129C 160.758,100.803 154.212,107.1 147.667,113.398L 167.719,133.466C 172.677,128.676 177.635,123.886 183.536,120.191C 189.438,116.497 196.283,113.898 203.129,111.299 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11112" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 140.022,115.872L 116.886,94.9036C 110.857,101.543 104.829,108.183 98.9914,116.775C 93.154,125.368 87.5079,135.913 81.8618,146.459L 111.021,159.894C 115.142,150.717 119.262,141.541 124.096,134.204C 128.929,126.867 134.476,121.369 140.022,115.872 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11111" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 163.406,137.762L 142.57,119.17C 137.374,124.568 132.177,129.966 127.63,136.938C 123.083,143.91 119.186,152.456 115.289,161.003L 141.371,171.798C 144.369,164.851 147.367,157.904 151.039,152.231C 154.712,146.559 159.059,142.161 163.406,137.762 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11101" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 95.9384,217.063L 63.2599,217.063C 64.2141,204.924 65.1683,192.784 67.5424,182.312C 69.9165,171.84 73.7105,163.035 77.5044,154.231L 106.552,165.557C 103.518,173.035 100.485,180.513 98.7157,189.097C 96.9468,197.682 96.4426,207.373 95.9384,217.063 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11102" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 139.23,178.77L 111.021,167.714C 107.855,175.175 104.69,182.636 103.014,190.816C 101.338,198.995 101.152,207.895 100.966,216.794L 132.248,216.794C 132.341,210.191 132.434,203.589 133.598,197.252C 134.761,190.915 136.996,184.843 139.23,178.77 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11091" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 63.1619,223.676L 136.462,223.676L 136.461,254.713L 63.1619,254.713L 63.1619,223.676 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11081" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 205.033,287.525L 250.602,287.525L 250.602,328.308L 205.033,328.308L 205.033,287.525 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11071" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 237.111,337.604L 283.579,337.604L 283.579,374.188L 237.111,374.188L 237.111,337.604 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11061" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 267.091,381.685L 316.257,381.685L 316.257,417.07L 267.091,417.07L 267.091,381.685 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11051" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 300.068,425.466L 347.735,425.466L 347.735,461.151L 300.068,461.151L 300.068,425.466 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11041" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 332.746,468.048L 380.713,468.048L 380.712,504.033L 332.745,504.033L 332.746,468.048 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11031" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 366.023,511.53L 413.09,511.53L 413.09,548.414L 366.023,548.414L 366.023,511.53 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="WARD11021" Stretch="Uniform">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="F1 M 398.4,556.811L 445.768,556.811L 445.768,591.596L 398.4,591.596L 398.4,556.811 Z ">
+            <GeometryDrawing.Pen>
+              <Pen LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+  <DrawingBrush x:Key="Anchor" Stretch="Uniform"/>
+</ResourceDictionary>

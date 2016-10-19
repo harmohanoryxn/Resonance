@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="WCS.Shared.Department.Schedule.DepartmentOrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Schedule="clr-namespace:WCS.Shared.Schedule" 
+			 xmlns:Converters="clr-namespace:WCS.Shared.Converters"
+				PreviewMouseDown="uc_PreviewMouseDown" PreviewTouchDown="uc_PreviewTouchDown" 
+             xmlns:Schedule1="clr-namespace:WCS.Shared.Department.Schedule"
+             xmlns:Department="clr-namespace:WCS.Shared.Department" xmlns:Orders="clr-namespace:WCS.Shared.Orders"
+             x:Name="uc"
+			 mc:Ignorable="d">
+
+	<UserControl.Resources>
+		<Department:OverlayType x:Key="officeHoursOverlay">OfficeHours</Department:OverlayType>
+		<Department:OverlayType x:Key="availabilityOverlay">Availability</Department:OverlayType>
+
+		<Converters:OverlayTypeToVisabilityConverter x:Key="overlayTypeToVisabilityConverter"/>
+
+	</UserControl.Resources>
+
+	<Grid Background="{Binding Path=SelectionType, Converter={StaticResource booleanToSelectedBackgroundConvertor}}">
+		<Grid Opacity="{Binding Path=SelectionType, Converter={StaticResource booleanToSelectedOpacityConvertor}}" IsEnabled="{Binding Path=IsUpdating, Converter={StaticResource booleanToOppositeConverter}}">
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<Border x:Name="orderContainer"  Height="50" Margin="0" Grid.Row="0">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="240" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+					<Schedule:TimelineOfficeHours x:Name="officeHoursOverlay" Opacity="0.4" IsHitTestVisible="false" HasScrollbar="False" HasInfobar="True" HideTBA="True"  Visibility="{Binding Path=DataContext.OverlayType,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:DepartmentScheduleView}}, Converter={StaticResource overlayTypeToVisabilityConverter},ConverterParameter={StaticResource officeHoursOverlay}}" Grid.ColumnSpan="2"/>
+					<Schedule:TimelineAvailabilityHours x:Name="availabilityOverlay" Opacity="0.4" IsHitTestVisible="false" HasScrollbar="False" HasInfobar="True" HideTBA="True" UnavailableTimes="{Binding Path=DataContext.OutPatientTimes,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:DepartmentScheduleView}}}" Visibility="{Binding Path=DataContext.OverlayType,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule1:DepartmentScheduleView}}, Converter={StaticResource overlayTypeToVisabilityConverter},ConverterParameter={StaticResource availabilityOverlay}}" Grid.ColumnSpan="2"/>
+					<Schedule:SingleDayTimelineGridlines Opacity="0.4" IsHitTestVisible="false" HasInfobar="True" ShowMinorTicks="False" Grid.ColumnSpan="2"/>
+
+					<Border x:Name="erSignal" Grid.Column="1" Grid.RowSpan="2" Background="{StaticResource ErAlertBrush}" Opacity="0.3" Visibility="{Binding Path=IsHighPriority, Converter={StaticResource booleanToVisibilityConverter}}"/>
+
+					<Border x:Name="updateGlow" Grid.Column="1"  Background="{StaticResource updateHighlightBrush}" Opacity="0.0">
+						<Border.Style>
+							<Style TargetType="{x:Type Border}">
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=IsUpdating}"  Value="True">
+										<DataTrigger.EnterActions>
+											<BeginStoryboard>
+												<Storyboard>
+													<DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0" />
+												</Storyboard>
+											</BeginStoryboard>
+										</DataTrigger.EnterActions>
+										<DataTrigger.ExitActions>
+											<BeginStoryboard>
+												<Storyboard FillBehavior="Stop">
+													<DoubleAnimation Storyboard.TargetProperty="Opacity" To="0" Duration="0:1:0" />
+												</Storyboard>
+											</BeginStoryboard>
+										</DataTrigger.ExitActions>
+
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</Border.Style>
+					</Border>
+
+					<Schedule1:DepartmentOrderInfo x:Name="patientInfo" Margin="0" Grid.Column="0"/>
+
+					<Grid Grid.Column="1">
+
+						<Grid.RowDefinitions>
+							<RowDefinition Height="40"/>
+							<RowDefinition Height="10" />
+						</Grid.RowDefinitions>
+
+						<Schedule:SingleDayTimelineGridlines  Grid.Row="0" Grid.RowSpan="2" Opacity="0.4" IsHitTestVisible="false" />
+
+                        <!-- Contains all the notifications and the 4pm box -->
+						<Border Grid.Row="0" Grid.RowSpan="2">
+							<Orders:OrderItemsView x:Name="order" IsManipulationEnabled="True" BorderThickness="1">
+								<Orders:OrderItemsView.Style>
+									<Style TargetType="Orders:OrderItemsView">
+										<Setter Property="BorderBrush" Value="{StaticResource mainAccentBrush}"/>
+										<Style.Triggers>
+											<DataTrigger Binding="{Binding Path=SelectionType}" Value="Selected">
+												<Setter Property="BorderBrush" Value="{StaticResource BlackBrush}"/>
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</Orders:OrderItemsView.Style>
+							</Orders:OrderItemsView>
+						</Border>
+
+                        <!-- Contains all the timline objects -->
+                        <Border Grid.Row="1" >
+							<ListBox x:Name="orderTimelineListBox"  Height="10"
+                                     ItemsSource="{Binding Path=TimelineCoordinator.TimelineSource.View}" 
+                                     Background="White" 
+                                     BorderBrush="White" 
+                                     BorderThickness="0" 
+                                     Padding="0" 
+                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                                     ScrollViewer.VerticalScrollBarVisibility="Hidden">
+								<ListBox.ItemsPanel>
+									<ItemsPanelTemplate>
+										<Schedule:ScheduleItemCanvas/>
+									</ItemsPanelTemplate>
+								</ListBox.ItemsPanel>
+
+							</ListBox>
+						</Border>
+
+					</Grid>
+
+
+				</Grid>
+			</Border>
+
+            <!-- Represents the out patient gray box overlay that appears on orders when availibility filter is selected -->
+            <Schedule:TimelineAvailabilityHours x:Name="orderAvailabilityOverlay" UnavailableTimes="{Binding Path=OutPatientTimes}" Visibility="{Binding Path=ShowAvailabilityOverlay,Converter={StaticResource booleanToVisibilityConverter}}"  IsHitTestVisible="false">
+				<Schedule:TimelineAvailabilityHours.Resources>
+					<Converters:OutPatientHoursToClipRectangleConverter x:Key="outPatientHoursToClipRectangleConverter"/>
+				</Schedule:TimelineAvailabilityHours.Resources>
+				<Schedule:TimelineAvailabilityHours.Clip>
+					<RectangleGeometry >
+						<RectangleGeometry.Rect>
+							<MultiBinding Converter="{StaticResource outPatientHoursToClipRectangleConverter}">
+								<Binding Path="ActualWidth" ElementName="uc"/>
+								<Binding Path="OrderCoordinator.Order"/>
+								<Binding Path="OrderCoordinator.Order.StartTime"/>
+							</MultiBinding>
+						</RectangleGeometry.Rect>
+					</RectangleGeometry>
+				</Schedule:TimelineAvailabilityHours.Clip>
+			</Schedule:TimelineAvailabilityHours>
+
+
+			<!--Stops User interacting with the extra order - moving and acknowledging -->
+			<Border x:Name="readOnlyMask" Background="Transparent"  Margin="240,0,0,0" IsHitTestVisible="True" Visibility="{Binding Path=IsReadOnly, Converter={StaticResource booleanToVisibilityConverter}}"/>
+
+		</Grid>
+	</Grid>
+</UserControl>

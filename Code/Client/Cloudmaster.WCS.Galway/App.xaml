@@ -1,0 +1,71 @@
+﻿
+	
+	<Application x:Class="Cloudmaster.WCS.Galway.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters;assembly=Cloudmaster.WCS.Shared"
+             StartupUri="ShellView.xaml"  >
+    <Application.Resources>
+
+		<ResourceDictionary>
+
+			<ResourceDictionary.MergedDictionaries>
+
+				<ResourceDictionary Source="Themes\Generic\Colours.xaml" />
+				<ResourceDictionary Source="Themes\Generic\Geometry.xaml" />
+				<ResourceDictionary Source="Themes\Generic\NewBrushes.xaml" />
+				<ResourceDictionary Source="Themes\Generic\Brushes.xaml" />
+ 
+				<ResourceDictionary Source="Themes\Generic/Geometery/Logo.xaml" />
+
+				<ResourceDictionary Source="Themes\Generic/TextStyles.xaml" />
+				<ResourceDictionary Source="Themes\Generic/Labels.xaml" />
+
+				<ResourceDictionary Source="Themes\Generic/NewButtonStyles.xaml" />
+				<ResourceDictionary Source="Themes\Generic/ButtonStyles.xaml" />
+				
+				<ResourceDictionary Source="Themes\Generic/CheckBoxStyle.xaml" />
+				<ResourceDictionary Source="Themes\Generic/RadioButtonStyle.xaml" />
+				<ResourceDictionary Source="Themes\Generic/ScrollBar.xaml" />
+				<ResourceDictionary Source="Themes\Generic/ListBoxStyles.xaml" />
+
+				<!--<ResourceDictionary Source="Themes/Generic/Designs/FloorViewIcon.xaml" />-->
+				<!--<ResourceDictionary Source="Themes/Generic/Designs/Toolbar/ToolbarDesigns.xaml" />-->
+
+				<!--<ResourceDictionary Source="pack://application:,,,/WCS.Galway.Core;component/Locations.xaml"/>-->
+
+				<ResourceDictionary>
+					<Converters:WardCodeConvertor x:Key="wardCodeConvertor" />
+					<BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+					<Converters:NegativeConverter x:Key="negativeConverter" />
+					<Converters:ArgBooleanToVisibilityConverter x:Key="argBooleanToVisibilityConverter" />
+					<Converters:BooleanToOppositeConvertor x:Key="booleanToOppositeConverter" />
+					<Converters:StringFormatConverter x:Key="stringFormatConverter"/>
+					<Converters:NullToVisibilityConverter  x:Key="nullToVisibilityConverter"/>
+					<Converters:EmptyStringConverter x:Key="emptyStringConverter"/>
+					<Converters:EmptyCollectionConverter x:Key="emptyCollectionConverter"/>
+					<Converters:ArgNullableToBooleanConverter x:Key="argNullableToBooleanConverter"/>
+					<Converters:AllOrdersToAllPatientTimlineConverter x:Key="allOrdersToAllPatientTimlineConverter" />
+					<Converters:DoesPatientHaveMultipleOrdersToVisabilityConverter x:Key="doesPatientHaveMultipleOrdersToVisabilityConverter" />
+					<Converters:TimelineGeometryPathConverter x:Key="timelineGeometryPathConverter"/>
+					<Converters:HistoryGeometryPathConverter x:Key="historyGeometryPathConverter"/>
+					<Converters:ScheduleMarginConverter x:Key="scheduleMarginConverter"/>
+					<Converters:RightArrowMarginConverter x:Key="orderCardArrowMarginConverter"/>
+					<Converters:LeftArrowMarginConverter x:Key="leftArrowMarginConverter"/>
+                    <Converters:BooleanToSelectedOpacityConvertor x:Key="booleanToSelectedOpacityConvertor"/>
+                    <Converters:BooleanToSelectedMargin x:Key="booleanToSelectedMargin" />
+                    <Converters:BooleanToSelectedBackgroundConvertor x:Key="booleanToSelectedBackgroundConvertor" />
+                    <Converters:CoreHistoryConverter x:Key="coreHistoryConverter"/>
+                    <Converters:NonCoreHistoryConverter x:Key="nonCoreHistoryConverter"/>
+                    <Converters:TimeToStopwatchTimeConverter x:Key="timeToStopwatchTimeConverter"/>
+                    <Converters:StartTimeToEndTimeConverter x:Key="startTimeToEndTimeConverter"/>
+					<Converters:LocationToStringConverter x:Key="locationToStringConverter"/>
+
+				</ResourceDictionary>
+
+			</ResourceDictionary.MergedDictionaries>
+
+		</ResourceDictionary>
+			
+	</Application.Resources>
+</Application>

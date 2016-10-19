@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="WCS.Shared.Discharge.Schedule.DischargeScheduleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:Schedule="clr-namespace:WCS.Shared.Schedule" 
+             xmlns:Schedule2="clr-namespace:WCS.Shared.Discharge.Schedule"
+             xmlns:Timeline="clr-namespace:WCS.Shared.Timeline" 
+             xmlns:View="clr-namespace:WCS.Shared.Schedule.View"
+             xmlns:View1="clr-namespace:WCS.Shared.Discharge.Schedule.View" xmlns:Beds="clr-namespace:WCS.Shared.Beds"
+             xmlns:Schedule1="clr-namespace:WCS.Shared.Cleaning.Schedule" mc:Ignorable="d" 
+			 PreviewMouseDown="UserControl_PreviewMouseDown" PreviewTouchDown="UserControl_PreviewTouchDown"
+			 Margin="{Binding Path=ShowActionBar, Converter={StaticResource scheduleMarginConverter}}"
+             Background="White">
+
+	<UserControl.Resources>
+
+		<DataTemplate DataType="{x:Type Schedule2:DischargeRoomViewModel}">
+			<Schedule2:DischargeRoomTimelineView Width="{Binding Path=ActualWidth,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}"/>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type Schedule2:DischargeBedViewModel}">
+			<Beds:DischargeBedView  Width="{Binding Path=ActualWidth,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}"/>
+		</DataTemplate> 
+  
+	</UserControl.Resources>
+
+	<Grid>
+
+		<View1:DischargeCombinedScheduleView/>
+
+	</Grid>
+</UserControl>
+
+
+

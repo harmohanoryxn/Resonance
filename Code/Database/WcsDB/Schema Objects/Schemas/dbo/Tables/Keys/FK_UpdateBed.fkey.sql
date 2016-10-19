@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Update]
+    ADD CONSTRAINT [FK_UpdateBed] FOREIGN KEY ([Bed_bedId]) REFERENCES [dbo].[Bed] ([bedId]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

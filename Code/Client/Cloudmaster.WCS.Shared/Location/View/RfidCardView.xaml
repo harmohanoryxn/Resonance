@@ -1,0 +1,147 @@
+﻿<UserControl x:Class="WCS.Shared.Location.RfidCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Location="clr-namespace:WCS.Shared.Location"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" xmlns:Orders="clr-namespace:WCS.Shared.Orders"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" 
+			 Name="rfidcv"
+			 Background="White" BorderBrush="{StaticResource cardBorderBrush}" BorderThickness="1,0,0,0">
+
+	<UserControl.Resources>
+
+		<Converters:RfidBackgroundBrushConverter x:Key="rfidBackgroundBrushConverter"/>
+		<Converters:RfidLocationToWidthConverter x:Key="rfidLocationToWidthConverter"/>
+		<Converters:RfidLocationToHeightConverter x:Key="rfidLocationToHeightConverter"/>
+		<Converters:RfidLocationToOffsetConverter x:Key="rfidLocationToOffsetConverter"/>
+		<Location:RfidLocationTemplateSelector      x:Key="rfidLocationTemplateSelector" />
+
+		<System:String x:Key="groundFloor">Ground_Floor</System:String>
+		<System:String x:Key="CT">CT</System:String>
+		<System:String x:Key="ER">ER</System:String>
+		<System:String x:Key="Attrium">Attrium</System:String>
+		<System:String x:Key="RespirotoryLabEntrance">Respirotory_Lab_Entrance</System:String>
+		<System:String x:Key="AngioEntrance">Angio_Entrance</System:String>
+		<System:String x:Key="RadiologyEntrance">Radiology_Entrance</System:String>
+		<System:String x:Key="MainEntrance">Main_Entrance</System:String>
+		<System:String x:Key="AngioRecovery">ANGIO</System:String>
+		<System:String x:Key="MRI">MRI</System:String>
+		<System:String x:Key="ICU">ICU</System:String>
+		<System:String x:Key="Physiotherapy">PHYSIO</System:String>
+		<System:String x:Key="Daycare">DAY_CARE</System:String>
+		<System:String x:Key="Theatre">THEATRE</System:String>
+		<System:String x:Key="TheatrePreOp">PREOP</System:String>
+		<System:String x:Key="Radiology">RADIOLOGY</System:String>
+		<System:String x:Key="ACCLG">WARD1</System:String>
+        <System:String x:Key="ACCG">WARD2</System:String>
+        <System:String x:Key="ACC1">WARD3</System:String>
+        <System:String x:Key="ACC2">WARD4</System:String>
+        <System:String x:Key="ACC3">WARD5</System:String>
+		<System:String x:Key="Radiotherapy">RT</System:String>
+		<System:String x:Key="ConferenceRoom">CONFERENCE</System:String>
+		<System:String x:Key="Labels">Labels</System:String>
+
+	</UserControl.Resources>
+
+	<Grid>
+
+        <DockPanel Margin="0" Width="850" LastChildFill="True" Background="White">
+        
+            <!-- Header -->
+        
+            <Grid DockPanel.Dock="Top" Margin="0,0,0,0" Height="60" HorizontalAlignment="Stretch" Background="#0099FF">
+
+                <TextBlock Style="{StaticResource InfoCardHeader1TextStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70,0,0,0" Text="Locate" />
+
+            </Grid>
+            
+            <!-- Left Column -->
+
+            <DockPanel DockPanel.Dock="Left" LastChildFill="False" Grid.Column="0" Width="480" >
+
+                <Grid DockPanel.Dock="Top" Margin="5,10,0,10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Style="{StaticResource CardHeader1TextStyle}" HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Row="0" Margin="10,0,0,5" Text="Current Location"/>
+                    <TextBlock Style="{StaticResource RFIDCardHeader2TextStyle}" HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Row="1" Margin="10,0,0,0" Text="{Binding Path=Patient.LocationTrackingCoordinator.CurrentDetectionLocation}"/>
+
+                </Grid>
+
+                <Border DockPanel.Dock="Top" BorderBrush="{StaticResource mainAccentBrush}" BorderThickness="0" Background="{StaticResource WhiteBrush}">
+				    <Viewbox>
+					    <Grid Margin="50" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+						    <Canvas Background="{Binding Source={StaticResource groundFloor}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource groundFloor}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource groundFloor}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource groundFloor}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource CT}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource CT}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource CT}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource CT}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ER}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ER}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ER}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ER}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource Attrium}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource Attrium}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource Attrium}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource Attrium}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource RespirotoryLabEntrance}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource RespirotoryLabEntrance}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource RespirotoryLabEntrance}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource RespirotoryLabEntrance}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource AngioEntrance}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource AngioEntrance}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource AngioEntrance}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource AngioEntrance}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource RadiologyEntrance}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource RadiologyEntrance}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource RadiologyEntrance}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource RadiologyEntrance}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource MainEntrance}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource MainEntrance}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource MainEntrance}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource MainEntrance}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource AngioRecovery}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource AngioRecovery}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource AngioRecovery}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource AngioRecovery}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource MRI}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource MRI}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource MRI}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource MRI}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ICU}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ICU}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ICU}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ICU}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource Physiotherapy}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource Physiotherapy}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource Physiotherapy}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource Physiotherapy}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource Daycare}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource Daycare}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource Daycare}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource Daycare}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource Theatre}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource Theatre}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource Theatre}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource Theatre}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource TheatrePreOp}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource TheatrePreOp}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource TheatrePreOp}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource TheatrePreOp}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource Radiology}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource Radiology}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource Radiology}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource Radiology}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ACCLG}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ACCLG}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ACCLG}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ACCLG}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ACCG}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ACCG}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ACCG}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ACCG}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ACC1}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ACC1}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ACC1}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ACC1}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ACC2}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ACC2}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ACC2}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ACC2}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ACC3}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ACC3}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ACC3}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ACC3}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource Radiotherapy}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource Radiotherapy}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource Radiotherapy}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource Radiotherapy}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+						    <Canvas Background="{Binding Source={StaticResource ConferenceRoom}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource ConferenceRoom}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Source={StaticResource ConferenceRoom}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=floorplan}"  Margin="{Binding Source={StaticResource ConferenceRoom}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                            
+						    <Location:CurrentDetection DataContext="{Binding Path=Patient.LocationTrackingCoordinator.SelectedDetection}"/>
+						    <Location:CurrentLocation DataContext="{Binding Path=Patient.LocationTrackingCoordinator.CurrentDetection}"/>
+						
+						    <Canvas Background="{Binding Source={StaticResource Labels}, Converter={StaticResource rfidBackgroundBrushConverter}}"  Width="{Binding Source={StaticResource Labels}, Converter={StaticResource rfidLocationToWidthConverter}, ConverterParameter=annotation}" Height="{Binding Source={StaticResource Labels}, Converter={StaticResource rfidLocationToHeightConverter}, ConverterParameter=annotation}"  Margin="{Binding Source={StaticResource Labels}, Converter={StaticResource rfidLocationToOffsetConverter}, ConverterParameter=annotation}" VerticalAlignment="Top" HorizontalAlignment="Left" IsHitTestVisible="False"/>
+
+					    </Grid>
+				    </Viewbox>
+			    </Border>
+
+
+            </DockPanel>
+
+            <!-- Right Column -->
+            
+            <DockPanel DockPanel.Dock="Left" Width="360" LastChildFill="True" Grid.Column="1" Margin="5" >
+
+                <TextBlock DockPanel.Dock="Top" Style="{StaticResource CardHeader1TextStyle}" HorizontalAlignment="Left"  VerticalAlignment="Center"  Grid.Row="0" Margin="10,0,0,0" Text="History"/>
+
+                <ListBox DockPanel.Dock="Top"
+                    ItemsSource="{Binding Path=Patient.LocationTrackingCoordinator.Detections.View}"
+					      SelectedItem="{Binding Path=Patient.LocationTrackingCoordinator.SelectedDetection}"
+					      Padding="0" VerticalAlignment="Top" Margin="0,10,0,0"
+					      Width="360" 
+					      BorderBrush="{StaticResource WhiteBrush}"
+					      Background="{StaticResource WhiteBrush}"
+					      ScrollViewer.HorizontalScrollBarVisibility="Hidden"					
+					      ScrollViewer.VerticalScrollBarVisibility="Visible"
+					      ScrollViewer.PanningMode="VerticalOnly">
+
+				    <ListBox.Resources>
+
+					    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="{StaticResource lightYellowHighlight}"/>
+
+					    <DataTemplate DataType="{x:Type Location:DetectionViewModel}">
+						    <Orders:RfidDetectionItemView/>
+					    </DataTemplate>
+
+				    </ListBox.Resources>
+			    </ListBox >
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

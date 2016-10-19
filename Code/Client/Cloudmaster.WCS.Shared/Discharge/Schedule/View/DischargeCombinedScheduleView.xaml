@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="WCS.Shared.Discharge.Schedule.View.DischargeCombinedScheduleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Schedule="clr-namespace:WCS.Shared.Schedule"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" 
+             xmlns:Schedule2="clr-namespace:WCS.Shared.Discharge.Schedule"
+             xmlns:Controls="clr-namespace:WCS.Shared.Controls" xmlns:Beds="clr-namespace:WCS.Shared.Beds"
+             mc:Ignorable="d"
+			 x:Name="dcsv">
+
+	<UserControl.Resources>
+		<Converters:LocationToHeightConverter x:Key="locationToHeightConverter"/>
+		<Converters:LocationToWidthConverter x:Key="locationToWidthConverter"/>
+		<Converters:LocationToOffsetConverter x:Key="locationToOffsetConverter"/>
+		<Converters:LocationToFloorplanBrushConverter x:Key="locationToFloorplanBrushConverter"/>
+		<Converters:LocationToFloorplanAnnotationBrushConverter x:Key="locationToFloorplanAnnotationBrushConverter"/>
+		<Converters:BedMapToGeometryConverter x:Key="bedMapToGeometryConverter"/>
+		<Converters:BedHasGeometryToVisibilityConverter x:Key="hasGeometryToVisibilityConverter"/>
+	</UserControl.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="45" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="700"/>
+		</Grid.ColumnDefinitions>
+
+		<Schedule:MultiDayTimelineHeader Grid.Row="0" Grid.Column="0" Height="40" Margin="0" VerticalAlignment="Bottom"  HasTbaHour="True" />
+
+		<!-- List of Rooms -->
+		<Border BorderBrush="{StaticResource mainAccentBrush}" Grid.Row="2" Grid.Column="0" BorderThickness="0,0,1,0">
+			<Grid x:Name="roomsContainer"  Grid.Row="1" Margin="0,0,0,0" PreviewTouchDown="roomsContainer_PreviewTouchDown">
+
+				<Schedule:MultiDayTimelineGridlines Opacity="0.4" IsHitTestVisible="false" HasInfobar="True" ShowMinorTicks="False"  HasTbaHour="True"/>
+
+				<ListBox x:Name="listRooms" Margin="0" Padding="0" VerticalAlignment="Top"
+						 BorderBrush="White"
+						 Background="White"
+						 AlternationCount="1000" 
+						 Width="{Binding ElementName=roomsContainer, Path=ActualWidth}" 
+						 Height="{Binding ElementName=roomsContainer, Path=ActualHeight}"
+						 ItemsSource="{Binding Path=TimelineSource.View}"
+						 SelectedItem="{Binding Path=SelectedRoom}"
+						 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+						 ScrollViewer.VerticalScrollBarVisibility="Visible"
+						  ScrollViewer.PanningMode="VerticalOnly"
+						 IsSynchronizedWithCurrentItem="True"
+						 Controls:ListBoxExtenders.AutoScrollToCurrentItem="True">
+
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="0,0,0,150"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                </ListBox>
+			</Grid>
+		</Border>
+
+		<!-- Map of Beds -->
+		<Viewbox x:Name="map" Grid.Row="1" Grid.Column="1" Margin="30,100,30,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+			<Grid >
+				<Grid.Resources>
+
+					<DataTemplate DataType="{x:Type Schedule2:DischargeBedViewModel}">
+						<Beds:BedMapView Width="{Binding Path=ActualWidth,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}}"/>
+					</DataTemplate>
+ 
+
+				</Grid.Resources>
+
+				<Canvas Margin="{Binding Path=WardCode, Converter={StaticResource locationToOffsetConverter}, ConverterParameter=floorplan}" Width="{Binding Path=WardCode, Converter={StaticResource locationToWidthConverter}, ConverterParameter=floorplan}" Height="{Binding Path=WardCode, Converter={StaticResource locationToHeightConverter}, ConverterParameter=floorplan}" VerticalAlignment="Top" HorizontalAlignment="Left">
+					<Canvas.Background>
+						<MultiBinding Converter="{StaticResource locationToFloorplanBrushConverter}">
+							<Binding ElementName="dcsv" />
+							<Binding Path="WardCode" />
+						</MultiBinding>
+					</Canvas.Background>
+				</Canvas>
+
+				<ListBox Name="mapBeds" Margin="0" Padding="0" VerticalAlignment="Top" 
+						 BorderBrush="Transparent"
+						 Background="Transparent"
+						 ItemsSource="{Binding Path=MapSource.View}"
+					 SelectedItem="{Binding Path=SelectedRoom}"		
+						 Width="{Binding Path=WardCode, Converter={StaticResource locationToWidthConverter}, ConverterParameter=total}" Height="{Binding Path=WardCode, Converter={StaticResource locationToHeightConverter}, ConverterParameter=total}"
+				 		 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+						 ScrollViewer.VerticalScrollBarVisibility="Hidden">
+
+					<ListBox.Resources>
+						<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#00000000"/>
+						<SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#00000000"/>
+					</ListBox.Resources>
+
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<Canvas Name="mapBack" Margin="0" 
+								Background="Transparent">
+							</Canvas>
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+
+					<ListBox.ItemContainerStyle>
+						<Style TargetType="ListBoxItem">
+							<Setter Property="Clip" >
+								<Setter.Value>
+									<MultiBinding Converter="{StaticResource bedMapToGeometryConverter}">
+										<Binding ElementName="dcsv" />
+										<Binding  />
+									</MultiBinding>
+								</Setter.Value>
+							</Setter>
+							<Setter Property="Visibility" >
+								<Setter.Value>
+									<MultiBinding Converter="{StaticResource hasGeometryToVisibilityConverter}">
+										<Binding ElementName="dcsv" />
+										<Binding  />
+									</MultiBinding>
+								</Setter.Value>
+							</Setter>
+							<Setter Property="Padding" Value="0" />
+						</Style>
+					</ListBox.ItemContainerStyle>
+				</ListBox>
+
+				<Canvas Margin="{Binding Path=WardCode, Converter={StaticResource locationToOffsetConverter}, ConverterParameter=annotation}" Width="{Binding Path=WardCode, Converter={StaticResource locationToWidthConverter}, ConverterParameter=annotation}" Height="{Binding Path=WardCode, Converter={StaticResource locationToHeightConverter}, ConverterParameter=annotation}" VerticalAlignment="Top" HorizontalAlignment="Left" IsHitTestVisible="False">
+					<Canvas.Background>
+						<MultiBinding Converter="{StaticResource locationToFloorplanAnnotationBrushConverter}">
+							<Binding ElementName="dcsv" />
+							<Binding Path="WardCode" />
+						</MultiBinding>
+					</Canvas.Background>
+				</Canvas>
+			</Grid>
+		</Viewbox>
+
+		<Grid Grid.Row="0"  Width="205" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="35,5,0,0">
+			<TextBlock FontSize="24" Foreground="{StaticResource screenNameBrush}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0"   Text="{Binding Path=SelectedLocation.Name}" />
+			<Button Opacity="0"  Margin="0,0,0,0" Command="{Binding Path=DataContext.ToggleNavigationBarVisibilityCommand,  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Schedule:ScreenBootstrap}}}" />
+		</Grid>
+
+		<Button  Grid.Row="0" Height="25" Width="25" Margin="5,0,5,0"  Style="{StaticResource ManualLockButtonStyle}" Command="{Binding Path=ManualLockCommand}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+	</Grid>
+
+</UserControl>

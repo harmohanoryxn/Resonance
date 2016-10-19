@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="Document" Width="1849" Height="2044" Clip="F1 M 0,0L 1849,0L 1849,2044L 0,2044L 0,0">
+	<Canvas x:Name="Ground_Floor" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path" Width="1777" Height="1689" Canvas.Left="-0.5" Canvas.Top="356.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF3A3A3A" Fill="#FFA5AEB5" Data="F1 M 460,1037L 420,1037L 420.349,992.312L 383.704,992.312L 383.704,942.852L 348.302,942.852L 348.302,893.991L 310.414,893.991L 310.414,846.03L 275.012,846.03L 275.012,797.469L 240.23,797.469L 240.23,747.409L 204.206,747.409L 204.206,712.037L 48,712.037L 48,623.609C 48,565.555 72.4817,518.093 111.87,475.678C 151.258,433.262 216.813,411.759 263.521,414.377C 310.229,416.995 371.282,430.164 420.349,480.074C 469.416,529.984 480.285,590.935 480.285,623.609C 480.285,656.282 475.98,669.884 469.416,691.654L 529.198,773L 864,773L 864,613L 912,613L 912,429L 1224,429L 1224,357L 1488,357L 1488,429L 1520,429L 1520,1045L 1512,1045L 1512,1365L 1776,1365L 1776,1797L 1520,1797L 1520,1885L 1104,1885L 1104,1613L 872,1613L 840,1613L 840,1637L 544,1637L 544,1749L 424,1749L 424,1861L 302.301,1861C 303.42,1868.83 304,1876.84 304,1885C 304,1973.37 235.947,2045 152,2045C 68.0527,2045 0,1973.37 0,1885C 0,1796.63 68.0527,1725 152,1725C 160.166,1725 168.182,1725.68 176,1726.98L 176,1613L 288,1613L 288,1501L 400,1501L 400,1381L 544,1381L 545.042,1085L 460,1085L 460,1037M 1144,1421L 1144,1053L 840,1053L 840,1301L 863.245,1301C 871.481,1295.95 881.368,1293 892,1293C 920.718,1293 944,1314.49 944,1341C 944,1367.51 920.718,1389 892,1389C 890.654,1389 889.32,1388.95 888,1388.86L 888,1421L 1144,1421 Z "/>
+	</Canvas>
+	<Canvas x:Name="Attrium" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathAttrium" Width="945" Height="753" Canvas.Left="559.5" Canvas.Top="876.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 560,965L 800,965L 888,877L 1064,877L 1064,893L 1184,893L 1184,1213L 1504,1213L 1504,1261L 1184,1261L 1184,1325L 1168,1325L 1160,1325L 1152,1325L 1152,1125L 1152,1053L 1152,917L 904,917L 832,989L 832,1405L 880,1405L 880,1485L 984,1485L 984,1501L 984,1509L 984,1557L 880,1557L 864,1557L 832,1557L 832,1629L 560,1629L 560,965 Z "/>
+	</Canvas>
+	<Canvas x:Name="Respirotory_Lab_Entrance" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path_1" Width="57.0005" Height="121" Canvas.Left="1791.5" Canvas.Top="1668.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFBCA8B7" Data="F1 M 1792,1669L 1792,1669L 1848,1669L 1848,1669L 1848,1789L 1848,1789L 1792,1789L 1792,1789L 1792,1669 Z "/>
+	</Canvas>
+	<Canvas x:Name="Angio_Entrance" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathAngioEntrance" Width="58.0001" Height="121" Canvas.Left="1526.5" Canvas.Top="1172.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFBCA8B7" Data="F1 M 1528,1173L 1583,1173L 1584,1173L 1584,1293L 1583,1293L 1528,1293L 1527,1293L 1527,1173L 1528,1173 Z "/>
+	</Canvas>
+	<Canvas x:Name="Radiology_Entrance" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathRadiologyEntrance" Width="65.9999" Height="161" Canvas.Left="1022.5" Canvas.Top="1628.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFBCA8B7" Data="F1 M 1024,1629L 1087,1629L 1088,1629L 1088,1789L 1087,1789L 1024,1789L 1023,1789L 1023,1629L 1024,1629 Z "/>
+	</Canvas>
+	<Canvas x:Name="Main_Entrance" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathMainEntrance" Width="274" Height="65.0001" Canvas.Left="574.5" Canvas.Top="1652.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFBCA8B7" Data="F1 M 576,1653L 847,1653L 848,1653L 848,1717L 847,1717L 576,1717L 575,1717L 575,1653L 576,1653 Z "/>
+	</Canvas>
+	<Canvas x:Name="ANGIO" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathANGIO" Width="74.0002" Height="177" Canvas.Left="1430.5" Canvas.Top="1268.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 1432,1269L 1503,1269L 1504,1269L 1504,1445L 1503,1445L 1432,1445L 1431,1445L 1431,1269L 1432,1269 Z "/>
+	</Canvas>
+	<Canvas x:Name="CT" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathCT" Width="121" Height="177" Canvas.Left="1247.5" Canvas.Top="1556.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 1248,1645L 1304,1645L 1304,1589L 1320,1589L 1320,1557L 1368,1557L 1368,1589L 1368,1597L 1368,1645L 1368,1661L 1368,1733L 1248,1733L 1248,1645 Z "/>
+	</Canvas>
+	<Canvas x:Name="MRI" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathMRI" Width="105" Height="153" Canvas.Left="1191.5" Canvas.Top="1580.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 1192,1581L 1280,1581L 1296,1581L 1296,1637L 1240,1637L 1240,1733L 1192,1733L 1192,1581 Z "/>
+	</Canvas>
+	<Canvas x:Name="ICU" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathICU" Width="226" Height="121" Canvas.Left="918.5" Canvas.Top="924.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFE0E5E6" Data="F1 M 920,925L 1143,925L 1144,925L 1144,1045L 1143,1045L 920,1045L 919,1045L 919,925L 920,925 Z "/>
+	</Canvas>
+	<Canvas x:Name="PHYSIO" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathPHYSIO" Width="130" Height="177" Canvas.Left="558.5" Canvas.Top="780.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFE0E5E6" Data="M 560,781L 687,781L 688,781L 688,957L 687,957L 560,957L 559,957L 559,781L 560,781 Z "/>
+	</Canvas>
+	<Canvas x:Name="ER" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathER" Width="185" Height="177" Canvas.Left="695.5" Canvas.Top="780.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFE0E5E6" Data="M 696,781L 696,957L 800,957L 880,877L 880,781L 696,781 Z "/>
+	</Canvas>
+	<Canvas x:Name="DAY_WARD" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathDAY_WARD" Width="265" Height="433" Canvas.Left="919.5" Canvas.Top="436.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 920,437L 1064,437L 1184,437L 1184,621L 1064,621L 1064,869L 920,869L 920,621L 920,437 Z "/>
+	</Canvas>
+	<Canvas x:Name="THEATRE" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathTHEATRE" Width="218" Height="737" Canvas.Left="1286.5" Canvas.Top="468.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 1288,469L 1503,469L 1504,469L 1504,1205L 1503,1205L 1288,1205L 1287,1205L 1287,469L 1288,469 Z "/>
+	</Canvas>
+	<Canvas x:Name="PREOP" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathPREOP" Width="211" Height="257" Canvas.Left="1069.5" Canvas.Top="628.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 1072,629L 1278,629L 1279,629L 1280,629L 1280,885L 1279,885L 1278,885L 1072,885L 1071,885L 1070,885L 1070,629L 1071,629L 1072,629 Z "/>
+	</Canvas>
+	<Canvas x:Name="RADIOLOGY" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathRADIOLOGY" Width="545" Height="457" Canvas.Left="991.5" Canvas.Top="1332.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 992,1429L 1096,1429L 1152,1429L 1152,1333L 1184,1333L 1184,1741L 1536,1741L 1536,1789L 1112,1789L 1112,1765L 1112,1741L 1112,1605L 992,1605L 992,1429 Z "/>
+	</Canvas>
+	<Canvas x:Name="ACCLG" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathACCLG" Width="490.042" Height="504.963" Canvas.Left="55.4997" Canvas.Top="711.537" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF040D19" Fill="#FFD8DFE0" Data="F1 M 246.174,877.813L 209,877.813L 209,843.733L 212.166,841.733L 55.9997,841.733L 55.9997,759.733L 55.9997,757.733L 56.0487,757.733C 56.5125,741.989 58.7954,726.692 62.6985,712.037L 204.206,712.037L 204.206,747.409L 240.23,747.409L 240.23,797.469L 275.012,797.469L 275.012,846.03L 310.414,846.03L 310.414,893.991L 348.302,893.991L 348.302,942.852L 383.704,942.852L 383.704,992.312L 420.349,992.312L 420,1037L 460,1037L 460,1085L 545.042,1085L 544.581,1215.77L 465,1216L 465,1211.73L 465,1168L 425,1167.75L 425,1123.73L 389.132,1123.73L 389.132,1073.29L 353,1073.29L 353,1025.04L 315.257,1025.04L 315.382,976.167L 281,976.042L 281,928.542L 246.132,928.542L 246.174,877.813 Z "/>
+	</Canvas>
+	<Canvas x:Name="ACCG" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathACCG" Width="498" Height="515.2" Canvas.Left="55.5" Canvas.Top="561.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF040D19" Fill="#FFD8DFE0" Data="F1 M 246.174,738.013L 209,738.013L 209,703.933L 212.167,701.933L 56,701.933L 56,619.933L 56,617.933L 56.0491,617.933C 56.622,598.484 59.971,579.717 65.7213,562L 212.167,562L 209,564L 209,598.08L 246.174,598.08L 246.133,648.809L 281,648.809L 281,696.309L 315.383,696.434L 315.258,745.309L 353,745.309L 353,793.559L 389.133,793.559L 389.133,844L 425,844L 425,888.017L 465,888.267L 465,932L 465,936.267L 553,936.017L 553,1075.95L 465,1076.2L 465,1071.93L 465,1028.2L 425,1027.95L 425,983.933L 389.133,983.933L 389.133,933.492L 353,933.492L 353,885.242L 315.258,885.242L 315.383,836.367L 281,836.242L 281,788.742L 246.133,788.742L 246.174,738.013 Z "/>
+	</Canvas>
+	<Canvas x:Name="ACC1" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathACC1" Width="498" Height="515.201" Canvas.Left="55.4997" Canvas.Top="421.433" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF040D19" Fill="#FFD8DFE0" Data="F1 M 246.174,597.946L 209,597.946L 209,563.866L 212.166,561.866L 55.9997,561.866L 55.9997,479.866L 55.9997,477.866L 56.0487,477.866C 56.6216,458.417 59.9707,439.65 65.7209,421.933L 212.166,421.933L 209,423.933L 209,458.013L 246.174,458.013L 246.132,508.742L 281,508.742L 281,556.242L 315.382,556.367L 315.257,605.242L 353,605.242L 353,653.492L 389.132,653.492L 389.132,703.933L 425,703.933L 425,747.951L 465,748.201L 465,791.933L 465,796.201L 553,795.951L 553,935.884L 465,936.134L 465,931.866L 465,888.134L 425,887.884L 425,843.866L 389.132,843.866L 389.132,793.425L 353,793.425L 353,745.175L 315.257,745.175L 315.382,696.3L 281,696.175L 281,648.675L 246.132,648.675L 246.174,597.946 Z "/>
+	</Canvas>
+	<Canvas x:Name="ACC2" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathACC2" Width="498" Height="515.2" Canvas.Left="55.4997" Canvas.Top="281.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF040D19" Fill="#FFD8DFE0" Data="F1 M 246.174,458.013L 209,458.013L 209,423.933L 212.166,421.933L 55.9997,421.933L 55.9997,339.933L 55.9997,337.933L 56.0487,337.933C 56.6216,318.484 59.9707,299.717 65.7209,282L 212.166,282L 209,284L 209,318.08L 246.174,318.08L 246.132,368.809L 281,368.809L 281,416.309L 315.382,416.434L 315.257,465.309L 353,465.309L 353,513.559L 389.132,513.559L 389.132,564L 425,564L 425,608.018L 465,608.268L 465,652L 465,656.268L 553,656.018L 553,795.951L 465,796.201L 465,791.933L 465,748.201L 425,747.951L 425,703.933L 389.132,703.933L 389.132,653.492L 353,653.492L 353,605.242L 315.257,605.242L 315.382,556.367L 281,556.242L 281,508.742L 246.132,508.742L 246.174,458.013 Z "/>
+	</Canvas>
+	<Canvas x:Name="ACC3" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathACC3" Width="498" Height="657.268" Canvas.Left="55.4997" Canvas.Top="-0.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF040D19" Fill="#FFD8DFE0" Data="F1 M 246.174,318.08L 209,318.08L 209,284L 212.166,282L 55.9997,282L 55.9997,200L 55.9997,198L 56.0487,198C 59.2856,88.1091 151.149,0 264,0C 376.85,0 468.714,88.1091 471.951,198L 472,198L 471.955,198.156C 471.973,198.77 471.988,199.385 472,200L 469.702,229L 465,269L 553,388L 553,444L 553,656.018L 465,656.268L 465,652L 465,608.268L 425,608.018L 425,564L 389.132,564L 389.132,513.559L 353,513.559L 353,465.309L 315.257,465.309L 315.382,416.434L 281,416.309L 281,368.809L 246.132,368.809L 246.174,318.08 Z "/>
+	</Canvas>
+	<Canvas x:Name="RT" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathRT" Width="258" Height="289" Canvas.Left="1511.5" Canvas.Top="1372.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFE0E5E6" Data="F1 M 1512,1373L 1513,1373L 1768,1373L 1769,1373L 1769,1661L 1768,1661L 1513,1661L 1512,1661L 1512,1373 Z "/>
+	</Canvas>
+	<Canvas x:Name="RESPT" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathRESPT" Width="226" Height="121" Canvas.Left="1542.5" Canvas.Top="1668.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="F1 M 1544,1669L 1767,1669L 1768,1669L 1768,1789L 1767,1789L 1544,1789L 1543,1789L 1543,1669L 1544,1669 Z "/>
+	</Canvas>
+	<Canvas x:Name="Conference_Room" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="pathCC" Width="285.902" Height="303" Canvas.Left="8.49967" Canvas.Top="1733.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFD8DFE0" Data="M 151.951,1734C 230.348,1734 293.902,1801.6 293.902,1885C 293.902,1968.39 230.348,2036 151.951,2036C 151.784,2036 151.617,2036 151.451,2036C 151.284,2036 151.118,2036 150.951,2036C 72.5534,2036 8.99967,1968.39 8.99967,1885C 8.99967,1801.6 72.5533,1734 150.951,1734C 151.118,1734 151.284,1734 151.451,1734C 151.617,1734 151.784,1734 151.951,1734 Z "/>
+	</Canvas>
+	<Canvas x:Name="Labels" Width="600" Height="400" Canvas.Left="0" Canvas.Top="0">
+		<Rectangle x:Name="Rectangle" Width="61.6499" Height="57" Canvas.Left="476.85" Canvas.Top="1148.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF4E4E4E"/>
+		<TextBlock x:Name="TextBlock" TextAlignment="Left" FontFamily="Segoe UI" FontSize="32" Width="Auto" Height="Auto" Canvas.Left="0" Canvas.Top="0">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<MatrixTransform Matrix="1.33333,0,0,1.33333,484.245,1147.13"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+			<Run Text="LG" Foreground="#FFFFFFFF"/>
+		</TextBlock>
+		<Rectangle x:Name="Rectangle_2" Width="61.6499" Height="57.0001" Canvas.Left="476.85" Canvas.Top="1006.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF4E4E4E"/>
+		<TextBlock x:Name="TextBlock_3" TextAlignment="Left" FontFamily="Segoe UI" FontSize="32" Width="Auto" Height="Auto" Canvas.Left="0" Canvas.Top="0">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<MatrixTransform Matrix="1.33333,0,0,1.33333,491.242,1005.13"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+			<Run Text="G" Foreground="#FFFFFFFF"/>
+		</TextBlock>
+		<Rectangle x:Name="Rectangle_4" Width="61.6499" Height="56.9999" Canvas.Left="476.85" Canvas.Top="864.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF4E4E4E"/>
+		<TextBlock x:Name="TextBlock_5" TextAlignment="Left" FontFamily="Segoe UI" FontSize="32" Width="Auto" Height="Auto" Canvas.Left="0" Canvas.Top="0">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<MatrixTransform Matrix="1.33333,0,0,1.33333,493.672,863.133"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+			<Run Text="1" Foreground="#FFFFFFFF"/>
+		</TextBlock>
+		<Rectangle x:Name="Rectangle_6" Width="61.6499" Height="57" Canvas.Left="476.85" Canvas.Top="722.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF4E4E4E"/>
+		<TextBlock x:Name="TextBlock_7" TextAlignment="Left" FontFamily="Segoe UI" FontSize="32" Width="Auto" Height="Auto" Canvas.Left="0" Canvas.Top="0">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<MatrixTransform Matrix="1.33333,0,0,1.33333,494.228,721.133"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+			<Run Text="2" Foreground="#FFFFFFFF"/>
+		</TextBlock>
+		<Rectangle x:Name="Rectangle_8" Width="61.6499" Height="56.9999" Canvas.Left="476.85" Canvas.Top="580.5" Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF4E4E4E"/>
+		<TextBlock x:Name="TextBlock_9" TextAlignment="Left" FontFamily="Segoe UI" FontSize="32" Width="Auto" Height="Auto" Canvas.Left="0" Canvas.Top="0">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<MatrixTransform Matrix="1.33333,0,0,1.33333,494.228,579.133"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>
+			<Run Text="3" Foreground="#FFFFFFFF"/>
+		</TextBlock>
+	</Canvas>
+	
+</Canvas>

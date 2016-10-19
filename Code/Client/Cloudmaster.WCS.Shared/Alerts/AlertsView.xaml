@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="WCS.Shared.Alerts.AlertsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" PreviewMouseDown="UserControl_PreviewMouseDown" PreviewTouchDown="UserControl_PreviewTouchDown">
+	<Grid>
+		<Border   Background="Transparent" IsHitTestVisible="False"/>
+
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+
+			<Border Background="{StaticResource NotificationPendingIconBackgroundBrush}" CornerRadius="2" Width="180" Height="180"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20,0,50,50" Visibility="{Binding Path=HasWarningAlerts, Converter={StaticResource booleanToVisibilityConverter}}">
+				<Grid VerticalAlignment="Center">
+					<Border  x:Name="glyph" Height="40" Width="40" Background="{StaticResource NotificationPendingIconBrush}" IsHitTestVisible="False" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-20,-20,0,0"/>
+
+					<TextBlock Foreground="{StaticResource lightTextBrush}" Margin="0" TextWrapping="Wrap"
+					   Text="{Binding Path=WarningSummary}" FontFamily="Segoe UI" FontSize="150" 
+					   VerticalAlignment="Center" HorizontalAlignment="Center">
+					</TextBlock>
+				</Grid>
+			</Border>
+
+			<!--<Button Style="{StaticResource CloseButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="7" Command="{Binding DismissCommand}"/>-->
+		</StackPanel>
+	</Grid>
+</UserControl>

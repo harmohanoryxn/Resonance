@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://schemas.cloudmaster.ie/2012/01/WCS/1" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://schemas.cloudmaster.ie/2012/01/WCS/1" location="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_IDataServices" type="i0:IDataServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimestamp">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetTimestamp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigurations">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetConfigurations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPollingTimeouts">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetLatestPollingTimeouts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPresenceData">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetPresenceData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcknowledgeOrder">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AcknowledgeOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HideOrder">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/HideOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnhideOrder">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UnhideOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProcedureTime">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateProcedureTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderNote">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AddOrderNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderNote">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/DeleteOrderNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcknowledgeNotification">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AcknowledgeNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCleaningBedData">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetCleaningBedData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkBedAsClean">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/MarkBedAsClean" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkBedAsDirty">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/MarkBedAsDirty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBedNote">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/AddBedNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBedNote">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/DeleteBedNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntireDetectionHistory">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetEntireDetectionHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestDetection">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetLatestDetection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RandomlyMovePatient">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/RandomlyMovePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDischargesBedData">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetDischargesBedData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEstimatedDischargeDate">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/UpdateEstimatedDischargeDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmissionsData">
+      <soap:operation soapAction="http://schemas.cloudmaster.ie/2012/01/WCS/1/IDataServices/GetAdmissionsData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataServices">
+    <wsdl:port name="BasicHttpBinding_IDataServices" binding="tns:BasicHttpBinding_IDataServices">
+      <soap:address location="http://localhost:45563/Cloudmaster.WCS.DataServicesHost/DataServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

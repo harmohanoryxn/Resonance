@@ -1,0 +1,109 @@
+﻿<Window x:Class="Cloudmaster.WCS.Controls.Windows.SignOffWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Cloudmaster.WCS.Controls.Windows"
+    xmlns:commands="clr-namespace:Cloudmaster.WCS.Controls.Forms.Commands"
+    Title="Sign Off" 
+    xmlns:blendables="http://schemas.identitymine.com/blendables"
+    xmlns:converters="clr-namespace:Cloudmaster.WCS.Controls.Converters"
+    blendables:ChromelessWindow.ResizeBorderThickness="2"
+    blendables:ChromelessWindow.IsWindowDragHandle="True"
+    blendables:ChromelessWindow.GlassBorderThickness="2"
+    blendables:ChromelessWindow.IsGlassEffectEnabled="True"
+    blendables:ChromelessWindow.RadiusX="6"
+    blendables:ChromelessWindow.RadiusY="6"
+    WindowStartupLocation="CenterScreen" 
+    AllowsTransparency="False"
+    WindowStyle="None"
+    Loaded="WindowLoaded"
+    Template="{DynamicResource ChromelessWindowTemplate}" 
+    MinHeight="440" 
+    MinWidth="640" 
+    Width="800" 
+    Height="400"
+    BorderBrush="Black"
+    BorderThickness="1"
+    DataContext="{StaticResource formManager}"
+    >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="../Resources/FontStyles.xaml" />
+                                    
+                <ResourceDictionary Source="../Resources/ButtonStyles.xaml" />
+
+                <ResourceDictionary Source="../Resources/ChromelessWindowStyles.xaml" />
+                
+                <ResourceDictionary>
+
+                    <ControlTemplate x:Key="ChromelessWindowTemplate" TargetType="{x:Type Window}">
+                        <AdornerDecorator>
+                            <Grid Background="White">
+                                
+                                <ContentPresenter  Margin="0,0,0,0"  />
+                                
+                                <Grid VerticalAlignment="Top" Height="40">
+                                    <StackPanel x:Name="MinMaxCloseStackPanel"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Center">
+                                        <Button x:Name="MinimizeButton" Command="local:SignOffWindow.ToggleMinimizedState" Style="{StaticResource MinMaxClose_Button}" ToolTip="Minimize" Margin="8">
+                                            <Image Source="{StaticResource MinimizeIcon}" Height="3" Width="30" Margin="0,12,0,0" />
+                                        </Button>
+                                        <Button x:Name="MaximizeButton"  Command="local:SignOffWindow.ToggleMaximizedState" Style="{StaticResource MinMaxClose_Button}" ToolTip="Maximize" Margin="8" >
+                                            <Image x:Name="MaximizeImage" Source="{StaticResource MaximizeIcon}" Height="14" Width="35" Margin="0,2,0,0" />
+                                        </Button>
+                                        <Button x:Name="CloseButton"  Command="local:SignOffWindow.CloseWindow" Style="{StaticResource MinMaxClose_Button}" ToolTip="Close" Margin="8">
+                                            <Image Source="{StaticResource CloseIcon}" Height="12" Width="32" Margin="0,2,0,0" />
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </AdornerDecorator>
+                        
+                    </ControlTemplate>
+                        
+                </ResourceDictionary>
+                
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <!-- Column definitions -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="280" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Please Sign and Press Submit" Grid.Row="0" 
+               Style="{StaticResource HighlightedText}" 
+               Margin="8"
+               />
+        
+        <InkCanvas Name="inkCanvas" Grid.Row="1" Margin="12" Width="760" Height="280"
+                   HorizontalAlignment="Left" Background="Cornsilk"
+                   Strokes="{Binding Strokes.SignatureStrokes}"
+                   />
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="2" HorizontalAlignment="Center">
+            
+            <Button 
+                    Name="btnClose" Click="btnClose_Click"
+                    Content="Close"
+                    IsCancel="True"
+                    Template="{StaticResource MenuButtonStyle}"
+                    />
+
+            <Button Command="commands:ImageOperationCommands.SignFormCommand"
+                    Name="btnSubmit" Click="btnSubmit_Click"
+                    Content="Submit"
+                    Template="{StaticResource MenuButtonStyle}"
+                    />
+
+        </StackPanel>
+    </Grid>
+</Window>

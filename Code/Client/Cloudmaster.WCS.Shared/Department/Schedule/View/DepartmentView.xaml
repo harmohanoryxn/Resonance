@@ -1,0 +1,278 @@
+﻿<UserControl x:Class="WCS.Shared.Department.Schedule.DepartmentView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Schedule="clr-namespace:WCS.Shared.Schedule"
+             xmlns:Schedule1="clr-namespace:WCS.Shared.Department.Schedule"
+             xmlns:Location="clr-namespace:WCS.Shared.Location" 
+			 xmlns:Browser="clr-namespace:WCS.Shared.Browser" xmlns:Notes="clr-namespace:WCS.Shared.Notes"
+             xmlns:Orders="clr-namespace:WCS.Shared.Orders" Background="{StaticResource mainBackgroundBrush}">
+
+	<UserControl.Resources>
+
+		<DataTemplate DataType="{x:Type Schedule1:DepartmentScheduleViewModel}">
+			<DataTemplate.Resources>
+				<DataTemplate x:Key="toplevelcontenttemplate" >
+					<Border  Background="{StaticResource mainBackgroundBrush}">
+						<Schedule1:DepartmentScheduleView />
+					</Border>
+				</DataTemplate>
+				<DataTemplate x:Key="bottomlevelcontenttemplate" >
+					<Border  Background="{StaticResource mainBackgroundBrush}">
+						<Border  Background="{StaticResource peelBackgoundBrush}">
+							<Schedule1:DepartmentBackboardView />
+						</Border>
+					</Border>
+				</DataTemplate>
+			</DataTemplate.Resources>
+
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<Border  Background="{StaticResource mainBackgroundBrush}" Grid.RowSpan="3" Grid.ColumnSpan="3">
+					<Browser:PeelControl x:Name="pc" />
+				</Border>
+
+				<!-- Order -->
+				<Button Grid.ColumnSpan="3"  Grid.RowSpan="3" Opacity="0" Command="{Binding Path=HidePanelsAndDeselectCommand}" Foreground="{StaticResource BlackBrush}" Visibility="{Binding Path=ShowCardPanel,Converter={StaticResource booleanToVisibilityConverter}}"/>
+                <Border Name="orderContainer" BorderBrush="Black" BorderThickness="1"  Width="720" Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Right" Visibility="Collapsed">
+					<Grid>
+                        <Orders:OrderCardView x:Name="card" DataContext="{Binding Path=SelectedOrder}" Width="720" Margin="0,0,0,0"/>
+                        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="15,15,0,0" Style="{StaticResource CloseCardButtonStyle}" Command="{Binding Path=HidePanelsAndReselectCommand}"/>
+					</Grid>
+					<Border.RenderTransform>
+						<TranslateTransform X="{Binding ElementName=orderContainer, Path=ActualWidth}"/>
+					</Border.RenderTransform>
+					<Border.Style>
+						<Style TargetType="{x:Type Border}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ShowCardPanel}" Value="True">
+									<DataTrigger.EnterActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation To="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="00:00:00"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.EnterActions>
+									<DataTrigger.ExitActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation From="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="0:0:0.3"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.ExitActions>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Border.Style>
+				</Border>
+
+				<!-- Notes -->
+				<Button Grid.ColumnSpan="3"  Grid.RowSpan="3" Opacity="0" Command="{Binding Path=HidePanelsAndDeselectCommand}" Foreground="{StaticResource BlackBrush}" Visibility="{Binding Path=ShowNotesPanel,Converter={StaticResource booleanToVisibilityConverter}}"/>
+				<Border Name="noteContainer" Width="650" Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Right" Visibility="Collapsed">
+					<Grid>
+						<Notes:ConversationNotesView DataContext="{Binding Path=SelectedOrder.ConversationNotesViewModel}" Width="650" Margin="0,0,0,0"/>
+                        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="15,15,0,0" Style="{StaticResource CloseCardButtonStyle}" Command="{Binding Path=HidePanelsAndReselectCommand}"/>
+					</Grid>
+					<Border.RenderTransform>
+						<TranslateTransform X="{Binding ElementName=noteContainer, Path=ActualWidth}"/>
+					</Border.RenderTransform>
+					<Border.Style>
+						<Style TargetType="{x:Type Border}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ShowNotesPanel}" Value="True">
+									<DataTrigger.EnterActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation To="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="00:00:00"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.EnterActions>
+									<DataTrigger.ExitActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation From="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="0:0:0.3"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.ExitActions>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Border.Style>
+				</Border>
+
+				<!-- RFID -->
+				<Button Grid.ColumnSpan="3"  Grid.RowSpan="3" Opacity="0" Command="{Binding Path=HidePanelsAndDeselectCommand}" Foreground="{StaticResource BlackBrush}" Visibility="{Binding Path=ShowRfidPanel,Converter={StaticResource booleanToVisibilityConverter}}"/>
+				<Border Name="locationContainer" Width="850" Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Right" Visibility="Collapsed">
+					<Grid>
+						<Location:RfidCardView  DataContext="{Binding Path=SelectedOrder.OrderCoordinator.Order.Patient.RfidTracker}" Width="850" Margin="0,0,0,0"/>
+                        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="15,15,0,0" Style="{StaticResource CloseCardButtonStyle}" Command="{Binding Path=HidePanelsAndReselectCommand}"/>
+					</Grid>
+					<Border.RenderTransform>
+						<TranslateTransform X="{Binding ElementName=locationContainer, Path=ActualWidth}"/>
+					</Border.RenderTransform>
+					<Border.Style>
+						<Style TargetType="{x:Type Border}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ShowRfidPanel}" Value="True">
+									<DataTrigger.EnterActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation To="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="00:00:00"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.EnterActions>
+									<DataTrigger.ExitActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation From="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="0:0:0.3"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.ExitActions>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Border.Style>
+				</Border>
+
+				<!-- History -->
+				<Button Grid.ColumnSpan="3"  Grid.RowSpan="3" Opacity="0" Command="{Binding Path=HidePanelsAndDeselectCommand}" Foreground="{StaticResource BlackBrush}" Visibility="{Binding Path=ShowHistoryPanel,Converter={StaticResource booleanToVisibilityConverter}}"/>
+				<Border Name="historyContainer" Width="480" Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Right" Visibility="Collapsed">
+					<Grid>
+						<Orders:OrderHistoryView  DataContext="{Binding Path=SelectedOrder}" Width="480" Margin="0,0,0,0"/>
+                        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="15,15,0,0" Style="{StaticResource CloseCardButtonStyle}" Command="{Binding Path=HidePanelsAndReselectCommand}"/>
+					</Grid>
+					<Border.RenderTransform>
+						<TranslateTransform X="{Binding ElementName=historyContainer, Path=ActualWidth}"/>
+					</Border.RenderTransform>
+					<Border.Style>
+						<Style TargetType="{x:Type Border}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ShowHistoryPanel}" Value="True">
+									<DataTrigger.EnterActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation To="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="00:00:00"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.EnterActions>
+									<DataTrigger.ExitActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation From="0" Duration="0:0:0.3" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.X" />
+												<ObjectAnimationUsingKeyFrames BeginTime="0:0:0.3"   Storyboard.TargetProperty="(UIElement.Visibility)">
+													<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+												</ObjectAnimationUsingKeyFrames>
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.ExitActions>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Border.Style>
+				</Border>
+
+				<!-- Navigation -->
+				<Border Name="navigationBar"  Height="190" Background="{StaticResource Win8NavigationBackgroundBrush}" Grid.Row="0" Grid.ColumnSpan="3" >
+					<Schedule:NavigationBar Height="190"/>
+					<Border.RenderTransform>
+						<TranslateTransform x:Name="tt" Y="{Binding ElementName=navigationBar, Path=ActualHeight, Converter={StaticResource negativeConverter}}"/>
+					</Border.RenderTransform>
+					<Border.Style>
+						<Style TargetType="{x:Type Border}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ShowNavigationBar}" Value="True">
+									<DataTrigger.EnterActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation To="0" Duration="0:0:0.4" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.Y" />
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.EnterActions>
+									<DataTrigger.ExitActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation From="0" Duration="0:0:0.4" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.Y" />
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.ExitActions>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Border.Style>
+				</Border>
+
+				<!-- Action Bar -->
+				<Border Name="actionBar"  Height="100" Background="{StaticResource Win8NavigationBackgroundBrush}" Grid.Row="2" Grid.ColumnSpan="3" >
+					<Schedule1:DepartmentActionBar Height="100" DataContext="{Binding Path=SelectedOrder}"/>
+					<Border.RenderTransform>
+						<TranslateTransform Y="{Binding ElementName=actionBar, Path=ActualHeight}"/>
+					</Border.RenderTransform>
+					<Border.Style>
+						<Style TargetType="{x:Type Border}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ShowActionBar}" Value="True">
+									<DataTrigger.EnterActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation To="0" Duration="0:0:0.4" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.Y" />
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.EnterActions>
+									<DataTrigger.ExitActions>
+										<BeginStoryboard>
+											<Storyboard>
+												<DoubleAnimation From="0" Duration="0:0:0.4" AccelerationRatio="0.3" DecelerationRatio="0.3" Storyboard.TargetProperty="RenderTransform.Y" />
+											</Storyboard>
+										</BeginStoryboard>
+									</DataTrigger.ExitActions>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Border.Style>
+				</Border>
+			</Grid>
+
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type Orders:OrderCardViewModel}">
+			<Orders:OrderCardView/>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Location:RfidCardViewModel}">
+			<Location:RfidCardView/>
+		</DataTemplate>
+
+	</UserControl.Resources>
+
+	<Schedule:GenericWcsScreenView/>
+
+</UserControl>

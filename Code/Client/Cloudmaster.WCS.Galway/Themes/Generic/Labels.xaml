@@ -1,0 +1,76 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+	<Style TargetType="{x:Type Label}">
+		<Setter Property="Label.FontSize" Value="28" />
+		<Setter Property="Label.FontFamily" Value="Segoe UI" />
+	</Style>
+
+	<Style x:Key="GroupHeaderStyle" TargetType="{x:Type TextBlock}">
+		 	<Setter Property="FontSize" Value="20" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>
+
+	<Style x:Key="GroupSubHeaderStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>
+ 
+	<Style x:Key="GroupHeaderLocationLabelStyle" TargetType="{x:Type Label}">
+		<Setter Property="TextBlock.Foreground" Value="#D4D4D4" />
+		<Setter Property="FontSize" Value="12" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>
+
+	<Style x:Key="ExplodeSubHeaderStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="Foreground" Value="{StaticResource alternativeTextBrush}" />
+		<Setter Property="FontSize" Value="24" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>
+
+	<Style x:Key="ExplodeSideHeaderStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontSize" Value="20" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>
+
+	<Style x:Key="ExplodeSideSubHeaderStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>  
+
+	<Style x:Key="PopupTextStyle" TargetType="{x:Type TextBlock}">
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="FontFamily" Value="Segoe UI" />
+	</Style>
+
+	<Style x:Key="PeelHeader1FontStyle">
+		<Setter Property="Label.FontSize" Value="14" />
+		<Setter Property="Label.FontWeight" Value="Bold" />
+		<Setter Property="Label.Foreground" Value="#4A5B70" />
+	</Style>
+
+	<Style x:Key="PeelTextFontStyle">
+		<Setter Property="Label.FontSize" Value="13" />
+		<Setter Property="Label.FontWeight" Value="Bold" />
+		<Setter Property="Label.Foreground" Value="{StaticResource BlackBrush}" />
+	</Style>
+
+	<Style  x:Key="lockScreenPasswordLabelStyle" TargetType="{x:Type PasswordBox}">
+		<Setter Property="Label.FontSize" Value="36" />
+		<Setter Property="Label.FontFamily" Value="{StaticResource DefaultFontFamily}" />
+		<Setter Property="Label.Foreground" Value="#3590D0" />
+		<Setter Property="Background" Value="{StaticResource passwordLockBackgroundBrush}" />
+		<Style.Triggers>
+			<DataTrigger Binding="{Binding Path=LoginFailed}" Value="True">
+				<Setter Property="Background" Value="{StaticResource passwordLockFailureBackgroundBrush}"/>
+			</DataTrigger>
+		</Style.Triggers>
+	</Style>
+
+</ResourceDictionary>

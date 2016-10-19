@@ -1,0 +1,265 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{072A34BB-CBB5-475B-A51F-3444FE8A090D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{4EDCC325-AF5F-4E3E-993B-4C10A87F096C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4320652-DFEE-425A-A35E-D3B7A6D4BC21}"
+	ProjectSection(SolutionItems) = preProject
+		Department.vsmdi = Department.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.Galway", "Client\Cloudmaster.WCS.Galway\Cloudmaster.WCS.Galway.csproj", "{652BD683-61DE-46D1-8905-18B0CADA30AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCS.Services.DataServices", "Server\Cloudmaster.WCS.Services.DataServices\WCS.Services.DataServices.csproj", "{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCS.Services", "Server\Cloudmaster.WCS.Services\WCS.Services.csproj", "{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.Shared", "Client\Cloudmaster.WCS.Shared\Cloudmaster.WCS.Shared.csproj", "{C2352339-AC26-448F-8753-6B63294EEC2B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458} = {474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF} = {69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.Core", "Client\Cloudmaster.WCS.Core\Cloudmaster.WCS.Core.csproj", "{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Cloudmaster.WCS.DataServicesHost", "Server\Cloudmaster.WCS.DataServicesHost", "{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}|WCS.Services.DataServices.dll;{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}|WCS.Services.dll;{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}|Cloudmaster.WCS.Core.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/Cloudmaster.WCS.DataServicesHost"
+		Debug.AspNetCompiler.PhysicalPath = "Server\Cloudmaster.WCS.DataServicesHost\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Cloudmaster.WCS.DataServicesHost\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Cloudmaster.WCS.DataServicesHost"
+		Release.AspNetCompiler.PhysicalPath = "Server\Cloudmaster.WCS.DataServicesHost\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Cloudmaster.WCS.DataServicesHost\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49222"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.DataServicesInvoker", "Client\Cloudmaster.WCS.DataServicesInvoker\Cloudmaster.WCS.DataServicesInvoker.csproj", "{458FA871-D757-4A37-BA7B-1F7662CEBC47}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF} = {69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCS.Services.Test", "Server\WCS.Services.Test\WCS.Services.Test.csproj", "{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{0E9B51BB-A946-4196-8D34-907D81064D40}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "WcsDB", "Database\WcsDB\WcsDB.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.Drone", "Client\Cloudmaster.WCS.Drone\Cloudmaster.WCS.Drone.csproj", "{057E6138-2EBD-478E-B6DF-4995C316AABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.Galway.Core", "Client\Cloudmaster.WCS.Galway.Core\Cloudmaster.WCS.Galway.Core.csproj", "{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://teamexplorer.tfsserver.com/cloudmaster
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Server\\Cloudmaster.WCS.Services.DataServices\\WCS.Services.DataServices.csproj
+		SccProjectTopLevelParentUniqueName1 = GalwayClinic.sln
+		SccProjectName1 = Server/Cloudmaster.WCS.Services.DataServices
+		SccLocalPath1 = Server\\Cloudmaster.WCS.Services.DataServices
+		SccProjectUniqueName2 = Server\\Cloudmaster.WCS.Services\\WCS.Services.csproj
+		SccProjectTopLevelParentUniqueName2 = GalwayClinic.sln
+		SccProjectName2 = Server/Cloudmaster.WCS.Services
+		SccLocalPath2 = Server\\Cloudmaster.WCS.Services
+		SccProjectUniqueName3 = Client\\Cloudmaster.WCS.Core\\Cloudmaster.WCS.Core.csproj
+		SccProjectTopLevelParentUniqueName3 = GalwayClinic.sln
+		SccProjectName3 = Client/Cloudmaster.WCS.Core
+		SccLocalPath3 = Client\\Cloudmaster.WCS.Core
+		SccProjectUniqueName4 = Client\\Cloudmaster.WCS.Shared\\Cloudmaster.WCS.Shared.csproj
+		SccProjectTopLevelParentUniqueName4 = GalwayClinic.sln
+		SccProjectName4 = Client/Cloudmaster.WCS.Shared
+		SccLocalPath4 = Client\\Cloudmaster.WCS.Shared
+		SccWebProject5 = true
+		SccProjectUniqueName5 = Server\\Cloudmaster.WCS.DataServicesHost
+		SccProjectTopLevelParentUniqueName5 = GalwayClinic.sln
+		SccProjectName5 = Server/Cloudmaster.WCS.DataServicesHost
+		SccLocalPath5 = Server\\Cloudmaster.WCS.DataServicesHost
+		SccProjectEnlistmentChoice5 = 2
+		SccProjectUniqueName6 = Client\\Cloudmaster.WCS.DataServicesInvoker\\Cloudmaster.WCS.DataServicesInvoker.csproj
+		SccProjectTopLevelParentUniqueName6 = GalwayClinic.sln
+		SccProjectName6 = Client/Cloudmaster.WCS.DataServicesInvoker
+		SccLocalPath6 = Client\\Cloudmaster.WCS.DataServicesInvoker
+		SccProjectUniqueName7 = Client\\Cloudmaster.WCS.Galway\\Cloudmaster.WCS.Galway.csproj
+		SccProjectTopLevelParentUniqueName7 = GalwayClinic.sln
+		SccProjectName7 = Client/Cloudmaster.WCS.Galway
+		SccLocalPath7 = Client\\Cloudmaster.WCS.Galway
+		SccProjectUniqueName8 = Server\\WCS.Services.Test\\WCS.Services.Test.csproj
+		SccProjectTopLevelParentUniqueName8 = GalwayClinic.sln
+		SccProjectName8 = Server/WCS.Services.Test
+		SccLocalPath8 = Server\\WCS.Services.Test
+		SccProjectUniqueName9 = Database\\WcsDB\\WcsDB.dbproj
+		SccProjectTopLevelParentUniqueName9 = GalwayClinic.sln
+		SccProjectName9 = Database/WcsDB
+		SccLocalPath9 = Database\\WcsDB
+		SccProjectUniqueName10 = Client\\Cloudmaster.WCS.Drone\\Cloudmaster.WCS.Drone.csproj
+		SccProjectTopLevelParentUniqueName10 = GalwayClinic.sln
+		SccProjectName10 = Client/Cloudmaster.WCS.Drone
+		SccLocalPath10 = Client\\Cloudmaster.WCS.Drone
+		SccProjectUniqueName11 = Client\\Cloudmaster.WCS.Galway.Core\\Cloudmaster.WCS.Galway.Core.csproj
+		SccProjectTopLevelParentUniqueName11 = GalwayClinic.sln
+		SccProjectName11 = Client/Cloudmaster.WCS.Galway.Core
+		SccLocalPath11 = Client\\Cloudmaster.WCS.Galway.Core
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Department.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Debug|Any CPU.Build.0 = Debug|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Debug|x86.ActiveCfg = Debug|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Debug|x86.Build.0 = Debug|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Release|Any CPU.ActiveCfg = Release|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Release|Mixed Platforms.Build.0 = Release|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Release|x86.ActiveCfg = Release|x86
+		{652BD683-61DE-46D1-8905-18B0CADA30AE}.Release|x86.Build.0 = Release|x86
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}.Release|x86.ActiveCfg = Release|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Release|x86.ActiveCfg = Release|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C2352339-AC26-448F-8753-6B63294EEC2B}.Release|x86.ActiveCfg = Release|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Release|x86.ActiveCfg = Release|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF}.Release|x86.ActiveCfg = Debug|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47}.Release|x86.ActiveCfg = Release|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|x86.ActiveCfg = Release|Any CPU
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Debug|Any CPU.Build.0 = Debug|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Debug|x86.ActiveCfg = Debug|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Debug|x86.Build.0 = Debug|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Release|Any CPU.ActiveCfg = Release|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Release|Mixed Platforms.Build.0 = Release|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Release|x86.ActiveCfg = Release|x86
+		{057E6138-2EBD-478E-B6DF-4995C316AABE}.Release|x86.Build.0 = Release|x86
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{652BD683-61DE-46D1-8905-18B0CADA30AE} = {072A34BB-CBB5-475B-A51F-3444FE8A090D}
+		{C2352339-AC26-448F-8753-6B63294EEC2B} = {072A34BB-CBB5-475B-A51F-3444FE8A090D}
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60} = {072A34BB-CBB5-475B-A51F-3444FE8A090D}
+		{458FA871-D757-4A37-BA7B-1F7662CEBC47} = {072A34BB-CBB5-475B-A51F-3444FE8A090D}
+		{057E6138-2EBD-478E-B6DF-4995C316AABE} = {072A34BB-CBB5-475B-A51F-3444FE8A090D}
+		{29B0A59E-1A8A-4F17-B3A5-5D89AD5643F6} = {072A34BB-CBB5-475B-A51F-3444FE8A090D}
+		{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458} = {4EDCC325-AF5F-4E3E-993B-4C10A87F096C}
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A} = {4EDCC325-AF5F-4E3E-993B-4C10A87F096C}
+		{69A645ED-BDA5-4E0B-A2A5-CD506D430BDF} = {4EDCC325-AF5F-4E3E-993B-4C10A87F096C}
+		{45CFEFF7-B277-465F-A89F-6CBAF870B1BB} = {4EDCC325-AF5F-4E3E-993B-4C10A87F096C}
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3} = {0E9B51BB-A946-4196-8D34-907D81064D40}
+	EndGlobalSection
+EndGlobal

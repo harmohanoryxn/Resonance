@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.Azure.WcfWebRole", "Server\Cloudmaster.WCS.Azure.WcfWebRole\Cloudmaster.WCS.Azure.WcfWebRole.csproj", "{925B5C2C-5BC2-478C-AD1F-B7C58AF5C3BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{8458FB4F-FD92-47AB-A76B-544A3BBCCFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCS.Services", "Server\Cloudmaster.WCS.Services\WCS.Services.csproj", "{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloudmaster.WCS.Core", "Client\Cloudmaster.WCS.Core\Cloudmaster.WCS.Core.csproj", "{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Cloudmaster.WCS.Cloud", "Server\Cloudmaster.WCS.Cloud\Cloudmaster.WCS.Cloud.ccproj", "{A03CD29D-A0E3-4875-9345-386866B1CF41}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://teamexplorer.tfsserver.com/cloudmaster
+		SccProjectUniqueName0 = Server\\Cloudmaster.WCS.Services\\WCS.Services.csproj
+		SccProjectTopLevelParentUniqueName0 = Azure.sln
+		SccProjectName0 = Server/Cloudmaster.WCS.Services
+		SccLocalPath0 = Server\\Cloudmaster.WCS.Services
+		SccProjectUniqueName1 = Client\\Cloudmaster.WCS.Core\\Cloudmaster.WCS.Core.csproj
+		SccProjectName1 = Client/Cloudmaster.WCS.Core
+		SccLocalPath1 = Client\\Cloudmaster.WCS.Core
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = Server\\Cloudmaster.WCS.Azure.WcfWebRole\\Cloudmaster.WCS.Azure.WcfWebRole.csproj
+		SccProjectTopLevelParentUniqueName3 = Azure.sln
+		SccProjectName3 = Server/Cloudmaster.WCS.Azure.WcfWebRole
+		SccLocalPath3 = Server\\Cloudmaster.WCS.Azure.WcfWebRole
+		SccProjectUniqueName4 = Server\\Cloudmaster.WCS.Cloud\\Cloudmaster.WCS.Cloud.ccproj
+		SccProjectTopLevelParentUniqueName4 = Azure.sln
+		SccProjectName4 = Server/Cloudmaster.WCS.Cloud
+		SccLocalPath4 = Server\\Cloudmaster.WCS.Cloud
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{925B5C2C-5BC2-478C-AD1F-B7C58AF5C3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925B5C2C-5BC2-478C-AD1F-B7C58AF5C3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925B5C2C-5BC2-478C-AD1F-B7C58AF5C3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925B5C2C-5BC2-478C-AD1F-B7C58AF5C3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03CD29D-A0E3-4875-9345-386866B1CF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03CD29D-A0E3-4875-9345-386866B1CF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03CD29D-A0E3-4875-9345-386866B1CF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03CD29D-A0E3-4875-9345-386866B1CF41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{925B5C2C-5BC2-478C-AD1F-B7C58AF5C3BE} = {8458FB4F-FD92-47AB-A76B-544A3BBCCFEE}
+		{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A} = {8458FB4F-FD92-47AB-A76B-544A3BBCCFEE}
+		{A03CD29D-A0E3-4875-9345-386866B1CF41} = {8458FB4F-FD92-47AB-A76B-544A3BBCCFEE}
+	EndGlobalSection
+EndGlobal

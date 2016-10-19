@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Cloudmaster.WCS.Controls.Forms.ViewImage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <InkCanvas Name="inkcanvas" Strokes="{Binding Strokes.ImagesStrokes}" Grid.Column="1"
+                   Width="700" Height="520"
+                   >
+            <InkCanvas.DefaultDrawingAttributes>
+                <DrawingAttributes Color="Red" />
+            </InkCanvas.DefaultDrawingAttributes>
+            <InkCanvas.Background>
+                <ImageBrush ImageSource="{Binding SelectedImage.LocalFilename}" />
+            </InkCanvas.Background>
+        </InkCanvas>
+    </Grid>
+</UserControl>

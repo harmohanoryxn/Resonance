@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="WCS.Shared.Ward.Schedule.AdmissionsRoomHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              mc:Ignorable="d"  Background="{StaticResource mainBackgroundBrush}" >
+
+	<!-- BorderBrush="{StaticResource mainAccentBrush}" BorderThickness="0,1,0,0"-->
+	<!-- Room Details -->
+	<Grid DockPanel.Dock="Top" Opacity="{Binding Path=SelectionType, Converter={StaticResource booleanToSelectedOpacityConvertor}}">
+
+		<Border Height="1" Margin="30,0,0,0" VerticalAlignment="Top" Background="{StaticResource mainAccentBrush}"/>
+		<!--<Border Height="1" Margin="30,0,0,0" VerticalAlignment="Bottom" Background="{StaticResource mainAccentBrush}"/>-->
+
+		<Border BorderThickness="0" Height="30" >
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="40" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Border  Grid.Column="0" BorderBrush="{StaticResource mainAccentBrush}" BorderThickness="0,0,1,0">
+					<TextBlock Style="{StaticResource CleaningEmphasisTextStyle}" Text="{Binding Path=RoomName}" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+				</Border>
+
+				<StackPanel Orientation="Horizontal" Height="20" Margin="200,0,0,0"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+
+					<Border Width="30" Height="20" BorderThickness="1" BorderBrush="#FF212121" Background="{StaticResource ClinicalIndicatorMrsaBrush}" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding Path=MrsaRisk, Converter={StaticResource booleanToVisibilityConverter}}"/>
+
+					<Border Width="30" Height="20" BorderThickness="1" BorderBrush="#FF212121" Background="{StaticResource ClinicalIndicatorLatexBrush}" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding Path=LatexAllergy, Converter={StaticResource booleanToVisibilityConverter}}"/>
+
+					<Border  Width="30" Height="20"   BorderThickness="1" BorderBrush="#FF212121" Background="{StaticResource ClinicalIndicatorRadioactiveBrush}"  Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="{Binding Path=RadiationRisk, Converter={StaticResource booleanToVisibilityConverter}}"/>
+
+				</StackPanel>
+
+			</Grid>
+		</Border>
+
+	</Grid>
+
+</UserControl>
+ 

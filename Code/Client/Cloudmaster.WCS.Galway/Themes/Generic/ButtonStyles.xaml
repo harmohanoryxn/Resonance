@@ -1,0 +1,1176 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+					xmlns:Galway="clr-namespace:Cloudmaster.WCS.Galway"
+                    xmlns:Converters="clr-namespace:WCS.Shared.Converters;assembly=Cloudmaster.WCS.Shared">
+
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="ButtonStyles/LockScreenButtonStyles.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<Style TargetType="{x:Type Button}">
+		<Setter Property="OverridesDefaultStyle" Value="true"/>
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Focusable" Value="false"/>
+		<Setter Property="ClickMode" Value="Press"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal"/>
+								<VisualState x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="NormalBackgroundRectangle">
+											<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HoverBackgroundRectangle">
+											<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+										</DoubleAnimationUsingKeyFrames>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="NormalBackgroundRectangle">
+											<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Disabled">
+									<Storyboard>
+										<ColorAnimation Storyboard.TargetName="tb" 
+                                       Storyboard.TargetProperty="Foreground.Color"  To="{StaticResource DisabledTextColour}" Duration="0:0:0.0"/>
+									</Storyboard>
+
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+
+						<Rectangle x:Name="BorderRectangle" Margin="0" RadiusX="2" RadiusY="2" Fill="{StaticResource DefaultedBorderBrush}"/>
+
+						<Grid Margin="1" >
+							<Rectangle x:Name="PressedBackgroundRectangle" Fill="{StaticResource PressedBackBrush}" Margin="0" RadiusX="0" RadiusY="0" />
+							<Rectangle x:Name="HoverBackgroundRectangle" Fill="{StaticResource HoverShineBrush}" Margin="0" RadiusX="0" RadiusY="0" />
+							<Rectangle x:Name="NormalBackgroundRectangle" Fill="{StaticResource BlueButtonBrush}" Margin="0" RadiusX="0" RadiusY="0" />
+
+							<TextBlock x:Name="tb" Text="{TemplateBinding Content}"
+									   Foreground="{StaticResource lightTextBrush}"
+									   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+									   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									   Margin="{TemplateBinding Padding}" 
+									   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+								<!--<TextBlock.Effect>
+									<DropShadowEffect Direction="270" BlurRadius="0" ShadowDepth="1" Color="{StaticResource DarkText}" Opacity="0.25"/>
+								</TextBlock.Effect>-->
+							</TextBlock>
+						</Grid>
+
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="StatusButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="OverridesDefaultStyle" Value="true"/>
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Focusable" Value="false"/>
+		<Setter Property="ClickMode" Value="Press"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Border x:Name="Bg" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{StaticResource BadgeBorderBrush}" BorderThickness="1"/>
+						<Border x:Name="Gloss" Background="{StaticResource buttonGlossBrush}"  BorderThickness="0" CornerRadius="2"/>
+						<Border x:Name="Hover" Background="{StaticResource buttonHoverBrush}" BorderThickness="0" CornerRadius="2" Opacity="0"/>
+						<Border x:Name="Pressed" Background="{StaticResource buttonPressedBrush}"  BorderThickness="0" CornerRadius="2" Opacity="0"/>
+						<Border x:Name="Disable" Background="{StaticResource buttonDisbleBrush}"  BorderThickness="0" CornerRadius="2" Opacity="0" />
+
+						<Path x:Name="star" Data="{StaticResource starIcon}" Stroke="{StaticResource BadgeBorderBrush}" StrokeThickness="1" Opacity="0" Fill="{StaticResource starBrush}" Height="15" Width="15" Stretch="Fill"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="Bg" Property="Opacity" Value="1"/>
+
+							<Setter TargetName="Hover" Property="Opacity" Value="1" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="Bg" Property="Opacity" Value="1" />
+							<Setter TargetName="Pressed" Property="Opacity" Value="1" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="star" Property="Opacity" Value="1" />
+							<Setter TargetName="Disable" Property="Opacity" Value="0.1" />
+						</Trigger>
+
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+    <Style x:Key="CloseCardButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Rectangle Fill="{StaticResource CloseCardButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+                    </Rectangle>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RoundedInfoButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource RoundedInfoButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style x:Key="RoundedPlusButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource RoundedPlusButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="RoundedCleanButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+
+					<Rectangle Fill="{StaticResource CleaningButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+ 
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="InfoButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource InfoButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="RoundedHideButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource RoundedHideButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="RoundedUnhideButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource RoundedUnhideButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="AcknowledgeButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="25" />
+		<Setter Property="Width" Value="60" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource AcknowledgeNotificationButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<!--<Border Background="{StaticResource AckButtonBackgroundBrush}" CornerRadius="2">
+							<Grid x:Name="Grid" Opacity="0.9"  Margin="1">
+								<Border Background="{StaticResource AckButtonBackgroundBrush}" BorderThickness="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="2"/>
+								<TextBlock Text="Ack" Foreground="{StaticResource lightTextBrush}"  FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="35,0,0,0"/>
+								<Path Stroke="{StaticResource lightTextBrush}" StrokeThickness="3" Data="F1 M 0,9L 5,18L 18,0"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,4,4,4"/>
+							</Grid>
+					</Border>-->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="RoundedCorrectButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource RoundedCorrectButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="RoundedPlayButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource RoundedPlayButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="DischargeButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Rectangle Fill="{StaticResource DischargeButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid x:Name="Grid" Opacity="0.7" Margin="0,0,0,1">
+						<Border Background="Transparent" />
+						<Path x:Name="Path" Data="{StaticResource CrossGeometry}" Margin="{TemplateBinding Padding}" Stretch="Fill" Fill="{TemplateBinding Foreground}"  StrokeThickness="0" Stroke="{TemplateBinding Foreground}"/>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Grid" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Path" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="Grid" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="ToolbarNoteButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="White"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid x:Name="Grid" Opacity="0.9" Margin="0,0,0,1">
+						<Border Background="White"/>
+						<Path x:Name="Path" Data="{StaticResource NoteGeometry}" Margin="{TemplateBinding Padding}" Stretch="Fill" Fill="{TemplateBinding Foreground}"  StrokeThickness="0" Stroke="{TemplateBinding Foreground}"/>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Grid" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Path" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="Grid" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="ToolbarExtraOrdersButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="#FF41414E"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="30" />
+		<Setter Property="Width" Value="220" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<ControlTemplate.Resources>
+						<Converters:ArgBooleanToVisibilityConverter x:Key="argBooleanToVisibilityConverter" />
+						<Galway:ExtraOrdersCountToLabelConverter x:Key="extraOrdersCountToLabelConverter"/>
+					</ControlTemplate.Resources>
+
+					<Border Background="#FF41414E">
+						<Grid x:Name="Grid"   Margin="0,0,0,0">
+							<!--<Border  BorderBrush="Black" BorderThickness="1,0,0,0">
+							<Border.Background>
+								<LinearGradientBrush StartPoint="0.500001,1.00856" EndPoint="0.500001,-0.00856635">
+									<LinearGradientBrush.GradientStops>
+										<GradientStop Color="#FF767676" Offset="0"/>
+										<GradientStop Color="#FFD8D8D8" Offset="1"/>
+									</LinearGradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>-->
+
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="33"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+
+							<Path Margin="2,2,7,2" Stretch="Fill" HorizontalAlignment="Left" Width="25" Height="18" StrokeLineJoin="Round" StrokeThickness="2"  Stroke="#FF313131" Fill="#FFD4D4D4" Data="F1 M 23,26L 45,1L 1,1L 23,26" RenderTransformOrigin="0.5,0.5" Visibility="{Binding Path=ShowAllOders, Converter={StaticResource argBooleanToVisibilityConverter}, ConverterParameter=CollapsedIfTrue}"/>
+							<Path Margin="2,2,7,2" Stretch="Fill" HorizontalAlignment="Left" Width="25" Height="18" StrokeLineJoin="Round" StrokeThickness="2"  Stroke="#FF313131" Fill="#FFD4D4D4" Data="F1 M 23,1L 45,26L 1,26L 23,1" RenderTransformOrigin="0.5,0.5" Visibility="{Binding Path=ShowAllOders, Converter={StaticResource argBooleanToVisibilityConverter}, ConverterParameter=VisibleIfTrue}"/>
+							<!--<Path.RenderTransform>
+									<TransformGroup>
+										<RotateTransform Angle="0"/>
+									</TransformGroup>
+								</Path.RenderTransform>
+								<Path.Style>
+									<Style TargetType="{x:Type Path}">
+										<Style.Triggers>
+
+											<MultiDataTrigger>
+												<MultiDataTrigger.Conditions>
+													<Condition Binding="{Binding Path=ShowAllOders}" Value="True" />
+												</MultiDataTrigger.Conditions>
+
+												<MultiDataTrigger.ExitActions>
+													<BeginStoryboard>
+														<Storyboard>
+															<DoubleAnimation From="180" Duration="0:0:0.0" Storyboard.TargetProperty="RenderTransform.Children[0].Angle" />
+														</Storyboard>
+													</BeginStoryboard>
+												</MultiDataTrigger.ExitActions>
+
+												<MultiDataTrigger.EnterActions>
+													<BeginStoryboard>
+														<Storyboard>
+															<DoubleAnimation To="180" Duration="0:0:0.0" Storyboard.TargetProperty="RenderTransform.Children[0].Angle" />
+														</Storyboard>
+													</BeginStoryboard>
+												</MultiDataTrigger.EnterActions>
+											</MultiDataTrigger>
+
+										</Style.Triggers>
+									</Style>
+								</Path.Style>
+							</Path>-->
+
+							<TextBlock Grid.Column="1" Margin="10,0,5,4" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#7F8283" FontWeight="Bold" FontSize="16">
+								<TextBlock.Text>
+									<MultiBinding Converter="{StaticResource extraOrdersCountToLabelConverter}" >
+										<MultiBinding.Bindings>
+											<Binding Path="ScheduleItems"/>
+											<Binding Path="SelectedLocation.Code"/>
+											<Binding Path="ShowAllOders"/>
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</TextBlock.Text>
+								<!--<TextBlock.Style>
+									<Style TargetType="{x:Type TextBlock}">
+										<Style.Triggers>
+											<DataTrigger Binding="{Binding Path=Items[0].ShowAllOders}" Value="True" >
+												<Setter Property="Text" Value="Hi"/>
+											</DataTrigger>
+										</Style.Triggers>
+									</Style>
+								</TextBlock.Style>-->
+							</TextBlock>
+
+							<!--<Path x:Name="Path" Data="{StaticResource DownArrowGeometry}" Margin="{TemplateBinding Padding}" Stretch="Fill" Fill="{TemplateBinding Foreground}"  StrokeThickness="0" Stroke="{TemplateBinding Foreground}"/>-->
+						</Grid>
+					</Border>
+					<!--<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Grid" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Path" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+							<Setter TargetName="Path" Property="Opacity" Value="0.8"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="Grid" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>-->
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="ExtraOrdersButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="#FF41414E"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="190" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<ControlTemplate.Resources>
+						<Converters:ArgBooleanToVisibilityConverter x:Key="argBooleanToVisibilityConverter" />
+						<Galway:ExtraOrdersCountToLabelConverter x:Key="extraOrdersCountToLabelConverter"/>
+					</ControlTemplate.Resources>
+
+					<Border Background="white">
+						<Grid x:Name="Grid" Margin="0,0,0,0" Width="190" HorizontalAlignment="Right">
+
+
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="33"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+
+							<Path Margin="0" Stretch="Fill" HorizontalAlignment="Center" Width="12" Height="12" Fill="#99000000" Data="F1 M 23,26L 45,1L 1,1L 23,26" Visibility="{Binding Path=ShowAllOders, Converter={StaticResource argBooleanToVisibilityConverter}, ConverterParameter=CollapsedIfTrue}"/>
+							<Path Margin="0" Stretch="Fill" HorizontalAlignment="Center" Width="12" Height="12" Fill="#99000000" Data="F1 M 23,1L 45,26L 1,26L 23,1" Visibility="{Binding Path=ShowAllOders, Converter={StaticResource argBooleanToVisibilityConverter}, ConverterParameter=VisibleIfTrue}"/>
+
+
+							<TextBlock Grid.Column="1" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="#99000000" FontSize="10">
+								<TextBlock.Text>
+									<MultiBinding Converter="{StaticResource extraOrdersCountToLabelConverter}" >
+										<MultiBinding.Bindings>
+											<Binding Path="ScheduleItems"/>
+											<Binding Path="SelectedLocation.Code"/>
+											<Binding Path="ShowAllOders"/>
+										</MultiBinding.Bindings>
+									</MultiBinding>
+								</TextBlock.Text>
+							</TextBlock>
+
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="TrackingButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="#FF41414E"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="30" />
+		<Setter Property="Width" Value="30" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+
+					<Rectangle Fill="{StaticResource TrackingButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="LocateButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="#FF41414E"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="30" />
+		<Setter Property="Width" Value="30" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+
+					<Rectangle Fill="{StaticResource LocationButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="HistoryButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="#FF41414E"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="30" />
+		<Setter Property="Width" Value="30" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+
+					<Rectangle Fill="{StaticResource HistoryButtonBrush}"
+						x:Name="rect" Opacity="1.0" Margin="0,0,0,1">
+					</Rectangle>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="rect" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="rect" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="rect" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="LeftArrowButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid x:Name="Grid" Opacity="0.7" Margin="0,0,0,1">
+						<Path x:Name="Path" Data="{StaticResource LeftArrowGeometry}" Margin="{TemplateBinding Padding}" Stretch="Fill" Fill="{TemplateBinding Foreground}"  StrokeThickness="0" Stroke="{TemplateBinding Foreground}"/>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Grid" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Path" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="Grid" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style> 
+
+	<Style x:Key="RightArrowButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid x:Name="Grid" Opacity="0.7" Margin="0,0,0,1">
+						<Path x:Name="Path" Data="{StaticResource RightArrowGeometry}" Margin="{TemplateBinding Padding}" Stretch="Fill" Fill="{TemplateBinding Foreground}"  StrokeThickness="0" Stroke="{TemplateBinding Foreground}"/>
+						 
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Grid" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Path" Property="Fill" Value="{StaticResource DisabledBrush}"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="Grid" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="UpArrowButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="{StaticResource standardLockBackgroundBrush}"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid x:Name="Grid" Opacity="0.7"  Margin="0,0,0,1">
+						<Border Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="#7F8283" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="2"/>
+						<ContentPresenter x:Name="Path" Content="{StaticResource upArrowPath}" Margin="{TemplateBinding Padding}" Width="20" Height="20" />
+
+						<!--<Border Background="White"/>-->
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Grid" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Grid" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="Grid" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="DownArrowButtonStyle" TargetType="{x:Type Button}">
+		<Setter Property="Background" Value="{StaticResource standardLockBackgroundBrush}"/>
+		<Setter Property="Foreground" Value="{StaticResource GlyphBrush}"/>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="IsTabStop" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid x:Name="Grid" Opacity="0.7" Margin="0,0,0,1">
+						<Border Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="#7F8283" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="2"/>
+						<ContentPresenter x:Name="Path" Content="{StaticResource downArrowPath}" Margin="{TemplateBinding Padding}" Width="20" Height="20" />
+						<!--<Border Background="White"/>-->
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Grid" Property="Opacity" Value="1.0"/>
+						</Trigger>
+
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="Grid" Property="Opacity" Value="0.5"/>
+						</Trigger>
+
+						<Trigger Property="IsPressed" Value="true">
+							<Setter TargetName="Grid" Property="Margin" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<ControlTemplate x:Key="OutboxButtonStyle" TargetType="{x:Type Button}">
+
+		<Border x:Name="outerBorder" Width="200" Height="50"
+                CornerRadius="8"
+                BorderThickness="2" 
+                BorderBrush="Gray" 
+                Background="White"
+                Margin="4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Opacity="0.6"
+                >
+			<Border.BitmapEffect>
+				<BlurBitmapEffect Radius="1" />
+			</Border.BitmapEffect>
+
+			<Border x:Name="innerBorder"
+                    Margin="2"
+                    CornerRadius="6"
+                    BorderThickness="0" 
+                    BorderBrush="White" 
+                    >
+				<Border.Background>
+					<RadialGradientBrush GradientOrigin="1.2,2" RadiusX="2" RadiusY="2">
+						<GradientStop Color="{StaticResource White}" Offset="0" />
+						<GradientStop Color="{StaticResource White}" Offset="0.4" />
+						<GradientStop Color="{StaticResource White}" Offset="1" />
+					</RadialGradientBrush>
+				</Border.Background>
+
+				<ContentPresenter 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource MenuButtonFontStyle}"
+                    Margin="6, 4"
+                    />
+
+			</Border>
+
+			<Border.Triggers>
+
+				<EventTrigger RoutedEvent="Border.MouseDown">
+					<EventTrigger.Actions>
+						<SoundPlayerAction Source="../Media/Sounds/ButtonClick.wav" />
+					</EventTrigger.Actions>
+				</EventTrigger>
+
+			</Border.Triggers>
+		</Border>
+
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsPressed" Value="True">
+
+				<Setter TargetName="outerBorder" Property="Opacity" Value="1" />
+
+				<Setter TargetName="innerBorder" Property="BitmapEffect">
+					<Setter.Value>
+						<OuterGlowBitmapEffect GlowColor="WhiteSmoke" GlowSize="4" Opacity="40" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter TargetName="outerBorder" Property="Opacity" Value="1" />
+				<Setter TargetName="outerBorder" Property="BorderBrush" Value="WhiteSmoke" />
+			</Trigger>
+
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="PopupWindowButtonStyle" TargetType="{x:Type Button}">
+
+		<Border x:Name="outerBorder" Width="220" Height="50"
+                CornerRadius="8"
+                BorderThickness="2" 
+                BorderBrush="White" 
+                Background="White"
+                Margin="4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                >
+			<Border.BitmapEffect>
+				<BlurBitmapEffect Radius="1" />
+			</Border.BitmapEffect>
+
+			<Border x:Name="innerBorder"
+                    Margin="2"
+                    CornerRadius="6"
+                    BorderThickness="0" 
+                    BorderBrush="White" 
+                    Background="{StaticResource WhiteBrush}">
+
+				<ContentPresenter 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Style="{StaticResource MenuButtonFontStyle}"
+                    Margin="6, 4"
+                    />
+
+			</Border>
+
+			<Border.Triggers>
+
+				<EventTrigger RoutedEvent="Border.MouseDown" >
+					<EventTrigger.Actions>
+						<SoundPlayerAction Source="../Media/Sounds/ButtonClick.wav" />
+					</EventTrigger.Actions>
+				</EventTrigger>
+
+			</Border.Triggers>
+		</Border>
+
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsPressed" Value="True">
+
+				<Setter TargetName="innerBorder" Property="BitmapEffect">
+					<Setter.Value>
+						<OuterGlowBitmapEffect GlowColor="WhiteSmoke" GlowSize="4" Opacity="40" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter TargetName="outerBorder" Property="BorderBrush" Value="WhiteSmoke" />
+
+				<Setter TargetName="innerBorder" Property="Background">
+					<Setter.Value>
+						<RadialGradientBrush GradientOrigin="1.2,2" RadiusX="2" RadiusY="2">
+							<GradientStop Color="{StaticResource White}" Offset="0" />
+							<GradientStop Color="{StaticResource White}" Offset="0.4" />
+							<GradientStop Color="{StaticResource White}" Offset="1" />
+						</RadialGradientBrush>
+					</Setter.Value>
+				</Setter>
+
+			</Trigger>
+
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="CategoryButtonStyle" TargetType="{x:Type Button}">
+
+		<Border x:Name="outerBorder" Width="180" Height="50"
+                CornerRadius="8"
+                BorderThickness="2" 
+                BorderBrush="White" 
+                Background="White"
+                Margin="4"
+                >
+			<Border.BitmapEffect>
+				<BlurBitmapEffect Radius="1" />
+			</Border.BitmapEffect>
+
+			<Border x:Name="innerBorder"
+                    Margin="2"
+                    CornerRadius="6"
+                    BorderThickness="0" 
+                    BorderBrush="White" 
+                    Background="{StaticResource WhiteBrush}">
+
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+					<Label Content="&lt;"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource MenuButtonFontStyle}"
+                        />
+
+					<ContentPresenter 
+                        VerticalAlignment="Top"
+                        Style="{StaticResource MenuButtonFontStyle}"
+                        Margin="2, 4"
+                        />
+
+					<Label Content="&gt;"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource MenuButtonFontStyle}"
+                        />
+
+				</StackPanel>
+
+
+			</Border>
+
+			<Border.Triggers>
+
+				<EventTrigger RoutedEvent="Border.MouseDown" >
+					<EventTrigger.Actions>
+						<SoundPlayerAction Source="../Media/Sounds/ButtonClick.wav" />
+					</EventTrigger.Actions>
+				</EventTrigger>
+
+			</Border.Triggers>
+		</Border>
+
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsPressed" Value="True">
+
+				<Setter TargetName="innerBorder" Property="BitmapEffect">
+					<Setter.Value>
+						<OuterGlowBitmapEffect GlowColor="WhiteSmoke" GlowSize="4" Opacity="40" />
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter TargetName="outerBorder" Property="BorderBrush" Value="WhiteSmoke" />
+
+				<Setter TargetName="innerBorder" Property="Background">
+					<Setter.Value>
+						<RadialGradientBrush GradientOrigin="1.2,2" RadiusX="2" RadiusY="2">
+							<GradientStop Color="{StaticResource White}" Offset="0" />
+							<GradientStop Color="{StaticResource White}" Offset="0.4" />
+							<GradientStop Color="{StaticResource White}" Offset="1" />
+						</RadialGradientBrush>
+					</Setter.Value>
+				</Setter>
+
+			</Trigger>
+
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+
+
+
+</ResourceDictionary>

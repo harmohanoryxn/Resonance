@@ -1,0 +1,39 @@
+﻿<Window x:Class="Cloudmaster.WCS.Drone.ShellView"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Drone="clr-namespace:Cloudmaster.WCS.Drone" AllowsTransparency="False"
+		MinWidth="1024"
+		MinHeight="580"
+		Background="GhostWhite"
+    >
+	
+    <Window.Resources>
+
+		<Drone:ShellViewModel x:Key="ShellVM" />
+
+		<DataTemplate DataType="{x:Type Drone:DroneViewModel}">
+			<Grid Margin="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="20"/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				
+				<TextBlock Text="{Binding Path=Name}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="18" FontWeight="Bold"/>
+
+				<RadioButton  Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding IsOn, Mode=OneWay}" Command="{Binding Path=ToggleOnOffCommand}"/>
+				<ListBox ItemsSource="{Binding Path=Activities}" Grid.Column="1" Grid.Row="1" Height="200"  Margin="2"/>
+			</Grid>
+		</DataTemplate>
+		
+		 
+	
+	</Window.Resources>
+
+	<ListBox DataContext="{StaticResource ShellVM}" ItemsSource="{Binding Path=Drones}" HorizontalContentAlignment="Stretch"/>
+
+
+</Window>

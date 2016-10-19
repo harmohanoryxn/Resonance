@@ -1,0 +1,111 @@
+﻿<Window x:Class="Cloudmaster.WCS.Ward.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Ward Workstation" 
+    xmlns:controls="clr-namespace:Cloudmaster.WCS.Ward.Controls"
+    xmlns:commands="clr-namespace:Cloudmaster.WCS.Ward.Commands"
+        xmlns:Converters="clr-namespace:Cloudmaster.WCS.Controls.Converters;assembly=WCS.Controls"
+        WindowStartupLocation="CenterScreen" 
+    AllowsTransparency="False"
+    WindowStyle="None"
+    WindowState="Maximized"
+    Template="{DynamicResource ChromelessWindowTemplate}"
+    DataContext="{StaticResource model}"
+    Background="Silver"
+    MinWidth="1024"
+    MinHeight="580"
+    Width="1920"
+    Height="1080" 
+    MouseMove="Window_MouseMove"
+    >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/FontStyles.xaml" />
+                <ResourceDictionary Source="Resources/ProgessBarStyles.xaml" />
+                <ResourceDictionary Source="Resources/ButtonStyles.xaml" />
+                <ResourceDictionary Source="Resources/ChromelessWindowStyles.xaml" />
+                <ResourceDictionary Source="Resources/Designs/Logo.xaml" />
+                <ResourceDictionary>
+                    <Converters:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+
+                    <ControlTemplate x:Key="ChromelessWindowTemplate" TargetType="{x:Type Window}">
+                        <AdornerDecorator>
+                            <Grid Background="White" x:Name="rootGrid">
+
+                                <ContentPresenter Margin="0,0,0,0" />
+
+                                <controls:EnterLogin Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" 
+                                         Height="{Binding ElementName=rootGrid, Path=ActualHeight}"
+                                         Width="{Binding ElementName=rootGrid, Path=ActualWidth}"
+                                         VerticalAlignment="Center"
+                                         Visibility="{Binding Security.IsLocked, Converter={StaticResource booleanToVisibilityConverter}, ConverterParameter=CollapsedIfFalse}"
+                                         />
+                            </Grid>
+                        </AdornerDecorator>
+                    </ControlTemplate>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TabControl x:Name="tabControl" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" SelectedIndex="{Binding Navigation.NavigationIndex}"
+                    Background="White"
+                    Margin="0"
+                    Padding="0"
+                    BorderBrush="Transparent"
+                    >
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="View Department Schedule">
+                <controls:ViewDepartmentSchedule DataContext="{StaticResource model}" />
+            </TabItem>
+        </TabControl>
+
+        <!-- Left Bar -->
+        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Logo -->
+
+            <Rectangle Width="220" Margin="0,0,10,0" Fill="{StaticResource Logo}" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center" />
+
+            <!-- Back Button -->
+
+            <Button x:Name="btnLock" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Template="{StaticResource LockButtonStyle}"
+                    Command="commands:SecurityCommands.LockNowCommand"
+                    Margin="18,0,18,0"
+                    />
+
+            <Button x:Name="btnBackButton" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    Template="{StaticResource MainBackButtonStyle}"
+                    Margin="0,0,18,0"
+                    Command="commands:NavigationButtonCommands.BackCommand"
+                    />
+        </Grid>
+    </Grid>
+</Window>
+

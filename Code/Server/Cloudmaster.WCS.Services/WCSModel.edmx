@@ -1,0 +1,3125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WCSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WCSModelStoreContainer">
+          <EntitySet Name="Admission" EntityType="WCSModel.Store.Admission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdmissionStatus" EntityType="WCSModel.Store.AdmissionStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AdmissionType" EntityType="WCSModel.Store.AdmissionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bed" EntityType="WCSModel.Store.Bed" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BedCleaningEvent" EntityType="WCSModel.Store.BedCleaningEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BedCleaningEventType" EntityType="WCSModel.Store.BedCleaningEventType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Configuration" EntityType="WCSModel.Store.Configuration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ConfigurationLocation" EntityType="WCSModel.Store.ConfigurationLocation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ConfigurationType" EntityType="WCSModel.Store.ConfigurationType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Connection" EntityType="WCSModel.Store.Connection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Device" EntityType="WCSModel.Store.Device" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DeviceConfiguration" EntityType="WCSModel.Store.DeviceConfiguration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Doctor" EntityType="WCSModel.Store.Doctor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ExternalSource" EntityType="WCSModel.Store.ExternalSource" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Location" EntityType="WCSModel.Store.Location" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Note" EntityType="WCSModel.Store.Note" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Notification" EntityType="WCSModel.Store.Notification" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NotificationRule" EntityType="WCSModel.Store.NotificationRule" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NotificationType" EntityType="WCSModel.Store.NotificationType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order" EntityType="WCSModel.Store.Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderStatus" EntityType="WCSModel.Store.OrderStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Patient" EntityType="WCSModel.Store.Patient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pin" EntityType="WCSModel.Store.Pin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Procedure" EntityType="WCSModel.Store.Procedure" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProcedureCategory" EntityType="WCSModel.Store.ProcedureCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RfidDetection" EntityType="WCSModel.Store.RfidDetection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RfidDetector" EntityType="WCSModel.Store.RfidDetector" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RfidDirection" EntityType="WCSModel.Store.RfidDirection" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Room" EntityType="WCSModel.Store.Room" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Update" EntityType="WCSModel.Store.Update" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WaitingArea" EntityType="WCSModel.Store.WaitingArea" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AdmissionAdmissionStatus" Association="WCSModel.Store.FK_AdmissionAdmissionStatus">
+            <End Role="AdmissionStatus" EntitySet="AdmissionStatus" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionAdmissionType" Association="WCSModel.Store.FK_AdmissionAdmissionType">
+            <End Role="AdmissionType" EntitySet="AdmissionType" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionAdmittingDoctorDoctor" Association="WCSModel.Store.FK_AdmissionAdmittingDoctorDoctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionAttendingDoctorDoctor" Association="WCSModel.Store.FK_AdmissionAttendingDoctorDoctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionBed" Association="WCSModel.Store.FK_AdmissionBed">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionLocation" Association="WCSModel.Store.FK_AdmissionLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionOrder" Association="WCSModel.Store.FK_AdmissionOrder">
+            <End Role="Admission" EntitySet="Admission" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionPrimaryCareDoctor" Association="WCSModel.Store.FK_AdmissionPrimaryCareDoctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedCleaningEventBed" Association="WCSModel.Store.FK_BedCleaningEventBed">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="BedCleaningEvent" EntitySet="BedCleaningEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedCleaningEventBedCleaningEventType" Association="WCSModel.Store.FK_BedCleaningEventBedCleaningEventType">
+            <End Role="BedCleaningEventType" EntitySet="BedCleaningEventType" />
+            <End Role="BedCleaningEvent" EntitySet="BedCleaningEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedNote" Association="WCSModel.Store.FK_BedNote">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="Note" EntitySet="Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedRoom" Association="WCSModel.Store.FK_BedRoom">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Bed" EntitySet="Bed" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurationConfigurationLocation" Association="WCSModel.Store.FK_ConfigurationConfigurationLocation">
+            <End Role="Configuration" EntitySet="Configuration" />
+            <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurationConfigurationType" Association="WCSModel.Store.FK_ConfigurationConfigurationType">
+            <End Role="ConfigurationType" EntitySet="ConfigurationType" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurationDeviceConfiguration" Association="WCSModel.Store.FK_ConfigurationDeviceConfiguration">
+            <End Role="Configuration" EntitySet="Configuration" />
+            <End Role="DeviceConfiguration" EntitySet="DeviceConfiguration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceConnection" Association="WCSModel.Store.FK_DeviceConnection">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="Connection" EntitySet="Connection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceDeviceConfiguration" Association="WCSModel.Store.FK_DeviceDeviceConfiguration">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="DeviceConfiguration" EntitySet="DeviceConfiguration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DevicePin" Association="WCSModel.Store.FK_DevicePin">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="Pin" EntitySet="Pin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceAdmission" Association="WCSModel.Store.FK_ExternalSourceAdmission">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceDoctor" Association="WCSModel.Store.FK_ExternalSourceDoctor">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceOrder" Association="WCSModel.Store.FK_ExternalSourceOrder">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceProcedure" Association="WCSModel.Store.FK_ExternalSourceProcedure">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Procedure" EntitySet="Procedure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceProcedureCategory" Association="WCSModel.Store.FK_ExternalSourceProcedureCategory">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationConfigurationLocation" Association="WCSModel.Store.FK_LocationConfigurationLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationRoom" Association="WCSModel.Store.FK_LocationRoom">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationWCS_Device" Association="WCSModel.Store.FK_LocationWCS_Device">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Device" EntitySet="Device" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationNotificationType" Association="WCSModel.Store.FK_NotificationNotificationType">
+            <End Role="NotificationType" EntitySet="NotificationType" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationRuleProcedure" Association="WCSModel.Store.FK_NotificationRuleProcedure">
+            <End Role="Procedure" EntitySet="Procedure" />
+            <End Role="NotificationRule" EntitySet="NotificationRule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLocation" Association="WCSModel.Store.FK_OrderLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderNote" Association="WCSModel.Store.FK_OrderNote">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Note" EntitySet="Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderNotification" Association="WCSModel.Store.FK_OrderNotification">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderOrderingDoctor" Association="WCSModel.Store.FK_OrderOrderingDoctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProcedure" Association="WCSModel.Store.FK_OrderProcedure">
+            <End Role="Procedure" EntitySet="Procedure" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStatusOrder" Association="WCSModel.Store.FK_OrderStatusOrder">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientAdmission" Association="WCSModel.Store.FK_PatientAdmission">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientExternalSource" Association="WCSModel.Store.FK_PatientExternalSource">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcedureCategoryProcedure" Association="WCSModel.Store.FK_ProcedureCategoryProcedure">
+            <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+            <End Role="Procedure" EntitySet="Procedure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectionPatient" Association="WCSModel.Store.FK_RfidDetectionPatient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="RfidDetection" EntitySet="RfidDetection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectionRfidDetector" Association="WCSModel.Store.FK_RfidDetectionRfidDetector">
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+            <End Role="RfidDetection" EntitySet="RfidDetection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectionRfidDirection" Association="WCSModel.Store.FK_RfidDetectionRfidDirection">
+            <End Role="RfidDirection" EntitySet="RfidDirection" />
+            <End Role="RfidDetection" EntitySet="RfidDetection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectorExternalSource" Association="WCSModel.Store.FK_RfidDetectorExternalSource">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectorLocation" Association="WCSModel.Store.FK_RfidDetectorLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UpdateAdmission" Association="WCSModel.Store.FK_UpdateAdmission">
+            <End Role="Admission" EntitySet="Admission" />
+            <End Role="Update" EntitySet="Update" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UpdateBed" Association="WCSModel.Store.FK_UpdateBed">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="Update" EntitySet="Update" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UpdateOrder" Association="WCSModel.Store.FK_UpdateOrder">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Update" EntitySet="Update" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WaitingAreaLocation" Association="WCSModel.Store.FK_WaitingAreaLocation">
+            <End Role="WaitingArea" EntitySet="WaitingArea" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WaitingAreaRfidDetector" Association="WCSModel.Store.FK_WaitingAreaRfidDetector">
+            <End Role="WaitingArea" EntitySet="WaitingArea" />
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admission">
+          <Key>
+            <PropertyRef Name="admissionId" />
+          </Key>
+          <Property Name="admissionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="externalSourceId" Type="int" Nullable="false" />
+          <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="admitDateTime" Type="datetime" />
+          <Property Name="estimatedDischargeDateTime" Type="datetime" />
+          <Property Name="dischargeDateTime" Type="datetime" />
+          <Property Name="patientId" Type="int" Nullable="false" />
+          <Property Name="PrimaryCareDoctor_doctorId" Type="int" />
+          <Property Name="AttendingDoctor_doctorId" Type="int" />
+          <Property Name="AdmittingDoctor_doctorId" Type="int" />
+          <Property Name="AdmissionType_admissionTypeId" Type="int" Nullable="false" />
+          <Property Name="AdmissionStatus_admissionStatusId" Type="int" Nullable="false" />
+          <Property Name="Location_locationId" Type="int" Nullable="false" />
+          <Property Name="Bed_bedId" Type="int" />
+        </EntityType>
+        <EntityType Name="AdmissionStatus">
+          <Key>
+            <PropertyRef Name="admissionStatusId" />
+          </Key>
+          <Property Name="admissionStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="AdmissionType">
+          <Key>
+            <PropertyRef Name="admissionTypeId" />
+          </Key>
+          <Property Name="admissionTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Bed">
+          <Key>
+            <PropertyRef Name="bedId" />
+          </Key>
+          <Property Name="bedId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Room_roomId" Type="int" />
+        </EntityType>
+        <EntityType Name="BedCleaningEvent">
+          <Key>
+            <PropertyRef Name="bedCleaningEventId" />
+          </Key>
+          <Property Name="bedCleaningEventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="timestamp" Type="datetime" Nullable="false" />
+          <Property Name="Bed_bedId" Type="int" Nullable="false" />
+          <Property Name="bedCleaningEventTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BedCleaningEventType">
+          <Key>
+            <PropertyRef Name="bedCleaningEventTypeId" />
+          </Key>
+          <Property Name="bedCleaningEventTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="eventType" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="configurationId" />
+          </Key>
+          <Property Name="configurationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ConfigurationType_ConfigurationTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfigurationLocation">
+          <Key>
+            <PropertyRef Name="configurationLocationId" />
+          </Key>
+          <Property Name="configurationLocationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="configurationId" Type="int" Nullable="false" />
+          <Property Name="locationId" Type="int" Nullable="false" />
+          <Property Name="isDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConfigurationType">
+          <Key>
+            <PropertyRef Name="ConfigurationTypeId" />
+          </Key>
+          <Property Name="ConfigurationTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="connectionId" />
+          </Key>
+          <Property Name="connectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="connectionTime" Type="datetime" Nullable="false" />
+          <Property Name="deviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="deviceId" />
+          </Key>
+          <Property Name="deviceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="os" Type="nvarchar" MaxLength="50" />
+          <Property Name="clientVersion" Type="nvarchar" MaxLength="50" />
+          <Property Name="ipAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastConnection" Type="datetime" />
+          <Property Name="locationId" Type="int" />
+          <Property Name="lockTimeout" Type="int" Nullable="false" />
+          <Property Name="configurationTimeout" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceConfiguration">
+          <Key>
+            <PropertyRef Name="deviceId" />
+            <PropertyRef Name="shortcutKeyNo" />
+          </Key>
+          <Property Name="deviceId" Type="int" Nullable="false" />
+          <Property Name="shortcutKeyNo" Type="int" Nullable="false" />
+          <Property Name="configurationId" Type="int" Nullable="false" />
+          <Property Name="cleaningBedDataTimeout" Type="int" Nullable="false" />
+          <Property Name="orderTimeout" Type="int" Nullable="false" />
+          <Property Name="presenceTimeout" Type="int" Nullable="false" />
+          <Property Name="rfidTimeout" Type="int" Nullable="false" />
+          <Property Name="dischargeTimeout" Type="int" Nullable="false" />
+          <Property Name="admissionsTimeout" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="doctorId" />
+          </Key>
+          <Property Name="doctorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="externalSourceId" Type="int" Nullable="false" />
+          <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ExternalSource">
+          <Key>
+            <PropertyRef Name="externalSourceId" />
+          </Key>
+          <Property Name="externalSourceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="source" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="locationId" />
+          </Key>
+          <Property Name="locationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="isEmergency" Type="bit" Nullable="false" />
+          <Property Name="contactInfo" Type="nvarchar" MaxLength="20" />
+          <Property Name="includeInMerge" Type="bit" Nullable="false" />
+          <Property Name="WaitingArea_waitingAreaId" Type="int" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="noteId" />
+          </Key>
+          <Property Name="noteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="source" Type="nvarchar" MaxLength="50" />
+          <Property Name="notes" Type="nvarchar(max)" />
+          <Property Name="dateCreated" Type="datetime" />
+          <Property Name="noteOrder" Type="int" Nullable="false" />
+          <Property Name="bedId" Type="int" />
+          <Property Name="orderId" Type="int" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="notificationId" />
+          </Key>
+          <Property Name="notificationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="notificationTypeId" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="priorToProcedureTime" Type="int" Nullable="false" />
+          <Property Name="isAcknowledgmentRequired" Type="bit" Nullable="false" />
+          <Property Name="acknowledged" Type="bit" Nullable="false" />
+          <Property Name="acknowledgedTime" Type="datetime" />
+          <Property Name="acknowledgedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="notificationOrder" Type="int" />
+          <Property Name="orderId" Type="int" Nullable="false" />
+          <Property Name="durationMinutes" Type="int" Nullable="false" />
+          <Property Name="radiationRiskDurationMinutes" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationRule">
+          <Key>
+            <PropertyRef Name="notificationRuleId" />
+          </Key>
+          <Property Name="notificationRuleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="priorToProcedureTime" Type="int" Nullable="false" />
+          <Property Name="durationMinutes" Type="int" Nullable="false" />
+          <Property Name="radiationRiskDurationMinutes" Type="int" Nullable="false" />
+          <Property Name="isAcknowledgmentRequired" Type="bit" Nullable="false" />
+          <Property Name="Procedure_procedureId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationType">
+          <Key>
+            <PropertyRef Name="notificationTypeId" />
+          </Key>
+          <Property Name="notificationTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Name="orderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="externalSourceId" Type="int" Nullable="false" />
+          <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="orderNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="procedureTime" Type="datetime" />
+          <Property Name="orderStatusId" Type="int" Nullable="false" />
+          <Property Name="completedTime" Type="datetime" />
+          <Property Name="admissionId" Type="int" Nullable="false" />
+          <Property Name="clinicalIndicator" Type="nvarchar" MaxLength="200" />
+          <Property Name="estimatedProcedureDuration" Type="int" />
+          <Property Name="Procedure_procedureId" Type="int" Nullable="false" />
+          <Property Name="Department_locationId" Type="int" Nullable="false" />
+          <Property Name="OrderingDoctor_doctorId" Type="int" />
+          <Property Name="isHidden" Type="bit" Nullable="false" />
+          <Property Name="acknowledged" Type="bit" Nullable="false" />
+          <Property Name="acknowledgedTime" Type="datetime" />
+          <Property Name="acknowledgedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="history" Type="nvarchar" MaxLength="200" />
+          <Property Name="diagnosis" Type="nvarchar" MaxLength="200" />
+          <Property Name="currentCardiologist" Type="nvarchar" MaxLength="200" />
+          <Property Name="requiresSupervision" Type="bit" Nullable="false" />
+          <Property Name="requiresFootwear" Type="bit" Nullable="false" />
+          <Property Name="requiresMedicalRecords" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="orderStatusId" />
+          </Key>
+          <Property Name="orderStatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="patientId" />
+          </Key>
+          <Property Name="patientId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="externalSourceId" Type="int" Nullable="false" />
+          <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="givenName" Type="nvarchar" MaxLength="50" />
+          <Property Name="surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="dob" Type="datetime" />
+          <Property Name="sex" Type="nvarchar" MaxLength="20" />
+          <Property Name="isMrsaPositive" Type="bit" Nullable="false" />
+          <Property Name="isFallRisk" Type="bit" Nullable="false" />
+          <Property Name="isAssistanceRequired" Type="bit" Nullable="false" />
+          <Property Name="assistanceDescription" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="hasLatexAllergy" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pin">
+          <Key>
+            <PropertyRef Name="pinId" />
+          </Key>
+          <Property Name="pinId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pin" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Device_deviceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Procedure">
+          <Key>
+            <PropertyRef Name="procedureId" />
+          </Key>
+          <Property Name="procedureId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="externalSourceId" Type="int" Nullable="false" />
+          <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="code" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="durationMinutes" Type="int" />
+          <Property Name="ProcedureCategory_procedureCategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProcedureCategory">
+          <Key>
+            <PropertyRef Name="procedureCategoryId" />
+          </Key>
+          <Property Name="procedureCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="externalSourceId" Type="int" Nullable="false" />
+          <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="includeInMerge" Type="bit" Nullable="false" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="RfidDetection">
+          <Key>
+            <PropertyRef Name="rfidDetectionId" />
+          </Key>
+          <Property Name="rfidDetectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="patientId" Type="int" Nullable="false" />
+          <Property Name="rfidDirectionId" Type="int" Nullable="false" />
+          <Property Name="rfidDetectorId" Type="int" Nullable="false" />
+          <Property Name="dateTimeDetected" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RfidDetector">
+          <Key>
+            <PropertyRef Name="rfidDetectorId" />
+          </Key>
+          <Property Name="rfidDetectorId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="externalSourceId" Type="int" Nullable="false" />
+          <Property Name="externalId" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Location_locationId" Type="int" />
+          <Property Name="WaitingArea_waitingAreaId" Type="int" />
+        </EntityType>
+        <EntityType Name="RfidDirection">
+          <Key>
+            <PropertyRef Name="rfidDirectionId" />
+          </Key>
+          <Property Name="rfidDirectionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="direction" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="roomId" />
+          </Key>
+          <Property Name="roomId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Location_locationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Update">
+          <Key>
+            <PropertyRef Name="updateId" />
+          </Key>
+          <Property Name="updateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" />
+          <Property Name="source" Type="nvarchar" MaxLength="50" />
+          <Property Name="value" Type="nvarchar(max)" />
+          <Property Name="dateCreated" Type="datetime" />
+          <Property Name="Bed_bedId" Type="int" />
+          <Property Name="Order_orderId" Type="int" />
+          <Property Name="Admission_admissionId" Type="int" />
+        </EntityType>
+        <EntityType Name="WaitingArea">
+          <Key>
+            <PropertyRef Name="waitingAreaId" />
+          </Key>
+          <Property Name="waitingAreaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AdmissionAdmissionStatus">
+          <End Role="AdmissionStatus" Type="WCSModel.Store.AdmissionStatus" Multiplicity="1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionStatus">
+              <PropertyRef Name="admissionStatusId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="AdmissionStatus_admissionStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionAdmissionType">
+          <End Role="AdmissionType" Type="WCSModel.Store.AdmissionType" Multiplicity="1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionType">
+              <PropertyRef Name="admissionTypeId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="AdmissionType_admissionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionAdmittingDoctorDoctor">
+          <End Role="Doctor" Type="WCSModel.Store.Doctor" Multiplicity="0..1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="doctorId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="AdmittingDoctor_doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionAttendingDoctorDoctor">
+          <End Role="Doctor" Type="WCSModel.Store.Doctor" Multiplicity="0..1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="doctorId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="AttendingDoctor_doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionBed">
+          <End Role="Bed" Type="WCSModel.Store.Bed" Multiplicity="0..1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="Bed_bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionLocation">
+          <End Role="Location" Type="WCSModel.Store.Location" Multiplicity="1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="Location_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionOrder">
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="1" />
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admission">
+              <PropertyRef Name="admissionId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="admissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionPrimaryCareDoctor">
+          <End Role="Doctor" Type="WCSModel.Store.Doctor" Multiplicity="0..1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="doctorId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="PrimaryCareDoctor_doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedCleaningEventBed">
+          <End Role="Bed" Type="WCSModel.Store.Bed" Multiplicity="1" />
+          <End Role="BedCleaningEvent" Type="WCSModel.Store.BedCleaningEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="BedCleaningEvent">
+              <PropertyRef Name="Bed_bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedCleaningEventBedCleaningEventType">
+          <End Role="BedCleaningEventType" Type="WCSModel.Store.BedCleaningEventType" Multiplicity="1" />
+          <End Role="BedCleaningEvent" Type="WCSModel.Store.BedCleaningEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BedCleaningEventType">
+              <PropertyRef Name="bedCleaningEventTypeId" />
+            </Principal>
+            <Dependent Role="BedCleaningEvent">
+              <PropertyRef Name="bedCleaningEventTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedNote">
+          <End Role="Bed" Type="WCSModel.Store.Bed" Multiplicity="0..1" />
+          <End Role="Note" Type="WCSModel.Store.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedRoom">
+          <End Role="Room" Type="WCSModel.Store.Room" Multiplicity="0..1" />
+          <End Role="Bed" Type="WCSModel.Store.Bed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="roomId" />
+            </Principal>
+            <Dependent Role="Bed">
+              <PropertyRef Name="Room_roomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurationConfigurationLocation">
+          <End Role="Configuration" Type="WCSModel.Store.Configuration" Multiplicity="1" />
+          <End Role="ConfigurationLocation" Type="WCSModel.Store.ConfigurationLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Configuration">
+              <PropertyRef Name="configurationId" />
+            </Principal>
+            <Dependent Role="ConfigurationLocation">
+              <PropertyRef Name="configurationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurationConfigurationType">
+          <End Role="ConfigurationType" Type="WCSModel.Store.ConfigurationType" Multiplicity="1" />
+          <End Role="Configuration" Type="WCSModel.Store.Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConfigurationType">
+              <PropertyRef Name="ConfigurationTypeId" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ConfigurationType_ConfigurationTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurationDeviceConfiguration">
+          <End Role="Configuration" Type="WCSModel.Store.Configuration" Multiplicity="1" />
+          <End Role="DeviceConfiguration" Type="WCSModel.Store.DeviceConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Configuration">
+              <PropertyRef Name="configurationId" />
+            </Principal>
+            <Dependent Role="DeviceConfiguration">
+              <PropertyRef Name="configurationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceConnection">
+          <End Role="Device" Type="WCSModel.Store.Device" Multiplicity="1" />
+          <End Role="Connection" Type="WCSModel.Store.Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="deviceId" />
+            </Principal>
+            <Dependent Role="Connection">
+              <PropertyRef Name="deviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceDeviceConfiguration">
+          <End Role="Device" Type="WCSModel.Store.Device" Multiplicity="1" />
+          <End Role="DeviceConfiguration" Type="WCSModel.Store.DeviceConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="deviceId" />
+            </Principal>
+            <Dependent Role="DeviceConfiguration">
+              <PropertyRef Name="deviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DevicePin">
+          <End Role="Device" Type="WCSModel.Store.Device" Multiplicity="1" />
+          <End Role="Pin" Type="WCSModel.Store.Pin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="deviceId" />
+            </Principal>
+            <Dependent Role="Pin">
+              <PropertyRef Name="Device_deviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceAdmission">
+          <End Role="ExternalSource" Type="WCSModel.Store.ExternalSource" Multiplicity="1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceDoctor">
+          <End Role="ExternalSource" Type="WCSModel.Store.ExternalSource" Multiplicity="1" />
+          <End Role="Doctor" Type="WCSModel.Store.Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceOrder">
+          <End Role="ExternalSource" Type="WCSModel.Store.ExternalSource" Multiplicity="1" />
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceProcedure">
+          <End Role="ExternalSource" Type="WCSModel.Store.ExternalSource" Multiplicity="1" />
+          <End Role="Procedure" Type="WCSModel.Store.Procedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Procedure">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceProcedureCategory">
+          <End Role="ExternalSource" Type="WCSModel.Store.ExternalSource" Multiplicity="1" />
+          <End Role="ProcedureCategory" Type="WCSModel.Store.ProcedureCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="ProcedureCategory">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationConfigurationLocation">
+          <End Role="Location" Type="WCSModel.Store.Location" Multiplicity="1" />
+          <End Role="ConfigurationLocation" Type="WCSModel.Store.ConfigurationLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="ConfigurationLocation">
+              <PropertyRef Name="locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationRoom">
+          <End Role="Location" Type="WCSModel.Store.Location" Multiplicity="1" />
+          <End Role="Room" Type="WCSModel.Store.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="Location_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationWCS_Device">
+          <End Role="Location" Type="WCSModel.Store.Location" Multiplicity="0..1" />
+          <End Role="Device" Type="WCSModel.Store.Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationNotificationType">
+          <End Role="NotificationType" Type="WCSModel.Store.NotificationType" Multiplicity="1" />
+          <End Role="Notification" Type="WCSModel.Store.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationType">
+              <PropertyRef Name="notificationTypeId" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="notificationTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationRuleProcedure">
+          <End Role="Procedure" Type="WCSModel.Store.Procedure" Multiplicity="1" />
+          <End Role="NotificationRule" Type="WCSModel.Store.NotificationRule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="procedureId" />
+            </Principal>
+            <Dependent Role="NotificationRule">
+              <PropertyRef Name="Procedure_procedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderLocation">
+          <End Role="Location" Type="WCSModel.Store.Location" Multiplicity="1" />
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Department_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderNote">
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="0..1" />
+          <End Role="Note" Type="WCSModel.Store.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderNotification">
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="1" />
+          <End Role="Notification" Type="WCSModel.Store.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderOrderingDoctor">
+          <End Role="Doctor" Type="WCSModel.Store.Doctor" Multiplicity="0..1" />
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="doctorId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderingDoctor_doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProcedure">
+          <End Role="Procedure" Type="WCSModel.Store.Procedure" Multiplicity="1" />
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="procedureId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Procedure_procedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStatusOrder">
+          <End Role="OrderStatus" Type="WCSModel.Store.OrderStatus" Multiplicity="1" />
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="orderStatusId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="orderStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientAdmission">
+          <End Role="Patient" Type="WCSModel.Store.Patient" Multiplicity="1" />
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="patientId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="patientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientExternalSource">
+          <End Role="ExternalSource" Type="WCSModel.Store.ExternalSource" Multiplicity="1" />
+          <End Role="Patient" Type="WCSModel.Store.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcedureCategoryProcedure">
+          <End Role="ProcedureCategory" Type="WCSModel.Store.ProcedureCategory" Multiplicity="1" />
+          <End Role="Procedure" Type="WCSModel.Store.Procedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProcedureCategory">
+              <PropertyRef Name="procedureCategoryId" />
+            </Principal>
+            <Dependent Role="Procedure">
+              <PropertyRef Name="ProcedureCategory_procedureCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectionPatient">
+          <End Role="Patient" Type="WCSModel.Store.Patient" Multiplicity="1" />
+          <End Role="RfidDetection" Type="WCSModel.Store.RfidDetection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="patientId" />
+            </Principal>
+            <Dependent Role="RfidDetection">
+              <PropertyRef Name="patientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectionRfidDetector">
+          <End Role="RfidDetector" Type="WCSModel.Store.RfidDetector" Multiplicity="1" />
+          <End Role="RfidDetection" Type="WCSModel.Store.RfidDetection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RfidDetector">
+              <PropertyRef Name="rfidDetectorId" />
+            </Principal>
+            <Dependent Role="RfidDetection">
+              <PropertyRef Name="rfidDetectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectionRfidDirection">
+          <End Role="RfidDirection" Type="WCSModel.Store.RfidDirection" Multiplicity="1" />
+          <End Role="RfidDetection" Type="WCSModel.Store.RfidDetection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RfidDirection">
+              <PropertyRef Name="rfidDirectionId" />
+            </Principal>
+            <Dependent Role="RfidDetection">
+              <PropertyRef Name="rfidDirectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectorExternalSource">
+          <End Role="ExternalSource" Type="WCSModel.Store.ExternalSource" Multiplicity="1" />
+          <End Role="RfidDetector" Type="WCSModel.Store.RfidDetector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="RfidDetector">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectorLocation">
+          <End Role="Location" Type="WCSModel.Store.Location" Multiplicity="0..1" />
+          <End Role="RfidDetector" Type="WCSModel.Store.RfidDetector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="RfidDetector">
+              <PropertyRef Name="Location_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UpdateAdmission">
+          <End Role="Admission" Type="WCSModel.Store.Admission" Multiplicity="0..1" />
+          <End Role="Update" Type="WCSModel.Store.Update" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admission">
+              <PropertyRef Name="admissionId" />
+            </Principal>
+            <Dependent Role="Update">
+              <PropertyRef Name="Admission_admissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UpdateBed">
+          <End Role="Bed" Type="WCSModel.Store.Bed" Multiplicity="0..1" />
+          <End Role="Update" Type="WCSModel.Store.Update" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="Update">
+              <PropertyRef Name="Bed_bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UpdateOrder">
+          <End Role="Order" Type="WCSModel.Store.Order" Multiplicity="0..1" />
+          <End Role="Update" Type="WCSModel.Store.Update" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Update">
+              <PropertyRef Name="Order_orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WaitingAreaLocation">
+          <End Role="WaitingArea" Type="WCSModel.Store.WaitingArea" Multiplicity="0..1" />
+          <End Role="Location" Type="WCSModel.Store.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WaitingArea">
+              <PropertyRef Name="waitingAreaId" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="WaitingArea_waitingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WaitingAreaRfidDetector">
+          <End Role="WaitingArea" Type="WCSModel.Store.WaitingArea" Multiplicity="0..1" />
+          <End Role="RfidDetector" Type="WCSModel.Store.RfidDetector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WaitingArea">
+              <PropertyRef Name="waitingAreaId" />
+            </Principal>
+            <Dependent Role="RfidDetector">
+              <PropertyRef Name="WaitingArea_waitingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WCSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WCSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admission" EntityType="WCSModel.Admission" />
+          <EntitySet Name="AdmissionStatus" EntityType="WCSModel.AdmissionStatus" />
+          <EntitySet Name="AdmissionType" EntityType="WCSModel.AdmissionType" />
+          <EntitySet Name="Bed" EntityType="WCSModel.Bed" />
+          <EntitySet Name="BedCleaningEvent" EntityType="WCSModel.BedCleaningEvent" />
+          <EntitySet Name="BedCleaningEventType" EntityType="WCSModel.BedCleaningEventType" />
+          <EntitySet Name="Configuration" EntityType="WCSModel.Configuration" />
+          <EntitySet Name="ConfigurationLocation" EntityType="WCSModel.ConfigurationLocation" />
+          <EntitySet Name="ConfigurationType" EntityType="WCSModel.ConfigurationType" />
+          <EntitySet Name="Connection" EntityType="WCSModel.Connection" />
+          <EntitySet Name="Device" EntityType="WCSModel.Device" />
+          <EntitySet Name="DeviceConfiguration" EntityType="WCSModel.DeviceConfiguration" />
+          <EntitySet Name="Doctor" EntityType="WCSModel.Doctor" />
+          <EntitySet Name="ExternalSource" EntityType="WCSModel.ExternalSource" />
+          <EntitySet Name="Location" EntityType="WCSModel.Location" />
+          <EntitySet Name="Note" EntityType="WCSModel.Note" />
+          <EntitySet Name="Notification" EntityType="WCSModel.Notification" />
+          <EntitySet Name="NotificationRule" EntityType="WCSModel.NotificationRule" />
+          <EntitySet Name="NotificationType" EntityType="WCSModel.NotificationType" />
+          <EntitySet Name="Order" EntityType="WCSModel.Order" />
+          <EntitySet Name="OrderStatus" EntityType="WCSModel.OrderStatus" />
+          <EntitySet Name="Patient" EntityType="WCSModel.Patient" />
+          <EntitySet Name="Pin" EntityType="WCSModel.Pin" />
+          <EntitySet Name="Procedure" EntityType="WCSModel.Procedure" />
+          <EntitySet Name="ProcedureCategory" EntityType="WCSModel.ProcedureCategory" />
+          <EntitySet Name="RfidDetection" EntityType="WCSModel.RfidDetection" />
+          <EntitySet Name="RfidDetector" EntityType="WCSModel.RfidDetector" />
+          <EntitySet Name="RfidDirection" EntityType="WCSModel.RfidDirection" />
+          <EntitySet Name="Room" EntityType="WCSModel.Room" />
+          <EntitySet Name="Update" EntityType="WCSModel.Update" />
+          <EntitySet Name="WaitingArea" EntityType="WCSModel.WaitingArea" />
+          <AssociationSet Name="FK_AdmissionAdmissionStatus" Association="WCSModel.FK_AdmissionAdmissionStatus">
+            <End Role="AdmissionStatus" EntitySet="AdmissionStatus" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionAdmissionType" Association="WCSModel.FK_AdmissionAdmissionType">
+            <End Role="AdmissionType" EntitySet="AdmissionType" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionLocation" Association="WCSModel.FK_AdmissionLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionOrder" Association="WCSModel.FK_AdmissionOrder">
+            <End Role="Admission" EntitySet="Admission" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceAdmission" Association="WCSModel.FK_ExternalSourceAdmission">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientAdmission" Association="WCSModel.FK_PatientAdmission">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedCleaningEventBed" Association="WCSModel.FK_BedCleaningEventBed">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="BedCleaningEvent" EntitySet="BedCleaningEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedNote" Association="WCSModel.FK_BedNote">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="Note" EntitySet="Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedRoom" Association="WCSModel.FK_BedRoom">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Bed" EntitySet="Bed" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedUpdate" Association="WCSModel.FK_BedUpdate">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="Update" EntitySet="Update" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BedCleaningEventBedCleaningEventType" Association="WCSModel.FK_BedCleaningEventBedCleaningEventType">
+            <End Role="BedCleaningEventType" EntitySet="BedCleaningEventType" />
+            <End Role="BedCleaningEvent" EntitySet="BedCleaningEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurationConfigurationLocation" Association="WCSModel.FK_ConfigurationConfigurationLocation">
+            <End Role="Configuration" EntitySet="Configuration" />
+            <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurationConfigurationType" Association="WCSModel.FK_ConfigurationConfigurationType">
+            <End Role="ConfigurationType" EntitySet="ConfigurationType" />
+            <End Role="Configuration" EntitySet="Configuration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConfigurationDeviceConfiguration" Association="WCSModel.FK_ConfigurationDeviceConfiguration">
+            <End Role="Configuration" EntitySet="Configuration" />
+            <End Role="DeviceConfiguration" EntitySet="DeviceConfiguration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationConfigurationLocation" Association="WCSModel.FK_LocationConfigurationLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceConnection" Association="WCSModel.FK_DeviceConnection">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="Connection" EntitySet="Connection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceDeviceConfiguration" Association="WCSModel.FK_DeviceDeviceConfiguration">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="DeviceConfiguration" EntitySet="DeviceConfiguration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DevicePin" Association="WCSModel.FK_DevicePin">
+            <End Role="Device" EntitySet="Device" />
+            <End Role="Pin" EntitySet="Pin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationWCS_Device" Association="WCSModel.FK_LocationWCS_Device">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Device" EntitySet="Device" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderOrderingDoctor" Association="WCSModel.FK_OrderOrderingDoctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceOrder" Association="WCSModel.FK_ExternalSourceOrder">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceProcedure" Association="WCSModel.FK_ExternalSourceProcedure">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Procedure" EntitySet="Procedure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceProcedureCategory" Association="WCSModel.FK_ExternalSourceProcedureCategory">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientExternalSource" Association="WCSModel.FK_PatientExternalSource">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectorExternalSource" Association="WCSModel.FK_RfidDetectorExternalSource">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocationRoom" Association="WCSModel.FK_LocationRoom">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLocation" Association="WCSModel.FK_OrderLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectorLocation" Association="WCSModel.FK_RfidDetectorLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WaitingAreaLocation" Association="WCSModel.FK_WaitingAreaLocation">
+            <End Role="WaitingArea" EntitySet="WaitingArea" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderNote" Association="WCSModel.FK_OrderNote">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Note" EntitySet="Note" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationNotificationType" Association="WCSModel.FK_NotificationNotificationType">
+            <End Role="NotificationType" EntitySet="NotificationType" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderNotification" Association="WCSModel.FK_OrderNotification">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Notification" EntitySet="Notification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NotificationRuleProcedure" Association="WCSModel.FK_NotificationRuleProcedure">
+            <End Role="Procedure" EntitySet="Procedure" />
+            <End Role="NotificationRule" EntitySet="NotificationRule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProcedure" Association="WCSModel.FK_OrderProcedure">
+            <End Role="Procedure" EntitySet="Procedure" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderStatusOrder" Association="WCSModel.FK_OrderStatusOrder">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UpdateOrder" Association="WCSModel.FK_UpdateOrder">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Update" EntitySet="Update" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectionPatient" Association="WCSModel.FK_RfidDetectionPatient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="RfidDetection" EntitySet="RfidDetection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcedureCategoryProcedure" Association="WCSModel.FK_ProcedureCategoryProcedure">
+            <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+            <End Role="Procedure" EntitySet="Procedure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectionRfidDetector" Association="WCSModel.FK_RfidDetectionRfidDetector">
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+            <End Role="RfidDetection" EntitySet="RfidDetection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RfidDetectionRfidDirection" Association="WCSModel.FK_RfidDetectionRfidDirection">
+            <End Role="RfidDirection" EntitySet="RfidDirection" />
+            <End Role="RfidDetection" EntitySet="RfidDetection" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WaitingAreaRfidDetector" Association="WCSModel.FK_WaitingAreaRfidDetector">
+            <End Role="WaitingArea" EntitySet="WaitingArea" />
+            <End Role="RfidDetector" EntitySet="RfidDetector" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionAdmittingDoctorDoctor" Association="WCSModel.FK_AdmissionAdmittingDoctorDoctor">
+            <End Role="Admission" EntitySet="Admission" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionAttendingDoctorDoctor" Association="WCSModel.FK_AdmissionAttendingDoctorDoctor">
+            <End Role="Admission" EntitySet="Admission" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionPrimaryCareDoctor" Association="WCSModel.FK_AdmissionPrimaryCareDoctor">
+            <End Role="Admission" EntitySet="Admission" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdmissionBed" Association="WCSModel.FK_AdmissionBed">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="Admission" EntitySet="Admission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalSourceDoctor" Association="WCSModel.FK_ExternalSourceDoctor">
+            <End Role="ExternalSource" EntitySet="ExternalSource" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UpdateAdmission" Association="WCSModel.FK_UpdateAdmission">
+            <End Role="Admission" EntitySet="Admission" />
+            <End Role="Update" EntitySet="Update" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UpdateBed" Association="WCSModel.FK_UpdateBed">
+            <End Role="Bed" EntitySet="Bed" />
+            <End Role="Update" EntitySet="Update" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admission">
+          <Key>
+            <PropertyRef Name="admissionId" />
+          </Key>
+          <Property Type="Int32" Name="admissionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" />
+          <Property Type="String" Name="externalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="admitDateTime" />
+          <Property Type="DateTime" Name="dischargeDateTime" />
+          <Property Type="Int32" Name="patientId" Nullable="false" />
+          <Property Type="Int32" Name="AdmissionType_admissionTypeId" Nullable="false" />
+          <Property Type="Int32" Name="AdmissionStatus_admissionStatusId" Nullable="false" />
+          <Property Type="Int32" Name="Location_locationId" Nullable="false" />
+          <Property Type="Int32" Name="Bed_bedId" />
+          <NavigationProperty Name="AdmissionStatus" Relationship="WCSModel.FK_AdmissionAdmissionStatus" FromRole="Admission" ToRole="AdmissionStatus" />
+          <NavigationProperty Name="AdmissionType" Relationship="WCSModel.FK_AdmissionAdmissionType" FromRole="Admission" ToRole="AdmissionType" />
+          <NavigationProperty Name="Location" Relationship="WCSModel.FK_AdmissionLocation" FromRole="Admission" ToRole="Location" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_AdmissionOrder" FromRole="Admission" ToRole="Order" />
+          <NavigationProperty Name="ExternalSource" Relationship="WCSModel.FK_ExternalSourceAdmission" FromRole="Admission" ToRole="ExternalSource" />
+          <NavigationProperty Name="Patient" Relationship="WCSModel.FK_PatientAdmission" FromRole="Admission" ToRole="Patient" />
+          <NavigationProperty Name="AdmittingDoctor" Relationship="WCSModel.FK_AdmissionAdmittingDoctorDoctor" FromRole="Admission" ToRole="Doctor" />
+          <NavigationProperty Name="AttendingDoctor" Relationship="WCSModel.FK_AdmissionAttendingDoctorDoctor" FromRole="Admission" ToRole="Doctor" />
+          <NavigationProperty Name="PrimaryCareDoctor" Relationship="WCSModel.FK_AdmissionPrimaryCareDoctor" FromRole="Admission" ToRole="Doctor" />
+          <NavigationProperty Name="Bed" Relationship="WCSModel.FK_AdmissionBed" FromRole="Admission" ToRole="Bed" />
+          <Property Type="DateTime" Name="estimatedDischargeDateTime" />
+          <NavigationProperty Name="Updates" Relationship="WCSModel.FK_UpdateAdmission" FromRole="Admission" ToRole="Update" />
+        </EntityType>
+        <EntityType Name="AdmissionStatus">
+          <Key>
+            <PropertyRef Name="admissionStatusId" />
+          </Key>
+          <Property Type="Int32" Name="admissionStatusId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Admission" Relationship="WCSModel.FK_AdmissionAdmissionStatus" FromRole="AdmissionStatus" ToRole="Admission" />
+        </EntityType>
+        <EntityType Name="AdmissionType">
+          <Key>
+            <PropertyRef Name="admissionTypeId" />
+          </Key>
+          <Property Type="Int32" Name="admissionTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="type" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Admission" Relationship="WCSModel.FK_AdmissionAdmissionType" FromRole="AdmissionType" ToRole="Admission" />
+        </EntityType>
+        <EntityType Name="Bed">
+          <Key>
+            <PropertyRef Name="bedId" />
+          </Key>
+          <Property Type="Int32" Name="bedId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Room_roomId" />
+          <NavigationProperty Name="BedCleaningEvent" Relationship="WCSModel.FK_BedCleaningEventBed" FromRole="Bed" ToRole="BedCleaningEvent" />
+          <NavigationProperty Name="Notes" Relationship="WCSModel.FK_BedNote" FromRole="Bed" ToRole="Note" />
+          <NavigationProperty Name="Room" Relationship="WCSModel.FK_BedRoom" FromRole="Bed" ToRole="Room" />
+          <NavigationProperty Name="Updates" Relationship="WCSModel.FK_BedUpdate" FromRole="Bed" ToRole="Update" />
+          <NavigationProperty Name="Admission" Relationship="WCSModel.FK_AdmissionBed" FromRole="Bed" ToRole="Admission" />
+          <NavigationProperty Name="Update" Relationship="WCSModel.FK_UpdateBed" FromRole="Bed" ToRole="Update" />
+        </EntityType>
+        <EntityType Name="BedCleaningEvent">
+          <Key>
+            <PropertyRef Name="bedCleaningEventId" />
+          </Key>
+          <Property Type="Int32" Name="bedCleaningEventId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="timestamp" Nullable="false" />
+          <Property Type="Int32" Name="Bed_bedId" Nullable="false" />
+          <Property Type="Int32" Name="bedCleaningEventTypeId" Nullable="false" />
+          <NavigationProperty Name="Bed" Relationship="WCSModel.FK_BedCleaningEventBed" FromRole="BedCleaningEvent" ToRole="Bed" />
+          <NavigationProperty Name="BedCleaningEventType" Relationship="WCSModel.FK_BedCleaningEventBedCleaningEventType" FromRole="BedCleaningEvent" ToRole="BedCleaningEventType" />
+        </EntityType>
+        <EntityType Name="BedCleaningEventType">
+          <Key>
+            <PropertyRef Name="bedCleaningEventTypeId" />
+          </Key>
+          <Property Type="Int32" Name="bedCleaningEventTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="eventType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BedCleaningEvent" Relationship="WCSModel.FK_BedCleaningEventBedCleaningEventType" FromRole="BedCleaningEventType" ToRole="BedCleaningEvent" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="configurationId" />
+          </Key>
+          <Property Type="Int32" Name="configurationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ConfigurationType_ConfigurationTypeId" Nullable="false" />
+          <NavigationProperty Name="ConfigurationLocations" Relationship="WCSModel.FK_ConfigurationConfigurationLocation" FromRole="Configuration" ToRole="ConfigurationLocation" />
+          <NavigationProperty Name="ConfigurationType" Relationship="WCSModel.FK_ConfigurationConfigurationType" FromRole="Configuration" ToRole="ConfigurationType" />
+          <NavigationProperty Name="DeviceConfiguration" Relationship="WCSModel.FK_ConfigurationDeviceConfiguration" FromRole="Configuration" ToRole="DeviceConfiguration" />
+        </EntityType>
+        <EntityType Name="ConfigurationLocation">
+          <Key>
+            <PropertyRef Name="configurationLocationId" />
+          </Key>
+          <Property Type="Int32" Name="configurationLocationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="configurationId" Nullable="false" />
+          <Property Type="Int32" Name="locationId" Nullable="false" />
+          <Property Type="Boolean" Name="isDefault" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="WCSModel.FK_ConfigurationConfigurationLocation" FromRole="ConfigurationLocation" ToRole="Configuration" />
+          <NavigationProperty Name="Location" Relationship="WCSModel.FK_LocationConfigurationLocation" FromRole="ConfigurationLocation" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="ConfigurationType">
+          <Key>
+            <PropertyRef Name="ConfigurationTypeId" />
+          </Key>
+          <Property Type="Int32" Name="ConfigurationTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Configuration" Relationship="WCSModel.FK_ConfigurationConfigurationType" FromRole="ConfigurationType" ToRole="Configuration" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="connectionId" />
+          </Key>
+          <Property Type="Int32" Name="connectionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="connectionTime" Nullable="false" />
+          <Property Type="Int32" Name="deviceId" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="WCSModel.FK_DeviceConnection" FromRole="Connection" ToRole="Device" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="deviceId" />
+          </Key>
+          <Property Type="Int32" Name="deviceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="os" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="clientVersion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="String" Name="ipAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="lastConnection" />
+          <Property Type="Int32" Name="locationId" />
+          <Property Type="Int32" Name="lockTimeout" Nullable="false" />
+          <Property Type="Int32" Name="configurationTimeout" Nullable="false" />
+          <NavigationProperty Name="Connection" Relationship="WCSModel.FK_DeviceConnection" FromRole="Device" ToRole="Connection" />
+          <NavigationProperty Name="DeviceConfiguration" Relationship="WCSModel.FK_DeviceDeviceConfiguration" FromRole="Device" ToRole="DeviceConfiguration" />
+          <NavigationProperty Name="Pin" Relationship="WCSModel.FK_DevicePin" FromRole="Device" ToRole="Pin" />
+          <NavigationProperty Name="Location" Relationship="WCSModel.FK_LocationWCS_Device" FromRole="Device" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="DeviceConfiguration">
+          <Key>
+            <PropertyRef Name="deviceId" />
+            <PropertyRef Name="shortcutKeyNo" />
+          </Key>
+          <Property Type="Int32" Name="deviceId" Nullable="false" />
+          <Property Type="Int32" Name="shortcutKeyNo" Nullable="false" />
+          <Property Type="Int32" Name="configurationId" Nullable="false" />
+          <Property Type="Int32" Name="orderTimeout" Nullable="false" />
+          <Property Type="Int32" Name="presenceTimeout" Nullable="false" />
+          <Property Type="Int32" Name="rfidTimeout" Nullable="false" />
+          <NavigationProperty Name="Configuration" Relationship="WCSModel.FK_ConfigurationDeviceConfiguration" FromRole="DeviceConfiguration" ToRole="Configuration" />
+          <NavigationProperty Name="Device" Relationship="WCSModel.FK_DeviceDeviceConfiguration" FromRole="DeviceConfiguration" ToRole="Device" />
+          <Property Type="Int32" Name="cleaningBedDataTimeout" Nullable="false" />
+          <Property Type="Int32" Name="dischargeTimeout" Nullable="false" />
+          <Property Type="Int32" Name="admissionsTimeout" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="doctorId" />
+          </Key>
+          <Property Type="Int32" Name="doctorId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_OrderOrderingDoctor" FromRole="Doctor" ToRole="Order" />
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" />
+          <Property Type="String" Name="externalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ExternalSource" Relationship="WCSModel.FK_ExternalSourceDoctor" FromRole="Doctor" ToRole="ExternalSource" />
+        </EntityType>
+        <EntityType Name="ExternalSource">
+          <Key>
+            <PropertyRef Name="externalSourceId" />
+          </Key>
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="source" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="locationId" />
+          </Key>
+          <Property Type="Int32" Name="locationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="code" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isEmergency" Nullable="false" />
+          <Property Type="String" Name="contactInfo" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="WaitingArea_waitingAreaId" />
+          <NavigationProperty Name="Admission" Relationship="WCSModel.FK_AdmissionLocation" FromRole="Location" ToRole="Admission" />
+          <NavigationProperty Name="ConfigurationLocation" Relationship="WCSModel.FK_LocationConfigurationLocation" FromRole="Location" ToRole="ConfigurationLocation" />
+          <NavigationProperty Name="Device" Relationship="WCSModel.FK_LocationWCS_Device" FromRole="Location" ToRole="Device" />
+          <NavigationProperty Name="Room" Relationship="WCSModel.FK_LocationRoom" FromRole="Location" ToRole="Room" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_OrderLocation" FromRole="Location" ToRole="Order" />
+          <NavigationProperty Name="RfidDetector" Relationship="WCSModel.FK_RfidDetectorLocation" FromRole="Location" ToRole="RfidDetector" />
+          <NavigationProperty Name="WaitingArea" Relationship="WCSModel.FK_WaitingAreaLocation" FromRole="Location" ToRole="WaitingArea" />
+          <Property Type="Boolean" Name="includeInMerge" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="noteId" />
+          </Key>
+          <Property Type="Int32" Name="noteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="source" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dateCreated" />
+          <Property Type="Int32" Name="noteOrder" Nullable="false" />
+          <Property Type="Int32" Name="bedId" />
+          <Property Type="Int32" Name="orderId" />
+          <NavigationProperty Name="Bed" Relationship="WCSModel.FK_BedNote" FromRole="Note" ToRole="Bed" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_OrderNote" FromRole="Note" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="notificationId" />
+          </Key>
+          <Property Type="Int32" Name="notificationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="notificationTypeId" Nullable="false" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="priorToProcedureTime" Nullable="false" />
+          <Property Type="Boolean" Name="isAcknowledgmentRequired" Nullable="false" />
+          <Property Type="Boolean" Name="acknowledged" Nullable="false" />
+          <Property Type="DateTime" Name="acknowledgedTime" />
+          <Property Type="String" Name="acknowledgedBy" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="notificationOrder" />
+          <Property Type="Int32" Name="orderId" Nullable="false" />
+          <Property Type="Int32" Name="durationMinutes" Nullable="false" />
+          <NavigationProperty Name="NotificationType" Relationship="WCSModel.FK_NotificationNotificationType" FromRole="Notification" ToRole="NotificationType" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_OrderNotification" FromRole="Notification" ToRole="Order" />
+          <Property Type="Int32" Name="radiationRiskDurationMinutes" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationRule">
+          <Key>
+            <PropertyRef Name="notificationRuleId" />
+          </Key>
+          <Property Type="Int32" Name="notificationRuleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="Int32" Name="priorToProcedureTime" Nullable="false" />
+          <Property Type="Int32" Name="durationMinutes" Nullable="false" />
+          <Property Type="Boolean" Name="isAcknowledgmentRequired" Nullable="false" />
+          <Property Type="Int32" Name="Procedure_procedureId" Nullable="false" />
+          <NavigationProperty Name="Procedure" Relationship="WCSModel.FK_NotificationRuleProcedure" FromRole="NotificationRule" ToRole="Procedure" />
+          <Property Type="Int32" Name="radiationRiskDurationMinutes" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationType">
+          <Key>
+            <PropertyRef Name="notificationTypeId" />
+          </Key>
+          <Property Type="Int32" Name="notificationTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Notification" Relationship="WCSModel.FK_NotificationNotificationType" FromRole="NotificationType" ToRole="Notification" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="orderId" />
+          </Key>
+          <Property Type="Int32" Name="orderId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" />
+          <Property Type="String" Name="externalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="orderNumber" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="procedureTime" />
+          <Property Type="Int32" Name="orderStatusId" Nullable="false" />
+          <Property Type="DateTime" Name="completedTime" />
+          <Property Type="Int32" Name="admissionId" Nullable="false" />
+          <Property Type="String" Name="clinicalIndicator" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="estimatedProcedureDuration" />
+          <Property Type="Int32" Name="Procedure_procedureId" Nullable="false" />
+          <Property Type="Int32" Name="Department_locationId" Nullable="false" />
+          <Property Type="Int32" Name="OrderingDoctor_doctorId" />
+          <Property Type="Boolean" Name="isHidden" Nullable="false" />
+          <Property Type="Boolean" Name="acknowledged" Nullable="false" />
+          <Property Type="DateTime" Name="acknowledgedTime" />
+          <Property Type="String" Name="acknowledgedBy" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Admission" Relationship="WCSModel.FK_AdmissionOrder" FromRole="Order" ToRole="Admission" />
+          <NavigationProperty Name="OrderingDoctor" Relationship="WCSModel.FK_OrderOrderingDoctor" FromRole="Order" ToRole="Doctor" />
+          <NavigationProperty Name="ExternalSource" Relationship="WCSModel.FK_ExternalSourceOrder" FromRole="Order" ToRole="ExternalSource" />
+          <NavigationProperty Name="Department" Relationship="WCSModel.FK_OrderLocation" FromRole="Order" ToRole="Location" />
+          <NavigationProperty Name="Notes" Relationship="WCSModel.FK_OrderNote" FromRole="Order" ToRole="Note" />
+          <NavigationProperty Name="Notifications" Relationship="WCSModel.FK_OrderNotification" FromRole="Order" ToRole="Notification" />
+          <NavigationProperty Name="Procedure" Relationship="WCSModel.FK_OrderProcedure" FromRole="Order" ToRole="Procedure" />
+          <NavigationProperty Name="OrderStatus" Relationship="WCSModel.FK_OrderStatusOrder" FromRole="Order" ToRole="OrderStatus" />
+          <NavigationProperty Name="Updates" Relationship="WCSModel.FK_UpdateOrder" FromRole="Order" ToRole="Update" />
+          <Property Type="String" Name="history" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="diagnosis" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="requiresSupervision" Nullable="false" />
+          <Property Type="String" Name="currentCardiologist" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="requiresFootwear" Nullable="false" />
+          <Property Type="Boolean" Name="requiresMedicalRecords" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="orderStatusId" />
+          </Key>
+          <Property Type="Int32" Name="orderStatusId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_OrderStatusOrder" FromRole="OrderStatus" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="patientId" />
+          </Key>
+          <Property Type="Int32" Name="patientId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" />
+          <Property Type="String" Name="externalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="givenName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="surname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dob" />
+          <Property Type="String" Name="sex" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="isMrsaPositive" Nullable="false" />
+          <Property Type="Boolean" Name="isFallRisk" Nullable="false" />
+          <Property Type="Boolean" Name="isAssistanceRequired" Nullable="false" />
+          <Property Type="String" Name="assistanceDescription" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="hasLatexAllergy" Nullable="false" />
+          <NavigationProperty Name="Admission" Relationship="WCSModel.FK_PatientAdmission" FromRole="Patient" ToRole="Admission" />
+          <NavigationProperty Name="ExternalSource" Relationship="WCSModel.FK_PatientExternalSource" FromRole="Patient" ToRole="ExternalSource" />
+          <NavigationProperty Name="RfidDetection" Relationship="WCSModel.FK_RfidDetectionPatient" FromRole="Patient" ToRole="RfidDetection" />
+        </EntityType>
+        <EntityType Name="Pin">
+          <Key>
+            <PropertyRef Name="pinId" />
+          </Key>
+          <Property Type="Int32" Name="pinId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Device_deviceId" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="WCSModel.FK_DevicePin" FromRole="Pin" ToRole="Device" />
+          <Property Type="String" Name="pin" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Procedure">
+          <Key>
+            <PropertyRef Name="procedureId" />
+          </Key>
+          <Property Type="Int32" Name="procedureId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" />
+          <Property Type="String" Name="externalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="code" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="durationMinutes" />
+          <Property Type="Int32" Name="ProcedureCategory_procedureCategoryId" Nullable="false" />
+          <NavigationProperty Name="ExternalSource" Relationship="WCSModel.FK_ExternalSourceProcedure" FromRole="Procedure" ToRole="ExternalSource" />
+          <NavigationProperty Name="NotificationRule" Relationship="WCSModel.FK_NotificationRuleProcedure" FromRole="Procedure" ToRole="NotificationRule" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_OrderProcedure" FromRole="Procedure" ToRole="Order" />
+          <NavigationProperty Name="ProcedureCategory" Relationship="WCSModel.FK_ProcedureCategoryProcedure" FromRole="Procedure" ToRole="ProcedureCategory" />
+        </EntityType>
+        <EntityType Name="ProcedureCategory">
+          <Key>
+            <PropertyRef Name="procedureCategoryId" />
+          </Key>
+          <Property Type="Int32" Name="procedureCategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" />
+          <Property Type="String" Name="externalId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="includeInMerge" Nullable="false" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ExternalSource" Relationship="WCSModel.FK_ExternalSourceProcedureCategory" FromRole="ProcedureCategory" ToRole="ExternalSource" />
+          <NavigationProperty Name="Procedure" Relationship="WCSModel.FK_ProcedureCategoryProcedure" FromRole="ProcedureCategory" ToRole="Procedure" />
+        </EntityType>
+        <EntityType Name="RfidDetection">
+          <Key>
+            <PropertyRef Name="rfidDetectionId" />
+          </Key>
+          <Property Type="Int32" Name="rfidDetectionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="patientId" Nullable="false" />
+          <Property Type="Int32" Name="rfidDirectionId" Nullable="false" />
+          <Property Type="Int32" Name="rfidDetectorId" Nullable="false" />
+          <Property Type="DateTime" Name="dateTimeDetected" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="WCSModel.FK_RfidDetectionPatient" FromRole="RfidDetection" ToRole="Patient" />
+          <NavigationProperty Name="RfidDetector" Relationship="WCSModel.FK_RfidDetectionRfidDetector" FromRole="RfidDetection" ToRole="RfidDetector" />
+          <NavigationProperty Name="RfidDirection" Relationship="WCSModel.FK_RfidDetectionRfidDirection" FromRole="RfidDetection" ToRole="RfidDirection" />
+        </EntityType>
+        <EntityType Name="RfidDetector">
+          <Key>
+            <PropertyRef Name="rfidDetectorId" />
+          </Key>
+          <Property Type="Int32" Name="rfidDetectorId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="externalSourceId" Nullable="false" />
+          <Property Type="String" Name="externalId" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Location_locationId" />
+          <Property Type="Int32" Name="WaitingArea_waitingAreaId" />
+          <NavigationProperty Name="ExternalSource" Relationship="WCSModel.FK_RfidDetectorExternalSource" FromRole="RfidDetector" ToRole="ExternalSource" />
+          <NavigationProperty Name="Location" Relationship="WCSModel.FK_RfidDetectorLocation" FromRole="RfidDetector" ToRole="Location" />
+          <NavigationProperty Name="RfidDetection" Relationship="WCSModel.FK_RfidDetectionRfidDetector" FromRole="RfidDetector" ToRole="RfidDetection" />
+          <NavigationProperty Name="WaitingArea" Relationship="WCSModel.FK_WaitingAreaRfidDetector" FromRole="RfidDetector" ToRole="WaitingArea" />
+        </EntityType>
+        <EntityType Name="RfidDirection">
+          <Key>
+            <PropertyRef Name="rfidDirectionId" />
+          </Key>
+          <Property Type="Int32" Name="rfidDirectionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="direction" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RfidDetection" Relationship="WCSModel.FK_RfidDetectionRfidDirection" FromRole="RfidDirection" ToRole="RfidDetection" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="roomId" />
+          </Key>
+          <Property Type="Int32" Name="roomId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Location_locationId" Nullable="false" />
+          <NavigationProperty Name="Bed" Relationship="WCSModel.FK_BedRoom" FromRole="Room" ToRole="Bed" />
+          <NavigationProperty Name="Location" Relationship="WCSModel.FK_LocationRoom" FromRole="Room" ToRole="Location" />
+        </EntityType>
+        <EntityType Name="Update">
+          <Key>
+            <PropertyRef Name="updateId" />
+          </Key>
+          <Property Type="Int32" Name="updateId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="type" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="source" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="value" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dateCreated" />
+          <Property Type="Int32" Name="Order_orderId" />
+          <NavigationProperty Name="Order" Relationship="WCSModel.FK_UpdateOrder" FromRole="Update" ToRole="Order" />
+          <Property Type="Int32" Name="Bed_bedId" />
+          <Property Type="Int32" Name="Admission_admissionId" />
+          <NavigationProperty Name="Admission" Relationship="WCSModel.FK_UpdateAdmission" FromRole="Update" ToRole="Admission" />
+          <NavigationProperty Name="Bed" Relationship="WCSModel.FK_UpdateBed" FromRole="Update" ToRole="Bed" />
+        </EntityType>
+        <EntityType Name="WaitingArea">
+          <Key>
+            <PropertyRef Name="waitingAreaId" />
+          </Key>
+          <Property Type="Int32" Name="waitingAreaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="code" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Location" Relationship="WCSModel.FK_WaitingAreaLocation" FromRole="WaitingArea" ToRole="Location" />
+          <NavigationProperty Name="RfidDetector" Relationship="WCSModel.FK_WaitingAreaRfidDetector" FromRole="WaitingArea" ToRole="RfidDetector" />
+        </EntityType>
+        <Association Name="FK_AdmissionAdmissionStatus">
+          <End Type="WCSModel.AdmissionStatus" Role="AdmissionStatus" Multiplicity="1" />
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionStatus">
+              <PropertyRef Name="admissionStatusId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="AdmissionStatus_admissionStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionAdmissionType">
+          <End Type="WCSModel.AdmissionType" Role="AdmissionType" Multiplicity="1" />
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdmissionType">
+              <PropertyRef Name="admissionTypeId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="AdmissionType_admissionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionLocation">
+          <End Type="WCSModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="Location_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionOrder">
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="1" />
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admission">
+              <PropertyRef Name="admissionId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="admissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceAdmission">
+          <End Type="WCSModel.ExternalSource" Role="ExternalSource" Multiplicity="1" />
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientAdmission">
+          <End Type="WCSModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="patientId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="patientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedCleaningEventBed">
+          <End Type="WCSModel.Bed" Role="Bed" Multiplicity="1" />
+          <End Type="WCSModel.BedCleaningEvent" Role="BedCleaningEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="BedCleaningEvent">
+              <PropertyRef Name="Bed_bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedNote">
+          <End Type="WCSModel.Bed" Role="Bed" Multiplicity="0..1" />
+          <End Type="WCSModel.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedRoom">
+          <End Type="WCSModel.Room" Role="Room" Multiplicity="0..1" />
+          <End Type="WCSModel.Bed" Role="Bed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="roomId" />
+            </Principal>
+            <Dependent Role="Bed">
+              <PropertyRef Name="Room_roomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedUpdate">
+          <End Type="WCSModel.Bed" Role="Bed" Multiplicity="0..1" />
+          <End Type="WCSModel.Update" Role="Update" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="Update">
+              <PropertyRef Name="Bed_bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BedCleaningEventBedCleaningEventType">
+          <End Type="WCSModel.BedCleaningEventType" Role="BedCleaningEventType" Multiplicity="1" />
+          <End Type="WCSModel.BedCleaningEvent" Role="BedCleaningEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BedCleaningEventType">
+              <PropertyRef Name="bedCleaningEventTypeId" />
+            </Principal>
+            <Dependent Role="BedCleaningEvent">
+              <PropertyRef Name="bedCleaningEventTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurationConfigurationLocation">
+          <End Type="WCSModel.Configuration" Role="Configuration" Multiplicity="1" />
+          <End Type="WCSModel.ConfigurationLocation" Role="ConfigurationLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Configuration">
+              <PropertyRef Name="configurationId" />
+            </Principal>
+            <Dependent Role="ConfigurationLocation">
+              <PropertyRef Name="configurationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurationConfigurationType">
+          <End Type="WCSModel.ConfigurationType" Role="ConfigurationType" Multiplicity="1" />
+          <End Type="WCSModel.Configuration" Role="Configuration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConfigurationType">
+              <PropertyRef Name="ConfigurationTypeId" />
+            </Principal>
+            <Dependent Role="Configuration">
+              <PropertyRef Name="ConfigurationType_ConfigurationTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConfigurationDeviceConfiguration">
+          <End Type="WCSModel.Configuration" Role="Configuration" Multiplicity="1" />
+          <End Type="WCSModel.DeviceConfiguration" Role="DeviceConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Configuration">
+              <PropertyRef Name="configurationId" />
+            </Principal>
+            <Dependent Role="DeviceConfiguration">
+              <PropertyRef Name="configurationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationConfigurationLocation">
+          <End Type="WCSModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="WCSModel.ConfigurationLocation" Role="ConfigurationLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="ConfigurationLocation">
+              <PropertyRef Name="locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceConnection">
+          <End Type="WCSModel.Device" Role="Device" Multiplicity="1" />
+          <End Type="WCSModel.Connection" Role="Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="deviceId" />
+            </Principal>
+            <Dependent Role="Connection">
+              <PropertyRef Name="deviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceDeviceConfiguration">
+          <End Type="WCSModel.Device" Role="Device" Multiplicity="1" />
+          <End Type="WCSModel.DeviceConfiguration" Role="DeviceConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="deviceId" />
+            </Principal>
+            <Dependent Role="DeviceConfiguration">
+              <PropertyRef Name="deviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DevicePin">
+          <End Type="WCSModel.Device" Role="Device" Multiplicity="1" />
+          <End Type="WCSModel.Pin" Role="Pin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="deviceId" />
+            </Principal>
+            <Dependent Role="Pin">
+              <PropertyRef Name="Device_deviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationWCS_Device">
+          <End Type="WCSModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="WCSModel.Device" Role="Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderOrderingDoctor">
+          <End Type="WCSModel.Doctor" Role="Doctor" Multiplicity="0..1" />
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="doctorId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="OrderingDoctor_doctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceOrder">
+          <End Type="WCSModel.ExternalSource" Role="ExternalSource" Multiplicity="1" />
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceProcedure">
+          <End Type="WCSModel.ExternalSource" Role="ExternalSource" Multiplicity="1" />
+          <End Type="WCSModel.Procedure" Role="Procedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Procedure">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceProcedureCategory">
+          <End Type="WCSModel.ExternalSource" Role="ExternalSource" Multiplicity="1" />
+          <End Type="WCSModel.ProcedureCategory" Role="ProcedureCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="ProcedureCategory">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientExternalSource">
+          <End Type="WCSModel.ExternalSource" Role="ExternalSource" Multiplicity="1" />
+          <End Type="WCSModel.Patient" Role="Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectorExternalSource">
+          <End Type="WCSModel.ExternalSource" Role="ExternalSource" Multiplicity="1" />
+          <End Type="WCSModel.RfidDetector" Role="RfidDetector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="RfidDetector">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocationRoom">
+          <End Type="WCSModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="WCSModel.Room" Role="Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="Location_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderLocation">
+          <End Type="WCSModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Department_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectorLocation">
+          <End Type="WCSModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="WCSModel.RfidDetector" Role="RfidDetector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="locationId" />
+            </Principal>
+            <Dependent Role="RfidDetector">
+              <PropertyRef Name="Location_locationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WaitingAreaLocation">
+          <End Type="WCSModel.WaitingArea" Role="WaitingArea" Multiplicity="0..1" />
+          <End Type="WCSModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WaitingArea">
+              <PropertyRef Name="waitingAreaId" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="WaitingArea_waitingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderNote">
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="WCSModel.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationNotificationType">
+          <End Type="WCSModel.NotificationType" Role="NotificationType" Multiplicity="1" />
+          <End Type="WCSModel.Notification" Role="Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationType">
+              <PropertyRef Name="notificationTypeId" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="notificationTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderNotification">
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="WCSModel.Notification" Role="Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Notification">
+              <PropertyRef Name="orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NotificationRuleProcedure">
+          <End Type="WCSModel.Procedure" Role="Procedure" Multiplicity="1" />
+          <End Type="WCSModel.NotificationRule" Role="NotificationRule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="procedureId" />
+            </Principal>
+            <Dependent Role="NotificationRule">
+              <PropertyRef Name="Procedure_procedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProcedure">
+          <End Type="WCSModel.Procedure" Role="Procedure" Multiplicity="1" />
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procedure">
+              <PropertyRef Name="procedureId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Procedure_procedureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderStatusOrder">
+          <End Type="WCSModel.OrderStatus" Role="OrderStatus" Multiplicity="1" />
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="orderStatusId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="orderStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UpdateOrder">
+          <End Type="WCSModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="WCSModel.Update" Role="Update" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="orderId" />
+            </Principal>
+            <Dependent Role="Update">
+              <PropertyRef Name="Order_orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectionPatient">
+          <End Type="WCSModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="WCSModel.RfidDetection" Role="RfidDetection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="patientId" />
+            </Principal>
+            <Dependent Role="RfidDetection">
+              <PropertyRef Name="patientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcedureCategoryProcedure">
+          <End Type="WCSModel.ProcedureCategory" Role="ProcedureCategory" Multiplicity="1" />
+          <End Type="WCSModel.Procedure" Role="Procedure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProcedureCategory">
+              <PropertyRef Name="procedureCategoryId" />
+            </Principal>
+            <Dependent Role="Procedure">
+              <PropertyRef Name="ProcedureCategory_procedureCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectionRfidDetector">
+          <End Type="WCSModel.RfidDetector" Role="RfidDetector" Multiplicity="1" />
+          <End Type="WCSModel.RfidDetection" Role="RfidDetection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RfidDetector">
+              <PropertyRef Name="rfidDetectorId" />
+            </Principal>
+            <Dependent Role="RfidDetection">
+              <PropertyRef Name="rfidDetectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RfidDetectionRfidDirection">
+          <End Type="WCSModel.RfidDirection" Role="RfidDirection" Multiplicity="1" />
+          <End Type="WCSModel.RfidDetection" Role="RfidDetection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RfidDirection">
+              <PropertyRef Name="rfidDirectionId" />
+            </Principal>
+            <Dependent Role="RfidDetection">
+              <PropertyRef Name="rfidDirectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WaitingAreaRfidDetector">
+          <End Type="WCSModel.WaitingArea" Role="WaitingArea" Multiplicity="0..1" />
+          <End Type="WCSModel.RfidDetector" Role="RfidDetector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WaitingArea">
+              <PropertyRef Name="waitingAreaId" />
+            </Principal>
+            <Dependent Role="RfidDetector">
+              <PropertyRef Name="WaitingArea_waitingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdmissionAdmittingDoctorDoctor">
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <End Type="WCSModel.Doctor" Role="Doctor" Multiplicity="0..1" />
+        </Association>
+        <Association Name="FK_AdmissionAttendingDoctorDoctor">
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <End Type="WCSModel.Doctor" Role="Doctor" Multiplicity="0..1" />
+        </Association>
+        <Association Name="FK_AdmissionPrimaryCareDoctor">
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <End Type="WCSModel.Doctor" Role="Doctor" Multiplicity="0..1" />
+        </Association>
+        <Association Name="FK_AdmissionBed">
+          <End Type="WCSModel.Bed" Role="Bed" Multiplicity="0..1" />
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="Admission">
+              <PropertyRef Name="Bed_bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalSourceDoctor">
+          <End Type="WCSModel.ExternalSource" Role="ExternalSource" Multiplicity="1" />
+          <End Type="WCSModel.Doctor" Role="Doctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalSource">
+              <PropertyRef Name="externalSourceId" />
+            </Principal>
+            <Dependent Role="Doctor">
+              <PropertyRef Name="externalSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UpdateAdmission">
+          <End Type="WCSModel.Admission" Role="Admission" Multiplicity="0..1" />
+          <End Type="WCSModel.Update" Role="Update" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admission">
+              <PropertyRef Name="admissionId" />
+            </Principal>
+            <Dependent Role="Update">
+              <PropertyRef Name="Admission_admissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UpdateBed">
+          <End Type="WCSModel.Bed" Role="Bed" Multiplicity="0..1" />
+          <End Type="WCSModel.Update" Role="Update" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bed">
+              <PropertyRef Name="bedId" />
+            </Principal>
+            <Dependent Role="Update">
+              <PropertyRef Name="Bed_bedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WCSModelStoreContainer" CdmEntityContainer="WCSEntities">
+    <EntitySetMapping Name="Admission">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Admission)">
+        <MappingFragment StoreEntitySet="Admission">
+          <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="admitDateTime" ColumnName="admitDateTime" />
+          <ScalarProperty Name="dischargeDateTime" ColumnName="dischargeDateTime" />
+          <ScalarProperty Name="patientId" ColumnName="patientId" />
+          <ScalarProperty Name="AdmissionType_admissionTypeId" ColumnName="AdmissionType_admissionTypeId" />
+          <ScalarProperty Name="AdmissionStatus_admissionStatusId" ColumnName="AdmissionStatus_admissionStatusId" />
+          <ScalarProperty Name="Location_locationId" ColumnName="Location_locationId" />
+          <ScalarProperty Name="Bed_bedId" ColumnName="Bed_bedId" />
+          <ScalarProperty Name="estimatedDischargeDateTime" ColumnName="estimatedDischargeDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionStatus">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.AdmissionStatus)">
+        <MappingFragment StoreEntitySet="AdmissionStatus">
+          <ScalarProperty Name="admissionStatusId" ColumnName="admissionStatusId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionType">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.AdmissionType)">
+        <MappingFragment StoreEntitySet="AdmissionType">
+          <ScalarProperty Name="admissionTypeId" ColumnName="admissionTypeId" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bed">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Bed)">
+        <MappingFragment StoreEntitySet="Bed">
+          <ScalarProperty Name="bedId" ColumnName="bedId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Room_roomId" ColumnName="Room_roomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BedCleaningEvent">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.BedCleaningEvent)">
+        <MappingFragment StoreEntitySet="BedCleaningEvent">
+          <ScalarProperty Name="bedCleaningEventId" ColumnName="bedCleaningEventId" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="Bed_bedId" ColumnName="Bed_bedId" />
+          <ScalarProperty Name="bedCleaningEventTypeId" ColumnName="bedCleaningEventTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BedCleaningEventType">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.BedCleaningEventType)">
+        <MappingFragment StoreEntitySet="BedCleaningEventType">
+          <ScalarProperty Name="bedCleaningEventTypeId" ColumnName="bedCleaningEventTypeId" />
+          <ScalarProperty Name="eventType" ColumnName="eventType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configuration">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Configuration)">
+        <MappingFragment StoreEntitySet="Configuration">
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ConfigurationType_ConfigurationTypeId" ColumnName="ConfigurationType_ConfigurationTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigurationLocation">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.ConfigurationLocation)">
+        <MappingFragment StoreEntitySet="ConfigurationLocation">
+          <ScalarProperty Name="configurationLocationId" ColumnName="configurationLocationId" />
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigurationType">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.ConfigurationType)">
+        <MappingFragment StoreEntitySet="ConfigurationType">
+          <ScalarProperty Name="ConfigurationTypeId" ColumnName="ConfigurationTypeId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connection">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Connection)">
+        <MappingFragment StoreEntitySet="Connection">
+          <ScalarProperty Name="connectionId" ColumnName="connectionId" />
+          <ScalarProperty Name="connectionTime" ColumnName="connectionTime" />
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Device">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Device)">
+        <MappingFragment StoreEntitySet="Device">
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="clientVersion" ColumnName="clientVersion" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="ipAddress" ColumnName="ipAddress" />
+          <ScalarProperty Name="lastConnection" ColumnName="lastConnection" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="lockTimeout" ColumnName="lockTimeout" />
+          <ScalarProperty Name="configurationTimeout" ColumnName="configurationTimeout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceConfiguration">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.DeviceConfiguration)">
+        <MappingFragment StoreEntitySet="DeviceConfiguration">
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+          <ScalarProperty Name="shortcutKeyNo" ColumnName="shortcutKeyNo" />
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="orderTimeout" ColumnName="orderTimeout" />
+          <ScalarProperty Name="presenceTimeout" ColumnName="presenceTimeout" />
+          <ScalarProperty Name="rfidTimeout" ColumnName="rfidTimeout" />
+          <ScalarProperty Name="cleaningBedDataTimeout" ColumnName="cleaningBedDataTimeout" />
+          <ScalarProperty Name="dischargeTimeout" ColumnName="dischargeTimeout" />
+          <ScalarProperty Name="admissionsTimeout" ColumnName="admissionsTimeout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctor">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Doctor)">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="doctorId" ColumnName="doctorId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExternalSource">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.ExternalSource)">
+        <MappingFragment StoreEntitySet="ExternalSource">
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="source" ColumnName="source" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Location">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Location)">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isEmergency" ColumnName="isEmergency" />
+          <ScalarProperty Name="contactInfo" ColumnName="contactInfo" />
+          <ScalarProperty Name="WaitingArea_waitingAreaId" ColumnName="WaitingArea_waitingAreaId" />
+          <ScalarProperty Name="includeInMerge" ColumnName="includeInMerge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Note">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Note)">
+        <MappingFragment StoreEntitySet="Note">
+          <ScalarProperty Name="noteId" ColumnName="noteId" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="noteOrder" ColumnName="noteOrder" />
+          <ScalarProperty Name="bedId" ColumnName="bedId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notification">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Notification)">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="notificationId" ColumnName="notificationId" />
+          <ScalarProperty Name="notificationTypeId" ColumnName="notificationTypeId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="priorToProcedureTime" ColumnName="priorToProcedureTime" />
+          <ScalarProperty Name="isAcknowledgmentRequired" ColumnName="isAcknowledgmentRequired" />
+          <ScalarProperty Name="acknowledged" ColumnName="acknowledged" />
+          <ScalarProperty Name="acknowledgedTime" ColumnName="acknowledgedTime" />
+          <ScalarProperty Name="acknowledgedBy" ColumnName="acknowledgedBy" />
+          <ScalarProperty Name="notificationOrder" ColumnName="notificationOrder" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="radiationRiskDurationMinutes" ColumnName="radiationRiskDurationMinutes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationRule">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.NotificationRule)">
+        <MappingFragment StoreEntitySet="NotificationRule">
+          <ScalarProperty Name="notificationRuleId" ColumnName="notificationRuleId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="priorToProcedureTime" ColumnName="priorToProcedureTime" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="isAcknowledgmentRequired" ColumnName="isAcknowledgmentRequired" />
+          <ScalarProperty Name="Procedure_procedureId" ColumnName="Procedure_procedureId" />
+          <ScalarProperty Name="radiationRiskDurationMinutes" ColumnName="radiationRiskDurationMinutes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationType">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.NotificationType)">
+        <MappingFragment StoreEntitySet="NotificationType">
+          <ScalarProperty Name="notificationTypeId" ColumnName="notificationTypeId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Order)">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="requiresMedicalRecords" ColumnName="requiresMedicalRecords" />
+                <ScalarProperty Name="requiresFootwear" ColumnName="requiresFootwear" />
+                <ScalarProperty Name="currentCardiologist" ColumnName="currentCardiologist" />
+                <ScalarProperty Name="requiresSupervision" ColumnName="requiresSupervision" />
+                <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
+                <ScalarProperty Name="history" ColumnName="history" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="orderNumber" ColumnName="orderNumber" />
+          <ScalarProperty Name="procedureTime" ColumnName="procedureTime" />
+          <ScalarProperty Name="orderStatusId" ColumnName="orderStatusId" />
+          <ScalarProperty Name="completedTime" ColumnName="completedTime" />
+          <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+          <ScalarProperty Name="clinicalIndicator" ColumnName="clinicalIndicator" />
+          <ScalarProperty Name="estimatedProcedureDuration" ColumnName="estimatedProcedureDuration" />
+          <ScalarProperty Name="Procedure_procedureId" ColumnName="Procedure_procedureId" />
+          <ScalarProperty Name="Department_locationId" ColumnName="Department_locationId" />
+          <ScalarProperty Name="OrderingDoctor_doctorId" ColumnName="OrderingDoctor_doctorId" />
+          <ScalarProperty Name="isHidden" ColumnName="isHidden" />
+          <ScalarProperty Name="acknowledged" ColumnName="acknowledged" />
+          <ScalarProperty Name="acknowledgedTime" ColumnName="acknowledgedTime" />
+          <ScalarProperty Name="acknowledgedBy" ColumnName="acknowledgedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.OrderStatus)">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="orderStatusId" ColumnName="orderStatusId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patient">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Patient)">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="patientId" ColumnName="patientId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="givenName" ColumnName="givenName" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="isMrsaPositive" ColumnName="isMrsaPositive" />
+          <ScalarProperty Name="isFallRisk" ColumnName="isFallRisk" />
+          <ScalarProperty Name="isAssistanceRequired" ColumnName="isAssistanceRequired" />
+          <ScalarProperty Name="assistanceDescription" ColumnName="assistanceDescription" />
+          <ScalarProperty Name="hasLatexAllergy" ColumnName="hasLatexAllergy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pin">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Pin)">
+        <MappingFragment StoreEntitySet="Pin">
+          <ScalarProperty Name="pinId" ColumnName="pinId" />
+          <ScalarProperty Name="Device_deviceId" ColumnName="Device_deviceId" />
+          <ScalarProperty Name="pin" ColumnName="pin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedure">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Procedure)">
+        <MappingFragment StoreEntitySet="Procedure">
+          <ScalarProperty Name="procedureId" ColumnName="procedureId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="ProcedureCategory_procedureCategoryId" ColumnName="ProcedureCategory_procedureCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcedureCategory">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.ProcedureCategory)">
+        <MappingFragment StoreEntitySet="ProcedureCategory">
+          <ScalarProperty Name="procedureCategoryId" ColumnName="procedureCategoryId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="includeInMerge" ColumnName="includeInMerge" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RfidDetection">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.RfidDetection)">
+        <MappingFragment StoreEntitySet="RfidDetection">
+          <ScalarProperty Name="rfidDetectionId" ColumnName="rfidDetectionId" />
+          <ScalarProperty Name="patientId" ColumnName="patientId" />
+          <ScalarProperty Name="rfidDirectionId" ColumnName="rfidDirectionId" />
+          <ScalarProperty Name="rfidDetectorId" ColumnName="rfidDetectorId" />
+          <ScalarProperty Name="dateTimeDetected" ColumnName="dateTimeDetected" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RfidDetector">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.RfidDetector)">
+        <MappingFragment StoreEntitySet="RfidDetector">
+          <ScalarProperty Name="rfidDetectorId" ColumnName="rfidDetectorId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="Location_locationId" ColumnName="Location_locationId" />
+          <ScalarProperty Name="WaitingArea_waitingAreaId" ColumnName="WaitingArea_waitingAreaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RfidDirection">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.RfidDirection)">
+        <MappingFragment StoreEntitySet="RfidDirection">
+          <ScalarProperty Name="rfidDirectionId" ColumnName="rfidDirectionId" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Room)">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="roomId" ColumnName="roomId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Location_locationId" ColumnName="Location_locationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Update">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.Update)">
+        <MappingFragment StoreEntitySet="Update">
+          <ScalarProperty Name="updateId" ColumnName="updateId" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="Order_orderId" ColumnName="Order_orderId" />
+          <ScalarProperty Name="Bed_bedId" ColumnName="Bed_bedId" />
+          <ScalarProperty Name="Admission_admissionId" ColumnName="Admission_admissionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaitingArea">
+      <EntityTypeMapping TypeName="IsTypeOf(WCSModel.WaitingArea)">
+        <MappingFragment StoreEntitySet="WaitingArea">
+          <ScalarProperty Name="waitingAreaId" ColumnName="waitingAreaId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_AdmissionAdmittingDoctorDoctor" TypeName="WCSModel.FK_AdmissionAdmittingDoctorDoctor" StoreEntitySet="Admission">
+      <EndProperty Name="Doctor">
+        <ScalarProperty Name="doctorId" ColumnName="AdmittingDoctor_doctorId" />
+      </EndProperty>
+      <EndProperty Name="Admission">
+        <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+      </EndProperty>
+      <Condition ColumnName="AdmittingDoctor_doctorId" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_AdmissionAttendingDoctorDoctor" TypeName="WCSModel.FK_AdmissionAttendingDoctorDoctor" StoreEntitySet="Admission">
+      <EndProperty Name="Doctor">
+        <ScalarProperty Name="doctorId" ColumnName="AttendingDoctor_doctorId" />
+      </EndProperty>
+      <EndProperty Name="Admission">
+        <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+      </EndProperty>
+      <Condition ColumnName="AttendingDoctor_doctorId" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_AdmissionPrimaryCareDoctor" TypeName="WCSModel.FK_AdmissionPrimaryCareDoctor" StoreEntitySet="Admission">
+      <EndProperty Name="Doctor">
+        <ScalarProperty Name="doctorId" ColumnName="PrimaryCareDoctor_doctorId" />
+      </EndProperty>
+      <EndProperty Name="Admission">
+        <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+      </EndProperty>
+      <Condition ColumnName="PrimaryCareDoctor_doctorId" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="WCSModel" ZoomLevel="82">
+        <EntityTypeShape EntityType="WCSModel.Admission" Width="1.5" PointX="3" PointY="16" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="WCSModel.AdmissionStatus" Width="1.5" PointX="0.75" PointY="21" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="WCSModel.AdmissionType" Width="1.5" PointX="0.75" PointY="23.25" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="WCSModel.Bed" Width="1.5" PointX="8.5" PointY="8.375" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="WCSModel.BedCleaningEvent" Width="1.5" PointX="10.75" PointY="8.5" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="WCSModel.BedCleaningEventType" Width="1.5" PointX="8.5" PointY="27.75" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="WCSModel.Configuration" Width="1.5" PointX="6" PointY="35.625" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="WCSModel.ConfigurationLocation" Width="1.5" PointX="8" PointY="5.25" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="WCSModel.ConfigurationType" Width="1.5" PointX="3.75" PointY="35.875" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="WCSModel.Connection" Width="1.5" PointX="5.25" PointY="5.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="WCSModel.Device" Width="1.5" PointX="3" PointY="3.375" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="WCSModel.DeviceConfiguration" Width="1.5" PointX="8.25" PointY="0.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="WCSModel.Doctor" Width="1.5" PointX="6.25" PointY="21.5" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="WCSModel.ExternalSource" Width="1.5" PointX="0.75" PointY="17" Height="1.4033821614583353" />
+        <EntityTypeShape EntityType="WCSModel.Location" Width="1.5" PointX="0.75" PointY="11.5" Height="3.7109993489583317" />
+        <EntityTypeShape EntityType="WCSModel.Note" Width="1.5" PointX="10.75" PointY="18" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="WCSModel.Notification" Width="1.5" PointX="13.75" PointY="17.75" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="WCSModel.NotificationRule" Width="1.5" PointX="7.5" PointY="24.375" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="WCSModel.NotificationType" Width="1.5" PointX="11.5" PointY="22.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="WCSModel.Order" Width="1.5" PointX="8.5" PointY="16" Height="6.0186165364583353" />
+        <EntityTypeShape EntityType="WCSModel.OrderStatus" Width="1.5" PointX="6.25" PointY="27.875" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="WCSModel.Patient" Width="1.5" PointX="6" PointY="16" Height="3.9033007812500031" />
+        <EntityTypeShape EntityType="WCSModel.Pin" Width="1.5" PointX="5.25" PointY="2.625" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="WCSModel.Procedure" Width="1.5" PointX="5.25" PointY="24" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="WCSModel.ProcedureCategory" Width="1.5" PointX="3" PointY="31.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="WCSModel.RfidDetection" Width="1.5" PointX="8.25" PointY="12" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="WCSModel.RfidDetector" Width="1.5" PointX="3" PointY="11.875" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="WCSModel.RfidDirection" Width="1.5" PointX="6" PointY="12.375" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="WCSModel.Room" Width="1.5" PointX="6.25" PointY="8.5" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="WCSModel.Update" Width="1.5" PointX="10.75" PointY="14" Height="3.1340950520833353" />
+        <EntityTypeShape EntityType="WCSModel.WaitingArea" Width="1.5" PointX="1.5" PointY="8.25" Height="1.9802864583333246" />
+        <AssociationConnector Association="WCSModel.FK_AdmissionAdmissionStatus" >
+          <ConnectorPoint PointX="2.25" PointY="21.92254770052083" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="21.92254770052083" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="21.92254770052083" />
+          <ConnectorPoint PointX="3.3735607696149281" PointY="21.92254770052083" />
+          <ConnectorPoint PointX="3.5402274362815951" PointY="21.92254770052083" />
+          <ConnectorPoint PointX="3.976293205896523" PointY="21.92254770052083" />
+          <ConnectorPoint PointX="3.976293205896523" PointY="21.249410807291667" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_AdmissionAdmissionType" >
+          <ConnectorPoint PointX="2.25" PointY="24.047841796874998" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="24.047841796874998" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="24.047841796874998" />
+          <ConnectorPoint PointX="3.4568941029482616" PointY="24.047841796874998" />
+          <ConnectorPoint PointX="3.4568941029482616" PointY="21.249410807291667" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_AdmissionLocation" >
+          <ConnectorPoint PointX="2.25" PointY="15.179844502804485" />
+          <ConnectorPoint PointX="2.65625" PointY="15.586094502804485" />
+          <ConnectorPoint PointX="2.65625" PointY="19.506802944010417" />
+          <ConnectorPoint PointX="2.6979166666666665" PointY="19.506802944010417" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="19.506802944010417" />
+          <ConnectorPoint PointX="3" PointY="19.506802944010417" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_AdmissionOrder" >
+          <ConnectorPoint PointX="4.5" PointY="20.160202471449132" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="20.160202471449132" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="20.160202471449132" />
+          <ConnectorPoint PointX="8.5" PointY="20.160202471449132" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ExternalSourceAdmission" >
+          <ConnectorPoint PointX="2.25" PointY="17.701691080729169" />
+          <ConnectorPoint PointX="2.5729166666666665" PointY="17.701691080729169" />
+          <ConnectorPoint PointX="2.7395833333333335" PointY="17.701691080729169" />
+          <ConnectorPoint PointX="3" PointY="17.701691080729169" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_PatientAdmission" >
+          <ConnectorPoint PointX="6" PointY="17.41642546389383" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="17.41642546389383" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="17.41642546389383" />
+          <ConnectorPoint PointX="4.5" PointY="17.41642546389383" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_BedCleaningEventBed" >
+          <ConnectorPoint PointX="10" PointY="9.26784645898438" />
+          <ConnectorPoint PointX="10.75" PointY="9.26784645898438" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_BedNote" >
+          <ConnectorPoint PointX="9.9630769230769243" PointY="11.1244921875" />
+          <ConnectorPoint PointX="10.347324434901122" PointY="11.508739699324195" />
+          <ConnectorPoint PointX="10.496425565098878" PointY="11.657840829521954" />
+          <ConnectorPoint PointX="10.5" PointY="11.661415264423075" />
+          <ConnectorPoint PointX="10.5" PointY="19.833668675735311" />
+          <ConnectorPoint PointX="10.75" PointY="19.833668675735311" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_BedRoom" >
+          <ConnectorPoint PointX="7.75" PointY="9.4901432291666623" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="9.49014322916666" />
+          <ConnectorPoint PointX="8.1770833333333339" PointY="9.4901432291666623" />
+          <ConnectorPoint PointX="8.5" PointY="9.4901432291666623" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_BedUpdate" >
+          <ConnectorPoint PointX="10" PointY="11.087568110576925" />
+          <ConnectorPoint PointX="10.347324434901122" PointY="11.434892545478045" />
+          <ConnectorPoint PointX="10.465175565098878" PointY="11.552743675675803" />
+          <ConnectorPoint PointX="10.46875" PointY="11.556318110576925" />
+          <ConnectorPoint PointX="10.46875" PointY="15.877207861131028" />
+          <ConnectorPoint PointX="10.75" PointY="15.877207861131028" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_BedCleaningEventBedCleaningEventType" >
+          <ConnectorPoint PointX="10" PointY="27.781152846153844" />
+          <ConnectorPoint PointX="10.40625" PointY="27.374902846153844" />
+          <ConnectorPoint PointX="10.40625" PointY="10.16069291796876" />
+          <ConnectorPoint PointX="10.75" PointY="10.16069291796876" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ConfigurationConfigurationLocation" >
+          <ConnectorPoint PointX="6.75" PointY="35.625" />
+          <ConnectorPoint PointX="6.75" PointY="29.720683593749982" />
+          <ConnectorPoint PointX="8" PointY="29.720683593749982" />
+          <ConnectorPoint PointX="8" PointY="27.384095052083353" />
+          <ConnectorPoint PointX="7" PointY="27.384095052083353" />
+          <ConnectorPoint PointX="7" PointY="23.922587890624996" />
+          <ConnectorPoint PointX="8" PointY="23.922587890624996" />
+          <ConnectorPoint PointX="8" PointY="7.67258789062501" />
+          <ConnectorPoint PointX="7.75" PointY="7.67258789062501" />
+          <ConnectorPoint PointX="7.75" PointY="6.3362939453125051" />
+          <ConnectorPoint PointX="8" PointY="6.3362939453125051" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ConfigurationConfigurationType" >
+          <ConnectorPoint PointX="5.25" PointY="36.672841796875" />
+          <ConnectorPoint PointX="6" PointY="36.672841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ConfigurationDeviceConfiguration" >
+          <ConnectorPoint PointX="7.5" PointY="36.711293945312505" />
+          <ConnectorPoint PointX="8.25" PointY="36.711293945312505" />
+          <ConnectorPoint PointX="8.25" PointY="27.182190755208339" />
+          <ConnectorPoint PointX="9.25" PointY="27.182190755208339" />
+          <ConnectorPoint PointX="9.25" PointY="22.268616536458339" />
+          <ConnectorPoint PointX="8" PointY="22.268616536458339" />
+          <ConnectorPoint PointX="8" PointY="7.68821289062501" />
+          <ConnectorPoint PointX="8.0104166666666661" PointY="7.6882128906250093" />
+          <ConnectorPoint PointX="8.1770833333333339" PointY="7.68821289062501" />
+          <ConnectorPoint PointX="9.75" PointY="7.68821289062501" />
+          <ConnectorPoint PointX="9.75" PointY="4.2590950520833335" />
+          <ConnectorPoint PointX="9.7395833333333339" PointY="4.2590950520833326" />
+          <ConnectorPoint PointX="9.5729166666666661" PointY="4.2590950520833335" />
+          <ConnectorPoint PointX="8.6250004999999987" PointY="4.2590950520833335" />
+          <ConnectorPoint PointX="8.6250004999999987" PointY="3.8840950520833331" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_LocationConfigurationLocation" >
+          <ConnectorPoint PointX="2.25" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="7.8333333333333339" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="8.09375" PointY="14.90216584515224" />
+          <ConnectorPoint PointX="8.09375" PointY="7.42258789062501" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_DeviceConnection" >
+          <ConnectorPoint PointX="4.5" PointY="6.4179996744791623" />
+          <ConnectorPoint PointX="5.25" PointY="6.4179996744791623" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_DeviceDeviceConfiguration" >
+          <ConnectorPoint PointX="4.5" PointY="4.8314925130208337" />
+          <ConnectorPoint PointX="9" PointY="4.8314925130208337" />
+          <ConnectorPoint PointX="9" PointY="3.4994921874999996" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_DevicePin" >
+          <ConnectorPoint PointX="4.5" PointY="3.8939925130208333" />
+          <ConnectorPoint PointX="5.25" PointY="3.8939925130208333" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_LocationWCS_Device" >
+          <ConnectorPoint PointX="0.9980478125" PointY="11.5" />
+          <ConnectorPoint PointX="0.9980478125" PointY="5.2304996744791623" />
+          <ConnectorPoint PointX="3" PointY="5.2304996744791623" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_OrderOrderingDoctor" >
+          <ConnectorPoint PointX="7.75" PointY="21.759308268229169" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="21.759308268229169" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="21.759308268229169" />
+          <ConnectorPoint PointX="8.5" PointY="21.759308268229169" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ExternalSourceOrder" >
+          <ConnectorPoint PointX="2.2500000000000004" PointY="17" />
+          <ConnectorPoint PointX="2.5973244349011209" PointY="16.652675565098878" />
+          <ConnectorPoint PointX="2.7151755650988791" PointY="16.534824434901122" />
+          <ConnectorPoint PointX="2.875" PointY="16.375" />
+          <ConnectorPoint PointX="2.875" PointY="15.625" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="15.625" />
+          <ConnectorPoint PointX="4.9594861794871763" PointY="15.625" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="15.625" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="15.625" />
+          <ConnectorPoint PointX="8.125" PointY="15.625" />
+          <ConnectorPoint PointX="8.5" PointY="16" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ExternalSourceProcedure" >
+          <ConnectorPoint PointX="2.25" PointY="18.402301636718754" />
+          <ConnectorPoint PointX="2.5973244349011213" PointY="18.749626071619875" />
+          <ConnectorPoint PointX="2.7151755650988791" PointY="18.867477201817632" />
+          <ConnectorPoint PointX="2.78125" PointY="18.933551636718754" />
+          <ConnectorPoint PointX="2.78125" PointY="25.590967924479173" />
+          <ConnectorPoint PointX="5.25" PointY="25.590967924479173" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ExternalSourceProcedureCategory" >
+          <ConnectorPoint PointX="2.21545520833333" PointY="18.403382161458335" />
+          <ConnectorPoint PointX="2.625" PointY="18.812926953125004" />
+          <ConnectorPoint PointX="2.625" PointY="32.807444661458334" />
+          <ConnectorPoint PointX="3" PointY="32.807444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_PatientExternalSource" >
+          <ConnectorPoint PointX="2.25" PointY="17.034543791666664" />
+          <ConnectorPoint PointX="2.5625" PointY="16.722043791666664" />
+          <ConnectorPoint PointX="2.5625" PointY="15.687499999999998" />
+          <ConnectorPoint PointX="2.5729166666666665" PointY="15.687499999999996" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="15.687499999999998" />
+          <ConnectorPoint PointX="4.730319512820512" PointY="15.687499999999998" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="15.687499999999998" />
+          <ConnectorPoint PointX="5.6875" PointY="15.687499999999998" />
+          <ConnectorPoint PointX="6" PointY="15.999999999999998" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_RfidDetectorExternalSource" >
+          <ConnectorPoint PointX="2.2154552083333336" PointY="17" />
+          <ConnectorPoint PointX="2.5973244349011204" PointY="16.618130773432213" />
+          <ConnectorPoint PointX="2.7151755650988791" PointY="16.500279643234457" />
+          <ConnectorPoint PointX="2.75" PointY="16.465455208333335" />
+          <ConnectorPoint PointX="2.75" PointY="13.679356748046857" />
+          <ConnectorPoint PointX="3" PointY="13.679356748046857" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_LocationRoom" >
+          <ConnectorPoint PointX="1.24902640625" PointY="11.5" />
+          <ConnectorPoint PointX="1.24902640625" PointY="10.386536458333325" />
+          <ConnectorPoint PointX="1.7916666666666667" PointY="10.386536458333325" />
+          <ConnectorPoint PointX="1.9583333333333333" PointY="10.386536458333325" />
+          <ConnectorPoint PointX="3.6979166666666665" PointY="10.386536458333325" />
+          <ConnectorPoint PointX="3.8645833333333335" PointY="10.386536458333325" />
+          <ConnectorPoint PointX="6.25" PointY="10.386536458333325" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_OrderLocation" >
+          <ConnectorPoint PointX="2.25" PointY="11.65625" />
+          <ConnectorPoint PointX="3.6979166666666665" PointY="11.65625" />
+          <ConnectorPoint PointX="3.8645833333333335" PointY="11.65625" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="11.65625" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="11.65625" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="11.656249999999998" />
+          <ConnectorPoint PointX="8.1770833333333339" PointY="11.65625" />
+          <ConnectorPoint PointX="9.90625" PointY="11.65625" />
+          <ConnectorPoint PointX="9.90625" PointY="16" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_RfidDetectorLocation" >
+          <ConnectorPoint PointX="2.25" PointY="12.714678374023428" />
+          <ConnectorPoint PointX="3" PointY="12.714678374023428" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_WaitingAreaLocation" >
+          <ConnectorPoint PointX="1.875" PointY="10.230286458333325" />
+          <ConnectorPoint PointX="1.875" PointY="11.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_OrderNote" >
+          <ConnectorPoint PointX="10" PointY="18.854334337867655" />
+          <ConnectorPoint PointX="10.322916666666666" PointY="18.854334337867655" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="18.854334337867655" />
+          <ConnectorPoint PointX="10.75" PointY="18.854334337867655" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_NotificationNotificationType" >
+          <ConnectorPoint PointX="12.65625" PointY="22.75" />
+          <ConnectorPoint PointX="12.65625" PointY="21.136495768229167" />
+          <ConnectorPoint PointX="13.75" PointY="21.136495768229167" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_OrderNotification" >
+          <ConnectorPoint PointX="10" PointY="20.987216084730704" />
+          <ConnectorPoint PointX="10.322916666666666" PointY="20.987216084730704" />
+          <ConnectorPoint PointX="10.489583333333334" PointY="20.987216084730704" />
+          <ConnectorPoint PointX="13.75" PointY="20.987216084730704" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_NotificationRuleProcedure" >
+          <ConnectorPoint PointX="6.75" PointY="25.653595377604169" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="25.653595377604169" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="25.653595377604169" />
+          <ConnectorPoint PointX="7.5" PointY="25.653595377604169" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_OrderProcedure" >
+          <ConnectorPoint PointX="5.59375" PointY="24" />
+          <ConnectorPoint PointX="5.59375" PointY="21.258485395355116" />
+          <ConnectorPoint PointX="7.5416641666666671" PointY="21.258485395355116" />
+          <ConnectorPoint PointX="7.7708358333333329" PointY="21.258485395355116" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="21.258485395355116" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="21.258485395355116" />
+          <ConnectorPoint PointX="8.5" PointY="21.258485395355116" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_OrderStatusOrder" >
+          <ConnectorPoint PointX="7.75" PointY="28.672841796874991" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="28.672841796874991" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="28.672841796874991" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="28.672841796874991" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="28.672841796874991" />
+          <ConnectorPoint PointX="8.375" PointY="28.672841796874991" />
+          <ConnectorPoint PointX="8.375" PointY="27.5" />
+          <ConnectorPoint PointX="9.6249995000000013" PointY="27.5" />
+          <ConnectorPoint PointX="9.6249995000000013" PointY="22.018616536458335" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_UpdateOrder" >
+          <ConnectorPoint PointX="10" PointY="16.567047526041666" />
+          <ConnectorPoint PointX="10.322916666666666" PointY="16.567047526041666" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="16.567047526041666" />
+          <ConnectorPoint PointX="10.75" PointY="16.567047526041666" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_RfidDetectionPatient" >
+          <ConnectorPoint PointX="7.4999999999999982" PointY="16" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="15.625" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="13.278595377604162" />
+          <ConnectorPoint PointX="8.0104166666666661" PointY="13.278595377604162" />
+          <ConnectorPoint PointX="8.1770833333333339" PointY="13.278595377604162" />
+          <ConnectorPoint PointX="8.25" PointY="13.278595377604162" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ProcedureCategoryProcedure" >
+          <ConnectorPoint PointX="3.92187375" PointY="31.625" />
+          <ConnectorPoint PointX="3.92187375" PointY="25.567047526041677" />
+          <ConnectorPoint PointX="5.25" PointY="25.567047526041677" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_RfidDetectionRfidDetector" >
+          <ConnectorPoint PointX="4.5" PointY="14.295187174479153" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="14.295187174479153" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="14.295187174479153" />
+          <ConnectorPoint PointX="7.8333333333333339" PointY="14.295187174479151" />
+          <ConnectorPoint PointX="8.1770833333333339" PointY="14.295187174479153" />
+          <ConnectorPoint PointX="8.25" PointY="14.295187174479153" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_RfidDetectionRfidDirection" >
+          <ConnectorPoint PointX="7.5" PointY="12.764297688802081" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="12.764297688802079" />
+          <ConnectorPoint PointX="8.1770833333333339" PointY="12.764297688802081" />
+          <ConnectorPoint PointX="8.25" PointY="12.764297688802081" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_WaitingAreaRfidDetector" >
+          <ConnectorPoint PointX="3" PointY="9.2401432291666623" />
+          <ConnectorPoint PointX="3.78125" PointY="9.2401432291666623" />
+          <ConnectorPoint PointX="3.78125" PointY="11.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_AdmissionAdmittingDoctorDoctor">
+          <ConnectorPoint PointX="4.5" PointY="20.479604161648261" />
+          <ConnectorPoint PointX="7.65625" PointY="20.479604161648261" />
+          <ConnectorPoint PointX="7.65625" PointY="21.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_AdmissionAttendingDoctorDoctor">
+          <ConnectorPoint PointX="4.5" PointY="20.725819967888526" />
+          <ConnectorPoint PointX="7.6249975" PointY="20.725819967888526" />
+          <ConnectorPoint PointX="7.6249975" PointY="21.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_AdmissionPrimaryCareDoctor">
+          <ConnectorPoint PointX="4.5" PointY="21.079470790710229" />
+          <ConnectorPoint PointX="7.6875025" PointY="21.079470790710229" />
+          <ConnectorPoint PointX="7.6875025" PointY="21.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_AdmissionBed" >
+          <ConnectorPoint PointX="8.5" PointY="11.1244921875" />
+          <ConnectorPoint PointX="8.125" PointY="11.4994921875" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="11.4994921875" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="11.4994921875" />
+          <ConnectorPoint PointX="5" PointY="11.4994921875" />
+          <ConnectorPoint PointX="5" PointY="15.501152846153843" />
+          <ConnectorPoint PointX="4.9339255650988783" PointY="15.567227281054963" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="15.685078411252722" />
+          <ConnectorPoint PointX="4.5" PointY="16.001152846153843" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_ExternalSourceDoctor" >
+          <ConnectorPoint PointX="2.25" PointY="18.337530152343753" />
+          <ConnectorPoint PointX="2.5973244349011213" PointY="18.684854587244875" />
+          <ConnectorPoint PointX="2.7151755650988791" PointY="18.802705717442631" />
+          <ConnectorPoint PointX="2.71875" PointY="18.806280152343753" />
+          <ConnectorPoint PointX="2.71875" PointY="22.903113614866427" />
+          <ConnectorPoint PointX="3.374637692403732" PointY="22.903113614866427" />
+          <ConnectorPoint PointX="3.541304359070399" PointY="22.903113614866427" />
+          <ConnectorPoint PointX="5.510416666666667" PointY="22.903113614866427" />
+          <ConnectorPoint PointX="5.677083333333333" PointY="22.903113614866427" />
+          <ConnectorPoint PointX="6.25" PointY="22.903113614866427" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_UpdateAdmission" >
+          <ConnectorPoint PointX="4.5" PointY="18.732257528176671" />
+          <ConnectorPoint PointX="4.875" PointY="18.732257528176671" />
+          <ConnectorPoint PointX="4.875" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="7.8333333333333339" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="9.8229166666666661" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="9.9895833333333339" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="10.291666666666666" PointY="15.187340095930091" />
+          <ConnectorPoint PointX="10.598958333333334" PointY="15.187340095930093" />
+          <ConnectorPoint PointX="10.75" PointY="15.187340095930093" />
+        </AssociationConnector>
+        <AssociationConnector Association="WCSModel.FK_UpdateBed" >
+          <ConnectorPoint PointX="10" PointY="11.06218349519231" />
+          <ConnectorPoint PointX="10.4375" PointY="11.49968349519231" />
+          <ConnectorPoint PointX="10.4375" PointY="15.877207861131028" />
+          <ConnectorPoint PointX="10.75" PointY="15.877207861131028" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

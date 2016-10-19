@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="WCS.Shared.Ward.Schedule.WardActionBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" xmlns:Schedule="clr-namespace:WCS.Shared.Schedule"
+             mc:Ignorable="d" >
+	
+	<UserControl.Resources>
+		<Converters:AmountOfNotesConverter x:Key="amountOfNotesConverter"/>
+		<Converters:HasMoreThanOneNoteConverter x:Key="hasMoreThanOneNoteConverter"/>
+	</UserControl.Resources>
+
+	<DockPanel LastChildFill="True">
+
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+			<DockPanel  Margin="15,5,0,5" LastChildFill="True" >
+				<TextBlock Text="info" Style="{StaticResource ActionBarTextStyle}" Margin="5,2,5,5" DockPanel.Dock="Bottom"/>
+				<Button  Height="60" Width="60" Style="{StaticResource InfoButtonStyle}" Command="{Binding Path=ShowInfoCommand}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+			</DockPanel>
+			<DockPanel  Margin="15,5,0,5" LastChildFill="True">
+				<TextBlock Text="notes" Style="{StaticResource ActionBarTextStyle}" Margin="5,2,5,5" DockPanel.Dock="Bottom"/>
+				<Button Content="{Binding Path=ConversationNotesViewModel.Notes, Converter={StaticResource amountOfNotesConverter}}"  Command="{Binding Path=ToggleNotesCommand}" Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center">
+					<Button.Style>
+						<Style TargetType="Button" BasedOn="{StaticResource NotesButtonStyle}">
+							<Style.Triggers>
+								<DataTrigger Binding="{Binding Path=ConversationNotesViewModel.Notes, Converter={StaticResource hasMoreThanOneNoteConverter}}" Value="True">
+									<Setter  Property="Background" Value="{StaticResource inboundNotesBrush}"/>
+									<Setter  Property="Foreground" Value="{StaticResource textNoteBrush}"/>
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</Button.Style>
+				</Button>
+			</DockPanel>
+			<DockPanel  Margin="15,5,0,5" LastChildFill="True" Visibility="{Binding Path=HasUnacknowledgedItems, Converter={StaticResource booleanToVisibilityConverter}}">
+				<TextBlock Text="acknowledge" Style="{StaticResource ActionBarTextStyle}" Margin="5,2,5,5" DockPanel.Dock="Bottom"/>
+				<Button Height="60" Width="60" Style="{StaticResource AcknowledgeButtonStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding Path=AcknowledgeOrderAndPrepNotificationsCommand}" />
+			</DockPanel>
+			<DockPanel  Margin="15,5,0,5" LastChildFill="True">
+				<TextBlock Text="history" Style="{StaticResource ActionBarTextStyle}" Margin="5,2,5,5" DockPanel.Dock="Bottom"/>
+				<Button Height="60" Width="60" Style="{StaticResource HistoryButtonStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding Path=ShowHistoryCommand}"/>
+			</DockPanel>
+		</StackPanel>
+		
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+			<DockPanel  Margin="0,5,15,5" LastChildFill="True">
+				<TextBlock Text="locate" Style="{StaticResource ActionBarTextStyle}" Margin="5,2,5,5" DockPanel.Dock="Bottom"/>
+				<Button Height="60" Width="60" Style="{StaticResource LocateButtonStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding Path=LocatePatientCommand}"/>
+			</DockPanel>
+			<DockPanel  Margin="0,5,15,5" LastChildFill="True">
+				<TextBlock Text="tracking" Style="{StaticResource ActionBarTextStyle}" Margin="5,2,5,5" DockPanel.Dock="Bottom"/>
+				<Grid>
+					<Button Height="60" Width="60" Style="{StaticResource TrackingButtonStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Command="{Binding Path=ToggleTrackingCommand}"/>
+					<Border Width="30" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="{StaticResource onBrush}" Visibility="{Binding Path=ShowTracking, Converter={StaticResource booleanToVisibilityConverter}}" IsHitTestVisible="False"/>
+				</Grid>
+			</DockPanel>
+		</StackPanel>
+
+		<Border/>
+	</DockPanel>
+</UserControl>

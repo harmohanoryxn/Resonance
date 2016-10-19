@@ -1,0 +1,1346 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					 xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- Statuses & Flags -->
+
+
+	<SolidColorBrush po:Freeze="true" x:Key="ErAlertBrush" Color="#FFA72828"/>
+	<SolidColorBrush po:Freeze="true" x:Key="AdditionalOrderBrush" Color="Green" />
+	<SolidColorBrush po:Freeze="true" x:Key="MediumGrayBrush" Color="#88000000"/>
+
+
+	<VisualBrush   po:Freeze="true" x:Key="AlertCritialBrush"  >
+		<VisualBrush.Visual>
+			<UniformGrid Rows="3" Columns="1">
+				<Rectangle Width="10" Height="10" Fill="{StaticResource ErAlertBrush}"/>
+				<Rectangle Width="10" Height="10" Fill="{StaticResource WhiteBrush}"/>
+				<Rectangle Width="10" Height="10" Fill="{StaticResource ErAlertBrush}"/>
+			</UniformGrid>
+		</VisualBrush.Visual>
+	</VisualBrush>
+	
+	<LinearGradientBrush po:Freeze="true" x:Key="AlertSeriousBrush" StartPoint="0,-0.5" EndPoint="0,1.5">
+		<GradientStop Color="{StaticResource CriticalAlert}" Offset="0.0"  />
+		<!--<GradientStop Color="{StaticResource White}" Offset="0.5" />-->
+		<GradientStop Color="{StaticResource CriticalAlert}" Offset="1.0" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="ErrorBarBackgroundBrush" StartPoint="0.5,1.5" EndPoint="0.5,-0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FFA72828" Offset="0"/>
+			<GradientStop Color="#FFE45F5F" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	
+	<LinearGradientBrush  po:Freeze="true" x:Key="WarningBrush" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartWarningColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndWarningColour}" Offset="1" />
+	</LinearGradientBrush>
+
+	<SolidColorBrush po:Freeze="true" x:Key="ScheduleHeaderBrush" Color="#414176"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BackboardBackgroungFontBrush" Color="#232323"/>
+
+	<SolidColorBrush po:Freeze="true" x:Key="BadgeBorderBrush" Color="{StaticResource Black}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BadgeAlert1Brush" Color="{StaticResource BadgeAlert1}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BadgeAlert2Brush" Color="{StaticResource BadgeAlert2}"/>
+
+	<SolidColorBrush po:Freeze="true" x:Key="AdditionalOrdersBackroundBrush" Color="{StaticResource 33Gray}"/>
+
+
+	<SolidColorBrush po:Freeze="true" x:Key="starBrush" Color="{StaticResource YellowColor}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="updateHighlightBrush" Color="#40E5CC70"/>
+
+	<!--<SolidColorBrush po:Freeze="true" x:Key="MapRoomHighLightBorderBrush" Color="#FFFFE78E"/>-->
+	<SolidColorBrush po:Freeze="true" x:Key="MapRoomHighLightBorderBrush" Color="Goldenrod"/>
+	<SolidColorBrush po:Freeze="true" x:Key="TimelineHightBrush" Color="{StaticResource YellowColor}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="GreenBrush" Color="{StaticResource GreenColor}"/>
+
+	<SolidColorBrush po:Freeze="true" x:Key="SelectedBrush" Color="{StaticResource SelectedColor}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="SelectedBorderBrush" Color="{StaticResource SelectedBorderColor}"/>
+
+	<!-- Text -->
+	<!--<DrawingBrush po:Freeze="true" x:Key="CritialWardBrush"  Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 4.5,0.5L 32.4954,0.5C 34.7045,0.5 36.4954,2.29086 36.4954,4.5L 36.4954,27.7926C 36.4954,30.0017 34.7045,31.7926 32.4954,31.7926L 4.5,31.7926C 2.29083,31.7926 0.5,30.0017 0.5,27.7926L 0.5,4.5C 0.5,2.29086 2.29083,0.5 4.5,0.5 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.5,1.5" EndPoint="0.5,0.5">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FFA72828" Offset="0"/>
+									<GradientStop Color="#FFE45F5F" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 0.500061,10.7927L 36.4955,10.7927L 36.4955,22.0203L 0.500061,22.0203L 0.500061,10.7927 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>-->
+
+	<!--<ImageBrush  po:Freeze="true" x:Key="peelBackgoundBrush"  ViewportUnits="Absolute"   Stretch="None" ImageSource="../../Media/settingsBackground.png"  TileMode="Tile"  Viewport="0,0,789,1367"/>-->
+	<ImageBrush  x:Key="departmentThumbnailBrush" Stretch="UniformToFill" ImageSource="../../Media\Thumbnails\Department.PNG" />
+	<ImageBrush  x:Key="cleaningThumbnailBrush" Stretch="UniformToFill" ImageSource="../../Media\Thumbnails\Cleaning.PNG" />
+	<ImageBrush  x:Key="wardThumbnailBrush" Stretch="UniformToFill" ImageSource="../../Media\Thumbnails\Ward.PNG" />
+	<ImageBrush  x:Key="physioThumbnailBrush" Stretch="UniformToFill" ImageSource="../../Media\Thumbnails\Physio.PNG" />
+
+	<LinearGradientBrush po:Freeze="true" x:Key="SeriousBrush" StartPoint="0.5,1.5" EndPoint="0.5,-0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FFA72828" Offset="0"/>
+			<GradientStop Color="#FFE45F5F" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+		<LinearGradientBrush po:Freeze="true" x:Key="AttentionBrush" StartPoint="0.5,1.5" EndPoint="0.5,-0.5">
+			<LinearGradientBrush.GradientStops>
+				<GradientStop Color="#FFA14F00" Offset="0"/>
+				<GradientStop Color="#FFFB7B00" Offset="1"/>
+			</LinearGradientBrush.GradientStops>
+		</LinearGradientBrush>
+
+	<LinearGradientBrush  po:Freeze="true" x:Key="OkBrush" StartPoint="0.50001,1.49992" EndPoint="0.50001,-0.500085">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FF006432" Offset="0"/>
+			<GradientStop Color="#FF53DA97" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	
+	<DrawingBrush po:Freeze="true" x:Key="SeriousWardBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="{StaticResource SeriousBrush}" Geometry="F1 M 4.5,0.500107L 32.4954,0.500107C 34.7046,0.500107 36.4954,2.29088 36.4954,4.50005L 36.4954,27.7926C 36.4954,30.0018 34.7046,31.7926 32.4954,31.7926L 4.5,31.7926C 2.29086,31.7926 0.5,30.0018 0.5,27.7926L 0.5,4.50005C 0.5,2.29088 2.29086,0.500107 4.5,0.500107 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush  po:Freeze="true" x:Key="WarningWardBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="{StaticResource AttentionBrush}" Geometry="F1 M 4.5,0.500084L 32.4954,0.500084C 34.7045,0.500084 36.4954,2.29086 36.4954,4.50002L 36.4954,27.7927C 36.4954,30.0018 34.7045,31.7927 32.4954,31.7927L 4.5,31.7927C 2.29083,31.7927 0.5,30.0018 0.5,27.7927L 0.5,4.50002C 0.5,2.29086 2.29083,0.500084 4.5,0.500084 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<DrawingBrush po:Freeze="true" x:Key="OkWardBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="{StaticResource OkBrush}" Geometry="F1 M 4.5,0.500107L 32.4954,0.500107C 34.7046,0.500107 36.4954,2.29088 36.4954,4.50005L 36.4954,27.7926C 36.4954,30.0018 34.7046,31.7926 32.4954,31.7926L 4.5,31.7926C 2.29086,31.7926 0.5,30.0018 0.5,27.7926L 0.5,4.50005C 0.5,2.29088 2.29086,0.500107 4.5,0.500107 Z ">
+						<GeometryDrawing.Pen>
+								<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<VisualBrush   po:Freeze="true" x:Key="CritialWardBrush"  >
+		<VisualBrush.Visual>
+			<UniformGrid Rows="3" Columns="1">
+				<Rectangle Width="10" Height="10" Fill="{StaticResource ErAlertBrush}"/>
+				<Rectangle Width="10" Height="10" Fill="{StaticResource WhiteBrush}"/>
+				<Rectangle Width="10" Height="10" Fill="{StaticResource ErAlertBrush}"/>
+			</UniformGrid>
+		</VisualBrush.Visual>
+	</VisualBrush>
+
+	<SolidColorBrush po:Freeze="true" x:Key="UnknownWardBrush" Color="Transparent"/>
+	<!--<SolidColorBrush po:Freeze="true" x:Key="SeriousWardBrush" Color="{StaticResource CriticalAlert}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="WarningWardBrush" Color="{StaticResource YellowColor}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="OkWardBrush" Color="{StaticResource GreenColor}"/>-->
+
+	<SolidColorBrush po:Freeze="true" x:Key="LoadingSyncBrush" Color="{StaticResource OrangeColour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="UpToDateSyncBrush" Color="{StaticResource GreenColor}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="UoTo1HourSyncBrush" Color="{StaticResource YellowColor}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="UoTo1DaySyncBrush" Color="{StaticResource CriticalAlert}"/>
+	<VisualBrush po:Freeze="true" x:Key="MoreThan1DaySyncBrush"   >
+		<VisualBrush.Visual>
+			<UniformGrid Rows="3" Columns="1">
+				<Rectangle Width="10" Height="10" Fill="{StaticResource ErAlertBrush}"/>
+				<Rectangle Width="10" Height="10" Fill="{StaticResource WhiteBrush}"/>
+				<Rectangle Width="10" Height="10" Fill="{StaticResource ErAlertBrush}"/>
+			</UniformGrid>
+		</VisualBrush.Visual>
+		</VisualBrush>
+
+
+	<SolidColorBrush po:Freeze="true" x:Key="BedCleanStatusBrush" Color="Transparent"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedDirtyStatusBrush" Color="#FFAAAA"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedDeepCleanRequiredBrush" Color="#BDB6F7"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedNotReadyStatusBrush" Color="{StaticResource StartAppleColour3Colour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedReadyStatusBrush" Color="{StaticResource StartAppleColour4Colour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedOutOfOrderStatusBrush" Color="{StaticResource StartAppleColour9Colour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedReservedStatusBrush" Color="{StaticResource StartAppleColour5Colour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedIsolationStatusBrush" Color="{StaticResource White}"/>
+
+
+	<SolidColorBrush po:Freeze="true" x:Key="BedContactCautionsBrush" Color="{StaticResource Blue}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedDropletCautionsBrush" Color="{StaticResource GreenColor}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedAirborneCautionsBrush" Color="{StaticResource Red}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="BedisolationCautionsBrush" Color="{StaticResource White}"/>
+
+	<!-- Text -->
+	<SolidColorBrush po:Freeze="true" x:Key="DarkTextBrush" Color="{StaticResource DarkText}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="DisabledTextBrush" Color="{StaticResource DisabledTextColour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="defaultTextBrush" Color="{StaticResource DefaultTextColour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="alternativeTextBrush" Color="{StaticResource AlternativeTextColour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="SubTextBrush" Color="{StaticResource SubTextColour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="TimeTextBrush" Color="{StaticResource TimeTextColour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="ListboxTextBrush" Color="{StaticResource ListBoxTextColour}"/>
+
+	<SolidColorBrush po:Freeze="true" x:Key="ContrastHerderTextBrush" Color="{StaticResource EndInjectionColour}"/>
+
+
+	<SolidColorBrush po:Freeze="true" x:Key="AlertBorderBrush" Color="{StaticResource Red}"/>
+
+	<SolidColorBrush po:Freeze="true" x:Key="FaintBorderBrush" Color="Gainsboro"/>
+
+	<!--Button -->
+	<SolidColorBrush po:Freeze="true" x:Key="HoverBrush" Color="{StaticResource HoverColor}" />
+	<LinearGradientBrush po:Freeze="true" x:Key="ShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#59FFFFFF" Offset="0" />
+		<GradientStop Color="{StaticResource White}" Offset="1" />
+		<GradientStop Color="#26FFFFFF" Offset="0.467" />
+		<GradientStop Color="{StaticResource White}" Offset="0.475" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="HoverShineBrush" EndPoint="0.5,0.971" StartPoint="0.5,0.042">
+		<GradientStop Color="#4CFFFFFF" Offset="0" />
+		<GradientStop Color="#26FFFFFF" Offset="1" />
+		<GradientStop Color="#26FFFFFF" Offset="0.467" />
+		<GradientStop Color="{StaticResource FFWhite}" Offset="0.475" />
+		<GradientStop Color="{StaticResource FFWhite}" Offset="0.856" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="buttonGlossBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+		<GradientStop Color="#2DFFFFFF" Offset="0"/>
+		<GradientStop Color="#20FFFFFF" Offset="0.0646963"/>
+		<GradientStop Color="#13FFFFFF" Offset="0.497674"/>
+		<GradientStop Color="#00FFFFFF" Offset="0.502326"/>
+		<GradientStop Color="#00FFFFFF" Offset="0.990698"/>
+	</LinearGradientBrush>
+
+	<SolidColorBrush po:Freeze="true" x:Key="buttonPressedBrush" Color="#1A111417"/>
+	<SolidColorBrush po:Freeze="true" x:Key="buttonHoverBrush" Color="#1AFFFFFF"/>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="buttonDisbleBrush" StartPoint="0.5,7.6" EndPoint="0.5,1">
+		<GradientStop Color="#FF45484A" Offset="0"/>
+		<GradientStop Color="#FF363B3D" Offset="1"/>
+	</LinearGradientBrush>
+ 
+	<LinearGradientBrush po:Freeze="true" x:Key="BlueButtonBrush" StartPoint="0,-0.5" EndPoint="0,1.5">
+		<GradientStop Color="#57AAE5" Offset="0.0" />
+		<GradientStop Color="#004170" Offset="1.0" />
+	</LinearGradientBrush>
+    
+    
+	<!-- Schedule -->  
+	<LinearGradientBrush po:Freeze="true" x:Key="OrderBackGroundBrush" StartPoint="0.5,1.5" EndPoint="0.5,0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FF683978" Offset="0"/>
+			<GradientStop Color="#FFA287AB" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+    <LinearGradientBrush po:Freeze="true" x:Key="RequirementsBackgroundBrush" StartPoint="0.0,0.0" EndPoint="0.0,1.0">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="Gray" Offset="0"/>
+            <GradientStop Color="DimGray" Offset="1"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush po:Freeze="true" x:Key="OrderWarningBackGroundBrush" StartPoint="0.5,1.5" EndPoint="0.5,-0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FFA72828" Offset="0"/>
+			<GradientStop Color="#FFE45F5F" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<SolidColorBrush po:Freeze="true" x:Key="OrderBorderBrush" Color="#5B707E"/>
+	<SolidColorBrush po:Freeze="true" x:Key="NotificationBorderBrush" Color="#5B707E"/>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Notification1BackGroundBrush" StartPoint="0.5,1.5" EndPoint="0.5,-0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FF446E60" Offset="0"/>
+			<GradientStop Color="#FF80C4AE" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Notification2BackGroundBrush" StartPoint="0.5,1.5" EndPoint="0.5,0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FF395E78" Offset="0"/>
+			<GradientStop Color="#FFA4CEEB" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+
+
+	<LinearGradientBrush po:Freeze="true" x:Key="NotificationPendingBorderBrush" StartPoint="0.5,1.5" EndPoint="0.5,-0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FFA72828" Offset="0"/>
+			<GradientStop Color="#FFE45F5F" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="NotificationPendingIconBackgroundBrush"  StartPoint="0.5,1.00245" EndPoint="0.5,-0.00245388">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FFA72828" Offset="0"/>
+			<GradientStop Color="#FFE45F5F" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="NotificationUpdateIconBackgroundBrush"  StartPoint="0.5,1.00245" EndPoint="0.5,-0.00245388">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="OrangeRed" Offset="0"/>
+			<GradientStop Color="Orange" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="OkUpdateIconBackgroundBrush"  StartPoint="0.5,1.00245" EndPoint="0.5,-0.00245388">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="Green" Offset="0"/>
+			<GradientStop Color="LimeGreen" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	
+	<DrawingBrush po:Freeze="true" x:Key="NotificationPendingIconBrush"  Stretch="Fill">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 24.2357,0.500076C 37.3445,0.500076 47.9713,10.6004 47.9713,23.0598C 47.9713,35.5192 37.3445,45.6196 24.2357,45.6196C 11.1268,45.6196 0.5,35.5192 0.5,23.0598C 0.5,10.6004 11.1268,0.500076 24.2357,0.500076 Z " Brush="{StaticResource NotificationPendingIconBackgroundBrush}">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 27.1385,8.12874L 26.7119,28.6088L 21.1652,28.6088L 20.3119,8.12874L 27.1385,8.12874 Z M 23.9586,38.4221C 22.7808,38.4221 21.8074,38.0877 21.0386,37.4188C 20.2697,36.75 19.8852,35.9399 19.8852,34.9888C 19.8852,33.9932 20.2729,33.1788 21.0485,32.5454C 21.8241,31.9121 22.7941,31.5955 23.9586,31.5955C 25.1407,31.5955 26.1085,31.9166 26.8619,32.5588C 27.6152,33.201 27.9919,34.011 27.9919,34.9888C 27.9919,35.9799 27.6185,36.7999 26.8719,37.4488C 26.1252,38.0977 25.1541,38.4221 23.9586,38.4221 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+    <DrawingBrush po:Freeze="true" x:Key="RequiresFootwearBrush"  Stretch="Uniform">
+        <DrawingBrush.Drawing>
+        <DrawingGroup>
+            <DrawingGroup.Children>
+                <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 47.8658,21.838L 48,21.6895C 47.4849,16.0154 47.3892,9.68066 44.3684,5.06021C 41.9953,1.43033 36.2892,-1.50204 32.8364,0.837921C 27.1518,4.6904 25.5543,14.3425 26.1436,21.6895C 26.5223,26.4113 26.4544,32.8077 30.1526,35.2008C 31.6995,36.2018 33.7351,35.0427 35.5202,34.8691C 38.9522,34.5353 43.2926,37.6958 45.8529,35.1451C 48.8737,32.1359 47.8376,26.3353 47.8658,21.838 Z "/>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 44.6452,46.485L 44.7794,46.3365C 44.5909,42.8239 39.1479,42.8868 36.057,42.0586C 33.8733,41.4734 30.6761,39.3392 29.3474,41.344C 28.1654,43.1276 28.2954,45.6267 28.0474,47.8213C 27.6447,51.3863 27.7473,55.8605 30.0771,58.3631C 32.6668,61.1449 38.08,61.5498 40.8879,59.0405C 43.9876,56.2704 44.612,50.8935 44.6452,46.485 Z "/>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 0.134193,21.838L 0,21.6895C 0.515099,16.0154 0.610764,9.68066 3.63155,5.06021C 6.0047,1.43033 11.7108,-1.50204 15.1636,0.837921C 20.8482,4.6904 22.4457,14.3425 21.8564,21.6895C 21.4777,26.4113 21.5456,32.8077 17.8474,35.2008C 16.3005,36.2018 14.2649,35.0427 12.4798,34.8691C 9.04776,34.5353 4.70741,37.6958 2.14706,35.1451C -0.873672,32.1359 0.162415,26.3353 0.134193,21.838 Z "/>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 3.35477,46.485L 3.22059,46.3365C 3.40908,42.8239 8.85205,42.8868 11.943,42.0586C 14.1267,41.4734 17.3239,39.3392 18.6526,41.344C 19.8346,43.1276 19.7046,45.6267 19.9525,47.8213C 20.3553,51.3864 20.2527,55.8605 17.9229,58.3631C 15.3332,61.1449 9.92001,61.5498 7.11213,59.0405C 4.01244,56.2704 3.38798,50.8935 3.35477,46.485 Z "/>
+            </DrawingGroup.Children>
+        </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush po:Freeze="true" x:Key="RequiresSupervisionBrush"  Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 4.00001,53.6803C 20,39.7568 36,25.8333 52,25.8333C 68,25.8333 84,39.7568 92,46.7186L 100,53.6803L 92,60.642C 84,67.6038 68,81.5273 52,81.5273C 36.0001,81.5273 20.0001,67.6038 4.00001,53.6803 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 52.4298,34.8333C 62.1336,34.8333 70,43.1024 70,53.3029C 70,63.5034 62.1336,71.7725 52.4298,71.7725C 42.726,71.7725 34.8595,63.5034 34.8595,53.3029C 34.8595,43.1024 42.726,34.8333 52.4298,34.8333 Z M 52.1044,46.6334C 48.8585,46.6334 46.2272,49.3898 46.2272,52.7899C 46.2272,56.1901 48.8585,58.9465 52.1044,58.9465C 55.3503,58.9465 57.9815,56.1901 57.9815,52.7899C 57.9815,49.3898 55.3503,46.6334 52.1044,46.6334 Z "/>
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M 60.9019,25.6495L 69.3333,4">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M 76.3676,31.8333L 88.75,15.8333">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#FF000000" Geometry="F1 M 87.0686,42.6742L 105.296,33.0547">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush po:Freeze="true" x:Key="RequiresMedicalRecordsBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 66,82L 2,82L 2,2L 41.2521,2">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 43.0021,25.334L 66,25.334L 43.0021,2L 43.0021,25.334">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 66,24.6673L 66,82">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="4" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+
+    <DrawingBrush po:Freeze="true" x:Key="NotificationPhysioIconBrush" Stretch="Fill">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="M 28.9792,29.2848L 24.3019,31.6001L 19.6246,22.3385L 10.27,22.3385L 10.27,6.13077">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="3" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 10.27,15.3924L 18.4431,15.3924">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="3" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 11.4393,1.5C 13.3767,1.5 14.9472,3.05493 14.9472,4.97311C 14.9472,6.89124 13.3766,8.44617 11.4393,8.44617C 9.50186,8.44617 7.93127,6.89124 7.93127,4.97311C 7.93127,3.05493 9.50186,1.5 11.4393,1.5 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="3" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 19.5512,28.4003C 17.9907,31.584 14.7581,33.7708 11.0234,33.7708C 5.76376,33.7708 1.5,29.4336 1.5,24.0833C 1.5,20.1703 3.78061,16.7992 7.06348,15.2703">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="3" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <LinearGradientBrush po:Freeze="true" x:Key="Apple1Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour1Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour1Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple2Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour2Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour2Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple3Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour3Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour3Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple4Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour4Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour4Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple5Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour5Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour5Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple6Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour6Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour6Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple7Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour7Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour7Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple8Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour8Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour8Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple9Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour9Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour9Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="Apple10Brush" StartPoint="0.5,1" EndPoint="0.5,1">
+		<GradientStop Color="{StaticResource StartAppleColour10Colour}" Offset="0"/>
+		<GradientStop Color="{StaticResource EndAppleColour10Colour}" Offset="1"/>
+	</LinearGradientBrush>
+
+		<!-- Controls -->
+	<SolidColorBrush po:Freeze="true" x:Key="popupBackgroundBrush" Color="#E9E9E9"/>
+	<SolidColorBrush po:Freeze="true" x:Key="popupBlackoutBrush" Color="{StaticResource Black}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="groupBackgroundBrush" Color="GhostWhite"/>
+
+
+	<SolidColorBrush po:Freeze="true" x:Key="alternativeBackgroundBrush" Color="{StaticResource 33Gray}"/>
+
+
+
+	<!--<LinearGradientBrush po:Freeze="true" x:Key="PressedBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#BBB" Offset="0.0"/>
+		<GradientStop Color="#EEE" Offset="0.1"/>
+		<GradientStop Color="#EEE" Offset="0.9"/>
+		<GradientStop Color="#FFF" Offset="1.0"/>
+	</LinearGradientBrush>-->
+
+	<!--<SolidColorBrush po:Freeze="true" x:Key="SelectedBackgroundBrush" Color="#DDD"/>-->
+
+	<!--<SolidColorBrush po:Freeze="true" x:Key="DisabledForegroundBrush" Color="#888"/>
+	<SolidColorBrush po:Freeze="true" x:Key="DisabledBackgroundBrush" Color="#EEE"/>
+	<SolidColorBrush po:Freeze="true" x:Key="DisabledBorderBrush" Color="#AAA"/>-->
+
+	<!--<SolidColorBrush po:Freeze="true" x:Key="WindowBackgroundBrush" Color="#FFF"/>-->
+
+	<LinearGradientBrush po:Freeze="true" x:Key="DefaultedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#CCCCCC" Offset="0.0"/>
+        <GradientStop Color="#898A8B" Offset="1.0"/>
+	</LinearGradientBrush>
+
+	<!--<SolidColorBrush po:Freeze="true" x:Key="SolidBorderBrush" Color="#888"/>-->
+	<SolidColorBrush po:Freeze="true" x:Key="LightBorderBrush" Color="#AAA"/>
+	<!--<SolidColorBrush po:Freeze="true" x:Key="LightColorBrush" Color="#DDD"/>-->
+
+	<SolidColorBrush po:Freeze="true" x:Key="GlyphBrush" Color="GhostWhite"/>
+	<SolidColorBrush po:Freeze="true" x:Key="DarkGlyphBrush" Color="#333"/>
+
+	<!--<LinearGradientBrush  po:Freeze="true" x:Key="ComboBackgroundBrush" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartNotesColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndNotesColour}" Offset="1" />
+	</LinearGradientBrush>-->
+
+	<!--<LinearGradientBrush po:Freeze="true" x:Key="NormalBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#EEE" Offset="0.0"/>
+		<GradientStop Color="#CCC" Offset="1.0"/>
+	</LinearGradientBrush>-->
+	
+	<!--<LinearGradientBrush po:Freeze="true" x:Key="NormalBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#CCC" Offset="0.0"/>
+		<GradientStop Color="#444" Offset="1.0"/>
+	</LinearGradientBrush>-->
+
+
+	<LinearGradientBrush po:Freeze="true" x:Key="PressedBackBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#DEC39B" Offset="0.0" />
+		<GradientStop Color="#896836" Offset="1.0" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush  po:Freeze="true" x:Key="AckButtonBackgroundBrush"  StartPoint="0.5,1.00246" EndPoint="0.5,-0.00245525">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FF256E49" Offset="0"/>
+			<GradientStop Color="#FF67BA91" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	
+	<!-- LightBrush is used for content areas such as Menu, Tab Control background -->
+	<LinearGradientBrush po:Freeze="true" x:Key="LightBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#FFF" Offset="0.0"/>
+		<GradientStop Color="#EEE" Offset="1.0"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush  po:Freeze="true" x:Key="DefaultControlBackBrush" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource White}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource 33Gray}" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush  po:Freeze="true" x:Key="WhiteTransparentBrush" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource White}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource White}" Offset="1" />
+	</LinearGradientBrush>
+
+	<!-- Schedule -->
+	<SolidColorBrush po:Freeze="true" x:Key="CurrentTimeBrush" Color="{StaticResource Gold}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="LastUpdatedBrush" Color="{StaticResource Black}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="RequiresAttentionBrush" Color="{StaticResource RequiresAttentionColour}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="ModifiedBrush" Color="{StaticResource ModifiedColour}"/>
+
+	<LinearGradientBrush  po:Freeze="true" x:Key="OrderBrush" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartOrderColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndOrderColour}" Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush  po:Freeze="true" x:Key="StandardBrush2" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartInjectionColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndInjectionColour}" Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush  po:Freeze="true" x:Key="StandardBrush3" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartFastingColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndFastingColour}" Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush  po:Freeze="true" x:Key="StandardBrush4" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartPrepColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndPrepColour}" Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush  po:Freeze="true" x:Key="StandardBrush5" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartNotesColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndNotesColour}" Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush  po:Freeze="true" x:Key="StandardBrush6" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartTBAColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndTBAColour}" Offset="1" />
+	</LinearGradientBrush>
+	
+	<LinearGradientBrush  po:Freeze="true" x:Key="DisabledBrush" StartPoint="0,0"  EndPoint="0,1">
+		<GradientStop Color="{StaticResource StartDisabledColour}" Offset="0.9"  />
+		<GradientStop Color="{StaticResource EndDisabledColour}" Offset="1" />
+	</LinearGradientBrush>
+	
+	<!-- Menu -->
+	<LinearGradientBrush po:Freeze="true" x:Key="MenuBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#3590D0" Offset="0.0" />
+		<GradientStop Color="#30649C" Offset="1.0" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush po:Freeze="true" x:Key="MenuEnabledBrush" StartPoint="0,-0.5" EndPoint="0,1">
+		<GradientStop Color="#C8C7C5" Offset="0.0" />
+		<GradientStop Color="#808080" Offset="1.0" />
+	</LinearGradientBrush>
+	
+	<!-- Donut -->
+	<LinearGradientBrush po:Freeze="true" x:Key="donutBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="DeepSkyBlue" Offset="0"/>
+		<GradientStop Color="DarkSlateGray" Offset="0.5"/>
+		<GradientStop Color="DeepSkyBlue" Offset="1"/>
+	</LinearGradientBrush>
+	<LinearGradientBrush po:Freeze="true" x:Key="donutGlyphBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFCCCCCC"/>
+		<GradientStop Color="#FFCCCCCC" Offset="1"/>
+		<GradientStop Color="WhiteSmoke" Offset="0.5"/>
+	</LinearGradientBrush>
+	<RadialGradientBrush po:Freeze="true" x:Key="donutSpinBrush">
+		<GradientStop Offset="0" Color="#878787"/>
+		<GradientStop Offset="1" Color="#00878787" />
+	</RadialGradientBrush>
+
+	<!-- Veritcal Drop Shadow -->
+	
+
+
+	<!-- Login	-->
+	<LinearGradientBrush po:Freeze="true" x:Key="standardLockBackgroundBrush" StartPoint="0.5,1.00856" EndPoint="0.5,-0.00856591">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FFC2C2C2" Offset="0"/>
+			<GradientStop Color="#FFE0E0E0" Offset="0.836013"/>
+			<GradientStop Color="#FFFFFFFF" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush po:Freeze="true" x:Key="clearLockBackgroundBrush" StartPoint="0.5,1.00856" EndPoint="0.5,-0.00856783">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FF767676" Offset="0"/>
+			<GradientStop Color="#FFA7A7A7" Offset="0.836013"/>
+			<GradientStop Color="#FFD8D8D8" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<LinearGradientBrush po:Freeze="true" x:Key="goLockBackgroundBrush"  StartPoint="0.5,1.00856" EndPoint="0.5,-0.00856783">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FF335B78" Offset="0"/>
+			<GradientStop Color="#FF5888AB" Offset="0.836013"/>
+			<GradientStop Color="#FF7EB6DE" Offset="1"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<!--<LinearGradientBrush po:Freeze="true" x:Key="passwordLockBackgroundBrush"  StartPoint="0.500002,2.50519" EndPoint="0.500002,-1.50522">
+			<LinearGradientBrush.GradientStops>
+				<GradientStop Color="#FFC2C2C2" Offset="0.204651"/>
+				<GradientStop Color="#FFE0E0E0" Offset="0.274419"/>
+				<GradientStop Color="#FFFFFFFF" Offset="0.525581"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>-->
+	<SolidColorBrush po:Freeze="true" x:Key="passwordLockBackgroundBrush" Color="{StaticResource White}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="passwordLockFailureBackgroundBrush" Color="#FF5C5C"/>
+ 
+	<!-- Peel -->
+	<SolidColorBrush po:Freeze="true" x:Key="PeelGroupBorder" Color="#232323"/>
+
+
+	<DrawingBrush po:Freeze="true" x:Key="RoundedPlusButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFF3F6F7" Geometry="F1 M 44.4131,1.00003C 68.3895,1.00003 87.8262,20.5875 87.8262,44.7499C 87.8262,68.9124 68.3895,88.4998 44.4131,88.4998C 20.4367,88.4998 1,68.9124 1,44.7499C 1,20.5875 20.4367,1.00003 44.4131,1.00003 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 44.4717,4.38022C 65.8916,4.38022 83.2558,22.5385 83.2558,44.9378C 83.2558,67.3371 65.8916,85.4953 44.4717,85.4953C 23.0517,85.4953 5.68745,67.3371 5.68745,44.9378C 5.68745,22.5385 23.0517,4.38022 44.4717,4.38022 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.5,1.00246" EndPoint="0.5,-0.00245525">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF767676" Offset="0"/>
+									<GradientStop Color="#FFD8D8D8" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 42.5567,19.8365L 46.144,19.8365C 49.5405,19.8365 52.2938,22.7088 52.2938,26.2522L 52.2938,35.9814L 61.3589,36.0365C 64.7552,36.0572 67.4925,38.9463 67.4727,42.4896L 67.4518,46.232C 67.432,49.7753 64.6626,52.631 61.2662,52.6104L 52.2938,52.5558L 52.2938,63.2477C 52.2938,66.791 49.5405,69.6635 46.144,69.6635L 42.5567,69.6635C 39.1602,69.6635 36.4068,66.791 36.4068,63.2477L 36.4068,52.4591L 25.8052,52.3946C 22.4089,52.3741 19.6716,49.4849 19.6914,45.9416L 19.7123,42.1991C 19.7321,38.6559 22.5015,35.8001 25.8979,35.8208L 36.4068,35.8848L 36.4068,26.2522C 36.4068,22.7088 39.1602,19.8365 42.5567,19.8365 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF3B3932"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="RoundedPlayButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFF3F6F7" Geometry="F1 M 44.9808,0.999969C 69.2708,0.999969 88.9617,21.006 88.9617,45.6844C 88.9617,70.3629 69.2708,90.3689 44.9808,90.3689C 20.6909,90.3689 1,70.3629 1,45.6844C 1,21.006 20.6909,0.999969 44.9808,0.999969 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 45.0401,4.45236C 66.7402,4.45236 84.3315,22.9985 84.3315,45.8763C 84.3315,68.7541 66.7402,87.3001 45.0401,87.3001C 23.3401,87.3001 5.74872,68.7541 5.74872,45.8763C 5.74872,22.9985 23.3401,4.45236 45.0401,4.45236 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.5,1.00245" EndPoint="0.5,-0.00245473">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF335B78" Offset="0"/>
+									<GradientStop Color="#FF7EB6DE" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 65.5294,45.4005L 34.5648,28.9618L 34.0455,60.8332L 65.5294,45.4005 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FFD5DFE5"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="RoundedInfoButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFF3F6F7" Geometry="F1 M 37.5066,0.999992C 57.6686,0.999992 74.0132,16.6686 74.0132,35.9967C 74.0132,55.3248 57.6686,70.9933 37.5066,70.9933C 17.3446,70.9933 1,55.3248 1,35.9967C 1,16.6686 17.3446,0.999992 37.5066,0.999992 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 37.5558,3.70393C 55.5681,3.70393 70.1699,18.2292 70.1699,36.1469C 70.1699,54.0646 55.5681,68.5899 37.5558,68.5899C 19.5436,68.5899 4.94174,54.0646 4.94174,36.1469C 4.94174,18.2292 19.5436,3.70393 37.5558,3.70393 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.5,1.00245" EndPoint="0.5,-0.00245463">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF335B78" Offset="0"/>
+									<GradientStop Color="#FF7EB6DE" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 39.0284,51.3082C 38.5967,51.444 38.1084,51.5549 37.5633,51.6411C 37.0183,51.7272 36.4773,51.7703 35.9406,51.7703C 34.1974,51.7703 32.8929,51.3552 32.0269,50.525C 31.1608,49.6948 30.7278,48.5827 30.7278,47.1886C 30.7278,46.7813 30.7707,46.2984 30.8565,45.7397C 30.9422,45.181 31.082,44.4892 31.2757,43.6642L 35.1354,26.2068L 39.4434,26.2068L 35.5504,43.6564C 35.3955,44.3456 35.2876,44.8769 35.2267,45.2502C 35.1658,45.6235 35.1354,45.9407 35.1354,46.2018C 35.1354,46.8753 35.3305,47.387 35.7206,47.7368C 36.1107,48.0867 36.7291,48.2616 37.5758,48.2616C 38.024,48.2616 38.4169,48.2368 38.7545,48.1872C 39.092,48.1376 39.4074,48.0632 39.7007,47.964L 39.0284,51.3082 Z M 42.0664,17.1217C 42.0664,17.8318 41.8021,18.4375 41.2737,18.9387C 40.7452,19.44 40.0909,19.6906 39.3106,19.6906C 38.5525,19.6906 37.8926,19.4439 37.3309,18.9505C 36.7692,18.4571 36.4884,17.8475 36.4884,17.1217C 36.4884,16.4012 36.7692,15.8138 37.3309,15.3595C 37.8926,14.9053 38.5525,14.6782 39.3106,14.6782C 40.0742,14.6782 40.7245,14.9092 41.2612,15.3713C 41.798,15.8334 42.0664,16.4168 42.0664,17.1217 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+
+	<DrawingBrush po:Freeze="true" x:Key="CleaningButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 35.9955,17.9978C 27.4849,17.9978 20.3539,23.905 18.4792,31.8429L 53.5118,31.8429C 51.6371,23.905 44.5061,17.9978 35.9955,17.9978 Z M 35.9955,53.9933C 44.5556,53.9933 51.7199,48.0172 53.544,40.0095L 18.447,40.0095C 20.2711,48.0172 27.4354,53.9933 35.9955,53.9933 Z M 35.9955,3.05176e-005C 55.8753,3.05176e-005 71.991,16.1158 71.991,35.9955C 71.991,55.8753 55.8753,71.991 35.9955,71.991C 16.1157,71.991 0,55.8753 0,35.9955C 0,16.1158 16.1157,3.05176e-005 35.9955,3.05176e-005 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	
+	<!--<DrawingBrush po:Freeze="true" x:Key="RoundedCleanButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 0.500001,0.5L 72.6667,0.5L 72.6667,73.3542L 0.500001,73.3542L 0.500001,0.5 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFF00" Geometry="F1 M 15.5,9.33333L 55.5,9.33333L 55.5,67L 15.5,67L 15.5,9.33333 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 15.3333,26.1667L 55.5,26.1667L 55.5,33.3333L 15.3333,33.3333L 15.3333,26.1667 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF00C800" Geometry="F1 M 15.3333,67L 55.5,67L 55.5,33.3333L 15.3333,33.3333L 15.3333,67 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 17.5,11.3333L 53,11.3333L 53,24L 17.5,24L 17.5,11.3333 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+
+	<DrawingBrush po:Freeze="true" x:Key="RoundedDirtyButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 0.500001,0.5L 72.6667,0.5L 72.6667,73.3542L 0.500001,73.3542L 0.500001,0.5 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFF00" Geometry="F1 M 15.5,9.33333L 55.5,9.33333L 55.5,67L 15.5,67L 15.5,9.33333 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFF7D00" Geometry="F1 M 15.3333,67L 55.5,67L 55.5,33.3333L 15.3333,33.3333L 15.3333,67 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 17.5,11.3333L 53,11.3333L 53,24L 17.5,24L 17.5,11.3333 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 15.3333,26.1667L 55.5,30.1667L 55.5,57.1667C 52.8333,50.3333 46.5,46.8333 41.1667,42.8333C 35.8333,38.8333 25,33.3333 15.3333,33.3333L 15.3333,26.1667 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 27.1667,23.8333L 32.6667,18.1667">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 40.1667,12.3333L 44.8333,18.5">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 34.1667,38.8333L 22.5,49.1667">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 28.1667,45.6667L 33.8333,60.8333">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 44.5,67L 50.3333,55.1667">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 55.5,42L 43.6667,33.3333">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="{StaticResource BlackBrush}"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>-->
+
+	<DrawingBrush po:Freeze="true" x:Key="InfoButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Brush="#FF949694" Geometry="F1 M 47.7808,66.0542C 47.2175,66.2419 46.5801,66.3954 45.8687,66.5146C 45.1573,66.6338 44.4514,66.6933 43.7508,66.6933C 41.4758,66.6933 39.7731,66.1192 38.6429,64.9708C 37.5125,63.8225 36.9474,62.2842 36.9474,60.3558C 36.9474,59.7925 37.0035,59.1244 37.1153,58.3517C 37.2274,57.5789 37.4097,56.6219 37.6624,55.4808L 42.7,31.3333L 48.3224,31.3333L 43.2416,55.47C 43.0394,56.4233 42.8985,57.1582 42.8192,57.6746C 42.7397,58.1909 42.7,58.6297 42.7,58.9908C 42.7,59.9225 42.9545,60.6303 43.4637,61.1142C 43.9728,61.5981 44.78,61.84 45.8849,61.84C 46.4699,61.84 46.9827,61.8057 47.4233,61.7371C 47.8638,61.6685 48.2755,61.5656 48.6583,61.4283L 47.7808,66.0542 Z M 51.7458,18.7667C 51.7458,19.7489 51.4009,20.5867 50.7112,21.28C 50.0215,21.9733 49.1674,22.32 48.1491,22.32C 47.1597,22.32 46.2984,21.9788 45.5654,21.2962C 44.8323,20.6138 44.4658,19.7706 44.4658,18.7667C 44.4658,17.77 44.8323,16.9575 45.5654,16.3292C 46.2984,15.7009 47.1597,15.3867 48.1491,15.3867C 49.1458,15.3867 49.9944,15.7062 50.6949,16.3454C 51.3956,16.9846 51.7458,17.7917 51.7458,18.7667 Z "/>
+                    <GeometryDrawing Geometry="F1 M 44.8487,4C 67.409,4 85.6974,21.3887 85.6974,42.839C 85.6974,64.2892 67.4089,81.678 44.8487,81.678C 22.2886,81.678 4,64.2892 4,42.839C 4,21.3887 22.2885,4 44.8487,4 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" LineJoin="Round" Brush="#FF949694"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+	</DrawingBrush>
+
+
+	<DrawingBrush po:Freeze="true" x:Key="DischargeButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 7,3L 83.6669,3C 85.876,3 87.6669,4.79083 87.6669,7L 87.6669,58.5009C 87.6669,60.7101 85.876,62.5009 83.6669,62.5009L 7,62.5009C 4.79083,62.5009 3,60.7101 3,58.5009L 3,7C 3,4.79083 4.79083,3 7,3 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FF949694"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+
+	<DrawingBrush po:Freeze="true" x:Key="RoundedHideButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 7,3L 83.6669,3C 85.876,3 87.6669,4.79083 87.6669,7L 87.6669,58.5009C 87.6669,60.7101 85.876,62.5009 83.6669,62.5009L 7,62.5009C 4.79083,62.5009 3,60.7101 3,58.5009L 3,7C 3,4.79083 4.79083,3 7,3 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FF949694"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 52.3751,39.2504L 52.3751,29.6356L 38.1843,39.3499L 52.3751,39.2504 Z "/>
+					<GeometryDrawing Brush="#FF393839" Geometry="F1 M 52.3751,60.5397L 52.3751,60.5837L 52.4283,60.5394L 52.3751,60.5397 Z "/>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 86.4547,60.3411L 85.1317,7.21191L 53.0443,29.1775L 71.0004,45.1117L 52.4283,60.5394L 86.4547,60.3411 Z "/>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 12.3711,60.7729L 52.3751,60.5397L 52.3751,49.917L 22.7977,49.8829L 7.52039,60.3411L 12.3711,60.7729 Z "/>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 12.2502,77.1382L 28.2502,69.1067L 44.2502,69.1067L 60.2502,69.1067L 76.2501,77.1382L 12.2502,77.1382 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+
+	<DrawingBrush po:Freeze="true" x:Key="RoundedUnhideButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 7,2.99997L 83.6668,2.99997C 85.876,2.99997 87.6668,4.79086 87.6668,6.99997L 87.6668,58.5009C 87.6668,60.7101 85.876,62.5009 83.6668,62.5009L 7,62.5009C 4.79083,62.5009 3,60.7101 3,58.5009L 3,6.99997C 3,4.79086 4.79083,2.99997 7,2.99997 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FF949694"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 12.3711,60.773L 86.4546,60.3411L 85.1317,7.21194L 7.52032,60.3411">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FF949694"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 28.292,43.5837L 9.66675,27.0557L 28.292,11.5837L 28.292,22.2504L 63.9586,22.2915L 64.0001,32.6665L 28.292,32.9171L 28.292,43.5837 Z "/>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 12.0281,78.0943L 28.0281,70.0629L 44.0281,70.0629L 60.0281,70.0629L 76.0281,78.0943L 12.0281,78.0943 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+
+	<DrawingBrush po:Freeze="true" x:Key="RoundedCorrectButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFF3F6F7" Geometry="F1 M 44.4131,1.00005C 68.3894,1.00005 87.8262,20.5875 87.8262,44.7499C 87.8262,68.9124 68.3895,88.4999 44.4131,88.4999C 20.4367,88.4999 1,68.9124 1,44.7499C 1,20.5875 20.4367,1.00005 44.4131,1.00005 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="{StaticResource AckButtonBackgroundBrush}" Geometry="F1 M 44.4716,4.38023C 65.8915,4.38023 83.2558,22.5385 83.2558,44.9378C 83.2558,67.3371 65.8915,85.4953 44.4716,85.4953C 23.0517,85.4953 5.68744,67.3371 5.68744,44.9378C 5.68744,22.5385 23.0517,4.38023 44.4716,4.38023 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF808080"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 24.8343,43.9933L 34.5341,61.9911L 60.8297,25.9957">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="10" LineJoin="Round" Brush="#FFFFFFFF"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="AcknowledgeNotificationButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 2,29.7022L 47.3312,29.7022L 47.3312,70.6598L 2,70.6598L 2,29.7022 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="4" LineJoin="Round" Brush="#FF616161"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 8.17102,33.3511L 25.1466,61.7022L 71.1665,5.00002">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="10" LineJoin="Round" Brush="#FF949694"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush  po:Freeze="true" x:Key="LocationButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 32.5015,8.4759C 45.5408,8.4759 56.1111,18.8559 56.1111,31.6601C 56.1111,44.4643 45.5408,54.8442 32.5015,54.8442C 19.4623,54.8442 8.89209,44.4643 8.89209,31.6601C 8.89209,18.8559 19.4623,8.4759 32.5015,8.4759 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" LineJoin="Round" Brush="#FF959595"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 32.5461,2.00007L 32.5461,21.5729">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" LineJoin="Round" Brush="#FF959595"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 31.9966,42.6628L 31.9966,62">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" LineJoin="Round" Brush="#FF959595"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 61.9969,31.2789L 43.9706,31.2789">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" LineJoin="Round" Brush="#FF959595"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 21.2397,31.1264L 2,31.1264">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="4" LineJoin="Round" Brush="#FF959595"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush  po:Freeze="true" x:Key="HistoryButtonBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 44.8487,4.00003C 67.4089,4.00003 85.6974,21.3888 85.6974,42.839C 85.6974,64.2892 67.4088,81.678 44.8487,81.678C 22.2886,81.678 4,64.2892 4,42.839C 4,21.3888 22.2885,4.00003 44.8487,4.00003 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="8" LineJoin="Round" Brush="#FF949694"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 43.9978,14.6499L 43.9978,45.6672L 60.7498,37">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FF949694"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="TrackingButtonBrush"  Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 0,5.72205e-006L 22.5725,5.72205e-006L 22.5725,20.1705L 0,20.1705L 0,5.72205e-006 Z "/>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 0.072998,26.1686L 35.5728,26.1686L 35.5728,46.3391L 0.072998,46.3391L 0.072998,26.1686 Z "/>
+					<GeometryDrawing Brush="#FF949694" Geometry="F1 M 0.000244141,50.9962L 72.667,50.9962L 72.667,71.1666L 0.000244141,71.1666L 0.000244141,50.9962 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="peelItemDefaultedBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 15.7457,1.00006C 23.8895,1.00006 30.4913,7.49091 30.4913,15.4979C 30.4913,23.5047 23.8895,29.9955 15.7457,29.9955C 7.60193,29.9955 1,23.5047 1,15.4979C 1,7.49091 7.60193,1.00006 15.7457,1.00006 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF7E7E7E"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.500002,1.00245" EndPoint="0.500002,-0.00245442">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF747474" Offset="0"/>
+									<GradientStop Color="#FFDEDEDE" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="peelItemSelectedBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 15.7457,1.00003C 23.8896,1.00003 30.4916,7.49088 30.4916,15.4978C 30.4916,23.5047 23.8896,29.9955 15.7457,29.9955C 7.60193,29.9955 1,23.5047 1,15.4978C 1,7.49088 7.60193,1.00003 15.7457,1.00003 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="2" LineJoin="Round" Brush="#FF5B707E"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.5,1.00245" EndPoint="0.5,-0.00245442">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="OrangeRed" Offset="0"/>
+									<GradientStop Color="Orange" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="peelItemAltrnativeSelectedBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 3,18.5746L 10.9171,34.1492L 32.3801,3">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" Brush="#FF373737"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="lockBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFD4D4D4" Geometry="M 3,29.1149L 62.0002,29.1149L 62.0002,74L 3,74L 3,29.1149 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FFA1A1A1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M 8.99988,29.115C 8.99988,14.6921 19.7451,3.00006 32.9999,3.00006C 46.2546,3.00006 56.9998,14.6921 56.9998,29.115">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="6" LineJoin="Round" Brush="#FFA1A1A1"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<!-- Clinical Indicators-->
+	<DrawingBrush  po:Freeze="true" x:Key="ClinicalIndicatorFallBrush" Stretch="Fill">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF638AA5" Geometry="F1 M 0.5,0.500122L 62.6479,0.500122L 62.6479,39.6188L 0.5,39.6188L 0.5,0.500122 Z ">
+					 </GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 35.9232,12.3823L 27.7098,12.3823L 27.7098,19.7156L 35.3365,19.7156L 35.3365,21.7689L 27.7098,21.7689L 27.7098,30.8622L 25.3632,30.8622L 25.3632,10.3289L 35.9232,10.3289L 35.9232,12.3823 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush  po:Freeze="true" x:Key="ClinicalIndicatorMrsaBrush" Stretch="Fill">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFC94747" Geometry="F1 M 0.5,0.500061L 62.6478,0.500061L 62.6478,39.6188L 0.5,39.6188L 0.5,0.500061 Z ">
+						 </GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 31.8335,30.3452L 29.4868,30.3452L 29.4868,16.5722C 29.4868,15.4814 29.5525,14.1492 29.684,12.5755L 29.6244,12.5755C 29.3921,13.5014 29.1843,14.1645 29.001,14.5647L 21.9014,30.3452L 20.7144,30.3452L 13.6285,14.6793C 13.4238,14.2209 13.216,13.5197 13.0051,12.5755L 12.9456,12.5755C 13.022,13.3975 13.0602,14.7388 13.0602,16.5997L 13.0602,30.3452L 10.7135,30.3452L 10.7135,9.81177L 13.9172,9.81177L 20.3064,24.1301C 20.7983,25.2271 21.1177,26.0475 21.2643,26.5914L 21.3514,26.5914C 21.767,25.4639 22.1016,24.6236 22.3552,24.0706L 28.8727,9.81177L 31.8335,9.81177L 31.8335,30.3452 Z "/>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 51.4868,23.0118L 45.6202,23.0118L 45.6202,28.8785L 43.5668,28.8785L 43.5668,23.0118L 37.7002,23.0118L 37.7002,20.9585L 43.5668,20.9585L 43.5668,15.0918L 45.6202,15.0918L 45.6202,20.9585L 51.4868,20.9585L 51.4868,23.0118 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush  po:Freeze="true" x:Key="ClinicalIndicatorLatexBrush" Stretch="Fill">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF000000" Geometry="F1 M 0.5,0.500122L 62.6479,0.500122L 62.6479,39.6188L 0.5,39.6188L 0.5,0.500122 Z ">
+						</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 28.5338,30.4349L 17.9737,30.4349L 17.9737,9.90155L 20.3204,9.90155L 20.3204,28.3816L 28.5338,28.3816L 28.5338,30.4349 Z "/>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 42.1096,15.7682L 37.1824,23.1887L 42.027,30.4349L 39.2954,30.4349L 36.4216,25.682C 36.2414,25.3856 36.0259,25.0128 35.7754,24.5637L 35.7204,24.5637C 35.6714,24.6492 35.447,25.022 35.0466,25.682L 32.1179,30.4349L 29.4138,30.4349L 34.4141,23.2437L 29.6292,15.7682L 32.3608,15.7682L 35.1887,20.7824C 35.3996,21.1552 35.6042,21.5371 35.8029,21.9282L 35.8625,21.9282L 39.52,15.7682L 42.1096,15.7682 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush  po:Freeze="true" x:Key="ClinicalIndicatorRadioactiveBrush" Stretch="Fill">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="Goldenrod" Geometry="F1 M 0.5,0.500061L 62.6479,0.500061L 62.6479,39.6188L 0.5,39.6188L 0.5,0.500061 Z ">
+						</GeometryDrawing>
+					<GeometryDrawing Brush="Black" Geometry="F1 M 39.2478,22.2863C 39.2478,28.0368 36.6506,30.912 31.4562,30.912C 26.4818,30.912 23.9946,28.1453 23.9946,22.6117L 23.9946,10.0854L 26.3412,10.0854L 26.3412,22.5246C 26.3412,26.7474 28.1318,28.8588 31.7128,28.8588C 35.1718,28.8588 36.9012,26.8192 36.9012,22.7401L 36.9012,10.0854L 39.2478,10.0854L 39.2478,22.2863 Z "/>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+	<DrawingBrush po:Freeze="true" x:Key="onBrush"  Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 15.6982,0.499977C 24.092,0.499977 30.8965,7.13953 30.8965,15.3298C 30.8965,23.5202 24.092,30.1598 15.6982,30.1598C 7.3045,30.1598 0.5,23.5202 0.5,15.3298C 0.5,7.13953 7.3045,0.499977 15.6982,0.499977 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF494949"/>
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.499999,1.00245" EndPoint="0.499999,-0.00245398">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#FF006CB8" Offset="0"/>
+                                    <GradientStop Color="#FF46B3FF" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 10.8817,19.783C 9.70502,19.783 8.76544,19.4118 8.06293,18.6693C 7.36044,17.9268 7.00919,16.9422 7.00919,15.7155C 7.00919,14.3805 7.3746,13.338 8.10544,12.588C 8.83627,11.838 9.82419,11.463 11.0692,11.463C 12.2559,11.463 13.1825,11.8276 13.8492,12.5568C 14.5159,13.286 14.8492,14.298 14.8492,15.593C 14.8492,16.8597 14.49,17.8747 13.7717,18.638C 13.0533,19.4013 12.09,19.783 10.8817,19.783 Z M 10.9767,12.583C 10.1483,12.583 9.49335,12.8568 9.01169,13.4043C 8.53003,13.9518 8.28918,14.7064 8.28918,15.668C 8.28918,16.5947 8.53296,17.3255 9.02045,17.8605C 9.50793,18.3955 10.16,18.663 10.9767,18.663C 11.81,18.663 12.4504,18.4009 12.8979,17.8768C 13.3455,17.3526 13.5692,16.6063 13.5692,15.638C 13.5692,14.6597 13.3455,13.906 12.8979,13.3768C 12.4504,12.8476 11.81,12.583 10.9767,12.583 Z "/>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 23.6492,19.623L 22.3692,19.623L 22.3692,15.1055C 22.3692,13.4238 21.7367,12.583 20.4717,12.583C 19.8184,12.583 19.278,12.8214 18.8504,13.298C 18.4229,13.7747 18.2092,14.3772 18.2092,15.1055L 18.2092,19.623L 16.9292,19.623L 16.9292,11.623L 18.2092,11.623L 18.2092,13.0205L 18.2417,13.0205C 18.855,11.9822 19.7425,11.463 20.9042,11.463C 21.7925,11.463 22.4721,11.7447 22.943,12.3081C 23.4138,12.8713 23.6492,13.6847 23.6492,14.748L 23.6492,19.623 Z "/>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+	<DrawingBrush  po:Freeze="true" x:Key="exclaimBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 15.6983,0.499977C 24.092,0.499977 30.8965,7.1396 30.8965,15.3299C 30.8965,23.5202 24.092,30.1598 15.6983,30.1598C 7.30449,30.1598 0.5,23.5202 0.5,15.3299C 0.5,7.1396 7.30449,0.499977 15.6983,0.499977 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF494949"/>
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.5,1.00245" EndPoint="0.5,-0.00245398">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#FFA72828" Offset="0"/>
+                                    <GradientStop Color="#FFE45F5F" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 17.5569,5.51453L 17.2837,18.9773L 13.7321,18.9773L 13.1857,5.51453L 17.5569,5.51453 Z M 15.5207,25.4282C 14.7666,25.4282 14.1433,25.2084 13.651,24.7687C 13.1587,24.329 12.9125,23.7965 12.9125,23.1713C 12.9125,22.5169 13.1608,21.9815 13.6574,21.5651C 14.154,21.1488 14.7751,20.9407 15.5207,20.9407C 16.2777,20.9407 16.8974,21.1517 17.3798,21.5739C 17.8622,21.9961 18.1033,22.5285 18.1033,23.1713C 18.1033,23.8228 17.8643,24.3618 17.3862,24.7884C 16.9081,25.2149 16.2863,25.4282 15.5207,25.4282 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF565656"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+	</DrawingBrush>
+	
+	<DrawingBrush  po:Freeze="true" x:Key="alternativeExclaimBrush" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 19.5234,0.5C 30.0295,0.5 38.5466,9.08344 38.5466,19.6716C 38.5466,30.2599 30.0295,38.8433 19.5234,38.8433C 9.01685,38.8433 0.5,30.2599 0.5,19.6716C 0.5,9.08344 9.01685,0.5 19.5234,0.5 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="#FF494949"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.500003,1.00245" EndPoint="0.500003,-0.00245457">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF3C3270" Offset="0"/>
+									<GradientStop Color="#FF857BB6" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 21.8503,6.98267L 21.5081,24.387L 17.0627,24.387L 16.3789,6.98267L 21.8503,6.98267 Z M 19.3015,32.7266C 18.3574,32.7266 17.5774,32.4423 16.9612,31.8739C 16.345,31.3054 16.0369,30.6171 16.0369,29.8088C 16.0369,28.9628 16.3477,28.2706 16.9695,27.7324C 17.5908,27.1942 18.3682,26.9251 19.3015,26.9251C 20.249,26.9251 21.0247,27.198 21.6287,27.7438C 22.2322,28.2896 22.5342,28.9779 22.5342,29.8088C 22.5342,30.6511 22.2351,31.348 21.6365,31.8994C 21.0381,32.4508 20.2598,32.7266 19.3015,32.7266 Z ">
+						<GeometryDrawing.Pen>
+							<Pen LineJoin="Round" Brush="#FF565656"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+
+    <DrawingBrush po:Freeze="true" x:Key="CloseCardButtonBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 44.8488,4C 67.4089,4 85.6974,21.3888 85.6974,42.839C 85.6974,64.2892 67.4089,81.678 44.8488,81.678C 22.2886,81.678 4,64.2892 4,42.839C 4,21.3888 22.2885,4 44.8488,4 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 27.7499,26.928L 61.7507,60.3769">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 27.7499,60.3769L 59.9874,26.928">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush po:Freeze="true" x:Key="RequiresSupervisionIconBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 4,31.847C 20,17.9235 36,4 52,4C 68,4 84,17.9235 92,24.8853L 100,31.847L 92,38.8087C 84,45.7704 68,59.694 52,59.694C 36.0001,59.694 20.0001,45.7704 4,31.847 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="8" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 52.4298,13C 62.1336,13 70,21.269 70,31.4696C 70,41.67 62.1336,49.9392 52.4298,49.9392C 42.726,49.9392 34.8595,41.67 34.8595,31.4696C 34.8595,21.269 42.726,13 52.4298,13 Z M 52.1044,24.8C 48.8585,24.8 46.2272,27.5565 46.2272,30.9567C 46.2272,34.3568 48.8585,37.1132 52.1044,37.1132C 55.3502,37.1132 57.9816,34.3568 57.9816,30.9567C 57.9816,27.5565 55.3502,24.8 52.1044,24.8 Z "/>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush  po:Freeze="true" x:Key="correctBrush" Stretch="Uniform">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Geometry="F1 M 15.6982,0.499977C 24.092,0.499977 30.8965,7.1396 30.8965,15.3299C 30.8965,23.5202 24.092,30.1598 15.6982,30.1598C 7.30447,30.1598 0.5,23.5202 0.5,15.3299C 0.5,7.1396 7.30447,0.499977 15.6982,0.499977 Z ">
+                        <GeometryDrawing.Pen>
+                            <Pen LineJoin="Round" Brush="#FF494949"/>
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0.499999,1.00245" EndPoint="0.499999,-0.00245398">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Color="#FF216D4A" Offset="0"/>
+                                    <GradientStop Color="#FF68C299" Offset="1"/>
+                                </LinearGradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="F1 M 7.37781,15.6539L 11.7813,23.178L 23.7189,8.12986">
+                        <GeometryDrawing.Pen>
+                            <Pen Thickness="2" LineJoin="Round" Brush="#FFFFFFFF"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+	<!-- Logo -->
+	<RadialGradientBrush po:Freeze="true" x:Key="LogoBackgroundBrush" RadiusX="0.5" RadiusY="0.5" Center="0.5,0.5" GradientOrigin="0.5,0.5">
+		<RadialGradientBrush.GradientStops>
+			<GradientStop Color="{StaticResource White}" Offset="0"/>
+			<GradientStop Color="#1A858585" Offset="0.787037"/>
+			<GradientStop Color="#330B0B0B" Offset="0.907407"/>
+			<GradientStop Color="#00808080" Offset="1"/>
+		</RadialGradientBrush.GradientStops>
+		<RadialGradientBrush.RelativeTransform>
+			<TransformGroup/>
+		</RadialGradientBrush.RelativeTransform>
+	</RadialGradientBrush>
+	<SolidColorBrush po:Freeze="true" x:Key="LogoBeigeBrush" Color="{StaticResource LogoBeige}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="LogoLightGreenBrush" Color="{StaticResource LogoLightGreen}"/>
+	<SolidColorBrush po:Freeze="true" x:Key="LogoDarkGreenBrush" Color="{StaticResource LogoDarkGreen}"/>
+
+</ResourceDictionary>

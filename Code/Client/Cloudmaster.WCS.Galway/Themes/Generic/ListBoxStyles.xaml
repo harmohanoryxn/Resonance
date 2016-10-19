@@ -1,0 +1,153 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+	<Style TargetType="ListBoxItem" >
+		<Setter Property="Panel.Background" Value="{StaticResource WhiteBrush}"/>
+		<Setter Property="Foreground" Value="{StaticResource DarkTextBrush}"/>
+		<Setter Property="Control.HorizontalContentAlignment">
+			<Setter.Value>
+				<Binding Path="HorizontalContentAlignment" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Control.VerticalContentAlignment">
+			<Setter.Value>
+				<Binding Path="VerticalContentAlignment" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ItemsControl}" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Control.Padding" Value="0"/>
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ListBoxItem">
+					<ContentPresenter Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+					<ControlTemplate.Triggers>
+						<!--<Trigger Property="Selector.IsSelected">
+							<Setter Property="Panel.Background" TargetName="Bd" Value="{StaticResource Apple4Brush}"/>
+							<Setter Property="TextElement.Foreground" Value="{StaticResource AlternativeTextColour}"/>
+                            <Trigger.Value>
+                                <s:Boolean>True</s:Boolean>
+                            </Trigger.Value>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelected" Value="True"/>
+                                <Condition Property="Selector.IsSelectionActive" Value="False"/>
+                            </MultiTrigger.Conditions>
+							<Setter Property="Panel.Background" TargetName="Bd" Value="{StaticResource Apple4Brush}"/>
+							<Setter Property="TextElement.Foreground" Value="{StaticResource AlternativeTextColour}"/>
+                        </MultiTrigger>
+                        <Trigger Property="UIElement.IsEnabled">
+							<Setter Property="TextElement.Foreground" Value="{StaticResource AlternativeTextColour}"/>
+                            <Trigger.Value>
+                                <s:Boolean>False</s:Boolean>
+                            </Trigger.Value>
+                        </Trigger>-->
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Background" Value="{x:Null}" />
+				<Setter Property="BorderBrush" Value="{x:Null}" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<Style TargetType="{x:Type ListBox}">
+		<!--<Style.Resources>
+			<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="{StaticResource StartAppleColour5Colour}"/>
+			<SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="{StaticResource StartAppleColour9Colour}"/>
+        </Style.Resources>-->
+		<Setter Property="OverridesDefaultStyle" Value="True"/>
+
+		<Setter Property="SnapsToDevicePixels" Value="true" />
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+		<Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<Grid>
+						<!--<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2" Background="{TemplateBinding Background}" />-->
+						<ScrollViewer Margin="0"  Background="{x:Null}">
+							<ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+						</ScrollViewer>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<!--<Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="{StaticResource DisabledBackgroundBrush}" TargetName="Border" />
+                            <Setter Property="BorderBrush" Value="{StaticResource DisabledBorderBrush}" TargetName="Border" />
+                        </Trigger>
+                        <Trigger Property="IsGrouping" Value="true">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+                        </Trigger>-->
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<ItemsPanelTemplate x:Key="ScheduleListBoxTemplate">
+		<!--<Schedule:TimelineCurrentTimeTracer Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualWidth}" 
+                                      Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ActualHeight}"/>-->
+	</ItemsPanelTemplate>
+
+	<Style x:Key="ListBoxFontStyle">
+		<Setter Property="Label.FontFamily" Value="Segoe UI" />
+		<Setter Property="Label.Foreground" Value="{StaticResource defaultTextBrush}" />
+		<Setter Property="Label.Padding" Value="0" />
+	</Style>
+
+	<Style x:Key="NameFontStyle" BasedOn="{StaticResource ListBoxFontStyle}">
+		<Setter Property="Label.FontSize" Value="12" />
+		<Setter Property="Label.Foreground" Value="{StaticResource defaultTextBrush}" />
+	</Style>
+
+	<Style x:Key="DisabledFontStyle" BasedOn="{StaticResource ListBoxFontStyle}">
+		<Setter Property="Label.FontSize" Value="12" />
+		<Setter Property="Label.Foreground" Value="{StaticResource DisabledTextBrush}" />
+	</Style>
+
+	<Style x:Key="SubTitleListBoxFontStyle" BasedOn="{StaticResource ListBoxFontStyle}">
+		<Setter Property="Label.FontSize" Value="11" />
+		<Setter Property="Label.Foreground" Value="{StaticResource defaultTextBrush}" />
+
+	</Style>
+
+	<Style x:Key="SubSubTitleListBoxFontStyle" BasedOn="{StaticResource ListBoxFontStyle}">
+		<Setter Property="Label.FontSize" Value="11" />
+		<Setter Property="Label.Foreground" Value="{StaticResource SubTextBrush}" />
+	</Style>
+
+	<Style x:Key="TimeFontStyle" BasedOn="{StaticResource ListBoxFontStyle}">
+		<Setter Property="Label.FontSize" Value="14" />
+		<Setter Property="Label.Foreground" Value="{StaticResource TimeTextBrush}" />
+		<Setter Property="Label.FontWeight" Value="Bold" />
+	</Style>
+
+	<Style x:Key="BodyListBoxFontStyle" BasedOn="{StaticResource ListBoxFontStyle}">
+		<Setter Property="Label.FontSize" Value="12" />
+		<Setter Property="Label.Foreground" Value="{StaticResource ListboxTextBrush}" />
+	</Style>
+
+
+
+	<Style x:Key="ScheduleListBoxStyle" TargetType="ListBoxItem">
+		<Style.Resources>
+			<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+			<SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
+		</Style.Resources>
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Style.Triggers>
+			<Trigger Property="IsSelected" Value="True">
+				<!--<Setter  Property="Background" Value="{StaticResource SelectedBrush}" />-->
+				<Setter  Property="BorderBrush" Value="{StaticResource SelectedBorderBrush}" />
+				<Setter  Property="BorderThickness" Value="1" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<!-- End Schedule ListBox Style -->
+</ResourceDictionary>

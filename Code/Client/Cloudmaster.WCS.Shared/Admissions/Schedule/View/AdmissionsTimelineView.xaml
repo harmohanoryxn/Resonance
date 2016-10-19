@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="WCS.Shared.Admissions.Schedule.AdmissionsTimelineView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Schedule2="clr-namespace:WCS.Shared.Ward.Schedule"
+			 xmlns:Controls="clr-namespace:WCS.Shared.Controls" xmlns:Schedule="clr-namespace:WCS.Shared.Schedule" x:Name="rptv"
+			 mc:Ignorable="d"
+             BorderBrush="{StaticResource mainAccentBrush}"
+             BorderThickness ="{Binding Path=SelectionType, Converter={StaticResource booleanToSelectedMargin}}">
+
+	<Grid>
+		<!--<Border Width="1" x:Name="expandingGrowBorder"/>-->
+
+		<DockPanel x:Name="roomContainer">
+
+			<Schedule2:AdmissionsRoomHeader x:Name="patientHeader" DockPanel.Dock="Top" Margin="0,0,0,0"/>
+
+				<Grid x:Name="bedListContainer" DockPanel.Dock="Top" Margin="0,0,0,0">
+
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+
+				<!--<Schedule:TimelineGridlines Opacity="0.4" IsHitTestVisible="false" HasInfobar="True" ShowMinorTicks="False" Grid.RowSpan="1" HasTbaHour="False"/>-->
+			
+				<ListBox x:Name="bedList" Margin="0,0,0,3" Padding="0" VerticalAlignment="Top"  
+							BorderBrush="White"
+                            Background="White"
+                            Width="{Binding ElementName=roomContainer, Path=ActualWidth}" 
+							ItemsSource="{Binding Path=TimelineSource.View}"
+							SelectedItem="{Binding Path=SelectedBed}"                    
+							ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                            Grid.Row="0"
+						 Controls:ListBoxExtenders.AutoScrollToCurrentItemAndFindInContainer="True">
+					<ListBox.Template>
+						<ControlTemplate>
+							<ItemsPresenter/>
+						</ControlTemplate>
+					</ListBox.Template>
+				</ListBox>
+
+				<Schedule:TimelineCurrentTimeTracer IsHitTestVisible="false" HasInfobar="True"  HasTbaHour="False" Grid.RowSpan="3" Opacity="{Binding Path=SelectionType, Converter={StaticResource booleanToSelectedOpacityConvertor}}"/>
+
+			</Grid>
+
+		</DockPanel>
+	</Grid>
+</UserControl>

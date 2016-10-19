@@ -1,0 +1,177 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d" MouseMove="CornerPeelControl_MouseMove" 
+	x:Class="WCS.Shared.Browser.PeelControl"
+	x:Name="CornerPeelControl"  
+	RenderTransformOrigin="0.5,0.5" Focusable="True" PreviewMouseDown="CornerPeelControl_PreviewMouseDown" PreviewTouchDown="CornerPeelControl_PreviewTouchDown">
+  
+	<UserControl.RenderTransform>
+		<TransformGroup>
+			<TranslateTransform x:Name="position" X="0" Y="0"/>
+		</TransformGroup>
+	</UserControl.RenderTransform>
+
+	<Grid x:Name="LayoutRoot">
+
+		<Grid x:Name="root" SizeChanged="OnUpdateClipArea" Width="Auto" Height="Auto" RenderTransformOrigin="0.5,0.5">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform x:Name="scale" ScaleX="1" ScaleY="1"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+
+			<Grid Focusable="False" IsHitTestVisible="True" x:Name="topLayer" Background="{x:Null}" 
+				  Width="{Binding Path=ActualWidth, ElementName=CornerPeelControl}" Height="{Binding Path=ActualHeight, ElementName=CornerPeelControl}"
+				  Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled"  HorizontalAlignment="Left" Margin="0" VerticalAlignment="Center" Visibility="Visible">
+				<Canvas HorizontalAlignment="Left" Panel.ZIndex="2">
+					<Canvas.Clip>
+						<RectangleGeometry x:Name="clipTopLayer" Rect="0,0 0,0">
+							<RectangleGeometry.Transform>
+								<TransformGroup>
+									<TranslateTransform x:Name="clipTopLayerTranslate" X="0" Y="0"/>
+									<RotateTransform x:Name="clipTopLayerRotate" Angle="0"/>
+								</TransformGroup>
+							</RectangleGeometry.Transform>
+						</RectangleGeometry>
+					</Canvas.Clip>
+				</Canvas>
+				
+				<Border x:Name="topLevelContent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextElement.Foreground="#FF000000" 
+						d:LayoutOverrides="Height" Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled"   
+						MouseEnter="EnsurePellIsVisible" Background="{x:Null}">
+
+					<ContentControl Content="{Binding}" ContentTemplate="{DynamicResource toplevelcontenttemplate}" />
+					
+				</Border>
+ 
+			</Grid>
+
+			<Grid Focusable="False" IsHitTestVisible="True"  Margin="0" x:Name="bottomLayer" VerticalAlignment="Center" HorizontalAlignment="Right" 
+				  Width="450" Height="{Binding Path=ActualHeight, ElementName=CornerPeelControl}"
+				  Background="{x:Null}" Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled"   IsEnabled="True" Visibility="Visible">
+				<Canvas IsEnabled="True" IsHitTestVisible="True" HorizontalAlignment="Left" Panel.ZIndex="1" Visibility="Visible">
+					<Canvas.Clip>
+						<RectangleGeometry x:Name="bottomLayerClip" Rect="0,0 0,0">
+							<RectangleGeometry.Transform>
+								<TransformGroup>
+									<RotateTransform x:Name="clipBottomLayerRotate" Angle="0"/>
+									<TranslateTransform x:Name="clipBottomLayerTranslate" X="0" Y="0"/>
+									<TranslateTransform X="-450"/>
+								</TransformGroup>
+							</RectangleGeometry.Transform>
+						</RectangleGeometry>
+					</Canvas.Clip>
+
+
+					<Border   x:Name="turnFlap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextElement.Foreground="#FF000000"  
+							  Width="{Binding Path=ActualWidth, ElementName=bottomLayer}" Height="{Binding Path=ActualHeight, ElementName=bottomLayer}"
+							  d:LayoutOverrides="Height" Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled"  IsEnabled="True"   
+							  PreviewMouseLeftButtonDown="OnStartDrag" PreviewMouseLeftButtonUp="OnStopDrag" Background="White">
+
+						<Grid>
+							<Rectangle  Opacity="0.7" RenderTransformOrigin="0.5,0.5" Stroke="#373737" StrokeThickness="1">
+								<Rectangle.Fill>
+									<VisualBrush x:Name="turnFlapVisualBrush" Visual="{Binding ElementName=topLevelContent}" Stretch="UniformToFill"   AlignmentX="Right"  />
+								</Rectangle.Fill>
+								<Rectangle.RenderTransform>
+									<ScaleTransform ScaleX="-1" ScaleY="1" />
+								</Rectangle.RenderTransform>
+							</Rectangle>
+
+							<Button x:Name="peelTrigger" Click="OnTriggerPeel" Opacity="0"/>
+						</Grid>
+						
+						<Border.RenderTransform>
+							<TransformGroup>
+								<TranslateTransform x:Name="turnFlapTranslateX" X="0" Y="0"/>
+								<RotateTransform x:Name="turnFlapRotate" Angle="0" CenterX="0" CenterY="0"/>
+								<TranslateTransform x:Name="turnFlapTranslate" X="0" Y="0"/>
+								<TranslateTransform X="-450"/>
+							</TransformGroup>
+						</Border.RenderTransform>
+					</Border>
+				</Canvas>
+
+				<Border x:Name="bottomLevelContent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+						TextElement.Foreground="#FF000000" d:LayoutOverrides="Height" Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+						Grid.Column="0" IsEnabled="True"  Background="{x:Null}">
+
+					<ContentControl x:Name="bottomControl" Content="{Binding}" ContentTemplate="{DynamicResource bottomlevelcontenttemplate}" />
+
+					<Border.Clip>
+						<RectangleGeometry x:Name="innerTurnFlapClip" Rect="0,0 0,0">
+							<RectangleGeometry.Transform>
+								<TransformGroup>
+									<TranslateTransform x:Name="bottomControlTranslateX" X="0" Y="0"/>
+									<RotateTransform x:Name="bottomControlRotate" Angle="0" CenterX="0" CenterY="0"/>
+									<TranslateTransform x:Name="bottomControlTranslate" X="0" Y="0"/>
+								</TransformGroup>
+							</RectangleGeometry.Transform>
+						</RectangleGeometry>
+					</Border.Clip>
+				</Border>
+			</Grid>
+
+
+			<Grid Focusable="False" IsHitTestVisible="False" x:Name="peelShadow" Background="{x:Null}"
+				  Width="450" Height="{Binding Path=ActualHeight, ElementName=CornerPeelControl}"
+				  Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" IsEnabled="True" Visibility="Visible" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center">
+				<Grid.Clip>
+					<RectangleGeometry x:Name="shadowsClip" Rect="0,0 0,0">
+					</RectangleGeometry>
+				</Grid.Clip>
+				
+				<Canvas IsEnabled="True" IsHitTestVisible="True" HorizontalAlignment="Left" Panel.ZIndex="1" Visibility="Visible" >
+					<Canvas.RenderTransform>
+						<TranslateTransform X="-450"/>
+					</Canvas.RenderTransform>
+					<Canvas.Clip>
+						<RectangleGeometry x:Name="turnShadowClip" Rect="0,0 0,0">
+							<RectangleGeometry.Transform>
+								<TransformGroup>
+									<TranslateTransform x:Name="clipShadowEvenTranslateX" X="0" Y="0"/>
+									<RotateTransform x:Name="clipShadowEvenRotate" Angle="0"/>
+									<TranslateTransform x:Name="clipShadowEvenTranslate" X="0" Y="0"/>
+									</TransformGroup>
+							</RectangleGeometry.Transform>
+						</RectangleGeometry>
+					</Canvas.Clip>
+					<Image Stretch="Fill" x:Name="turnShadow" TextElement.Foreground="#FF000000" Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Column="1" IsEnabled="True" IsHitTestVisible="True" HorizontalAlignment="Left" Opacity="0.3" Source="Assets/shadowPageLeft.png">
+						<Image.RenderTransform>
+							<TransformGroup>
+								<TranslateTransform x:Name="turnShadowTranslateX" X="0" Y="0"/>
+								<RotateTransform x:Name="turnShadowRotate" Angle="0" CenterX="0" CenterY="0"/>
+								<TranslateTransform x:Name="turnShadowTranslate" X="0" Y="0"/>
+							</TransformGroup>
+						</Image.RenderTransform>
+					</Image>
+				</Canvas>
+				<Image x:Name="dropShadow" TextElement.Foreground="#FF000000" Grid.IsSharedSizeScope="False" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Column="0" HorizontalAlignment="Right" IsEnabled="True" IsHitTestVisible="False" Visibility="Visible" VerticalAlignment="Stretch" Stretch="Fill" Opacity="0.4" Source="Assets/shadowPageRight.png" >
+					<Image.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform x:Name="dropShadowScale" ScaleX="1" ScaleY="1"/>
+							<TranslateTransform x:Name="dropShadowTranslateX" X="0" Y="0"/>
+							<RotateTransform x:Name="dropShadowRotate" Angle="0" CenterX="0" CenterY="0"/>
+							<TranslateTransform x:Name="dropShadowTranslate" X="0" Y="0"/>
+						</TransformGroup>
+					</Image.RenderTransform>
+					<!--<Image.OpacityMask>
+						<LinearGradientBrush EndPoint="0.171,0.042" StartPoint="0.102,0.125">
+							<GradientStop Color="#FF000000" Offset="0"/>
+							<GradientStop Color="#00FFFFFF" Offset="1"/>
+						</LinearGradientBrush>
+					</Image.OpacityMask>-->
+				</Image>
+			</Grid>
+
+		</Grid>
+
+
+
+	</Grid>
+</UserControl>

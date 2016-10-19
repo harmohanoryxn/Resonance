@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="WCS.Shared.Schedule.FlaggedTimelineItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:Schedule="clr-namespace:WCS.Shared.Schedule" 
+			 xmlns:Controls="clr-namespace:WCS.Shared.Converters"
+			 mc:Ignorable="d"  
+			 IsHitTestVisible="False"
+			 x:Name="uc"
+			 Background="Transparent"
+			 Height="20">
+	
+
+
+	<UserControl.Resources>
+		<Controls:TimelineOffsetConverter x:Key="leftConverter"/>
+		<Controls:TimelineBrushConverter x:Key="timelineBrushConverter"/>
+		<Controls:NotificationStartTimeToOpacityConverter x:Key="notificationStartTimeToOpacityConverter"/>
+	</UserControl.Resources>
+
+	<UserControl.Margin>
+		<MultiBinding Converter="{StaticResource leftConverter}">
+			<Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type Schedule:ScheduleItemCanvas}}"/>
+			<Binding Path="StartTime"/>
+			<Binding ElementName="uc" Path="HasTbaHour"/>
+			<Binding ElementName="uc" Path="ShiftDistance"/>
+		</MultiBinding>
+	</UserControl.Margin>
+
+	<!--Height="{Controls:AdditionMarkupExtension ActualHeight, -2, ElementName=uc}"-->
+	<Grid Opacity="{Binding Path=StartTime, Converter={StaticResource notificationStartTimeToOpacityConverter}}" >
+
+		<Line X1="0" X2="0" Y1="0" Y2="18"  VerticalAlignment="Bottom"
+						 Stroke="{StaticResource BlackBrush}"
+						 StrokeThickness="1">
+		</Line>
+
+		<Polygon Points="0,1 0,10 10,10 0,1" VerticalAlignment="Bottom"
+						 Stroke="{StaticResource BlackBrush}"
+						 StrokeThickness="1">
+			<Polygon.Fill>
+				<MultiBinding Converter="{StaticResource timelineBrushConverter}">
+					<Binding ElementName="uc" />
+					<Binding Path="TimelineType" />
+				</MultiBinding>
+			</Polygon.Fill>
+		</Polygon>
+
+
+		<TextBlock Text="{Binding Path=Label}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="2,2,0,0" FontSize="9" Foreground="{StaticResource DarkTextBrush}" IsHitTestVisible="False">
+					  <!--<TextBlock.Effect>
+						  <DropShadowEffect Direction="270" BlurRadius="0" ShadowDepth="1" Color="{StaticResource LightText}" Opacity="0.25"/>
+                    </TextBlock.Effect>-->
+		</TextBlock>
+	</Grid>
+
+</UserControl>

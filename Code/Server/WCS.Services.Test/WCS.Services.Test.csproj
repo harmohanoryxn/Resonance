@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45CFEFF7-B277-465F-A89F-6CBAF870B1BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WCS.Services.Test</RootNamespace>
+    <AssemblyName>WCS.Services.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4">
+      <HintPath>..\..\..\Libraries\MvvmLight\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF4">
+      <HintPath>..\..\..\Libraries\MvvmLight\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\Libraries\MvvmLight\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CleanTest.cs" />
+    <Compile Include="Convertors\NotificationConverterTest.cs" />
+    <Compile Include="ViewModel\ClientAdmissionStatusTests.cs" />
+    <Compile Include="ConfigurationTest.cs" />
+    <Compile Include="AdmissionsTest.cs" />
+    <Compile Include="ViewModel\LocationClockViewModelTest.cs" />
+    <Compile Include="ViewModel\DepartmentOrderObservableCollectionTests.cs" />
+    <Compile Include="DischargesTest.cs" />
+    <Compile Include="DemoData.cs" />
+    <Compile Include="DevicesTest.cs" />
+    <Compile Include="OrdersTest.cs" />
+    <Compile Include="ViewModel\DepartmentPatientObservableCollectionTests.cs" />
+    <Compile Include="ViewModel\OrderViewModelTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RfidTest.cs" />
+    <Compile Include="SecurityTest.cs" />
+    <Compile Include="ViewModel\TimelineCoordinatorTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Client\Cloudmaster.WCS.Core\Cloudmaster.WCS.Core.csproj">
+      <Project>{E6E65289-ACDE-46A5-B15D-06EAA26DDE60}</Project>
+      <Name>Cloudmaster.WCS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\Cloudmaster.WCS.DataServicesInvoker\Cloudmaster.WCS.DataServicesInvoker.csproj">
+      <Project>{458FA871-D757-4A37-BA7B-1F7662CEBC47}</Project>
+      <Name>Cloudmaster.WCS.DataServicesInvoker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Client\Cloudmaster.WCS.Shared\Cloudmaster.WCS.Shared.csproj">
+      <Project>{C2352339-AC26-448F-8753-6B63294EEC2B}</Project>
+      <Name>Cloudmaster.WCS.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.Services.DataServices\WCS.Services.DataServices.csproj">
+      <Project>{474BAEA0-6035-4EF7-8E1E-AB0D7DF27458}</Project>
+      <Name>WCS.Services.DataServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cloudmaster.WCS.Services\WCS.Services.csproj">
+      <Project>{91AF3F10-6DAB-4E33-ACF0-B3C1E1C6E19A}</Project>
+      <Name>WCS.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

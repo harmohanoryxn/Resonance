@@ -1,0 +1,84 @@
+﻿<Window x:Class="Cloudmaster.WCS.Galway.ShellView"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:Galway="clr-namespace:Cloudmaster.WCS.Galway"
+        xmlns:Schedule="clr-namespace:WCS.Shared.Schedule;assembly=Cloudmaster.WCS.Shared"
+        xmlns:Schedule1="clr-namespace:WCS.Shared.Department.Schedule;assembly=Cloudmaster.WCS.Shared"
+        xmlns:Schedule2="clr-namespace:WCS.Shared.Ward.Schedule;assembly=Cloudmaster.WCS.Shared"
+        xmlns:Schedule3="clr-namespace:WCS.Shared.Cleaning.Schedule;assembly=Cloudmaster.WCS.Shared"
+        xmlns:Schedule4="clr-namespace:WCS.Shared.Physio.Schedule;assembly=Cloudmaster.WCS.Shared"
+        xmlns:DataServices="clr-namespace:Cloudmaster.WCS.DataServicesInvoker.DataServices;assembly=WCS.DataServicesInvoker"
+        xmlns:Notes="clr-namespace:WCS.Shared.Notes;assembly=Cloudmaster.WCS.Shared"
+        xmlns:Schedule5="clr-namespace:WCS.Shared.Schedule"
+        xmlns:Schedule6="clr-namespace:WCS.Shared.Discharge.Schedule;assembly=Cloudmaster.WCS.Shared"
+        xmlns:Schedule7="clr-namespace:WCS.Shared.Admissions.Schedule;assembly=Cloudmaster.WCS.Shared"
+        AllowsTransparency="False"
+		WindowStyle="None"
+		WindowState="Maximized"
+		MinWidth="1024"
+		MinHeight="580"
+		Width="1920"
+		Height="1080" 
+		Background="GhostWhite">
+
+	<Window.Resources>
+
+		<Galway:ShellViewModel x:Key="ShellVM" />
+
+		<DataTemplate DataType="{x:Type Schedule:WcsViewModel}">
+			<Schedule:ScreenBootstrap>
+				<Schedule:BareScreenView/>
+			</Schedule:ScreenBootstrap>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Schedule1:DepartmentViewModel}">
+			<Schedule:ScreenBootstrap>
+				<Schedule1:DepartmentView/>
+			</Schedule:ScreenBootstrap>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Schedule2:WardViewModel}">
+			<Schedule:ScreenBootstrap>
+				<Schedule2:WardView/>
+			</Schedule:ScreenBootstrap>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Schedule3:CleaningViewModel}">
+			<Schedule:ScreenBootstrap>
+				<Schedule3:CleaningView/>
+			</Schedule:ScreenBootstrap>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Schedule4:PhysioViewModel}">
+			<Schedule:ScreenBootstrap>
+				<Schedule4:PhysioView/>
+			</Schedule:ScreenBootstrap>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Schedule6:DischargeViewModel}">
+			<Schedule:ScreenBootstrap>
+				<Schedule6:DischargeView/>
+			</Schedule:ScreenBootstrap>
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type Schedule7:AdmissionsViewModel}">
+			<Schedule:ScreenBootstrap>
+				<Schedule7:AdmissionsView/>
+			</Schedule:ScreenBootstrap>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type Notes:NoteViewModel}">
+			<Notes:NoteView/>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type DataServices:DeviceConfigurationInstance}">
+			<Schedule5:ConfigurationInstanceView/>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type Galway:ShellViewModel}">
+			<ContentControl  Content="{Binding Path=Screen}"  Margin="0"/>
+		</DataTemplate>
+
+	</Window.Resources>
+
+	<Grid>
+		<ContentPresenter Margin="0,0,0,0" Content="{StaticResource ShellVM}" />
+		<Image  Source="../../Media/waiting.gif" DataContext="{StaticResource ShellVM}" IsHitTestVisible="False" Width="50" Height="50" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="{Binding Path=ShowCallToServerInProgress, Converter={StaticResource booleanToVisibilityConverter}}" />
+
+	</Grid>
+
+</Window>

@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="WCS.Shared.Schedule.DeviceInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Converters="clr-namespace:WCS.Shared.Converters" 
+             mc:Ignorable="d" Width="20" Height="20">
+
+	<UserControl.Resources>
+		<Converters:LocationConnectionToBrushConverter  x:Key="LocationConnectionBrushConverter"/>
+		<Converters:LocationConnectionToCodeConverter  x:Key="LocationConnectionCodeConverter"/>
+	</UserControl.Resources>
+
+	<Grid  >
+		<Viewbox>
+			<Border Width="30" Height="30">
+				<Border.Background>
+					<MultiBinding Converter="{StaticResource LocationConnectionBrushConverter}">
+						<MultiBinding.Bindings>
+							<Binding RelativeSource="{RelativeSource Self}" />
+							<Binding Path="LastLocationConnectionTime"/>
+							<Binding Path="ShortTermWardNotificationsPending"/>
+							<Binding Path="LongTermWardNotificationsPending"/>
+							<Binding Path="LocationFullName"/>
+						</MultiBinding.Bindings>
+					</MultiBinding>
+				</Border.Background>
+				<Border.Clip>
+					<StreamGeometry>M 22.2858,26C 22.2858,13.692 12.3081,3.71436 0.00012207,3.71436L 0.00012207,0C 14.3595,0 26.0001,11.6406 26.0001,26L 22.2858,26 Z M 14.8571,26C 14.8571,17.7947 8.20532,11.1429 0,11.1429L 0,7.42865C 10.2566,7.42865 18.5714,15.7433 18.5714,26L 14.8571,26 Z M 0,14.8572L 0,26L 11.1427,26C 11.1427,19.846 6.15393,14.8572 0,14.8572 Z</StreamGeometry>
+				</Border.Clip>
+			</Border>
+		</Viewbox>
+	</Grid>
+</UserControl>

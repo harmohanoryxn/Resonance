@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="WCS.Shared.Notes.ConversationNotesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Controls="clr-namespace:WCS.Shared.Controls" Background="{StaticResource notesBrush}" 
+			 BorderBrush="{StaticResource cardBorderBrush}" 
+			 BorderThickness="1,0,0,0"
+			 Name="cnv"
+			 mc:Ignorable="d" IsVisibleChanged="cnv_IsVisibleChanged">
+
+	<UserControl.Resources>
+	</UserControl.Resources>
+	
+	<Grid>
+        <DockPanel LastChildFill="True" Margin="0" Width="650" Background="White">
+
+            <!-- Header -->
+
+            <Grid DockPanel.Dock="Top" Margin="0,0,0,0" Height="60" HorizontalAlignment="Stretch" Background="MediumPurple">
+
+                <TextBlock Style="{StaticResource InfoCardHeader1TextStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70,0,0,0" Text="Notes" />
+
+            </Grid>
+
+            <Button  x:Name="btnSend" 
+					 Width="60" Height="30" Margin="10" FontSize="16"
+					 Content="Add" 
+					 IsEnabled="{Binding Path=NoteText, Converter={StaticResource emptyStringConverter}}"
+					 Command="{Binding AddNewNoteCommand}" DockPanel.Dock="Bottom"
+					 Visibility="Collapsed"/>
+
+			<TextBox   x:Name="txtNote" 
+					   DockPanel.Dock="Bottom"
+					   Text="{Binding Path=NoteText, UpdateSourceTrigger=PropertyChanged}"
+					   FontSize="16"
+					   FontWeight="Bold"
+					   TextWrapping="Wrap"
+					   LostFocus="txtNote_LostFocus"
+					   VerticalScrollBarVisibility="Hidden"
+					   BorderBrush="{StaticResource BlackBrush}" BorderThickness="0.5"
+					   Height="65"
+					   Margin="10,10,10,10"
+					   KeyDown="txtNote_KeyDown"
+					  Controls:FocusExtension.IsFocused="{Binding Path=IsInFocus}"   />
+
+			<ListBox x:Name="notesBox" ItemsSource="{Binding Path=Notes}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Padding="0" Margin="1"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.PanningMode="VerticalOnly"  />
+
+		</DockPanel>
+	 
+		
+	</Grid>
+	
+</UserControl>
