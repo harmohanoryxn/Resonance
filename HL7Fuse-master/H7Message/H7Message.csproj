@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC5CCEB1-C054-4BC1-BD8C-355AAE5D172F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>H7Message</RootNamespace>
+    <AssemblyName>H7Message</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Base, Version=2.4.0.3, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V21, Version=2.4.0.3, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V21.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V22, Version=2.4.0.3, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V22.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V23, Version=2.4.0.3, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V23.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V231, Version=2.4.0.3, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V231.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V24, Version=2.4.0.3, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V24.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V25, Version=2.4.0.3, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V25.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V251">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V251.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V26">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V26.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V27">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V27.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V271">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V271.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V28">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V28.dll</HintPath>
+    </Reference>
+    <Reference Include="NHapi.Model.V281">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V281.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admission_tbl.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bed.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BedCleaningEvent.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BedCleaningEventType.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationLocation.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationType.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Connection.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__RefactorLog.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Device.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceConfiguration.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalSource.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HL7ToXmlConverter.cs" />
+    <Compile Include="HLMessageToDB.cs" />
+    <Compile Include="Location.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Note.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationRule.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationType.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatu.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order_tbl.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient_tbl.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pin.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Procedure.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcedureCategory.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RfidDetection.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RfidDetector.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RfidDirection.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Room.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staging_Admission.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staging_Order.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_AdmissionStatus.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_AdmissionType.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_sample.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Update.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingArea.cs">
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WCS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WCS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WCS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCS.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="WCS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WCS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="WCS.edmx.diagram">
+      <DependentUpon>WCS.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WCS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WCS.edmx</DependentUpon>
+      <LastGenOutput>WCS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WCS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WCS.edmx</DependentUpon>
+      <LastGenOutput>WCS.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
