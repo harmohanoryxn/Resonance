@@ -41,6 +41,21 @@ namespace HL7Fuse.Protocol
                 return (ErrorMessage != null);
             }
         }
+        public string versionname
+        {
+            get;
+            set;
+        }
+        public string feild10
+        {
+            get;
+            set;
+        }
+        public string sendingapp { get; set; }
+        public string sendingEnvironment { get; set; }
+         public string feild11 { get; set; }
+        public string feild15 { get; set; }
+        public string feild16 { get; set; }
 
         /// <summary>
         /// By default an (N)ACK message will be sent (unsollicited communication pattern).

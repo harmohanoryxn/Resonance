@@ -1,0 +1,1269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WCSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admission">
+    <Key>
+      <PropertyRef Name="admissionId" />
+    </Key>
+    <Property Name="admissionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+    <Property Name="externalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="admitDateTime" Type="datetime" />
+    <Property Name="estimatedDischargeDateTime" Type="datetime" />
+    <Property Name="dischargeDateTime" Type="datetime" />
+    <Property Name="patientId" Type="int" Nullable="false" />
+    <Property Name="PrimaryCareDoctor_doctorId" Type="int" />
+    <Property Name="AttendingDoctor_doctorId" Type="int" />
+    <Property Name="AdmittingDoctor_doctorId" Type="int" />
+    <Property Name="AdmissionType_admissionTypeId" Type="int" Nullable="false" />
+    <Property Name="AdmissionStatus_admissionStatusId" Type="int" Nullable="false" />
+    <Property Name="Location_locationId" Type="int" Nullable="false" />
+    <Property Name="Bed_bedId" Type="int" />
+  </EntityType>
+  <EntityType Name="AdmissionStatus">
+    <Key>
+      <PropertyRef Name="admissionStatusId" />
+    </Key>
+    <Property Name="admissionStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdmissionType">
+    <Key>
+      <PropertyRef Name="admissionTypeId" />
+    </Key>
+    <Property Name="admissionTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bed">
+    <Key>
+      <PropertyRef Name="bedId" />
+    </Key>
+    <Property Name="bedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Room_roomId" Type="int" />
+  </EntityType>
+  <EntityType Name="BedCleaningEvent">
+    <Key>
+      <PropertyRef Name="bedCleaningEventId" />
+    </Key>
+    <Property Name="bedCleaningEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+    <Property Name="Bed_bedId" Type="int" Nullable="false" />
+    <Property Name="bedCleaningEventTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BedCleaningEventType">
+    <Key>
+      <PropertyRef Name="bedCleaningEventTypeId" />
+    </Key>
+    <Property Name="bedCleaningEventTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="eventType" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="configurationId" />
+    </Key>
+    <Property Name="configurationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConfigurationType_ConfigurationTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConfigurationLocation">
+    <Key>
+      <PropertyRef Name="configurationLocationId" />
+    </Key>
+    <Property Name="configurationLocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="configurationId" Type="int" Nullable="false" />
+    <Property Name="locationId" Type="int" Nullable="false" />
+    <Property Name="isDefault" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConfigurationType">
+    <Key>
+      <PropertyRef Name="ConfigurationTypeId" />
+    </Key>
+    <Property Name="ConfigurationTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Connection">
+    <Key>
+      <PropertyRef Name="connectionId" />
+    </Key>
+    <Property Name="connectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="connectionTime" Type="datetime" Nullable="false" />
+    <Property Name="deviceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="deviceId" />
+    </Key>
+    <Property Name="deviceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="os" Type="nvarchar" MaxLength="50" />
+    <Property Name="clientVersion" Type="nvarchar" MaxLength="50" />
+    <Property Name="ipAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="lastConnection" Type="datetime" />
+    <Property Name="locationId" Type="int" />
+    <Property Name="lockTimeout" Type="int" Nullable="false" />
+    <Property Name="configurationTimeout" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeviceConfiguration">
+    <Key>
+      <PropertyRef Name="deviceId" />
+      <PropertyRef Name="shortcutKeyNo" />
+    </Key>
+    <Property Name="deviceId" Type="int" Nullable="false" />
+    <Property Name="shortcutKeyNo" Type="int" Nullable="false" />
+    <Property Name="configurationId" Type="int" Nullable="false" />
+    <Property Name="cleaningBedDataTimeout" Type="int" Nullable="false" />
+    <Property Name="orderTimeout" Type="int" Nullable="false" />
+    <Property Name="presenceTimeout" Type="int" Nullable="false" />
+    <Property Name="rfidTimeout" Type="int" Nullable="false" />
+    <Property Name="dischargeTimeout" Type="int" Nullable="false" />
+    <Property Name="admissionsTimeout" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="doctorId" />
+    </Key>
+    <Property Name="doctorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+    <Property Name="externalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExternalSource">
+    <Key>
+      <PropertyRef Name="externalSourceId" />
+    </Key>
+    <Property Name="externalSourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="source" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="locationId" />
+    </Key>
+    <Property Name="locationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isEmergency" Type="bit" Nullable="false" />
+    <Property Name="contactInfo" Type="nvarchar" MaxLength="20" />
+    <Property Name="includeInMerge" Type="bit" Nullable="false" />
+    <Property Name="WaitingArea_waitingAreaId" Type="int" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="logId" />
+    </Key>
+    <Property Name="logId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ComputerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Thread" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Level" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Logger" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Exception" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="noteId" />
+    </Key>
+    <Property Name="noteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="source" Type="nvarchar" MaxLength="50" />
+    <Property Name="notes" Type="nvarchar(max)" />
+    <Property Name="dateCreated" Type="datetime" />
+    <Property Name="noteOrder" Type="int" Nullable="false" />
+    <Property Name="bedId" Type="int" />
+    <Property Name="orderId" Type="int" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="notificationId" />
+    </Key>
+    <Property Name="notificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="notificationTypeId" Type="int" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="priorToProcedureTime" Type="int" Nullable="false" />
+    <Property Name="isAcknowledgmentRequired" Type="bit" Nullable="false" />
+    <Property Name="acknowledged" Type="bit" Nullable="false" />
+    <Property Name="acknowledgedTime" Type="datetime" />
+    <Property Name="acknowledgedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="notificationOrder" Type="int" />
+    <Property Name="orderId" Type="int" Nullable="false" />
+    <Property Name="durationMinutes" Type="int" Nullable="false" />
+    <Property Name="radiationRiskDurationMinutes" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationRule">
+    <Key>
+      <PropertyRef Name="notificationRuleId" />
+    </Key>
+    <Property Name="notificationRuleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="priorToProcedureTime" Type="int" Nullable="false" />
+    <Property Name="durationMinutes" Type="int" Nullable="false" />
+    <Property Name="radiationRiskDurationMinutes" Type="int" Nullable="false" />
+    <Property Name="isAcknowledgmentRequired" Type="bit" Nullable="false" />
+    <Property Name="Procedure_procedureId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationType">
+    <Key>
+      <PropertyRef Name="notificationTypeId" />
+    </Key>
+    <Property Name="notificationTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+    <Property Name="externalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="orderNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="procedureTime" Type="datetime" />
+    <Property Name="orderStatusId" Type="int" Nullable="false" />
+    <Property Name="completedTime" Type="datetime" />
+    <Property Name="admissionId" Type="int" Nullable="false" />
+    <Property Name="clinicalIndicator" Type="nvarchar" MaxLength="200" />
+    <Property Name="estimatedProcedureDuration" Type="int" />
+    <Property Name="Procedure_procedureId" Type="int" Nullable="false" />
+    <Property Name="Department_locationId" Type="int" Nullable="false" />
+    <Property Name="OrderingDoctor_doctorId" Type="int" />
+    <Property Name="isHidden" Type="bit" Nullable="false" />
+    <Property Name="acknowledged" Type="bit" Nullable="false" />
+    <Property Name="acknowledgedTime" Type="datetime" />
+    <Property Name="acknowledgedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="history" Type="nvarchar" MaxLength="200" />
+    <Property Name="diagnosis" Type="nvarchar" MaxLength="200" />
+    <Property Name="currentCardiologist" Type="nvarchar" MaxLength="200" />
+    <Property Name="requiresSupervision" Type="bit" Nullable="false" />
+    <Property Name="requiresFootwear" Type="bit" Nullable="false" />
+    <Property Name="requiresMedicalRecords" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="orderStatusId" />
+    </Key>
+    <Property Name="orderStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="patientId" />
+    </Key>
+    <Property Name="patientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+    <Property Name="externalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="givenName" Type="nvarchar" MaxLength="50" />
+    <Property Name="surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="dob" Type="datetime" />
+    <Property Name="sex" Type="nvarchar" MaxLength="20" />
+    <Property Name="isMrsaPositive" Type="bit" Nullable="false" />
+    <Property Name="isFallRisk" Type="bit" Nullable="false" />
+    <Property Name="isAssistanceRequired" Type="bit" Nullable="false" />
+    <Property Name="assistanceDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="hasLatexAllergy" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pin">
+    <Key>
+      <PropertyRef Name="pinId" />
+    </Key>
+    <Property Name="pinId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pin" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Device_deviceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Procedure">
+    <Key>
+      <PropertyRef Name="procedureId" />
+    </Key>
+    <Property Name="procedureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+    <Property Name="externalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="durationMinutes" Type="int" />
+    <Property Name="ProcedureCategory_procedureCategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcedureCategory">
+    <Key>
+      <PropertyRef Name="procedureCategoryId" />
+    </Key>
+    <Property Name="procedureCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+    <Property Name="externalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="includeInMerge" Type="bit" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RfidDetection">
+    <Key>
+      <PropertyRef Name="rfidDetectionId" />
+    </Key>
+    <Property Name="rfidDetectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patientId" Type="int" Nullable="false" />
+    <Property Name="rfidDirectionId" Type="int" Nullable="false" />
+    <Property Name="rfidDetectorId" Type="int" Nullable="false" />
+    <Property Name="dateTimeDetected" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RfidDetector">
+    <Key>
+      <PropertyRef Name="rfidDetectorId" />
+    </Key>
+    <Property Name="rfidDetectorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="externalSourceId" Type="int" Nullable="false" />
+    <Property Name="externalId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Location_locationId" Type="int" />
+    <Property Name="WaitingArea_waitingAreaId" Type="int" />
+  </EntityType>
+  <EntityType Name="RfidDirection">
+    <Key>
+      <PropertyRef Name="rfidDirectionId" />
+    </Key>
+    <Property Name="rfidDirectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="direction" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="roomId" />
+    </Key>
+    <Property Name="roomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location_locationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staging_Admission">
+    <Key>
+      <PropertyRef Name="admissionExternalSource" />
+      <PropertyRef Name="admissionExternalId" />
+    </Key>
+    <Property Name="admissionExternalSource" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="admissionExternalId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="admissionType" Type="nvarchar" MaxLength="20" />
+    <Property Name="admissionStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="admitDateTime" Type="datetime" />
+    <Property Name="dischargeDateTime" Type="datetime" />
+    <Property Name="patientExternalId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="patientGivenName" Type="nvarchar" MaxLength="50" />
+    <Property Name="patientSurname" Type="nvarchar" MaxLength="50" />
+    <Property Name="patientSex" Type="nvarchar" MaxLength="20" />
+    <Property Name="patientDOB" Type="datetime" />
+    <Property Name="isMrsaPositive" Type="bit" Nullable="false" />
+    <Property Name="isFallRisk" Type="bit" Nullable="false" />
+    <Property Name="isAssistanceRequired" Type="bit" Nullable="false" />
+    <Property Name="assistanceDescription" Type="nvarchar" MaxLength="50" />
+    <Property Name="hasLatexAllergy" Type="bit" Nullable="false" />
+    <Property Name="location" Type="nvarchar" MaxLength="20" />
+    <Property Name="room" Type="nvarchar" MaxLength="50" />
+    <Property Name="bed" Type="nvarchar" MaxLength="50" />
+    <Property Name="doctorExternalSource" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="attendingDoctorExternalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="attendingDoctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="admittingDoctorExternalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="admittingDoctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="primaryCareDoctorExternalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="primaryCareDoctorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Staging_Order">
+    <Key>
+      <PropertyRef Name="orderExternalSource" />
+      <PropertyRef Name="orderExternalId" />
+    </Key>
+    <Property Name="orderExternalSource" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="orderExternalId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="orderNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="department" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="procedureCategoryExternalId" Type="nvarchar" MaxLength="20" />
+    <Property Name="procedureExternalId" Type="nvarchar" MaxLength="20" />
+    <Property Name="procedureCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="procedureDescription" Type="nvarchar" MaxLength="200" />
+    <Property Name="procedureTime" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" />
+    <Property Name="clinicalIndicators" Type="nvarchar" MaxLength="200" />
+    <Property Name="completedDateTime" Type="datetime" />
+    <Property Name="estimatedDuration" Type="int" />
+    <Property Name="admissionExternalSource" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="admissionExternalId" Type="nvarchar" MaxLength="20" />
+    <Property Name="doctorExternalSource" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="orderingDoctorExternalId" Type="nvarchar" MaxLength="50" />
+    <Property Name="orderingDoctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="isHidden" Type="bit" Nullable="false" />
+    <Property Name="history" Type="nvarchar" MaxLength="200" />
+    <Property Name="diagnosis" Type="nvarchar" MaxLength="200" />
+    <Property Name="currentCardiologist" Type="nvarchar" MaxLength="200" />
+    <Property Name="requiresSupervision" Type="bit" Nullable="false" />
+    <Property Name="requiresFootwear" Type="bit" Nullable="false" />
+    <Property Name="requiresMedicalRecords" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_sample">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="varchar" MaxLength="50" />
+    <Property Name="extsource" Type="varchar" MaxLength="50" />
+    <Property Name="extid" Type="varchar" MaxLength="50" />
+    <Property Name="ordernumber" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Update">
+    <Key>
+      <PropertyRef Name="updateId" />
+    </Key>
+    <Property Name="updateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="source" Type="nvarchar" MaxLength="50" />
+    <Property Name="value" Type="nvarchar(max)" />
+    <Property Name="dateCreated" Type="datetime" />
+    <Property Name="Bed_bedId" Type="int" />
+    <Property Name="Order_orderId" Type="int" />
+    <Property Name="Admission_admissionId" Type="int" />
+  </EntityType>
+  <EntityType Name="WaitingArea">
+    <Key>
+      <PropertyRef Name="waitingAreaId" />
+    </Key>
+    <Property Name="waitingAreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AdmissionAdmissionStatus">
+    <End Role="AdmissionStatus" Type="Self.AdmissionStatus" Multiplicity="1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmissionStatus">
+        <PropertyRef Name="admissionStatusId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="AdmissionStatus_admissionStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdmissionAdmissionType">
+    <End Role="AdmissionType" Type="Self.AdmissionType" Multiplicity="1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdmissionType">
+        <PropertyRef Name="admissionTypeId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="AdmissionType_admissionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdmissionAdmittingDoctorDoctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="doctorId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="AdmittingDoctor_doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdmissionAttendingDoctorDoctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="doctorId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="AttendingDoctor_doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdmissionBed">
+    <End Role="Bed" Type="Self.Bed" Multiplicity="0..1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bed">
+        <PropertyRef Name="bedId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="Bed_bedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdmissionLocation">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="Location_locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdmissionOrder">
+    <End Role="Admission" Type="Self.Admission" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admission">
+        <PropertyRef Name="admissionId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="admissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AdmissionPrimaryCareDoctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="doctorId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="PrimaryCareDoctor_doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BedCleaningEventBed">
+    <End Role="Bed" Type="Self.Bed" Multiplicity="1" />
+    <End Role="BedCleaningEvent" Type="Self.BedCleaningEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bed">
+        <PropertyRef Name="bedId" />
+      </Principal>
+      <Dependent Role="BedCleaningEvent">
+        <PropertyRef Name="Bed_bedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BedCleaningEventBedCleaningEventType">
+    <End Role="BedCleaningEventType" Type="Self.BedCleaningEventType" Multiplicity="1" />
+    <End Role="BedCleaningEvent" Type="Self.BedCleaningEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BedCleaningEventType">
+        <PropertyRef Name="bedCleaningEventTypeId" />
+      </Principal>
+      <Dependent Role="BedCleaningEvent">
+        <PropertyRef Name="bedCleaningEventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BedNote">
+    <End Role="Bed" Type="Self.Bed" Multiplicity="0..1" />
+    <End Role="Note" Type="Self.Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bed">
+        <PropertyRef Name="bedId" />
+      </Principal>
+      <Dependent Role="Note">
+        <PropertyRef Name="bedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BedRoom">
+    <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+    <End Role="Bed" Type="Self.Bed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="roomId" />
+      </Principal>
+      <Dependent Role="Bed">
+        <PropertyRef Name="Room_roomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigurationConfigurationLocation">
+    <End Role="Configuration" Type="Self.Configuration" Multiplicity="1" />
+    <End Role="ConfigurationLocation" Type="Self.ConfigurationLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration">
+        <PropertyRef Name="configurationId" />
+      </Principal>
+      <Dependent Role="ConfigurationLocation">
+        <PropertyRef Name="configurationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigurationConfigurationType">
+    <End Role="ConfigurationType" Type="Self.ConfigurationType" Multiplicity="1" />
+    <End Role="Configuration" Type="Self.Configuration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfigurationType">
+        <PropertyRef Name="ConfigurationTypeId" />
+      </Principal>
+      <Dependent Role="Configuration">
+        <PropertyRef Name="ConfigurationType_ConfigurationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigurationDeviceConfiguration">
+    <End Role="Configuration" Type="Self.Configuration" Multiplicity="1" />
+    <End Role="DeviceConfiguration" Type="Self.DeviceConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Configuration">
+        <PropertyRef Name="configurationId" />
+      </Principal>
+      <Dependent Role="DeviceConfiguration">
+        <PropertyRef Name="configurationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceConnection">
+    <End Role="Device" Type="Self.Device" Multiplicity="1" />
+    <End Role="Connection" Type="Self.Connection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="deviceId" />
+      </Principal>
+      <Dependent Role="Connection">
+        <PropertyRef Name="deviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeviceDeviceConfiguration">
+    <End Role="Device" Type="Self.Device" Multiplicity="1" />
+    <End Role="DeviceConfiguration" Type="Self.DeviceConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="deviceId" />
+      </Principal>
+      <Dependent Role="DeviceConfiguration">
+        <PropertyRef Name="deviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DevicePin">
+    <End Role="Device" Type="Self.Device" Multiplicity="1" />
+    <End Role="Pin" Type="Self.Pin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="deviceId" />
+      </Principal>
+      <Dependent Role="Pin">
+        <PropertyRef Name="Device_deviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceAdmission">
+    <End Role="ExternalSource" Type="Self.ExternalSource" Multiplicity="1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceDoctor">
+    <End Role="ExternalSource" Type="Self.ExternalSource" Multiplicity="1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceOrder">
+    <End Role="ExternalSource" Type="Self.ExternalSource" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceProcedure">
+    <End Role="ExternalSource" Type="Self.ExternalSource" Multiplicity="1" />
+    <End Role="Procedure" Type="Self.Procedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="Procedure">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExternalSourceProcedureCategory">
+    <End Role="ExternalSource" Type="Self.ExternalSource" Multiplicity="1" />
+    <End Role="ProcedureCategory" Type="Self.ProcedureCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="ProcedureCategory">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationConfigurationLocation">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="ConfigurationLocation" Type="Self.ConfigurationLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="ConfigurationLocation">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationRoom">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="Room" Type="Self.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="Location_locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocationWCS_Device">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Device" Type="Self.Device" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationNotificationType">
+    <End Role="NotificationType" Type="Self.NotificationType" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotificationType">
+        <PropertyRef Name="notificationTypeId" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="notificationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationRuleProcedure">
+    <End Role="Procedure" Type="Self.Procedure" Multiplicity="1" />
+    <End Role="NotificationRule" Type="Self.NotificationRule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedure">
+        <PropertyRef Name="procedureId" />
+      </Principal>
+      <Dependent Role="NotificationRule">
+        <PropertyRef Name="Procedure_procedureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderLocation">
+    <End Role="Location" Type="Self.Location" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Department_locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderNote">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Note" Type="Self.Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="orderId" />
+      </Principal>
+      <Dependent Role="Note">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderNotification">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="orderId" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderOrderingDoctor">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="doctorId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderingDoctor_doctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderProcedure">
+    <End Role="Procedure" Type="Self.Procedure" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedure">
+        <PropertyRef Name="procedureId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Procedure_procedureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderStatusOrder">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="orderStatusId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="orderStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientAdmission">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Admission" Type="Self.Admission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="patientId" />
+      </Principal>
+      <Dependent Role="Admission">
+        <PropertyRef Name="patientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientExternalSource">
+    <End Role="ExternalSource" Type="Self.ExternalSource" Multiplicity="1" />
+    <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProcedureCategoryProcedure">
+    <End Role="ProcedureCategory" Type="Self.ProcedureCategory" Multiplicity="1" />
+    <End Role="Procedure" Type="Self.Procedure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcedureCategory">
+        <PropertyRef Name="procedureCategoryId" />
+      </Principal>
+      <Dependent Role="Procedure">
+        <PropertyRef Name="ProcedureCategory_procedureCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RfidDetectionPatient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="RfidDetection" Type="Self.RfidDetection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="patientId" />
+      </Principal>
+      <Dependent Role="RfidDetection">
+        <PropertyRef Name="patientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RfidDetectionRfidDetector">
+    <End Role="RfidDetector" Type="Self.RfidDetector" Multiplicity="1" />
+    <End Role="RfidDetection" Type="Self.RfidDetection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RfidDetector">
+        <PropertyRef Name="rfidDetectorId" />
+      </Principal>
+      <Dependent Role="RfidDetection">
+        <PropertyRef Name="rfidDetectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RfidDetectionRfidDirection">
+    <End Role="RfidDirection" Type="Self.RfidDirection" Multiplicity="1" />
+    <End Role="RfidDetection" Type="Self.RfidDetection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RfidDirection">
+        <PropertyRef Name="rfidDirectionId" />
+      </Principal>
+      <Dependent Role="RfidDetection">
+        <PropertyRef Name="rfidDirectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RfidDetectorExternalSource">
+    <End Role="ExternalSource" Type="Self.ExternalSource" Multiplicity="1" />
+    <End Role="RfidDetector" Type="Self.RfidDetector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExternalSource">
+        <PropertyRef Name="externalSourceId" />
+      </Principal>
+      <Dependent Role="RfidDetector">
+        <PropertyRef Name="externalSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RfidDetectorLocation">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="RfidDetector" Type="Self.RfidDetector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="locationId" />
+      </Principal>
+      <Dependent Role="RfidDetector">
+        <PropertyRef Name="Location_locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UpdateAdmission">
+    <End Role="Admission" Type="Self.Admission" Multiplicity="0..1" />
+    <End Role="Update" Type="Self.Update" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admission">
+        <PropertyRef Name="admissionId" />
+      </Principal>
+      <Dependent Role="Update">
+        <PropertyRef Name="Admission_admissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UpdateBed">
+    <End Role="Bed" Type="Self.Bed" Multiplicity="0..1" />
+    <End Role="Update" Type="Self.Update" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bed">
+        <PropertyRef Name="bedId" />
+      </Principal>
+      <Dependent Role="Update">
+        <PropertyRef Name="Bed_bedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UpdateOrder">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+    <End Role="Update" Type="Self.Update" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="orderId" />
+      </Principal>
+      <Dependent Role="Update">
+        <PropertyRef Name="Order_orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WaitingAreaLocation">
+    <End Role="WaitingArea" Type="Self.WaitingArea" Multiplicity="0..1" />
+    <End Role="Location" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WaitingArea">
+        <PropertyRef Name="waitingAreaId" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="WaitingArea_waitingAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WaitingAreaRfidDetector">
+    <End Role="WaitingArea" Type="Self.WaitingArea" Multiplicity="0..1" />
+    <End Role="RfidDetector" Type="Self.RfidDetector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WaitingArea">
+        <PropertyRef Name="waitingAreaId" />
+      </Principal>
+      <Dependent Role="RfidDetector">
+        <PropertyRef Name="WaitingArea_waitingAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="InsertUpdateAdmission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="externalSourceId" Type="int" Mode="In" />
+    <Parameter Name="externalId" Type="nvarchar" Mode="In" />
+    <Parameter Name="admitDateTime" Type="datetime" Mode="In" />
+    <Parameter Name="dischargeDateTime" Type="datetime" Mode="In" />
+    <Parameter Name="patientId" Type="int" Mode="In" />
+    <Parameter Name="PrimaryCareDoctor_doctorId" Type="int" Mode="In" />
+    <Parameter Name="AttendingDoctor_doctorId" Type="int" Mode="In" />
+    <Parameter Name="AdmittingDoctor_doctorId" Type="int" Mode="In" />
+    <Parameter Name="AdmissionType_admissionTypeId" Type="int" Mode="In" />
+    <Parameter Name="AdmissionStatus_admissionStatusId" Type="int" Mode="In" />
+    <Parameter Name="Location_locationId" Type="int" Mode="In" />
+    <Parameter Name="Bed_bedId" Type="int" Mode="In" />
+    <Parameter Name="source" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateGenerics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="extpatientId" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="externalSourceId" Type="int" Mode="In" />
+    <Parameter Name="externalId" Type="nvarchar" Mode="In" />
+    <Parameter Name="orderNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="procedureTime" Type="datetime" Mode="In" />
+    <Parameter Name="orderStatusId" Type="int" Mode="In" />
+    <Parameter Name="completedTime" Type="datetime" Mode="In" />
+    <Parameter Name="admissionId" Type="int" Mode="In" />
+    <Parameter Name="clinicalIndicator" Type="nvarchar" Mode="In" />
+    <Parameter Name="estimatedProcedureDuration" Type="int" Mode="In" />
+    <Parameter Name="Procedure_procedureId" Type="int" Mode="In" />
+    <Parameter Name="Department_locationId" Type="int" Mode="In" />
+    <Parameter Name="OrderingDoctor_doctorId" Type="int" Mode="In" />
+    <Parameter Name="isHidden" Type="bit" Mode="In" />
+    <Parameter Name="source" Type="nvarchar" Mode="In" />
+    <Parameter Name="history" Type="nvarchar" Mode="In" />
+    <Parameter Name="diagnosis" Type="nvarchar" Mode="In" />
+    <Parameter Name="currentCardiologist" Type="nvarchar" Mode="In" />
+    <Parameter Name="requiresSupervision" Type="bit" Mode="In" />
+    <Parameter Name="requiresFootwear" Type="bit" Mode="In" />
+    <Parameter Name="requiresMedicalRecords" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="WCSModelStoreContainer">
+    <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admission" EntityType="Self.Admission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmissionStatus" EntityType="Self.AdmissionStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmissionType" EntityType="Self.AdmissionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bed" EntityType="Self.Bed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BedCleaningEvent" EntityType="Self.BedCleaningEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BedCleaningEventType" EntityType="Self.BedCleaningEventType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConfigurationLocation" EntityType="Self.ConfigurationLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConfigurationType" EntityType="Self.ConfigurationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Connection" EntityType="Self.Connection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeviceConfiguration" EntityType="Self.DeviceConfiguration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExternalSource" EntityType="Self.ExternalSource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Note" EntityType="Self.Note" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationRule" EntityType="Self.NotificationRule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationType" EntityType="Self.NotificationType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pin" EntityType="Self.Pin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Procedure" EntityType="Self.Procedure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProcedureCategory" EntityType="Self.ProcedureCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RfidDetection" EntityType="Self.RfidDetection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RfidDetector" EntityType="Self.RfidDetector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RfidDirection" EntityType="Self.RfidDirection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staging_Admission" EntityType="Self.Staging_Admission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staging_Order" EntityType="Self.Staging_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sample" EntityType="Self.tbl_sample" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Update" EntityType="Self.Update" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WaitingArea" EntityType="Self.WaitingArea" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AdmissionAdmissionStatus" Association="Self.FK_AdmissionAdmissionStatus">
+      <End Role="AdmissionStatus" EntitySet="AdmissionStatus" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdmissionAdmissionType" Association="Self.FK_AdmissionAdmissionType">
+      <End Role="AdmissionType" EntitySet="AdmissionType" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdmissionAdmittingDoctorDoctor" Association="Self.FK_AdmissionAdmittingDoctorDoctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdmissionAttendingDoctorDoctor" Association="Self.FK_AdmissionAttendingDoctorDoctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdmissionBed" Association="Self.FK_AdmissionBed">
+      <End Role="Bed" EntitySet="Bed" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdmissionLocation" Association="Self.FK_AdmissionLocation">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdmissionOrder" Association="Self.FK_AdmissionOrder">
+      <End Role="Admission" EntitySet="Admission" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AdmissionPrimaryCareDoctor" Association="Self.FK_AdmissionPrimaryCareDoctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BedCleaningEventBed" Association="Self.FK_BedCleaningEventBed">
+      <End Role="Bed" EntitySet="Bed" />
+      <End Role="BedCleaningEvent" EntitySet="BedCleaningEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BedCleaningEventBedCleaningEventType" Association="Self.FK_BedCleaningEventBedCleaningEventType">
+      <End Role="BedCleaningEventType" EntitySet="BedCleaningEventType" />
+      <End Role="BedCleaningEvent" EntitySet="BedCleaningEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BedNote" Association="Self.FK_BedNote">
+      <End Role="Bed" EntitySet="Bed" />
+      <End Role="Note" EntitySet="Note" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BedRoom" Association="Self.FK_BedRoom">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Bed" EntitySet="Bed" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigurationConfigurationLocation" Association="Self.FK_ConfigurationConfigurationLocation">
+      <End Role="Configuration" EntitySet="Configuration" />
+      <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigurationConfigurationType" Association="Self.FK_ConfigurationConfigurationType">
+      <End Role="ConfigurationType" EntitySet="ConfigurationType" />
+      <End Role="Configuration" EntitySet="Configuration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigurationDeviceConfiguration" Association="Self.FK_ConfigurationDeviceConfiguration">
+      <End Role="Configuration" EntitySet="Configuration" />
+      <End Role="DeviceConfiguration" EntitySet="DeviceConfiguration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceConnection" Association="Self.FK_DeviceConnection">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Connection" EntitySet="Connection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeviceDeviceConfiguration" Association="Self.FK_DeviceDeviceConfiguration">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="DeviceConfiguration" EntitySet="DeviceConfiguration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DevicePin" Association="Self.FK_DevicePin">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Pin" EntitySet="Pin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceAdmission" Association="Self.FK_ExternalSourceAdmission">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceDoctor" Association="Self.FK_ExternalSourceDoctor">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceOrder" Association="Self.FK_ExternalSourceOrder">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceProcedure" Association="Self.FK_ExternalSourceProcedure">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="Procedure" EntitySet="Procedure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExternalSourceProcedureCategory" Association="Self.FK_ExternalSourceProcedureCategory">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationConfigurationLocation" Association="Self.FK_LocationConfigurationLocation">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="ConfigurationLocation" EntitySet="ConfigurationLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationRoom" Association="Self.FK_LocationRoom">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocationWCS_Device" Association="Self.FK_LocationWCS_Device">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Device" EntitySet="Device" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationNotificationType" Association="Self.FK_NotificationNotificationType">
+      <End Role="NotificationType" EntitySet="NotificationType" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationRuleProcedure" Association="Self.FK_NotificationRuleProcedure">
+      <End Role="Procedure" EntitySet="Procedure" />
+      <End Role="NotificationRule" EntitySet="NotificationRule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderLocation" Association="Self.FK_OrderLocation">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderNote" Association="Self.FK_OrderNote">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Note" EntitySet="Note" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderNotification" Association="Self.FK_OrderNotification">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderOrderingDoctor" Association="Self.FK_OrderOrderingDoctor">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderProcedure" Association="Self.FK_OrderProcedure">
+      <End Role="Procedure" EntitySet="Procedure" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderStatusOrder" Association="Self.FK_OrderStatusOrder">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientAdmission" Association="Self.FK_PatientAdmission">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Admission" EntitySet="Admission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientExternalSource" Association="Self.FK_PatientExternalSource">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="Patient" EntitySet="Patient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProcedureCategoryProcedure" Association="Self.FK_ProcedureCategoryProcedure">
+      <End Role="ProcedureCategory" EntitySet="ProcedureCategory" />
+      <End Role="Procedure" EntitySet="Procedure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RfidDetectionPatient" Association="Self.FK_RfidDetectionPatient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="RfidDetection" EntitySet="RfidDetection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RfidDetectionRfidDetector" Association="Self.FK_RfidDetectionRfidDetector">
+      <End Role="RfidDetector" EntitySet="RfidDetector" />
+      <End Role="RfidDetection" EntitySet="RfidDetection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RfidDetectionRfidDirection" Association="Self.FK_RfidDetectionRfidDirection">
+      <End Role="RfidDirection" EntitySet="RfidDirection" />
+      <End Role="RfidDetection" EntitySet="RfidDetection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RfidDetectorExternalSource" Association="Self.FK_RfidDetectorExternalSource">
+      <End Role="ExternalSource" EntitySet="ExternalSource" />
+      <End Role="RfidDetector" EntitySet="RfidDetector" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RfidDetectorLocation" Association="Self.FK_RfidDetectorLocation">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="RfidDetector" EntitySet="RfidDetector" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UpdateAdmission" Association="Self.FK_UpdateAdmission">
+      <End Role="Admission" EntitySet="Admission" />
+      <End Role="Update" EntitySet="Update" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UpdateBed" Association="Self.FK_UpdateBed">
+      <End Role="Bed" EntitySet="Bed" />
+      <End Role="Update" EntitySet="Update" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UpdateOrder" Association="Self.FK_UpdateOrder">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Update" EntitySet="Update" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WaitingAreaLocation" Association="Self.FK_WaitingAreaLocation">
+      <End Role="WaitingArea" EntitySet="WaitingArea" />
+      <End Role="Location" EntitySet="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WaitingAreaRfidDetector" Association="Self.FK_WaitingAreaRfidDetector">
+      <End Role="WaitingArea" EntitySet="WaitingArea" />
+      <End Role="RfidDetector" EntitySet="RfidDetector" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

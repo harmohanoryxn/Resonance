@@ -1,0 +1,13 @@
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\HL7Fuse.Logging.dll
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\HL7Fuse.Logging.pdb
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\SuperSocket.SocketBase.dll
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\obj\Debug\HL7Fuse.Logging.dll
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\obj\Debug\HL7Fuse.Logging.pdb
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\SuperSocket.Common.dll
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\log4net.dll
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\SuperSocket.SocketBase.xml
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\SuperSocket.Common.xml
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\SuperSocket.Facility.dll
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\log4net.xml
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\bin\Debug\SuperSocket.Facility.xml
+C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse.Logging\obj\Debug\HL7Fuse.Logging.csprojResolveAssemblyReference.cache

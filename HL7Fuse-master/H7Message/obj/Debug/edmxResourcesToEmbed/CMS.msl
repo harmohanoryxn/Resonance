@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CMSModelStoreContainer" CdmEntityContainer="CMSEntities">
+    <EntitySetMapping Name="tblsamples">
+      <EntityTypeMapping TypeName="CMSModel.tblsample">
+        <MappingFragment StoreEntitySet="tblsample">
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

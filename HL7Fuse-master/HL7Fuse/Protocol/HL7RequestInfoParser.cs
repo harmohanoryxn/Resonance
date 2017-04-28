@@ -9,6 +9,8 @@ using NHapiTools.Base.Parser;
 using NHapiTools.Base.Validation;
 using NHapi.Base.Model;
 using System.Configuration;
+using NHapi.Base.Util;
+using System.Xml;
 
 namespace HL7Fuse.Protocol
 {
@@ -19,9 +21,9 @@ namespace HL7Fuse.Protocol
         {
             get
             {
-                bool result = false;
+                bool result = true;
                 if (!bool.TryParse(ConfigurationManager.AppSettings["HandleEachMessageAsEvent"], out result))
-                    result = false;
+                    result = true;
 
                 return result;
             }
@@ -49,23 +51,40 @@ namespace HL7Fuse.Protocol
                 ConfigurableContext configContext = new ConfigurableContext(parser.ValidationContext);
                 parser.ValidationContext = configContext;
             }
-            catch
+            catch(Exception ex)
             {
                 // Ignore any error, since the config is probably missing
             }
 
-            IMessage hl7Message = parser.Parse(message);
+            try
+            {
 
-            result = new HL7RequestInfo();
-            if (HandleEachMessageAsEvent)
-                result.Key = "V" + hl7Message.Version.Replace(".", "") + "." + hl7Message.GetStructureName();
-            else
-                result.Key = "V" + hl7Message.Version.Replace(".", "") + ".MessageFactory";
 
-            if (!string.IsNullOrEmpty(protocol))
-                result.Key += protocol;
+                IMessage hl7Message = parser.Parse(message);
+                result = new HL7RequestInfo();
+                if (HandleEachMessageAsEvent)
+                    result.Key = "V" + hl7Message.Version.Replace(".", "") + "." + hl7Message.GetStructureName();
+                else
+                    result.Key = "V" + hl7Message.Version.Replace(".", "") + ".MessageFactory";
 
-            result.Message = hl7Message;
+                if (!string.IsNullOrEmpty(protocol))
+                    result.Key += protocol;
+
+                result.Message = hl7Message;
+            }
+            catch(Exception ex)
+            {
+                XmlDocument xml = HL7ToXmlConverter.ConvertToXml(message);
+                var version = xml.GetElementsByTagName("MSH.11").Item(0);
+                result.versionname = Convert.ToString(version.InnerText);
+                result.feild10 = Convert.ToString(xml.GetElementsByTagName("MSH.9").Item(0).InnerText);
+                result.sendingapp =Convert.ToString(xml.GetElementsByTagName("MSH.2").Item(0).InnerText);
+                result.sendingEnvironment = Convert.ToString(xml.GetElementsByTagName("MSH.3").Item(0).InnerText);
+                result.feild11= Convert.ToString(xml.GetElementsByTagName("MSH.10").Item(0).InnerText);
+                result.feild15 = Convert.ToString(xml.GetElementsByTagName("MSH.14").Item(0).InnerText);
+                result.feild16 = Convert.ToString(xml.GetElementsByTagName("MSH.15").Item(0).InnerText);
+
+            }
 
             // Parse the message
             return result;

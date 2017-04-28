@@ -1,0 +1,32 @@
+﻿Installing assembly 'C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe
+   logfile = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.InstallLog
+Unable to create an instance of the SuperSocket.SocketService.SocketServiceInstaller installer type.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+The inner exception System.ArgumentException was thrown with the following error message: Service name  contains invalid characters, is empty, or is too long (max length = 80)..
+Rolling back assembly 'C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe
+   logfile = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.InstallLog
+Unable to create an instance of the SuperSocket.SocketService.SocketServiceInstaller installer type.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+The inner exception System.ArgumentException was thrown with the following error message: Service name  contains invalid characters, is empty, or is too long (max length = 80)..
+Installing assembly 'C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.InstallLog
+   assemblypath = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe
+Unable to create an instance of the SuperSocket.SocketService.SocketServiceInstaller installer type.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+The inner exception System.ArgumentException was thrown with the following error message: Service name  contains invalid characters, is empty, or is too long (max length = 80)..
+Rolling back assembly 'C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.InstallLog
+   assemblypath = C:\Users\Desktop\Downloads\HL7Fuse-master\HL7Fuse-master\HL7Fuse\bin\Debug\SuperSocket.SocketService.exe
+Unable to create an instance of the SuperSocket.SocketService.SocketServiceInstaller installer type.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+The inner exception System.ArgumentException was thrown with the following error message: Service name  contains invalid characters, is empty, or is too long (max length = 80)..

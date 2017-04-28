@@ -21,9 +21,9 @@ namespace HL7Fuse
         {
             get
             {
-                bool result = false;
+                bool result = true;
                 if (!bool.TryParse(ConfigurationManager.AppSettings["AcceptEventIfNotImplemented"], out result))
-                    result = false;
+                    result = true;
 
                 return result;
             }
@@ -89,7 +89,7 @@ namespace HL7Fuse
             if (requestInfo.HasError)
                 return GetAck(requestInfo, requestInfo.ErrorMessage);
             else
-                return GetAck(requestInfo, null);
+                return GetAck(requestInfo, null);     
         }
 
         private string GetAck(HL7RequestInfo requestInfo, string error)
@@ -99,8 +99,17 @@ namespace HL7Fuse
             if (error == null)
                 result = ack.MakeACK(requestInfo.Message);
             else
-                result = ack.MakeACK(requestInfo.Message, AckTypes.AE, error);
-
+            {
+                
+                if(requestInfo.Message==null)
+                {
+                    result = ack.MakeErrorACK(requestInfo.versionname,requestInfo.feild10,requestInfo.sendingapp,requestInfo.sendingEnvironment,requestInfo.feild11,requestInfo.feild15,requestInfo.feild16, AckTypes.AE, "");
+                }
+                else
+                {
+                    result = ack.MakeACK(requestInfo.Message, AckTypes.AE, error);
+                }
+            }
             PipeParser parser = new PipeParser();
             return parser.Encode(result);
         }

@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WCSModelStoreContainer" CdmEntityContainer="WCSEntities">
+    <EntitySetMapping Name="C__RefactorLog">
+      <EntityTypeMapping TypeName="WCSModel.C__RefactorLog">
+        <MappingFragment StoreEntitySet="__RefactorLog">
+          <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admission_tbl">
+      <EntityTypeMapping TypeName="WCSModel.Admission_tbl">
+        <MappingFragment StoreEntitySet="Admission">
+          <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="admitDateTime" ColumnName="admitDateTime" />
+          <ScalarProperty Name="estimatedDischargeDateTime" ColumnName="estimatedDischargeDateTime" />
+          <ScalarProperty Name="dischargeDateTime" ColumnName="dischargeDateTime" />
+          <ScalarProperty Name="patientId" ColumnName="patientId" />
+          <ScalarProperty Name="PrimaryCareDoctor_doctorId" ColumnName="PrimaryCareDoctor_doctorId" />
+          <ScalarProperty Name="AttendingDoctor_doctorId" ColumnName="AttendingDoctor_doctorId" />
+          <ScalarProperty Name="AdmittingDoctor_doctorId" ColumnName="AdmittingDoctor_doctorId" />
+          <ScalarProperty Name="AdmissionType_admissionTypeId" ColumnName="AdmissionType_admissionTypeId" />
+          <ScalarProperty Name="AdmissionStatus_admissionStatusId" ColumnName="AdmissionStatus_admissionStatusId" />
+          <ScalarProperty Name="Location_locationId" ColumnName="Location_locationId" />
+          <ScalarProperty Name="Bed_bedId" ColumnName="Bed_bedId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AdmissionStatus">
+      <EntityTypeMapping TypeName="WCSModel.tbl_AdmissionStatus">
+        <MappingFragment StoreEntitySet="AdmissionStatus">
+          <ScalarProperty Name="admissionStatusId" ColumnName="admissionStatusId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AdmissionType">
+      <EntityTypeMapping TypeName="WCSModel.tbl_AdmissionType">
+        <MappingFragment StoreEntitySet="AdmissionType">
+          <ScalarProperty Name="admissionTypeId" ColumnName="admissionTypeId" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Beds">
+      <EntityTypeMapping TypeName="WCSModel.Bed">
+        <MappingFragment StoreEntitySet="Bed">
+          <ScalarProperty Name="bedId" ColumnName="bedId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Room_roomId" ColumnName="Room_roomId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BedCleaningEvents">
+      <EntityTypeMapping TypeName="WCSModel.BedCleaningEvent">
+        <MappingFragment StoreEntitySet="BedCleaningEvent">
+          <ScalarProperty Name="bedCleaningEventId" ColumnName="bedCleaningEventId" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="Bed_bedId" ColumnName="Bed_bedId" />
+          <ScalarProperty Name="bedCleaningEventTypeId" ColumnName="bedCleaningEventTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BedCleaningEventTypes">
+      <EntityTypeMapping TypeName="WCSModel.BedCleaningEventType">
+        <MappingFragment StoreEntitySet="BedCleaningEventType">
+          <ScalarProperty Name="bedCleaningEventTypeId" ColumnName="bedCleaningEventTypeId" />
+          <ScalarProperty Name="eventType" ColumnName="eventType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configurations">
+      <EntityTypeMapping TypeName="WCSModel.Configuration">
+        <MappingFragment StoreEntitySet="Configuration">
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ConfigurationType_ConfigurationTypeId" ColumnName="ConfigurationType_ConfigurationTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigurationLocations">
+      <EntityTypeMapping TypeName="WCSModel.ConfigurationLocation">
+        <MappingFragment StoreEntitySet="ConfigurationLocation">
+          <ScalarProperty Name="configurationLocationId" ColumnName="configurationLocationId" />
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigurationTypes">
+      <EntityTypeMapping TypeName="WCSModel.ConfigurationType">
+        <MappingFragment StoreEntitySet="ConfigurationType">
+          <ScalarProperty Name="ConfigurationTypeId" ColumnName="ConfigurationTypeId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Connections">
+      <EntityTypeMapping TypeName="WCSModel.Connection">
+        <MappingFragment StoreEntitySet="Connection">
+          <ScalarProperty Name="connectionId" ColumnName="connectionId" />
+          <ScalarProperty Name="connectionTime" ColumnName="connectionTime" />
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devices">
+      <EntityTypeMapping TypeName="WCSModel.Device">
+        <MappingFragment StoreEntitySet="Device">
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="clientVersion" ColumnName="clientVersion" />
+          <ScalarProperty Name="ipAddress" ColumnName="ipAddress" />
+          <ScalarProperty Name="lastConnection" ColumnName="lastConnection" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="lockTimeout" ColumnName="lockTimeout" />
+          <ScalarProperty Name="configurationTimeout" ColumnName="configurationTimeout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceConfigurations">
+      <EntityTypeMapping TypeName="WCSModel.DeviceConfiguration">
+        <MappingFragment StoreEntitySet="DeviceConfiguration">
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+          <ScalarProperty Name="shortcutKeyNo" ColumnName="shortcutKeyNo" />
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+          <ScalarProperty Name="cleaningBedDataTimeout" ColumnName="cleaningBedDataTimeout" />
+          <ScalarProperty Name="orderTimeout" ColumnName="orderTimeout" />
+          <ScalarProperty Name="presenceTimeout" ColumnName="presenceTimeout" />
+          <ScalarProperty Name="rfidTimeout" ColumnName="rfidTimeout" />
+          <ScalarProperty Name="dischargeTimeout" ColumnName="dischargeTimeout" />
+          <ScalarProperty Name="admissionsTimeout" ColumnName="admissionsTimeout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="WCSModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="doctorId" ColumnName="doctorId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExternalSources">
+      <EntityTypeMapping TypeName="WCSModel.ExternalSource">
+        <MappingFragment StoreEntitySet="ExternalSource">
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="source" ColumnName="source" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="WCSModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isEmergency" ColumnName="isEmergency" />
+          <ScalarProperty Name="contactInfo" ColumnName="contactInfo" />
+          <ScalarProperty Name="includeInMerge" ColumnName="includeInMerge" />
+          <ScalarProperty Name="WaitingArea_waitingAreaId" ColumnName="WaitingArea_waitingAreaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="WCSModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="logId" ColumnName="logId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Logger" ColumnName="Logger" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="WCSModel.Note">
+        <MappingFragment StoreEntitySet="Note">
+          <ScalarProperty Name="noteId" ColumnName="noteId" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="noteOrder" ColumnName="noteOrder" />
+          <ScalarProperty Name="bedId" ColumnName="bedId" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="WCSModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="notificationId" ColumnName="notificationId" />
+          <ScalarProperty Name="notificationTypeId" ColumnName="notificationTypeId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="priorToProcedureTime" ColumnName="priorToProcedureTime" />
+          <ScalarProperty Name="isAcknowledgmentRequired" ColumnName="isAcknowledgmentRequired" />
+          <ScalarProperty Name="acknowledged" ColumnName="acknowledged" />
+          <ScalarProperty Name="acknowledgedTime" ColumnName="acknowledgedTime" />
+          <ScalarProperty Name="acknowledgedBy" ColumnName="acknowledgedBy" />
+          <ScalarProperty Name="notificationOrder" ColumnName="notificationOrder" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="radiationRiskDurationMinutes" ColumnName="radiationRiskDurationMinutes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationRules">
+      <EntityTypeMapping TypeName="WCSModel.NotificationRule">
+        <MappingFragment StoreEntitySet="NotificationRule">
+          <ScalarProperty Name="notificationRuleId" ColumnName="notificationRuleId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="priorToProcedureTime" ColumnName="priorToProcedureTime" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="radiationRiskDurationMinutes" ColumnName="radiationRiskDurationMinutes" />
+          <ScalarProperty Name="isAcknowledgmentRequired" ColumnName="isAcknowledgmentRequired" />
+          <ScalarProperty Name="Procedure_procedureId" ColumnName="Procedure_procedureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationTypes">
+      <EntityTypeMapping TypeName="WCSModel.NotificationType">
+        <MappingFragment StoreEntitySet="NotificationType">
+          <ScalarProperty Name="notificationTypeId" ColumnName="notificationTypeId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_tbl">
+      <EntityTypeMapping TypeName="WCSModel.Order_tbl">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="orderNumber" ColumnName="orderNumber" />
+          <ScalarProperty Name="procedureTime" ColumnName="procedureTime" />
+          <ScalarProperty Name="orderStatusId" ColumnName="orderStatusId" />
+          <ScalarProperty Name="completedTime" ColumnName="completedTime" />
+          <ScalarProperty Name="admissionId" ColumnName="admissionId" />
+          <ScalarProperty Name="clinicalIndicator" ColumnName="clinicalIndicator" />
+          <ScalarProperty Name="estimatedProcedureDuration" ColumnName="estimatedProcedureDuration" />
+          <ScalarProperty Name="Procedure_procedureId" ColumnName="Procedure_procedureId" />
+          <ScalarProperty Name="Department_locationId" ColumnName="Department_locationId" />
+          <ScalarProperty Name="OrderingDoctor_doctorId" ColumnName="OrderingDoctor_doctorId" />
+          <ScalarProperty Name="isHidden" ColumnName="isHidden" />
+          <ScalarProperty Name="acknowledged" ColumnName="acknowledged" />
+          <ScalarProperty Name="acknowledgedTime" ColumnName="acknowledgedTime" />
+          <ScalarProperty Name="acknowledgedBy" ColumnName="acknowledgedBy" />
+          <ScalarProperty Name="history" ColumnName="history" />
+          <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
+          <ScalarProperty Name="currentCardiologist" ColumnName="currentCardiologist" />
+          <ScalarProperty Name="requiresSupervision" ColumnName="requiresSupervision" />
+          <ScalarProperty Name="requiresFootwear" ColumnName="requiresFootwear" />
+          <ScalarProperty Name="requiresMedicalRecords" ColumnName="requiresMedicalRecords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="WCSModel.OrderStatu">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="orderStatusId" ColumnName="orderStatusId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patient_tbl">
+      <EntityTypeMapping TypeName="WCSModel.Patient_tbl">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="patientId" ColumnName="patientId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="givenName" ColumnName="givenName" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="isMrsaPositive" ColumnName="isMrsaPositive" />
+          <ScalarProperty Name="isFallRisk" ColumnName="isFallRisk" />
+          <ScalarProperty Name="isAssistanceRequired" ColumnName="isAssistanceRequired" />
+          <ScalarProperty Name="assistanceDescription" ColumnName="assistanceDescription" />
+          <ScalarProperty Name="hasLatexAllergy" ColumnName="hasLatexAllergy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pins">
+      <EntityTypeMapping TypeName="WCSModel.Pin">
+        <MappingFragment StoreEntitySet="Pin">
+          <ScalarProperty Name="pinId" ColumnName="pinId" />
+          <ScalarProperty Name="pin1" ColumnName="pin" />
+          <ScalarProperty Name="Device_deviceId" ColumnName="Device_deviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedures">
+      <EntityTypeMapping TypeName="WCSModel.Procedure">
+        <MappingFragment StoreEntitySet="Procedure">
+          <ScalarProperty Name="procedureId" ColumnName="procedureId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="durationMinutes" ColumnName="durationMinutes" />
+          <ScalarProperty Name="ProcedureCategory_procedureCategoryId" ColumnName="ProcedureCategory_procedureCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcedureCategories">
+      <EntityTypeMapping TypeName="WCSModel.ProcedureCategory">
+        <MappingFragment StoreEntitySet="ProcedureCategory">
+          <ScalarProperty Name="procedureCategoryId" ColumnName="procedureCategoryId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="includeInMerge" ColumnName="includeInMerge" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RfidDetections">
+      <EntityTypeMapping TypeName="WCSModel.RfidDetection">
+        <MappingFragment StoreEntitySet="RfidDetection">
+          <ScalarProperty Name="rfidDetectionId" ColumnName="rfidDetectionId" />
+          <ScalarProperty Name="patientId" ColumnName="patientId" />
+          <ScalarProperty Name="rfidDirectionId" ColumnName="rfidDirectionId" />
+          <ScalarProperty Name="rfidDetectorId" ColumnName="rfidDetectorId" />
+          <ScalarProperty Name="dateTimeDetected" ColumnName="dateTimeDetected" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RfidDetectors">
+      <EntityTypeMapping TypeName="WCSModel.RfidDetector">
+        <MappingFragment StoreEntitySet="RfidDetector">
+          <ScalarProperty Name="rfidDetectorId" ColumnName="rfidDetectorId" />
+          <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
+          <ScalarProperty Name="Location_locationId" ColumnName="Location_locationId" />
+          <ScalarProperty Name="WaitingArea_waitingAreaId" ColumnName="WaitingArea_waitingAreaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RfidDirections">
+      <EntityTypeMapping TypeName="WCSModel.RfidDirection">
+        <MappingFragment StoreEntitySet="RfidDirection">
+          <ScalarProperty Name="rfidDirectionId" ColumnName="rfidDirectionId" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="WCSModel.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="roomId" ColumnName="roomId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Location_locationId" ColumnName="Location_locationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staging_Admission">
+      <EntityTypeMapping TypeName="WCSModel.Staging_Admission">
+        <MappingFragment StoreEntitySet="Staging_Admission">
+          <ScalarProperty Name="admissionExternalSource" ColumnName="admissionExternalSource" />
+          <ScalarProperty Name="admissionExternalId" ColumnName="admissionExternalId" />
+          <ScalarProperty Name="admissionType" ColumnName="admissionType" />
+          <ScalarProperty Name="admissionStatus" ColumnName="admissionStatus" />
+          <ScalarProperty Name="admitDateTime" ColumnName="admitDateTime" />
+          <ScalarProperty Name="dischargeDateTime" ColumnName="dischargeDateTime" />
+          <ScalarProperty Name="patientExternalId" ColumnName="patientExternalId" />
+          <ScalarProperty Name="patientGivenName" ColumnName="patientGivenName" />
+          <ScalarProperty Name="patientSurname" ColumnName="patientSurname" />
+          <ScalarProperty Name="patientSex" ColumnName="patientSex" />
+          <ScalarProperty Name="patientDOB" ColumnName="patientDOB" />
+          <ScalarProperty Name="isMrsaPositive" ColumnName="isMrsaPositive" />
+          <ScalarProperty Name="isFallRisk" ColumnName="isFallRisk" />
+          <ScalarProperty Name="isAssistanceRequired" ColumnName="isAssistanceRequired" />
+          <ScalarProperty Name="assistanceDescription" ColumnName="assistanceDescription" />
+          <ScalarProperty Name="hasLatexAllergy" ColumnName="hasLatexAllergy" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="room" ColumnName="room" />
+          <ScalarProperty Name="bed" ColumnName="bed" />
+          <ScalarProperty Name="doctorExternalSource" ColumnName="doctorExternalSource" />
+          <ScalarProperty Name="attendingDoctorExternalId" ColumnName="attendingDoctorExternalId" />
+          <ScalarProperty Name="attendingDoctorName" ColumnName="attendingDoctorName" />
+          <ScalarProperty Name="admittingDoctorExternalId" ColumnName="admittingDoctorExternalId" />
+          <ScalarProperty Name="admittingDoctorName" ColumnName="admittingDoctorName" />
+          <ScalarProperty Name="primaryCareDoctorExternalId" ColumnName="primaryCareDoctorExternalId" />
+          <ScalarProperty Name="primaryCareDoctorName" ColumnName="primaryCareDoctorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staging_Order">
+      <EntityTypeMapping TypeName="WCSModel.Staging_Order">
+        <MappingFragment StoreEntitySet="Staging_Order">
+          <ScalarProperty Name="orderExternalSource" ColumnName="orderExternalSource" />
+          <ScalarProperty Name="orderExternalId" ColumnName="orderExternalId" />
+          <ScalarProperty Name="orderNumber" ColumnName="orderNumber" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="procedureCategoryExternalId" ColumnName="procedureCategoryExternalId" />
+          <ScalarProperty Name="procedureExternalId" ColumnName="procedureExternalId" />
+          <ScalarProperty Name="procedureCode" ColumnName="procedureCode" />
+          <ScalarProperty Name="procedureDescription" ColumnName="procedureDescription" />
+          <ScalarProperty Name="procedureTime" ColumnName="procedureTime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="clinicalIndicators" ColumnName="clinicalIndicators" />
+          <ScalarProperty Name="completedDateTime" ColumnName="completedDateTime" />
+          <ScalarProperty Name="estimatedDuration" ColumnName="estimatedDuration" />
+          <ScalarProperty Name="admissionExternalSource" ColumnName="admissionExternalSource" />
+          <ScalarProperty Name="admissionExternalId" ColumnName="admissionExternalId" />
+          <ScalarProperty Name="doctorExternalSource" ColumnName="doctorExternalSource" />
+          <ScalarProperty Name="orderingDoctorExternalId" ColumnName="orderingDoctorExternalId" />
+          <ScalarProperty Name="orderingDoctorName" ColumnName="orderingDoctorName" />
+          <ScalarProperty Name="isHidden" ColumnName="isHidden" />
+          <ScalarProperty Name="history" ColumnName="history" />
+          <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
+          <ScalarProperty Name="currentCardiologist" ColumnName="currentCardiologist" />
+          <ScalarProperty Name="requiresSupervision" ColumnName="requiresSupervision" />
+          <ScalarProperty Name="requiresFootwear" ColumnName="requiresFootwear" />
+          <ScalarProperty Name="requiresMedicalRecords" ColumnName="requiresMedicalRecords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="WCSModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Updates">
+      <EntityTypeMapping TypeName="WCSModel.Update">
+        <MappingFragment StoreEntitySet="Update">
+          <ScalarProperty Name="updateId" ColumnName="updateId" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="Bed_bedId" ColumnName="Bed_bedId" />
+          <ScalarProperty Name="Order_orderId" ColumnName="Order_orderId" />
+          <ScalarProperty Name="Admission_admissionId" ColumnName="Admission_admissionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaitingAreas">
+      <EntityTypeMapping TypeName="WCSModel.WaitingArea">
+        <MappingFragment StoreEntitySet="WaitingArea">
+          <ScalarProperty Name="waitingAreaId" ColumnName="waitingAreaId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InsertUpdateAdmission" FunctionName="WCSModel.Store.InsertUpdateAdmission" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateGenerics" FunctionName="WCSModel.Store.InsertUpdateGenerics" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateOrder" FunctionName="WCSModel.Store.InsertUpdateOrder" />
+    <EntitySetMapping Name="tbl_sample">
+      <EntityTypeMapping TypeName="WCSModel.tbl_sample">
+        <MappingFragment StoreEntitySet="tbl_sample">
+          <ScalarProperty Name="ordernumber" ColumnName="ordernumber" />
+          <ScalarProperty Name="extid" ColumnName="extid" />
+          <ScalarProperty Name="extsource" ColumnName="extsource" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

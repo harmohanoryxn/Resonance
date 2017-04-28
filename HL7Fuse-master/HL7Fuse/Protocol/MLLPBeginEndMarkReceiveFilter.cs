@@ -26,7 +26,7 @@ namespace HL7Fuse.Protocol
         {
             byte[] msg = new byte[length];
             Array.Copy(readBuffer, offset, msg, offset, length);
-            
+
             string result = System.Text.UTF8Encoding.UTF8.GetString(msg);
             // Remove the begin and end marks
             if (result.Length > 3)
@@ -37,11 +37,15 @@ namespace HL7Fuse.Protocol
                 result = sb.ToString();
             }
             // Remove empty space at the end of the message
-            result = result.TrimEnd(new char[]{' ', '\r', '\n'});
+            result = result.TrimEnd(new char[] { ' ', '\r', '\n' });
             HLMessageToDB hl7message = new HLMessageToDB();
             hl7message.HL7MessageToDB(Convert.ToString(result));
             HL7RequestInfoParser parser = new HL7RequestInfoParser();
             return parser.ParseRequestInfo(result, "MLLP");
+           
+          
+           
+           
         }
     }
 }

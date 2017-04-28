@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F3BA6BA9-9677-4A51-976C-5A0C124EC950}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HL7MessageServer</RootNamespace>
+    <AssemblyName>HL7MessageServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Base, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V21, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V21.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V22, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V22.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V23, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V23.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V231, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V231.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V24, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V24.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V25, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V25.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V251, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V251.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V26, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V26.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V27, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V27.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V271, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V271.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V28, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V28.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapi.Model.V281, Version=2.5.0.6, Culture=neutral, PublicKeyToken=d0d8ea960a3440eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\nHapi.2.5.0.6\lib\NHapi.Model.V281.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Base, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Model.V21, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Model.V21.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Model.V22, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Model.V22.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Model.V23, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Model.V23.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Model.V231, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Model.V231.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Model.V24, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Model.V24.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Model.V25, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Model.V25.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHapiTools.Model.V251, Version=1.6.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHapiTools.1.6.0.3\lib\NHapiTools.Model.V251.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="DeviceAddition.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Model\WCSHL7.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WCSHL7.Context.cs</LastGenOutput>
+      <DependentUpon>WCSHL7.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\WCSHL7.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WCSHL7.edmx</DependentUpon>
+      <LastGenOutput>WCSHL7.cs</LastGenOutput>
+    </Content>
+    <Content Include="testserv.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\HL7RecieverController.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Classes\HL7toXML.cs" />
+    <Compile Include="Classes\HLMessageToDB.cs" />
+    <Compile Include="Classes\Message.cs" />
+    <Compile Include="Classes\testH7Message.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceAddition.aspx.cs">
+      <DependentUpon>DeviceAddition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeviceAddition.aspx.designer.cs">
+      <DependentUpon>DeviceAddition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AdmissionType.cs" />
+    <Compile Include="Helpers\AllergenDetails.cs" />
+    <Compile Include="Helpers\HL7messageToFile.cs" />
+    <Compile Include="Helpers\Insertionhelper.cs" />
+    <Compile Include="Helpers\PatientInfo.cs" />
+    <Compile Include="Helpers\PatientLocation.cs" />
+    <Compile Include="Hl7Filereader.cs" />
+    <Compile Include="Model\Admission_tbl.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Bed.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BedCleaningEvent.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BedCleaningEventType.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Configuration.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ConfigurationLocation.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ConfigurationType.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Connection.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\C__RefactorLog.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Device.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DeviceConfiguration.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Doctor.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ExternalSource.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Location.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Log.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Note.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Notification.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NotificationRule.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NotificationType.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OrderStatu.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Order_tbl.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Patient_tbl.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Pin.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Procedure.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProcedureCategory.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RfidDetection.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RfidDetector.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RfidDirection.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Room.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Staging_Admission.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Staging_Order.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbl_AdmissionStatus.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbl_AdmissionType.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Update.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WaitingArea.cs">
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WCSHL7.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCSHL7.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WCSHL7.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCSHL7.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WCSHL7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WCSHL7.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="testserv.aspx.cs">
+      <DependentUpon>testserv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testserv.aspx.designer.cs">
+      <DependentUpon>testserv.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\WCSHL7.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WCSHL7.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\WCSHL7.edmx.diagram">
+      <DependentUpon>WCSHL7.edmx</DependentUpon>
+    </Content>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62529</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62529/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
