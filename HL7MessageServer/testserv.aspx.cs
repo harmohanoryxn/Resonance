@@ -1,4 +1,5 @@
 ﻿using H7Message;
+using HL7MessageServer.Classes;
 using HL7MessageServer.Model;
 using NHapi.Base.Parser;
 using NHapi.Base.Util;
@@ -11,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace HL7MessageServer
 {
@@ -30,17 +32,17 @@ namespace HL7MessageServer
             foreach (string file in Directory.EnumerateFiles(folderPath))
             {
                 string contents = File.ReadAllText(file);
-                //if (contents != "Error Logged")
-                //{
-                //    HLMessageToDB hl7 = new HLMessageToDB();
-                //    hl7.HL7MessageToDB(contents);
-                //    //System.IO.File.WriteAllText(ConfigurationManager.AppSettings["Recieved"]+DateTime.Now+".txt" , contents);
+                if (contents != "Error Logged")
+                {
+                    //HLMessageToDB hl7 = new HLMessageToDB();
+                    //hl7.HL7MessageToDB(contents);
+                    //System.IO.File.WriteAllText(ConfigurationManager.AppSettings["Recieved"]+DateTime.Now+".txt" , contents);
 
-                //}
-                //else
-                //{
-                //    System.IO.File.WriteAllText(ConfigurationManager.AppSettings["ErrorFolder"], "error");
-                //}
+                }
+                else
+                {
+                    System.IO.File.WriteAllText(ConfigurationManager.AppSettings["ErrorFolder"], "error");
+                }
                 var parser = new PipeParser();
 
                 var messageParsed = parser.Parse(contents);
@@ -49,20 +51,24 @@ namespace HL7MessageServer
                 string orderNumber = "";
                 string Department_location = "";
                 string deplocpv = "";
-                if (MessageType=="ORM")
+                string admtype = "";
+                string givenname = "";
+                if (MessageType == "ORM")
                 {
                     orderNumber = tst.Get("/ORC-2");
                     Department_location = tst.Get("/ORC-13");
                     deplocpv = "ORC-13";
-                    if (Department_location=="" || Department_location==null)
+                    if (Department_location == "" || Department_location == null)
                     {
-                        Department_location= tst.Get("/PV1-3");
+                        Department_location = tst.Get("/PV1-3");
                         deplocpv = "PV1-3";
                     }
                 }
-                else if(MessageType=="ADM")
+                else if (MessageType == "ADM")
                 {
                     orderNumber = tst.Get("/PID-3");
+                    admtype = tst.Get("/PV1-2");
+                    givenname = tst.Get("/PID-5-2");
                 }
 
                 Gridval gv = new Gridval();
@@ -71,6 +77,7 @@ namespace HL7MessageServer
                 gv.OrderID = orderNumber;
                 gv.DepLoc = Department_location;
                 gv.deplocpv = deplocpv;
+                gv.admtype = admtype;
                 gridval.Add(gv);
             }
             GridView1.DataSource = gridval;
@@ -100,7 +107,7 @@ namespace HL7MessageServer
                     {
 
                         case "ADT":
-                          returntype=  adtmessage(tst);
+                            returntype = adtmessage(tst);
                             break;
                             //case "ORU":
                             //    oruMessage(tst);
@@ -113,10 +120,10 @@ namespace HL7MessageServer
                     gv.filename = file;
                     gv.MessageType = MessageType;
                     gv.OrderID = returntype;
-                    
+
                     gridval.Add(gv);
                 }
-                catch(Exception ve)
+                catch (Exception ve)
                 {
                     Gridval gv = new Gridval();
                     gv.filename = file;
@@ -153,22 +160,45 @@ namespace HL7MessageServer
                 }
                 return "Added";
             }
-            catch(Exception ve)
+            catch (Exception ve)
             {
                 HL7messageToFile.Exceptionhandler(Convert.ToString(ve.InnerException), ve.Message);
                 return "Not Added";
             }
-           
-           
-        }
-    }
-    public class Gridval
-    {
-        public string filename { get; set; }
-        public string MessageType { get; set; }
-        public string OrderID { get; set; }
-        public string DepLoc { get; set; }
-        public string deplocpv { get; set; }
-    }
 
+
+        }
+
+        protected void btn1_Click(object sender, EventArgs e)
+        {
+            string folderPath = ConfigurationManager.AppSettings["xml"];
+            IList<Gridval> gridval = new List<Gridval>();
+            DirectoryInfo info = new DirectoryInfo(folderPath);
+            FileInfo[] files = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+            foreach (string file in Directory.EnumerateFiles(folderPath))
+            {
+                string message = File.ReadAllText(file);
+                try
+                {
+                    XmlDocument xml = HL7ToXmlConverter.ConvertToXml(message);
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+        }
+        public class Gridval
+        {
+            public string filename { get; set; }
+            public string MessageType { get; set; }
+            public string OrderID { get; set; }
+            public string DepLoc { get; set; }
+            public string deplocpv { get; set; }
+            public string admtype { get; set; }
+            public string givenname { get; set; }
+
+        }
+
+    }
 }

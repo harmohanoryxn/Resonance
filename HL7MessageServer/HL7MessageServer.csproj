@@ -201,9 +201,10 @@
   <ItemGroup>
     <Compile Include="API\HL7RecieverController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Classes\HL7toXML.cs" />
+    <Compile Include="Classes\hl7xml.cs" />
     <Compile Include="Classes\HLMessageToDB.cs" />
     <Compile Include="Classes\Message.cs" />
+    <Compile Include="Classes\ReturnLocation.cs" />
     <Compile Include="Classes\testH7Message.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

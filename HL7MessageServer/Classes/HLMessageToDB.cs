@@ -131,11 +131,13 @@ namespace H7Message
             
             int orderstatusId = Convert.ToInt32(wcs.OrderStatus.Where(os => os.status == status).Select(osId => osId.orderStatusId).FirstOrDefault());
             string Department_location = tst.Get("/OBR-18");
+            Department_location= ReturnLocation.location(Department_location);
+
             //if(Department_location=="" || Department_location==null)
             //{
             //    Department_location = tst.Get("/PV1-3");
             //}
-                    int departmentLocCheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code==Department_location).Select(locId => locId.locationId).FirstOrDefault());
+            int departmentLocCheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code==Department_location).Select(locId => locId.locationId).FirstOrDefault());
                     if(departmentLocCheck<=0)
                     {
                         Location loc = new Location();
@@ -186,23 +188,22 @@ namespace H7Message
                 }
                 ordertbl.procedureTime = Convert.ToDateTime(ProcedureTime);
             }
-            ////////////Cinical indicator//////////////////////
             if (obxrep > 0)
             {
-                for(int i=1;i<obxrep;i++)
+                for (int i = 0; i < obxrep; i++)
                 {
-                    string admaclinicalindicator = tst.Get("/OBX(" + i + ")-3-2");
-                    if(admaclinicalindicator.Contains("Clinical indication") || admaclinicalindicator== "Clinical indicator"|| admaclinicalindicator== "clinical indication" || admaclinicalindicator== "clinical indicator")
+                    string value = tst.Get("/OBX("+i+")-3-2");
+                    if(value.Contains("Clinical Indication") || value.Contains("Clinical indication") || value.Contains("Clinical Indicator") )
                     {
-                        clinicalIndicator = Convert.ToString(tst.Get("/OBX(" + i + ")-5"));
+                        clinicalIndicator = tst.Get("/OBX(" + i + ")-5");
+                        clinicalIndicator += " " + tst.Get("/OBX(" + i + ")-5-2");
                     }
-
                 }
             }
-            clinicalIndicator = Convert.ToString(tst.Get("/OBX(3)-4"));
-            clinicalIndicator = Convert.ToString(tst.Get("/OBX(3)-5"));
-            clinicalIndicator = Convert.ToString(tst.Get("/OBX(3)-6"));
-            ordertbl.orderStatusId = orderstatusId;
+            int admissiontype = AdmissionType.AdmissionTypeId(tst);
+            int patitentlocationid= PatientLocation.PatientLocationId(tst);
+            string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid);
+                    ordertbl.orderStatusId = orderstatusId;
                     ordertbl.admissionId = admissionId;
                     ordertbl.Procedure_procedureId = procedureId;
                     ordertbl.clinicalIndicator = clinicalIndicator;
@@ -709,6 +710,47 @@ namespace H7Message
             statusId = Convert.ToInt32(wcs.tbl_AdmissionStatus.Where(ast => ast.status == status).Select(admst => admst.admissionStatusId).FirstOrDefault());
             
             return statusId;
+        }
+        private string admissiontypeupdate(int admissionid , int admtype,int patientlocationid)
+        {
+            string result = "";
+            WCSHL7Entities wcs = new WCSHL7Entities();
+            Admission_tbl adm = wcs.Admission_tbl.First(c => c.admissionId == admissionid);
+            
+            int presentadmtype = adm.AdmissionType_admissionTypeId;
+            if (admtype > 0)
+            {
+                adm.AdmissionType_admissionTypeId = admtype;
+            }
+            if (patientlocationid > 0)
+            {
+                adm.Location_locationId = patientlocationid;
+            }
+                try
+                {
+                    wcs.Admission_tbl.Attach(adm);
+                    wcs.Entry(adm).State = EntityState.Modified;
+                    wcs.SaveChanges();
+
+                    Insertionhelper.insertdata(Convert.ToString(admissionid), admissionid, "Admission Updated");
+                }
+                catch (DbEntityValidationException e)
+                {
+
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            HL7messageToFile.Exceptionhandler(exception, ve.ErrorMessage);
+
+                        }
+                    }
+                    return "exception";
+                }
+            
+            return "success";
+
         }
       
        

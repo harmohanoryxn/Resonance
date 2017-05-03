@@ -25,13 +25,13 @@ namespace HL7Fuse
             this.serviceInstaller = new ServiceInstaller();
             this.processInstaller.Account = ServiceAccount.LocalSystem;
             this.serviceInstaller.StartType = ServiceStartMode.Automatic;
-            this.serviceInstaller.ServiceName = ConfigurationManager.AppSettings["ServiceName"];
+            this.serviceInstaller.ServiceName = "SocketResonance";
             string str1 = ConfigurationManager.AppSettings["ServiceDescription"];
             if (!string.IsNullOrEmpty(str1))
                 this.serviceInstaller.Description = str1;
             List<string> list = new List<string>()
       {
-        "SocketServiceResonance"
+        "SocketService"
       };
             string str2 = ConfigurationManager.AppSettings["ServicesDependedOn"];
             if (!string.IsNullOrEmpty(str2))

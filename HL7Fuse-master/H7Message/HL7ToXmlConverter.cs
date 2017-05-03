@@ -47,116 +47,124 @@ namespace H7Message
                     // Get the line and get the line's segments
                     string sHL7Line = sHL7Lines[i];
                     string[] sFields = HL7ToXmlConverter.GetMessgeFields(sHL7Line);
-
+                    string check = Convert.ToString(sFields[0][1]);
                     // Create a new element in the XML for the line
-                    XmlElement el = _xmlDoc.CreateElement(sFields[0]);
-                    _xmlDoc.DocumentElement.AppendChild(el);
-
-                    // For each field in the line of HL7
-                    for (int a = 0; a < sFields.Length; a++)
+                    if (check.StartsWith("^"))
                     {
-                        // Create a new element
-                        XmlElement fieldEl = _xmlDoc.CreateElement(sFields[0] +
-                                             "." + a.ToString());
 
-                        /// Part of the HL7 specification is that part
-                        /// of the message header defines which characters
-                        /// are going to be used to delimit the message
-                        /// and since we want to capture the field that
-                        /// contains those characters we need
-                        /// to just capture them and stick them in an element.
-                        if (sFields[a] != @"^~\&")
+                    }
+                    else
+                    {
+                        XmlElement el = _xmlDoc.CreateElement(sFields[0]);
+
+                        _xmlDoc.DocumentElement.AppendChild(el);
+
+                        // For each field in the line of HL7
+                        for (int a = 0; a < sFields.Length; a++)
                         {
-                            /// Get the components within this field, separated by carats (^)
-                            /// If there are more than one, go through and create an element for
-                            /// each, then check for subcomponents, and repetition in both.
-                            string[] sComponents = HL7ToXmlConverter.GetComponents(sFields[a]);
-                            if (sComponents.Length > 1)
-                            {
-                                for (int b = 0; b < sComponents.Length; b++)
-                                {
-                                    XmlElement componentEl = _xmlDoc.CreateElement(sFields[0] +
-                                               "." + a.ToString() +
-                                               "." + b.ToString());
+                            // Create a new element
+                            XmlElement fieldEl = _xmlDoc.CreateElement(sFields[0] +
+                                                 "." + a.ToString());
 
-                                    string[] subComponents = GetSubComponents(sComponents[b]);
-                                    if (subComponents.Length > 1)
-                                    // There were subcomponents
+                            /// Part of the HL7 specification is that part
+                            /// of the message header defines which characters
+                            /// are going to be used to delimit the message
+                            /// and since we want to capture the field that
+                            /// contains those characters we need
+                            /// to just capture them and stick them in an element.
+                            if (sFields[a] != @"^~\&")
+                            {
+                                /// Get the components within this field, separated by carats (^)
+                                /// If there are more than one, go through and create an element for
+                                /// each, then check for subcomponents, and repetition in both.
+                                string[] sComponents = HL7ToXmlConverter.GetComponents(sFields[a]);
+                                if (sComponents.Length > 1)
+                                {
+                                    for (int b = 0; b < sComponents.Length; b++)
                                     {
-                                        for (int c = 0; c < subComponents.Length; c++)
+                                        XmlElement componentEl = _xmlDoc.CreateElement(sFields[0] +
+                                                   "." + a.ToString() +
+                                                   "." + b.ToString());
+
+                                        string[] subComponents = GetSubComponents(sComponents[b]);
+                                        if (subComponents.Length > 1)
+                                        // There were subcomponents
                                         {
-                                            // Check for repetition
-                                            string[] subComponentRepetitions =
-                                                     GetRepetitions(subComponents[c]);
-                                            if (subComponentRepetitions.Length > 1)
+                                            for (int c = 0; c < subComponents.Length; c++)
                                             {
-                                                for (int d = 0;
-                                                     d < subComponentRepetitions.Length;
-                                                     d++)
+                                                // Check for repetition
+                                                string[] subComponentRepetitions =
+                                                         GetRepetitions(subComponents[c]);
+                                                if (subComponentRepetitions.Length > 1)
                                                 {
-                                                    XmlElement subComponentRepEl =
-                                                      _xmlDoc.CreateElement(sFields[0] +
-                                                      "." + a.ToString() +
-                                                      "." + b.ToString() +
-                                                      "." + c.ToString() +
-                                                      "." + d.ToString());
-                                                    subComponentRepEl.InnerText =
-                                                         subComponentRepetitions[d];
-                                                    componentEl.AppendChild(subComponentRepEl);
+                                                    for (int d = 0;
+                                                         d < subComponentRepetitions.Length;
+                                                         d++)
+                                                    {
+                                                        XmlElement subComponentRepEl =
+                                                          _xmlDoc.CreateElement(sFields[0] +
+                                                          "." + a.ToString() +
+                                                          "." + b.ToString() +
+                                                          "." + c.ToString() +
+                                                          "." + d.ToString());
+                                                        subComponentRepEl.InnerText =
+                                                             subComponentRepetitions[d];
+                                                        componentEl.AppendChild(subComponentRepEl);
+                                                    }
                                                 }
+                                                else
+                                                {
+                                                    XmlElement subComponentEl =
+                                                      _xmlDoc.CreateElement(sFields[0] +
+                                                      "." + a.ToString() + "." +
+                                                      b.ToString() + "." + c.ToString());
+                                                    subComponentEl.InnerText = subComponents[c];
+                                                    componentEl.AppendChild(subComponentEl);
+
+                                                }
+                                            }
+                                            fieldEl.AppendChild(componentEl);
+                                        }
+                                        else // There were no subcomponents
+                                        {
+                                            string[] sRepetitions =
+                                               HL7ToXmlConverter.GetRepetitions(sComponents[b]);
+                                            if (sRepetitions.Length > 1)
+                                            {
+                                                XmlElement repetitionEl = null;
+                                                for (int c = 0; c < sRepetitions.Length; c++)
+                                                {
+                                                    repetitionEl =
+                                                      _xmlDoc.CreateElement(sFields[0] + "." +
+                                                      a.ToString() + "." + b.ToString() +
+                                                      "." + c.ToString());
+                                                    repetitionEl.InnerText = sRepetitions[c];
+                                                    componentEl.AppendChild(repetitionEl);
+                                                }
+                                                fieldEl.AppendChild(componentEl);
+                                                el.AppendChild(fieldEl);
                                             }
                                             else
                                             {
-                                                XmlElement subComponentEl =
-                                                  _xmlDoc.CreateElement(sFields[0] +
-                                                  "." + a.ToString() + "." +
-                                                  b.ToString() + "." + c.ToString());
-                                                subComponentEl.InnerText = subComponents[c];
-                                                componentEl.AppendChild(subComponentEl);
-
+                                                componentEl.InnerText = sComponents[b];
+                                                fieldEl.AppendChild(componentEl);
+                                                el.AppendChild(fieldEl);
                                             }
                                         }
-                                        fieldEl.AppendChild(componentEl);
                                     }
-                                    else // There were no subcomponents
-                                    {
-                                        string[] sRepetitions =
-                                           HL7ToXmlConverter.GetRepetitions(sComponents[b]);
-                                        if (sRepetitions.Length > 1)
-                                        {
-                                            XmlElement repetitionEl = null;
-                                            for (int c = 0; c < sRepetitions.Length; c++)
-                                            {
-                                                repetitionEl =
-                                                  _xmlDoc.CreateElement(sFields[0] + "." +
-                                                  a.ToString() + "." + b.ToString() +
-                                                  "." + c.ToString());
-                                                repetitionEl.InnerText = sRepetitions[c];
-                                                componentEl.AppendChild(repetitionEl);
-                                            }
-                                            fieldEl.AppendChild(componentEl);
-                                            el.AppendChild(fieldEl);
-                                        }
-                                        else
-                                        {
-                                            componentEl.InnerText = sComponents[b];
-                                            fieldEl.AppendChild(componentEl);
-                                            el.AppendChild(fieldEl);
-                                        }
-                                    }
+                                    el.AppendChild(fieldEl);
                                 }
-                                el.AppendChild(fieldEl);
+                                else
+                                {
+                                    fieldEl.InnerText = sFields[a];
+                                    el.AppendChild(fieldEl);
+                                }
                             }
                             else
                             {
                                 fieldEl.InnerText = sFields[a];
                                 el.AppendChild(fieldEl);
                             }
-                        }
-                        else
-                        {
-                            fieldEl.InnerText = sFields[a];
-                            el.AppendChild(fieldEl);
                         }
                     }
                 }

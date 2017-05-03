@@ -12,8 +12,8 @@ namespace H7Message
         {
             try
             {
-
-                string currentdate = DateTime.Now.ToString("ddMMyyyyHHmm");
+                Guid gid = Guid.NewGuid();
+                string currentdate = DateTime.Now.ToString("ddMMyyyyHHmm")+gid;
                 string directory = ConfigurationManager.AppSettings["MessageFolder"];
                 System.IO.File.WriteAllText(directory + currentdate.ToString()+".txt", message);
                 return currentdate.ToString() + ".txt";
@@ -25,9 +25,10 @@ namespace H7Message
         }
         public static void Exceptionhandler(string message,string innerexception)
         {
+            Guid gid = Guid.NewGuid();
             string combinedmessage = message + "   Inner Exception :" + innerexception;
             string directory = ConfigurationManager.AppSettings["ErrorFolder"];
-            string currentdate = DateTime.Now.ToString("ddMMyyyyHHmm");
+            string currentdate = DateTime.Now.ToString("ddMMyyyyHHmm")+gid;
             System.IO.File.WriteAllText(directory + currentdate.ToString() + ".txt", combinedmessage);
         }
     }
