@@ -265,7 +265,6 @@
     <Property Name="isAssistanceRequired" Type="bit" Nullable="false" />
     <Property Name="assistanceDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="hasLatexAllergy" Type="bit" Nullable="false" />
-    <Property Name="PID" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Pin">
     <Key>

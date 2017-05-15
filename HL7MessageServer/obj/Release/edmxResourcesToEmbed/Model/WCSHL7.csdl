@@ -337,7 +337,6 @@
     <NavigationProperty Name="Admissions" Relationship="Self.FK_PatientAdmission" FromRole="Patient" ToRole="Admission" />
     <NavigationProperty Name="ExternalSource" Relationship="Self.FK_PatientExternalSource" FromRole="Patient" ToRole="ExternalSource" />
     <NavigationProperty Name="RfidDetections" Relationship="Self.FK_RfidDetectionPatient" FromRole="Patient" ToRole="RfidDetection" />
-    <Property Name="PID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Pin">
     <Key>

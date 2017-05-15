@@ -60,10 +60,10 @@ namespace H7Message
         {
             string result = "";
             WCSHL7Entities wcs = new WCSHL7Entities();
-                      
-                   
-             
-                    string pid = tst.Get("/PID-2");
+
+
+            int admissiontypeid = AdmissionType.AdmissionTypeId(tst);
+            string pid = tst.Get("/PID-3");
                     string procedure = tst.Get("/OBR-4-2");
                     var procedureIdCheck = wcs.Procedures.Where(s => s.code ==procedure).Select(p=>p.procedureId).FirstOrDefault().ToString();
                     if(procedureIdCheck == "0" || procedureIdCheck == null)
@@ -150,8 +150,8 @@ namespace H7Message
                         Insertionhelper.insertdata("Location", 0, "Location  Insertion");
                     }
                     int departmentLocationId= Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
-                    string extid = tst.Get("/PID-2");
-                    int admissionId =Convert.ToInt32(wcs.Admission_tbl.Where(adm => adm.patientId == wcs.Patient_tbl.Where(patien => patien.PID ==pid ).Select(p => p.patientId).FirstOrDefault()).Select(ad=>ad.admissionId).FirstOrDefault());
+                    string admextid = tst.Get("/PID-18");
+                    int admissionId =Convert.ToInt32(wcs.Admission_tbl.Where(adm => adm.externalId ==admextid).Select(ad=>ad.admissionId).FirstOrDefault());
                     string OrderingDocFirstname = tst.Get("/OBR-16-3");
                     string OrderingDoclastname = tst.Get("/OBR-16-2");
                     string OrderingDocMiddle = tst.Get("/OBR-16-4");
@@ -186,7 +186,18 @@ namespace H7Message
                 {
                     ProcedureTime = DateTime.ParseExact(proceduretimecheck, "yyyyMMdd", null).ToString("yyyy-MM-dd HH:mm");
                 }
-                ordertbl.procedureTime = Convert.ToDateTime(ProcedureTime);
+               
+                if(admissiontypeid==1)
+                {
+                    TimeSpan ts = new TimeSpan(00, 00, 00);
+                    DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts);
+                    ordertbl.procedureTime = dt;
+                }
+                else
+                {
+                    ordertbl.procedureTime = Convert.ToDateTime(ProcedureTime);
+                }
+               
             }
             if (obxrep > 0)
             {
@@ -224,10 +235,20 @@ namespace H7Message
                 if(orderId>0)
                 {
                     Order_tbl ad = wcs.Order_tbl.First(c => c.orderNumber == orderNumber && (c.admissionId == admissionId));
-                     ad.externalSourceId = 2;
+                    if (admissiontypeid == 1)
+                    {
+                        TimeSpan ts = new TimeSpan(00, 00, 00);
+                        DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts);
+                        ad.procedureTime = dt;
+                    }
+                    else
+                    {
+                        ad.procedureTime = Convert.ToDateTime(ProcedureTime);
+                    }
+                    ad.externalSourceId = 2;
                     ad.externalId = orderNumber;
                     ad.orderNumber = orderNumber;
-                    ad.procedureTime = Convert.ToDateTime(ProcedureTime);
+                   
                     ad.orderStatusId = orderstatusId;
                     ad.admissionId = admissionId;
                     ad.Procedure_procedureId = procedureId;
@@ -290,19 +311,19 @@ namespace H7Message
                 WCSHL7Entities wcs = new WCSHL7Entities();
                 Admission_tbl admissiontbl = new Admission_tbl();
                 bool rol = false;
-                string extPID = tst.Get("/PID-2");
+                string extPID = tst.Get("/PID-3");
                 /// initializing parameters///
                  ///Calling patient info class for getting patient ID/////
                 int patientId = PatientInfo.PatientinfoReturn(tst, obxrep); ;
                 int patientlocationId = 0;
                 int admissionTypeId = 0;
-                string externalPId = tst.Get("/PID-2");
-                string externalId = (wcs.Patient_tbl.Where(d => d.PID == externalPId).Select(p => p.externalId).FirstOrDefault());
+                string externalPId = tst.Get("/PID-3");
+                string admexternalId = tst.Get("/PID-18");
                 string messageEventTrigger = tst.Get("/MSH-9-2");
-                int admissioncheck = wcs.Admission_tbl.Where(c => c.externalId == externalId).Select(d => d.admissionId).FirstOrDefault();
+                int admissioncheck = wcs.Admission_tbl.Where(c => c.externalId == admexternalId).Select(d => d.admissionId).FirstOrDefault();
                 if (admissioncheck > 0)
                 {
-                    Admission_tbl ad = wcs.Admission_tbl.First(i => i.externalId == externalId);
+                    Admission_tbl ad = wcs.Admission_tbl.First(i => i.externalId == admexternalId);
                     ////Getting patient location id//////
                     patientlocationId = PatientLocation.PatientLocationId(tst);
                     //////Getting patient admission type id
@@ -318,7 +339,7 @@ namespace H7Message
                     string Patientadmitdatetime = DateTime.ParseExact(tst.Get("PV1-44").ToString(), "yyyyMMddHHmm", null).ToString("yyyy-MM-dd HH:mm");
                     ad.externalSourceId = ExtSourceId(tst.Get("/MSH-4"));
                     ad.patientId = patientId;
-                    ad.externalId = externalId;
+                    ad.externalId = admexternalId;
                     ad.AdmissionStatus_admissionStatusId = AdmissionStatusId(tst.Get("/PV1-41"));
                     if (patientlocationId > 0)
                     {
@@ -366,7 +387,7 @@ namespace H7Message
                     try
                     {
                         wcs.SaveChanges();
-                        Insertionhelper.insertdata(externalId, admissioncheck, "Admission Updated");
+                        Insertionhelper.insertdata(admexternalId, admissioncheck, "Admission Updated");
                     }
                     catch (DbEntityValidationException e)
                     {
@@ -399,7 +420,7 @@ namespace H7Message
                     string Patientadmitdatetime = DateTime.ParseExact(tst.Get("PV1-44").ToString(), "yyyyMMddHHmm", null).ToString("yyyy-MM-dd HH:mm");
                     admissiontbl.externalSourceId = ExtSourceId(tst.Get("/MSH-4"));
                     admissiontbl.patientId = patientId;
-                    admissiontbl.externalId = externalId;
+                    admissiontbl.externalId = admexternalId;
                     admissiontbl.AdmissionStatus_admissionStatusId = AdmissionStatusId(tst.Get("/PV1-41"));
                     if (patientlocationId > 0)
                     {
@@ -445,8 +466,8 @@ namespace H7Message
                     try
                     {
                         wcs.SaveChanges();
-                        int externalIdcheck1 = wcs.Admission_tbl.Where(c => c.externalId == externalId).Select(ad => ad.admissionId).FirstOrDefault();
-                        Insertionhelper.insertdata(externalId, externalIdcheck1, "Admission Imported");
+                        int externalIdcheck1 = wcs.Admission_tbl.Where(c => c.externalId == admexternalId).Select(ad => ad.admissionId).FirstOrDefault();
+                        Insertionhelper.insertdata(admexternalId, externalIdcheck1, "Admission Imported");
                     }
                     catch (DbEntityValidationException e)
                     {
@@ -469,7 +490,8 @@ namespace H7Message
             catch (Exception ex)
             {
                 result = ex.Message;
-                HL7messageToFile.Exceptionhandler(ex.Message, Convert.ToString(ex.StackTrace));
+                string innerexception = Convert.ToString(ex.InnerException);
+                HL7messageToFile.Exceptionhandler(ex.Message + "Internal error" + innerexception, Convert.ToString(ex.StackTrace));
             }
             return result;
         }

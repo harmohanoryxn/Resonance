@@ -275,7 +275,6 @@
     <EntitySetMapping Name="Patient_tbl">
       <EntityTypeMapping TypeName="WCSModel.Patient_tbl">
         <MappingFragment StoreEntitySet="Patient">
-          <ScalarProperty Name="PID" ColumnName="PID" />
           <ScalarProperty Name="patientId" ColumnName="patientId" />
           <ScalarProperty Name="externalSourceId" ColumnName="externalSourceId" />
           <ScalarProperty Name="externalId" ColumnName="externalId" />

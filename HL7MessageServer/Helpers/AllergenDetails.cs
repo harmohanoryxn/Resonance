@@ -38,7 +38,7 @@ namespace H7Message
                         }
 
 
-                    if (admallergy == "" || admallergy == null)
+                    if (admallergy == "" || admallergy == null ||admallergy!=query)
                     {
                         latexallergy = false;
                     }

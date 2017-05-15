@@ -33,7 +33,6 @@ namespace HL7MessageServer.Model
         public bool isAssistanceRequired { get; set; }
         public string assistanceDescription { get; set; }
         public bool hasLatexAllergy { get; set; }
-        public string PID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Admission_tbl> Admissions { get; set; }

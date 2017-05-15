@@ -13,6 +13,10 @@
             <asp:Button ID="Button1" runat="server" Text="Add PID" OnClick="Button1_Click"/>
             <asp:Button id="btn1" runat="server" Text="Show XML" OnClick="btn1_Click" />
         </div>
+         <div style="margin:10px;">
+            <asp:Button ID="btnparsemessages" runat="server" Text="Show Data" OnClick="btnparsemessages_Click"/>
+           
+        </div>
     <div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true"></asp:GridView>
     </div>

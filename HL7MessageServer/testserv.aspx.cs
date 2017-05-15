@@ -149,7 +149,7 @@ namespace HL7MessageServer
                 if (check > 0)
                 {
                     Patient_tbl pd = wcs.Patient_tbl.First(p => p.externalId == extPID);
-                    pd.PID = extPID;
+                   
 
                     if (messageevent == "A01" || messageevent == "A04")
                     {
@@ -200,5 +200,45 @@ namespace HL7MessageServer
 
         }
 
+        protected void btnparsemessages_Click(object sender, EventArgs e)
+        {
+            string folderPath = ConfigurationManager.AppSettings["TestServ"];
+            IList<Gridval> gridval = new List<Gridval>();
+            DirectoryInfo info = new DirectoryInfo(folderPath);
+            FileInfo[] files = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+            foreach (string file in Directory.EnumerateFiles(folderPath))
+            {
+                string message = File.ReadAllText(file);
+                try
+                {
+                    var parser = new PipeParser();
+                    var messageParsed = parser.Parse(message);
+                    Terser tst = new Terser(messageParsed);
+                    var admextid = tst.Get("/PID-18");
+                   
+                    var returntype = "";
+                   
+                        HLMessageToDB hl7 = new HLMessageToDB();
+                        hl7.HL7MessageToDB(message);
+                        Gridval gvd = new Gridval();
+                        gvd.filename = file;
+                        gvd.MessageType = tst.Get("/MSH-9");
+                        
+                        gvd.OrderID = tst.Get("/PID-18");
+                        gridval.Add(gvd);
+                  
+                   
+                }
+                catch (Exception ex)
+                {
+                   
+                    string innerexception = Convert.ToString(ex.InnerException);
+                    HL7messageToFile.Exceptionhandler(ex.Message + "Internal error" + innerexception, Convert.ToString(ex.StackTrace));
+                }
+            }
+            GridView1.DataSource = gridval;
+            GridView1.DataBind();
+
+        }
     }
 }
