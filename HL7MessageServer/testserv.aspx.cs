@@ -193,6 +193,7 @@ namespace HL7MessageServer
             public string filename { get; set; }
             public string MessageType { get; set; }
             public string OrderID { get; set; }
+            public string admissionId { get; set; }
             public string DepLoc { get; set; }
             public string deplocpv { get; set; }
             public string admtype { get; set; }
@@ -215,16 +216,25 @@ namespace HL7MessageServer
                     var messageParsed = parser.Parse(message);
                     Terser tst = new Terser(messageParsed);
                     var admextid = tst.Get("/PID-18");
+                    string assignedpatientlocation = tst.Get("/PV1-3");
+                    var returntype = tst.Get("/MSH-9");
                    
-                    var returntype = "";
-                   
-                        HLMessageToDB hl7 = new HLMessageToDB();
-                        hl7.HL7MessageToDB(message);
+                       
                         Gridval gvd = new Gridval();
                         gvd.filename = file;
                         gvd.MessageType = tst.Get("/MSH-9");
+                        gvd.DepLoc = assignedpatientlocation;
                         
-                        gvd.OrderID = tst.Get("/PID-18");
+                     if(returntype=="ORM")
+                    {
+                        gvd.deplocpv = tst.Get("/OBR-18");
+                        gvd.OrderID = tst.Get("/ORC-2");
+                    }
+                    else
+                    {
+                        gvd.admissionId = tst.Get("/PID-18");
+                    }
+                        
                         gridval.Add(gvd);
                   
                    

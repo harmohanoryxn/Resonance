@@ -24,14 +24,14 @@ namespace H7Message
 {
     public class HLMessageToDB
     {
-        
+
         public void HL7MessageToDB(string message)
         {
             var parser = new PipeParser();
             var messageParsed = parser.Parse(message);
             Terser tst = new Terser(messageParsed);
             var MessageType = tst.Get("/MSH-9");
-            
+
             string regexOBX = @"\bOBX\b";
             string regexROL = @"\bROL\b";
             int OBXRep = Regex.Matches(message, regexOBX).Count;
@@ -41,14 +41,14 @@ namespace H7Message
             switch (MessageType)
             {
                 case "ORM":
-                    ormMessage(tst,message,OBXRep);
+                    ormMessage(tst, message, OBXRep);
                     break;
                 case "ADT":
                     adtMessage(tst, OBXRep, ROLRep);
                     break;
-                //case "ORU":
-                //    oruMessage(tst);
-                //    break;
+                    //case "ORU":
+                    //    oruMessage(tst);
+                    //    break;
 
 
 
@@ -56,7 +56,7 @@ namespace H7Message
 
 
         }
-        protected string ormMessage(Terser tst,string message,int obxrep)
+        protected string ormMessage(Terser tst, string message, int obxrep)
         {
             string result = "";
             WCSHL7Entities wcs = new WCSHL7Entities();
@@ -64,49 +64,49 @@ namespace H7Message
 
             int admissiontypeid = AdmissionType.AdmissionTypeId(tst);
             string pid = tst.Get("/PID-3");
-                    string procedure = tst.Get("/OBR-4-2");
-                    var procedureIdCheck = wcs.Procedures.Where(s => s.code ==procedure).Select(p=>p.procedureId).FirstOrDefault().ToString();
-                    if(procedureIdCheck == "0" || procedureIdCheck == null)
-                    {
-                        Procedure pc = new Procedure();
-                        pc.externalId = procedure+"1";
-                        pc.code = procedure;
-                        pc.description = tst.Get("OBR-4-3");
-                        pc.externalSourceId = 1;
-                        string extID = tst.Get("/OBR-4");
-                        var procedurecategory = wcs.ProcedureCategories.Where(procat => procat.externalId == extID).Select(r => r.procedureCategoryId).FirstOrDefault().ToString();
-                        if(procedurecategory=="0")
-                        {
-                            ProcedureCategory pCat = new ProcedureCategory();
-                            pCat.externalSourceId = 1;
-                            pCat.externalId = extID;
-                            pCat.includeInMerge = true;
-                            pCat.description = "";
-                            wcs.ProcedureCategories.AddOrUpdate(pCat);
-                            wcs.SaveChanges();
-                           Insertionhelper.insertdata("ProcedureCategory", 0 , "Procedure category Insertion");
-                        }
-                        var procedurecategoryID = wcs.ProcedureCategories.Where(procat => procat.externalId == extID).Select(r => r.procedureCategoryId).FirstOrDefault().ToString();
-                        pc.ProcedureCategory_procedureCategoryId = Convert.ToInt32(procedurecategoryID);
-                        wcs.Procedures.AddOrUpdate(pc);
-                        wcs.SaveChanges();
-                        Insertionhelper.insertdata("Procedure", 0, "Procedure  Insertion");
+            string procedure = tst.Get("/OBR-4-2");
+            var procedureIdCheck = wcs.Procedures.Where(s => s.code == procedure).Select(p => p.procedureId).FirstOrDefault().ToString();
+            if (procedureIdCheck == "0" || procedureIdCheck == null)
+            {
+                Procedure pc = new Procedure();
+                pc.externalId = procedure + "1";
+                pc.code = procedure;
+                pc.description = tst.Get("OBR-4-3");
+                pc.externalSourceId = 1;
+                string extID = tst.Get("/OBR-4");
+                var procedurecategory = wcs.ProcedureCategories.Where(procat => procat.externalId == extID).Select(r => r.procedureCategoryId).FirstOrDefault().ToString();
+                if (procedurecategory == "0")
+                {
+                    ProcedureCategory pCat = new ProcedureCategory();
+                    pCat.externalSourceId = 1;
+                    pCat.externalId = extID;
+                    pCat.includeInMerge = true;
+                    pCat.description = "";
+                    wcs.ProcedureCategories.AddOrUpdate(pCat);
+                    wcs.SaveChanges();
+                    Insertionhelper.insertdata("ProcedureCategory", 0, "Procedure category Insertion");
+                }
+                var procedurecategoryID = wcs.ProcedureCategories.Where(procat => procat.externalId == extID).Select(r => r.procedureCategoryId).FirstOrDefault().ToString();
+                pc.ProcedureCategory_procedureCategoryId = Convert.ToInt32(procedurecategoryID);
+                wcs.Procedures.AddOrUpdate(pc);
+                wcs.SaveChanges();
+                Insertionhelper.insertdata("Procedure", 0, "Procedure  Insertion");
             }
-                    int procedureId = wcs.Procedures.Where(s => s.code == procedure).Select(p => p.procedureId).FirstOrDefault();
-                   
-                    
-                    string admitdatetime = DateTime.Now.ToShortDateString();
-                    string extSource = tst.Get("/OBR-16");
-                   
-                    string extId = tst.Get("/OBR-18-2");
-                    string orderNumber = tst.Get("/ORC-2");
-                    string clinicalIndicator = tst.Get("OBR-3-2");
-           
-                   
-                    
-                    string ProcedureTimeduration = tst.Get("/OBR-6");
-                    string ProcedureName = tst.Get("/OBR-4");
-                    string status = tst.Get("/ORC-5");
+            int procedureId = wcs.Procedures.Where(s => s.code == procedure).Select(p => p.procedureId).FirstOrDefault();
+
+
+            string admitdatetime = DateTime.Now.ToShortDateString();
+            string extSource = tst.Get("/OBR-16");
+
+            string extId = tst.Get("/OBR-18-2");
+            string orderNumber = tst.Get("/ORC-2");
+            string clinicalIndicator = tst.Get("OBR-3-2");
+
+
+
+            string ProcedureTimeduration = tst.Get("/OBR-6");
+            string ProcedureName = tst.Get("/OBR-4");
+            string status = tst.Get("/ORC-5");
             switch (status)
             {
                 case "L":
@@ -128,67 +128,99 @@ namespace H7Message
                     status = "Cancelled";
                     break;
             }
-            
+
             int orderstatusId = Convert.ToInt32(wcs.OrderStatus.Where(os => os.status == status).Select(osId => osId.orderStatusId).FirstOrDefault());
             string Department_location = tst.Get("/OBR-18");
-            Department_location= ReturnLocation.location(Department_location);
+            Department_location = ReturnLocation.location(Department_location);
 
             //if(Department_location=="" || Department_location==null)
             //{
             //    Department_location = tst.Get("/PV1-3");
             //}
-            int departmentLocCheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code==Department_location).Select(locId => locId.locationId).FirstOrDefault());
-                    if(departmentLocCheck<=0)
-                    {
-                        Location loc = new Location();
-                        loc.name = Department_location;
-                        loc.code = Department_location;
-                        loc.isEmergency = false;
-                        loc.includeInMerge = true;
-                        wcs.Locations.AddOrUpdate(loc);
-                        wcs.SaveChanges();
-                        Insertionhelper.insertdata("Location", 0, "Location  Insertion");
-                    }
-                    int departmentLocationId= Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
-                    string admextid = tst.Get("/PID-18");
-                    int admissionId =Convert.ToInt32(wcs.Admission_tbl.Where(adm => adm.externalId ==admextid).Select(ad=>ad.admissionId).FirstOrDefault());
-                    string OrderingDocFirstname = tst.Get("/OBR-16-3");
-                    string OrderingDoclastname = tst.Get("/OBR-16-2");
-                    string OrderingDocMiddle = tst.Get("/OBR-16-4");
-                    string OrderingDocPrefx = tst.Get("/OBR-16-5");
-                    string orderingDocMnemonic = tst.Get("/OBR-16");
-                    int doctorNameCheck = Convert.ToInt32(wcs.Doctors.Where(d=>d.externalId==orderingDocMnemonic).Select(doc=>doc.doctorId).FirstOrDefault());
-                    
-                    if (doctorNameCheck <= 0)
-                    {
-                        Doctor doc = new Doctor();
-                        doc.externalSourceId = 3;
-                        doc.externalId = orderingDocMnemonic;
-                        doc.name = OrderingDocPrefx + " " + OrderingDocFirstname + " " + OrderingDocMiddle + " " + OrderingDoclastname;
-                        wcs.Doctors.AddOrUpdate(doc);
-                        wcs.SaveChanges();
-                        Insertionhelper.insertdata("Doctor", 0, "Doctor  Insertion");
-                    }
-                    int orderDoctorId = Convert.ToInt32(wcs.Doctors.Where(d => d.externalId == orderingDocMnemonic).Select(doc => doc.doctorId).FirstOrDefault());
-                    Order_tbl ordertbl = new Order_tbl();
-                    ordertbl.externalSourceId = 2;
-                    ordertbl.externalId = orderNumber;
-                    ordertbl.orderNumber = orderNumber;
+            int departmentLocCheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
+            if (departmentLocCheck <= 0)
+            {
+                Location loc = new Location();
+                loc.name = Department_location;
+                loc.code = Department_location;
+                loc.isEmergency = false;
+                loc.includeInMerge = true;
+                wcs.Locations.AddOrUpdate(loc);
+                wcs.SaveChanges();
+                Insertionhelper.insertdata("Location", 0, "Location  Insertion");
+            }
+            int departmentLocationId = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
+            string admextid = tst.Get("/PID-18");
+            int admissionId = Convert.ToInt32(wcs.Admission_tbl.Where(adm => adm.externalId == admextid).Select(ad => ad.admissionId).FirstOrDefault());
+            string OrderingDocFirstname = tst.Get("/OBR-16-3");
+            string OrderingDoclastname = tst.Get("/OBR-16-2");
+            string OrderingDocMiddle = tst.Get("/OBR-16-4");
+            string OrderingDocPrefx = tst.Get("/OBR-16-5");
+            string orderingDocMnemonic = tst.Get("/OBR-16");
+            int doctorNameCheck = Convert.ToInt32(wcs.Doctors.Where(d => d.externalId == orderingDocMnemonic).Select(doc => doc.doctorId).FirstOrDefault());
+
+            if (doctorNameCheck <= 0)
+            {
+                Doctor doc = new Doctor();
+                doc.externalSourceId = 3;
+                doc.externalId = orderingDocMnemonic;
+                doc.name = OrderingDocPrefx + " " + OrderingDocFirstname + " " + OrderingDocMiddle + " " + OrderingDoclastname;
+                wcs.Doctors.AddOrUpdate(doc);
+                wcs.SaveChanges();
+                Insertionhelper.insertdata("Doctor", 0, "Doctor  Insertion");
+            }
+            int orderDoctorId = Convert.ToInt32(wcs.Doctors.Where(d => d.externalId == orderingDocMnemonic).Select(doc => doc.doctorId).FirstOrDefault());
+            Order_tbl ordertbl = new Order_tbl();
+            ordertbl.externalSourceId = 2;
+            ordertbl.externalId = orderNumber;
+            ordertbl.orderNumber = orderNumber;
+
             string proceduretimecheck = tst.Get("/OBR-27-4");
             var ProcedureTime = "";
-            if (proceduretimecheck != null || proceduretimecheck!="")
+            if (proceduretimecheck != null || proceduretimecheck != "")
             {
                 if (proceduretimecheck.Length > 8)
                 {
                     ProcedureTime = DateTime.ParseExact(proceduretimecheck, "yyyyMMddHHmm", null).ToString("yyyy-MM-dd HH:mm");
                 }
-                else if(proceduretimecheck.Length==8)
+                else if (proceduretimecheck.Length == 8)
                 {
                     ProcedureTime = DateTime.ParseExact(proceduretimecheck, "yyyyMMdd", null).ToString("yyyy-MM-dd HH:mm");
                 }
+
                
-                if(admissiontypeid==1)
+
+            }
+            if (obxrep > 0)
+            {
+                for (int i = 0; i < obxrep; i++)
                 {
+                    string value = tst.Get("/OBX(" + i + ")-3-2");
+                    if (value.Contains("Clinical Indication") || value.Contains("Clinical indication") || value.Contains("Clinical Indicator"))
+                    {
+                        clinicalIndicator = tst.Get("/OBX(" + i + ")-5");
+                        clinicalIndicator += " " + tst.Get("/OBX(" + i + ")-5-2");
+                    }
+                }
+            }
+            int admissiontype = AdmissionType.AdmissionTypeId(tst);
+            int patitentlocationid = PatientLocation.PatientLocationId(tst);
+            string assignedpatientlocation = tst.Get("/PV1-3");
+            if (assignedpatientlocation == "ER" || assignedpatientlocation == "A&E" || assignedpatientlocation == "AE")
+            {
+                string resultadm = admissiontypeupdate(admissionId, 1, patitentlocationid, admissiontype);
+                
+                    TimeSpan ts = new TimeSpan(00, 00, 00);
+                    DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts);
+                    ordertbl.procedureTime = dt;
+               
+            }
+            else
+            {
+                string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid, 0);
+                if (admissiontypeid == 1)
+                {
+
                     TimeSpan ts = new TimeSpan(00, 00, 00);
                     DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts);
                     ordertbl.procedureTime = dt;
@@ -197,42 +229,27 @@ namespace H7Message
                 {
                     ordertbl.procedureTime = Convert.ToDateTime(ProcedureTime);
                 }
-               
             }
-            if (obxrep > 0)
-            {
-                for (int i = 0; i < obxrep; i++)
-                {
-                    string value = tst.Get("/OBX("+i+")-3-2");
-                    if(value.Contains("Clinical Indication") || value.Contains("Clinical indication") || value.Contains("Clinical Indicator") )
-                    {
-                        clinicalIndicator = tst.Get("/OBX(" + i + ")-5");
-                        clinicalIndicator += " " + tst.Get("/OBX(" + i + ")-5-2");
-                    }
-                }
-            }
-            int admissiontype = AdmissionType.AdmissionTypeId(tst);
-            int patitentlocationid= PatientLocation.PatientLocationId(tst);
-            string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid);
-                    ordertbl.orderStatusId = orderstatusId;
-                    ordertbl.admissionId = admissionId;
-                    ordertbl.Procedure_procedureId = procedureId;
-                    ordertbl.clinicalIndicator = clinicalIndicator;
-                    ordertbl.Department_locationId = departmentLocationId;
-                    ordertbl.OrderingDoctor_doctorId = orderDoctorId;
-                    ordertbl.isHidden = false;
-                    ordertbl.acknowledged = false;
-                    ////////Need to check these and create queries//////
-                    ordertbl.requiresFootwear = false;
-                    ordertbl.requiresMedicalRecords = false;
-                    ordertbl.requiresSupervision = false;
-                    
+
+            ordertbl.orderStatusId = orderstatusId;
+            ordertbl.admissionId = admissionId;
+            ordertbl.Procedure_procedureId = procedureId;
+            ordertbl.clinicalIndicator = clinicalIndicator;
+            ordertbl.Department_locationId = departmentLocationId;
+            ordertbl.OrderingDoctor_doctorId = orderDoctorId;
+            ordertbl.isHidden = false;
+            ordertbl.acknowledged = false;
+            ////////Need to check these and create queries//////
+            ordertbl.requiresFootwear = false;
+            ordertbl.requiresMedicalRecords = false;
+            ordertbl.requiresSupervision = false;
+
 
             try
             {
-              
+
                 int orderId = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
-                if(orderId>0)
+                if (orderId > 0)
                 {
                     Order_tbl ad = wcs.Order_tbl.First(c => c.orderNumber == orderNumber && (c.admissionId == admissionId));
                     if (admissiontypeid == 1)
@@ -248,7 +265,7 @@ namespace H7Message
                     ad.externalSourceId = 2;
                     ad.externalId = orderNumber;
                     ad.orderNumber = orderNumber;
-                   
+
                     ad.orderStatusId = orderstatusId;
                     ad.admissionId = admissionId;
                     ad.Procedure_procedureId = procedureId;
@@ -267,7 +284,7 @@ namespace H7Message
                     Insertionhelper.insertdata(orderNumber, orderId, "Order Updated");
 
                 }
-                else if(admissionId==0)
+                else if (admissionId == 0)
                 {
 
                 }
@@ -278,9 +295,9 @@ namespace H7Message
                     int orderIdnw = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
                     Insertionhelper.insertdata(orderNumber, orderIdnw, "Order Imported");
                 }
-                
+
             }
-           
+
             catch (DbEntityValidationException e)
             {
 
@@ -290,7 +307,7 @@ namespace H7Message
                     foreach (var ve in eve.ValidationErrors)
                     {
                         HL7messageToFile.Exceptionhandler(exception, ve.ErrorMessage);
-                        
+
                     }
                 }
                 throw;
@@ -302,8 +319,8 @@ namespace H7Message
 
             return result;
         }
-        
-        protected string adtMessage(Terser tst,int obxrep,int rolrep)
+
+        protected string adtMessage(Terser tst, int obxrep, int rolrep)
         {
             string result = "";
             try
@@ -313,7 +330,7 @@ namespace H7Message
                 bool rol = false;
                 string extPID = tst.Get("/PID-3");
                 /// initializing parameters///
-                 ///Calling patient info class for getting patient ID/////
+                ///Calling patient info class for getting patient ID/////
                 int patientId = PatientInfo.PatientinfoReturn(tst, obxrep); ;
                 int patientlocationId = 0;
                 int admissionTypeId = 0;
@@ -333,7 +350,7 @@ namespace H7Message
                     {
                         ad.AdmissionType_admissionTypeId = admissionTypeId;
                     }
-                    
+
                     rol = true;
 
                     string Patientadmitdatetime = DateTime.ParseExact(tst.Get("PV1-44").ToString(), "yyyyMMddHHmm", null).ToString("yyyy-MM-dd HH:mm");
@@ -382,7 +399,7 @@ namespace H7Message
                             }
                         }
                     }
-                    
+
 
                     try
                     {
@@ -484,8 +501,8 @@ namespace H7Message
 
                     }
                 }
-               
-                
+
+
             }
             catch (Exception ex)
             {
@@ -495,184 +512,8 @@ namespace H7Message
             }
             return result;
         }
-        protected string oruMessage(Terser tst)
-        {
-            string result = "";
-            WCSHL7Entities wcs = new WCSHL7Entities();
-            string pid = tst.Get("/.PID-2");
-            string procedure = tst.Get("/.OBR-4-2");
-            var procedureIdCheck = wcs.Procedures.Where(s => s.code == procedure).Select(p => p.procedureId).FirstOrDefault().ToString();
-            if (procedureIdCheck == "0" || procedureIdCheck == null)
-            {
-                Procedure pc = new Procedure();
-                pc.externalId = procedure + "1";
-                pc.code = procedure;
-                pc.description = tst.Get("/.OBR-4-3");
-                pc.externalSourceId = 1;
-                string extID = tst.Get("/.OBR-4");
-                var procedurecategory = wcs.ProcedureCategories.Where(procat => procat.externalId == extID).Select(r => r.procedureCategoryId).FirstOrDefault().ToString();
-                if (procedurecategory == "0")
-                {
-                    ProcedureCategory pCat = new ProcedureCategory();
-                    pCat.externalSourceId = 1;
-                    pCat.externalId = extID;
-                    pCat.includeInMerge = true;
-                    pCat.description = "";
-                    wcs.ProcedureCategories.AddOrUpdate(pCat);
-                    wcs.SaveChanges();
-                    Insertionhelper.insertdata("ProcedureCategory", 0, "Insertion");
-                }
-                var procedurecategoryID = wcs.ProcedureCategories.Where(procat => procat.externalId == extID).Select(r => r.procedureCategoryId).FirstOrDefault().ToString();
-                pc.ProcedureCategory_procedureCategoryId = Convert.ToInt32(procedurecategoryID);
-                wcs.Procedures.AddOrUpdate(pc);
-                wcs.SaveChanges();
-                Insertionhelper.insertdata("ProcedureCategory", 0, "Insertion");
-            }
-            int procedureId = wcs.Procedures.Where(s => s.code == procedure).Select(p => p.procedureId).FirstOrDefault();
-
-
-            string admitdatetime = DateTime.Now.ToShortDateString();
-            string extSource = tst.Get("/.OBR-16");
-
-            string extId = tst.Get("/.OBR-18") + "-" + tst.Get("/OBR-18-2") + "-" + tst.Get("/OBR-18-3");
-            string orderNumber = tst.Get("/.ORC-2");
-            string clinicalIndicator = tst.Get("/.OBR-3-2");
-
-
-
-            string ProcedureTimeduration = tst.Get("/.OBR-6");
-            string ProcedureName = tst.Get("/.OBR-4");
-            string status = tst.Get("/.ORC-5");
-            switch (status)
-            {
-                case "L":
-                    status = "InProgress";
-                    break;
-                case "I":
-                    status = "InProgress";
-                    break;
-                case "T":
-                    status = "InProgress";
-                    break;
-                case "C":
-                    status = "Completed";
-                    break;
-                case "R":
-                    status = "Completed";
-                    break;
-                case "X":
-                    status = "Cancelled";
-                    break;
-            }
-
-            int orderstatusId = Convert.ToInt32(wcs.OrderStatus.Where(os => os.status == status).Select(osId => osId.orderStatusId).FirstOrDefault());
-            string Department_location = tst.Get("/.ORC-13");
-            if (Department_location == "" || Department_location == null)
-            {
-                Department_location = tst.Get("/.PV1-3");
-            }
-            int departmentLocCheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
-            if (departmentLocCheck <= 0)
-            {
-                Location loc = new Location();
-                loc.name = Department_location;
-                loc.code = Department_location;
-                loc.isEmergency = false;
-                loc.includeInMerge = true;
-                wcs.Locations.AddOrUpdate(loc);
-                wcs.SaveChanges();
-            }
-            int departmentLocationId = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
-            string extid = tst.Get("/.PID-2");
-            int admissionId = Convert.ToInt32(wcs.Admission_tbl.Where(adm => adm.patientId == wcs.Patient_tbl.Where(patien => patien.externalId == pid).Select(p => p.patientId).FirstOrDefault()).Select(ad => ad.admissionId).FirstOrDefault());
-            string OrderingDocFirstname = tst.Get("/OBR-16-3");
-            string OrderingDoclastname = tst.Get("/OBR-16-2");
-            string OrderingDocMiddle = tst.Get("/OBR-16-4");
-            string OrderingDocPrefx = tst.Get("/OBR-16-5");
-            string orderingDocMnemonic = tst.Get("/OBR-16");
-            int doctorNameCheck = Convert.ToInt32(wcs.Doctors.Where(d => d.externalId == orderingDocMnemonic).Select(doc => doc.doctorId).FirstOrDefault());
-
-            if (doctorNameCheck <= 0)
-            {
-                Doctor doc = new Doctor();
-                doc.externalSourceId = 3;
-                doc.externalId = orderingDocMnemonic;
-                doc.name = OrderingDocPrefx + " " + OrderingDocFirstname + " " + OrderingDocMiddle + " " + OrderingDoclastname;
-                wcs.Doctors.AddOrUpdate(doc);
-                wcs.SaveChanges();
-            }
-            int orderDoctorId = Convert.ToInt32(wcs.Doctors.Where(d => d.externalId == orderingDocMnemonic).Select(doc => doc.doctorId).FirstOrDefault());
-            Order_tbl ordertbl = new Order_tbl();
-            ordertbl.externalSourceId = 2;
-            ordertbl.externalId = orderNumber;
-            ordertbl.orderNumber = orderNumber;
-            string proceduretimecheck = tst.Get("/.OBR-27-4");
-            var ProcedureTime = "";
-            if (proceduretimecheck != null || proceduretimecheck != "")
-            {
-                if (proceduretimecheck.Length > 8)
-                {
-                    ProcedureTime = DateTime.ParseExact(proceduretimecheck, "yyyyMMddHHmm", null).ToString("yyyy-MM-dd HH:mm");
-                }
-                else if (proceduretimecheck.Length == 8)
-                {
-                    ProcedureTime = DateTime.ParseExact(proceduretimecheck, "yyyyMMdd", null).ToString("yyyy-MM-dd HH:mm");
-                }
-                ordertbl.procedureTime = Convert.ToDateTime(ProcedureTime);
-            }
-
-            ordertbl.orderStatusId = orderstatusId;
-            ordertbl.admissionId = admissionId;
-            ordertbl.Procedure_procedureId = procedureId;
-            ordertbl.clinicalIndicator = clinicalIndicator;
-            ordertbl.Department_locationId = departmentLocationId;
-            ordertbl.OrderingDoctor_doctorId = orderDoctorId;
-            ordertbl.isHidden = false;
-            ordertbl.acknowledged = false;
-            ////////Need to check these and create queries//////
-            ordertbl.requiresFootwear = false;
-            ordertbl.requiresMedicalRecords = false;
-            ordertbl.requiresSupervision = false;
-            wcs.Order_tbl.AddOrUpdate(ordertbl);
-
-            try
-            {
-
-                int orderId = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
-                if (orderId > 0 || admissionId == 0)
-                {
-
-                }
-                else
-                {
-                    wcs.SaveChanges();
-                    Insertionhelper.insertdata(orderNumber, orderId, "Order Imported");
-                }
-
-            }
-
-            catch (DbEntityValidationException e)
-            {
-
-                foreach (var eve in e.EntityValidationErrors)
-                {
-                    var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        HL7messageToFile.Exceptionhandler(exception, ve.ErrorMessage);
-
-                    }
-                }
-                throw;
-            }
-
-
-
-
-
-            return result;
-        }
-        private int DoctorId(string docCode,string prefix,string firstname,string lastname, string middlename)
+     
+        private int DoctorId(string docCode, string prefix, string firstname, string lastname, string middlename)
         {
             int DocId;
             WCSHL7Entities wcs = new WCSHL7Entities();
@@ -730,15 +571,15 @@ namespace H7Message
                     break;
             }
             statusId = Convert.ToInt32(wcs.tbl_AdmissionStatus.Where(ast => ast.status == status).Select(admst => admst.admissionStatusId).FirstOrDefault());
-            
+
             return statusId;
         }
-        private string admissiontypeupdate(int admissionid , int admtype,int patientlocationid)
+        private string admissiontypeupdate(int admissionid, int admtype, int patientlocationid,int historicaldata)
         {
             string result = "";
             WCSHL7Entities wcs = new WCSHL7Entities();
             Admission_tbl adm = wcs.Admission_tbl.First(c => c.admissionId == admissionid);
-            
+
             int presentadmtype = adm.AdmissionType_admissionTypeId;
             if (admtype > 0)
             {
@@ -748,33 +589,34 @@ namespace H7Message
             {
                 adm.Location_locationId = patientlocationid;
             }
-                try
-                {
-                    wcs.Admission_tbl.Attach(adm);
-                    wcs.Entry(adm).State = EntityState.Modified;
-                    wcs.SaveChanges();
+           
+            try
+            {
+                wcs.Admission_tbl.Attach(adm);
+                wcs.Entry(adm).State = EntityState.Modified;
+                wcs.SaveChanges();
 
-                    Insertionhelper.insertdata(Convert.ToString(admissionid), admissionid, "Admission Updated");
-                }
-                catch (DbEntityValidationException e)
-                {
+                Insertionhelper.insertdata(Convert.ToString(admissionid), admissionid, "Admission Updated");
+            }
+            catch (DbEntityValidationException e)
+            {
 
-                    foreach (var eve in e.EntityValidationErrors)
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
+                    foreach (var ve in eve.ValidationErrors)
                     {
-                        var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
-                        foreach (var ve in eve.ValidationErrors)
-                        {
-                            HL7messageToFile.Exceptionhandler(exception, ve.ErrorMessage);
+                        HL7messageToFile.Exceptionhandler(exception, ve.ErrorMessage);
 
-                        }
                     }
-                    return "exception";
                 }
-            
+                return "exception";
+            }
+
             return "success";
 
         }
-      
-       
+
+
     }
 }

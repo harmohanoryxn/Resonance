@@ -14,7 +14,7 @@
             <asp:Button id="btn1" runat="server" Text="Show XML" OnClick="btn1_Click" />
         </div>
          <div style="margin:10px;">
-            <asp:Button ID="btnparsemessages" runat="server" Text="Show Data" OnClick="btnparsemessages_Click"/>
+            <asp:Button ID="btnparsemessages" runat="server" Text="Show Messages" OnClick="btnparsemessages_Click"/>
            
         </div>
     <div>

@@ -182,6 +182,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="DeviceAddition.aspx" />
+    <Content Include="ErrorReader.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Model\WCSHL7.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="DeviceAddition.aspx.designer.cs">
       <DependentUpon>DeviceAddition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorReader.aspx.cs">
+      <DependentUpon>ErrorReader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorReader.aspx.designer.cs">
+      <DependentUpon>ErrorReader.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
