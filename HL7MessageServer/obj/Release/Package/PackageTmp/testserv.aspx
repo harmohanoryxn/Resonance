@@ -14,10 +14,24 @@
             <asp:Button id="btn1" runat="server" Text="Show XML" OnClick="btn1_Click" />
         </div>
          <div style="margin:10px;">
+             <asp:DropDownList ID="ddlfolderselect" runat="server">
+
+             </asp:DropDownList>
+            <asp:DropDownList ID="ddlval" runat="server">
+                <asp:ListItem Text="ORM" Value="ORM"></asp:ListItem>
+                <asp:ListItem Text="ADT" Value="ADT"></asp:ListItem>
+            </asp:DropDownList>
+              <asp:DropDownList ID="ddlFilter" runat="server">
+                <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
+                <asp:ListItem Text="No" Value="No"></asp:ListItem>
+            </asp:DropDownList>
             <asp:Button ID="btnparsemessages" runat="server" Text="Show Messages" OnClick="btnparsemessages_Click"/>
            
         </div>
     <div>
+        <div style="margin:10px;">
+            <asp:Literal ID="totallit" runat="server"></asp:Literal>
+            </div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true"></asp:GridView>
     </div>
     </form>

@@ -79,6 +79,9 @@ namespace HL7MessageServer.Classes
                 case "ER":
                     locvalue = "Emergency Room";
                     break;
+                case "IR":
+                    locvalue = "Fluoroscopy";
+                    break;
 
 
             }

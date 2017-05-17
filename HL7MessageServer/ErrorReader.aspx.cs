@@ -23,6 +23,15 @@ namespace HL7MessageServer
         {
             
             IList<errorfeilds> gridval = new List<errorfeilds>();
+            string directory = "";
+            if(ddlErrorfolders.Items.Count>0)
+            {
+                directory = ddlErrorfolders.SelectedValue;
+            }
+            else
+            {
+                directory= ConfigurationManager.AppSettings["ErrorFolder"];
+            }
             DirectoryInfo info = new DirectoryInfo(ddlErrorfolders.SelectedValue);
             FileInfo[] files = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
             foreach (string file in Directory.EnumerateFiles(ddlErrorfolders.SelectedValue))

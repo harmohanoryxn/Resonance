@@ -184,6 +184,7 @@
     <Content Include="DeviceAddition.aspx" />
     <Content Include="ErrorReader.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Messageparser.aspx" />
     <Content Include="Model\WCSHL7.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>WCSHL7.Context.cs</LastGenOutput>
@@ -238,6 +239,13 @@
     <Compile Include="Helpers\PatientInfo.cs" />
     <Compile Include="Helpers\PatientLocation.cs" />
     <Compile Include="Hl7Filereader.cs" />
+    <Compile Include="Messageparser.aspx.cs">
+      <DependentUpon>Messageparser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Messageparser.aspx.designer.cs">
+      <DependentUpon>Messageparser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Admission_tbl.cs">
       <DependentUpon>WCSHL7.tt</DependentUpon>
     </Compile>

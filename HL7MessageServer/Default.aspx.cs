@@ -22,7 +22,7 @@ namespace HL7MessageServer
                 if (HL7Message != "Error Logged")
                 {
                     HLMessageToDB hl7 = new HLMessageToDB();
-                    hl7.HL7MessageToDB(HL7Message);
+                    hl7.HL7MessageToDB(HL7Message,querystring);
                     System.IO.File.WriteAllText(ConfigurationManager.AppSettings["Recieved"] + querystring, HL7Message);
 
                 }
