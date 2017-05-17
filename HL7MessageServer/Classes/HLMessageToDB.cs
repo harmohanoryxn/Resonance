@@ -115,6 +115,8 @@ namespace H7Message
                 string ProcedureTimeduration = tst.Get("/OBR-6");
                 string ProcedureName = tst.Get("/OBR-4");
                 string status = tst.Get("/ORC-5");
+                string Department_location = tst.Get("/OBR-18");
+                Department_location = ReturnLocation.location(Department_location);
                 switch (status)
                 {
                     case "L":
@@ -124,7 +126,15 @@ namespace H7Message
                         status = "InProgress";
                         break;
                     case "T":
-                        status = "InProgress";
+                        if (Department_location == "MRI" || Department_location == "X-Ray" || Department_location == "Fluoroscopy" || Department_location == "Nuclear Medicine" || Department_location == "CT Scan" || Department_location == "Ultrasound")
+                        {
+                            status = "Completed";
+                        }
+                        else
+                        {
+                            status = "InProgress";
+                        }
+                       
                         break;
                     case "C":
                         status = "Completed";
@@ -138,13 +148,6 @@ namespace H7Message
                 }
 
                 int orderstatusId = Convert.ToInt32(wcs.OrderStatus.Where(os => os.status == status).Select(osId => osId.orderStatusId).FirstOrDefault());
-                string Department_location = tst.Get("/OBR-18");
-                Department_location = ReturnLocation.location(Department_location);
-
-                //if(Department_location=="" || Department_location==null)
-                //{
-                //    Department_location = tst.Get("/PV1-3");
-                //}
                 int departmentLocCheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
                 if (departmentLocCheck <= 0)
                 {

@@ -130,3 +130,4 @@ F:\Resonance\HL7MessageServer\bin\System.Web.Http.xml
 F:\Resonance\HL7MessageServer\bin\System.Web.Http.WebHost.xml
 F:\Resonance\HL7MessageServer\obj\Debug\HL7MessageServer.dll
 F:\Resonance\HL7MessageServer\obj\Debug\HL7MessageServer.pdb
+F:\Resonance\HL7MessageServer\obj\Debug\HL7MessageServer.csprojResolveAssemblyReference.cache
