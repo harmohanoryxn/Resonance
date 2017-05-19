@@ -274,6 +274,7 @@ namespace H7Message
                         }
                         ad.orderStatusId = orderstatusId;
                         ad.Procedure_procedureId = procedureId;
+                        
                         ad.clinicalIndicator = clinicalIndicator;
                         ad.Department_locationId = departmentLocationId;
                         ad.OrderingDoctor_doctorId = orderDoctorId;
