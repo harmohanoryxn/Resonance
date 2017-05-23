@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
     <div>
     <asp:Button ID="btn" runat="server" OnClick="btn_Click" Text="insert this device" />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Test" />
+        <asp:Label ID="lbl" runat="server"></asp:Label>
     </div>
     </form>
 </body>

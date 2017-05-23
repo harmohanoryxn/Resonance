@@ -45,5 +45,13 @@ namespace HL7MessageServer
             
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            DateTime datecreated = DateTime.Now;
+            TimeSpan ts = TimeSpan.Parse("18:35");
+            DateTime updatedtime = Convert.ToDateTime(datecreated.Date + ts);
+            lbl.Text = updatedtime.ToString();
+        }
     }
 }

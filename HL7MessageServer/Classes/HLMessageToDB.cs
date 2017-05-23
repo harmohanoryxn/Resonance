@@ -266,7 +266,19 @@ namespace H7Message
                         Order_tbl ad = wcs.Order_tbl.First(c => c.orderNumber == orderNumber && (c.admissionId == admissionId));
                         if (admissiontypeid == 1)
                         {
-                            
+                            var procedureupdatetimecheck = wcs.Updates.Where(c => c.Order_orderId == ad.orderId && c.type == "Procdure Time Updated").FirstOrDefault();
+                            if(procedureupdatetimecheck !=null)
+                            {
+                                DateTime datecreated = Convert.ToDateTime(procedureupdatetimecheck.dateCreated);
+                                TimeSpan ts = TimeSpan.Parse(procedureupdatetimecheck.value);
+                                DateTime updatedtime = Convert.ToDateTime(datecreated.Date +ts );
+                                DateTime hl7PRoceduredatetime=Convert.ToDateTime(ProcedureTime);
+                                if(updatedtime<hl7PRoceduredatetime)
+                                {
+                                    ad.procedureTime= Convert.ToDateTime(ProcedureTime);
+                                }
+                            }
+                           
                         }
                         else
                         {
