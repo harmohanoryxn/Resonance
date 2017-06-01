@@ -32,17 +32,17 @@ namespace H7Message
                 }
                 else
                 {
-                    int patientlocationcheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == patientlocation || l.name.Contains(patientlocation)).Select(locId => locId.locationId).FirstOrDefault());
-                    if (patientlocationcheck <= 0)
-                    {
-                        Location loc = new Location();
-                        loc.name = assignedpatientlocation;
-                        loc.code = assignedpatientlocation;
-                        loc.isEmergency = false;
-                        loc.includeInMerge = true;
-                        wcs.Locations.Add(loc);
-                        wcs.SaveChanges();
-                    }
+                    //int patientlocationcheck = Convert.ToInt32(wcs.Locations.Where(l => l.name == patientlocation || l.name.Contains(patientlocation)).Select(locId => locId.locationId).FirstOrDefault());
+                    //if (patientlocationcheck <= 0)
+                    //{
+                    //    Location loc = new Location();
+                    //    loc.name = assignedpatientlocation;
+                    //    loc.code = assignedpatientlocation;
+                    //    loc.isEmergency = false;
+                    //    loc.includeInMerge = true;
+                    //    wcs.Locations.Add(loc);
+                    //    wcs.SaveChanges();
+                    //}
 
                     patientlocationId = Convert.ToInt32(wcs.Locations.Where(l => l.name == patientlocation || l.name.Contains(patientlocation)).Select(locId => locId.locationId).FirstOrDefault());
                 }

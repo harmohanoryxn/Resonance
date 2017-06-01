@@ -19,6 +19,7 @@ using HL7MessageServer.Helpers;
 using HL7Messages;
 using System.Reflection;
 using HL7MessageServer.Classes;
+using HL7MessageServer.ErrorHandler;
 
 namespace H7Message
 {
@@ -61,7 +62,7 @@ namespace H7Message
             string result = "";
             WCSHL7Entities wcs = new WCSHL7Entities();
             string patientlocationCheck = tst.Get("/PV1-3");
-            String deploccheck= tst.Get("/OBR-18");
+            string deploccheck= tst.Get("/OBR-18");
             if (patientlocationCheck == "LIMERICK" || deploccheck == "LIMERICK")
             {
 
@@ -219,7 +220,7 @@ namespace H7Message
                 string assignedpatientlocation = tst.Get("/PV1-3");
                 if (assignedpatientlocation == "ER" || assignedpatientlocation == "A&E" || assignedpatientlocation == "AE")
                 {
-                    string resultadm = admissiontypeupdate(admissionId, 1, patitentlocationid, admissiontype);
+                    string resultadm = admissiontypeupdate(admissionId, 1, patitentlocationid, admissiontype, tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
 
                     TimeSpan ts = new TimeSpan(00, 00, 00);
                     DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts);
@@ -229,7 +230,7 @@ namespace H7Message
 
                 else
                 {
-                    string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid, 0);
+                    string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid, 0,tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
                     if (admissiontypeid == 1)
                     {
 
@@ -275,8 +276,27 @@ namespace H7Message
                                 DateTime hl7PRoceduredatetime=Convert.ToDateTime(ProcedureTime);
                                 if(updatedtime<hl7PRoceduredatetime)
                                 {
-                                    ad.procedureTime= Convert.ToDateTime(ProcedureTime);
+                                    TimeSpan ts1 = new TimeSpan(00, 00, 00);
+                                    DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts1);
+                                    ad.procedureTime= dt;
                                 }
+                            }
+                            else
+                            {
+                                string proceduredb = Convert.ToString(ad.procedureTime);
+                               
+                                if(proceduredb!=null ||proceduredb !="")
+                                {
+                                    DateTime DBdatetime = Convert.ToDateTime(ad.procedureTime);
+                                    DateTime hl7messagedatetime = Convert.ToDateTime(ProcedureTime);
+                                    if (hl7messagedatetime > DBdatetime)
+                                    {
+                                        TimeSpan ts1 = new TimeSpan(00, 00, 00);
+                                        DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts1);
+                                        ad.procedureTime = dt;
+                                    }
+                                }
+                                
                             }
                            
                         }
@@ -290,23 +310,79 @@ namespace H7Message
                         ad.clinicalIndicator = clinicalIndicator;
                         ad.Department_locationId = departmentLocationId;
                         ad.OrderingDoctor_doctorId = orderDoctorId;
-                        wcs.Order_tbl.Attach(ad);
-                        wcs.Entry(ad).State = EntityState.Modified;
-                        wcs.SaveChanges();
-                        Insertionhelper.insertdata(orderNumber, orderId, "Order Updated");
+                        try
+                        {
+                            wcs.Order_tbl.Attach(ad);
+                            wcs.Entry(ad).State = EntityState.Modified;
+                            wcs.SaveChanges();
+                            Insertionhelper.insertdata(orderNumber, orderId, "Order Updated");
+                        }
+                        catch (DbEntityValidationException e)
+                        {
+
+                            foreach (var eve in e.EntityValidationErrors)
+                            {
+                                var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
+                                foreach (var ve in eve.ValidationErrors)
+                                {
+                                    ErrorMessage err = new ErrorMessage();
+                                    err.Innermessage = message;
+                                    err.StackTrace = ve.ErrorMessage;
+                                    err.Ordernumber = orderNumber;
+                                    err.AdmissionNumber = admextid;
+                                    err.EntityError = exception;
+                                    err.FileName = filename;
+                                    err.Messagetype = "ORM";
+                                    err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                                    err.MRCode = pid;
+                                    XMLCreator.xmlwriter(err);
+
+                                }
+                            }
+
+                        }
+                        
 
                     }
                     else if (admissionId == 0)
                     {
-
+                        HL7messageToFile.Exceptionhandler("AdmissionID not found with addmission external id as :"+ admextid + "File Name: " + filename, message);
                     }
                     else
                     {
 
-                        wcs.Order_tbl.Add(ordertbl);
-                        wcs.SaveChanges();
-                        int orderIdnw = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
-                        Insertionhelper.insertdata(orderNumber, orderIdnw, "Order Imported");
+                        try
+                        {
+                            wcs.Order_tbl.Add(ordertbl);
+                            wcs.SaveChanges();
+                            int orderIdnw = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
+                            Insertionhelper.insertdata(orderNumber, orderIdnw, "Order Imported");
+                        }
+                        catch (DbEntityValidationException e)
+                        {
+
+                            foreach (var eve in e.EntityValidationErrors)
+                            {
+                                var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
+                                foreach (var ve in eve.ValidationErrors)
+                                {
+                                    ErrorMessage err = new ErrorMessage();
+                                    err.Innermessage = message;
+                                    err.StackTrace = ve.ErrorMessage;
+                                    err.Ordernumber = orderNumber;
+                                    err.AdmissionNumber = admextid;
+                                    err.EntityError = exception;
+                                    err.FileName = filename;
+                                    err.Messagetype = "ORM";
+                                    err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                                    err.MRCode = pid;
+                                    XMLCreator.xmlwriter(err);
+
+                                }
+                            }
+
+                        }
+                       
                     }
 
                 }
@@ -319,11 +395,21 @@ namespace H7Message
                         var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
                         foreach (var ve in eve.ValidationErrors)
                         {
-                            HL7messageToFile.Exceptionhandler(exception+"File Name: "+filename, ve.ErrorMessage);
+                            ErrorMessage err = new ErrorMessage();
+                            err.Innermessage = message;
+                            err.StackTrace = ve.ErrorMessage;
+                            err.Ordernumber = orderNumber;
+                            err.AdmissionNumber = admextid;
+                            err.EntityError = exception;
+                            err.FileName = filename;
+                            err.Messagetype = "ORM";
+                            err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                            err.MRCode = pid;
+                            XMLCreator.xmlwriter(err);
 
                         }
                     }
-                    throw;
+                   
                 }
 
 
@@ -344,8 +430,11 @@ namespace H7Message
                 string extPID = tst.Get("/PID-3");
                 /// initializing parameters///
                 ///Calling patient info class for getting patient ID/////
-                int patientId = PatientInfo.PatientinfoReturn(tst, obxrep); ;
+                int patientId = PatientInfo.PatientinfoReturn(tst, obxrep); 
+
                 int patientlocationId = 0;
+                int patientbed = 0;
+                int patientroom = 0;
                 int admissionTypeId = 0;
                 string externalPId = tst.Get("/PID-3");
                 string admexternalId = tst.Get("/PID-18");
@@ -356,6 +445,12 @@ namespace H7Message
                     Admission_tbl ad = wcs.Admission_tbl.First(i => i.externalId == admexternalId);
                     ////Getting patient location id//////
                     patientlocationId = PatientLocation.PatientLocationId(tst);
+                    ///////////Patient Bed ID////////////////////
+                    int patientBedid = PatientBed.PBed(tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
+                    if (patientBedid > 0)
+                    {
+                        ad.Bed_bedId = patientBedid;
+                    }
                     //////Getting patient admission type id
                     admissionTypeId = AdmissionType.AdmissionTypeId(tst);
                     string assignedpatientlocation = tst.Get("/PV1-3");
@@ -432,7 +527,17 @@ namespace H7Message
                             var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
                             foreach (var ve in eve.ValidationErrors)
                             {
-                                HL7messageToFile.Exceptionhandler(exception, ve.ErrorMessage + "File name:" + filename);
+                                ErrorMessage err = new ErrorMessage();
+                                err.Innermessage = ve.PropertyName;
+                                err.StackTrace = ve.ErrorMessage;
+                                err.Ordernumber = "";
+                                err.AdmissionNumber = admexternalId;
+                                err.EntityError = exception;
+                                err.FileName = filename;
+                                err.Messagetype = messageEventTrigger;
+                                err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                                err.MRCode = extPID;
+                                XMLCreator.xmlwriter(err);
 
                             }
                         }
@@ -443,6 +548,16 @@ namespace H7Message
                 {
                     ////Getting patient location id//////
                     patientlocationId = PatientLocation.PatientLocationId(tst);
+                    if (patientlocationId > 0)
+                    {
+                        admissiontbl.Location_locationId = patientlocationId;
+                    }
+                    ///////////Patient Bed ID////////////////////
+                    int patientBedid = PatientBed.PBed(tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
+                    if(patientBedid > 0)
+                    {
+                        admissiontbl.Bed_bedId = patientBedid;
+                    }
                     //////Getting patient admission type id
 
                     admissionTypeId = AdmissionType.AdmissionTypeId(tst);
@@ -457,10 +572,7 @@ namespace H7Message
                     admissiontbl.patientId = patientId;
                     admissiontbl.externalId = admexternalId;
                     admissiontbl.AdmissionStatus_admissionStatusId = AdmissionStatusId(tst.Get("/PV1-41"));
-                    if (patientlocationId > 0)
-                    {
-                        admissiontbl.Location_locationId = patientlocationId;
-                    }
+                   
                     admissiontbl.admitDateTime = Convert.ToDateTime(Patientadmitdatetime);
 
 
@@ -512,7 +624,17 @@ namespace H7Message
                             var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
                             foreach (var ve in eve.ValidationErrors)
                             {
-                                HL7messageToFile.Exceptionhandler(exception, ve.ErrorMessage + " File name:" + filename);
+                                ErrorMessage err = new ErrorMessage();
+                                err.Innermessage = ve.PropertyName;
+                                err.StackTrace = ve.ErrorMessage;
+                                err.Ordernumber = "";
+                                err.AdmissionNumber = admexternalId;
+                                err.EntityError = exception;
+                                err.FileName = filename;
+                                err.Messagetype = "ADT";
+                                err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                                err.MRCode = extPID;
+                                XMLCreator.xmlwriter(err);
 
                             }
                         }
@@ -524,9 +646,17 @@ namespace H7Message
             }
             catch (Exception ex)
             {
-                result = ex.Message;
-                string innerexception = Convert.ToString(ex.InnerException);
-                HL7messageToFile.Exceptionhandler(ex.Message + " File name:" + filename + "Internal error" + innerexception, Convert.ToString(ex.StackTrace));
+                ErrorMessage err = new ErrorMessage();
+                err.Innermessage = Convert.ToString(ex.InnerException);
+                err.StackTrace = ex.StackTrace;
+                err.Ordernumber = "NA";
+                err.AdmissionNumber = "NA";
+                err.EntityError = ex.Message;
+                err.FileName = filename;
+                err.Messagetype = "ADT";
+                err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                err.MRCode = "";
+                XMLCreator.xmlwriter(err);
             }
             return result;
         }
@@ -592,7 +722,7 @@ namespace H7Message
 
             return statusId;
         }
-        private string admissiontypeupdate(int admissionid, int admtype, int patientlocationid,int historicaldata)
+        private string admissiontypeupdate(int admissionid, int admtype, int patientlocationid,int historicaldata,string BedNumber,string RoomNumber)
         {
             string result = "";
             WCSHL7Entities wcs = new WCSHL7Entities();
@@ -607,7 +737,11 @@ namespace H7Message
             {
                 adm.Location_locationId = patientlocationid;
             }
-           
+            int patientBedid = PatientBed.PBed(BedNumber, RoomNumber);
+            if (patientBedid > 0)
+            {
+                adm.Bed_bedId = patientBedid;
+            }
             try
             {
                 wcs.Admission_tbl.Attach(adm);
@@ -624,7 +758,17 @@ namespace H7Message
                     var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
                     foreach (var ve in eve.ValidationErrors)
                     {
-                        HL7messageToFile.Exceptionhandler(exception +" File name", ve.ErrorMessage);
+                        ErrorMessage err = new ErrorMessage();
+                        err.Innermessage = ve.PropertyName;
+                        err.StackTrace = ve.ErrorMessage;
+                        err.Ordernumber = "";
+                        err.AdmissionNumber = "";
+                        err.EntityError = exception;
+                        err.FileName = "ADmUpdate"+ admissionid;
+                        err.Messagetype = "ADT";
+                        err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                        err.MRCode = "";
+                        XMLCreator.xmlwriter(err);
 
                     }
                 }

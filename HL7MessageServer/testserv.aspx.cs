@@ -1,11 +1,13 @@
 ﻿using H7Message;
 using HL7MessageServer.Classes;
+using HL7MessageServer.Helpers;
 using HL7MessageServer.Model;
 using NHapi.Base.Parser;
 using NHapi.Base.Util;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -20,7 +22,7 @@ namespace HL7MessageServer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 ddlselect();
             }
@@ -152,7 +154,7 @@ namespace HL7MessageServer
                 if (check > 0)
                 {
                     Patient_tbl pd = wcs.Patient_tbl.First(p => p.externalId == extPID);
-                   
+
 
                     if (messageevent == "A01" || messageevent == "A04")
                     {
@@ -213,7 +215,7 @@ namespace HL7MessageServer
             public string DepLoc { get; set; }
             public string deplocpv { get; set; }
             public string admtype { get; set; }
-           
+
             public string OrderExistsInDB { get; set; }
             public string FileOrderStatus { get; set; }
             public string DBORDERSTATUS { get; set; }
@@ -242,9 +244,9 @@ namespace HL7MessageServer
 
 
                     Gridvalcheck gvd = new Gridvalcheck();
-                        gvd.filename = file;
-                        gvd.MessageType = tst.Get("/MSH-9");
-                        gvd.DepLoc = assignedpatientlocation;
+                    gvd.filename = file;
+                    gvd.MessageType = tst.Get("/MSH-9");
+                    gvd.DepLoc = assignedpatientlocation;
                     if (returntype == ddlval.SelectedValue)
                     {
                         if (returntype == "ORM")
@@ -264,11 +266,11 @@ namespace HL7MessageServer
                                 gvd.admissionId = Convert.ToString(admcheck);
 
                                 gvd.admissionExtId = admextid;
-                                if(admcheck>0)
+                                if (admcheck > 0)
                                 {
                                     HLMessageToDB hl7 = new HLMessageToDB();
-                                    hl7.HL7MessageToDB(message,file);
-                                    dborderid=wcs.Order_tbl.Where(c => c.externalId == orderid).Select(d => d.orderId).FirstOrDefault();
+                                    hl7.HL7MessageToDB(message, file);
+                                    dborderid = wcs.Order_tbl.Where(c => c.externalId == orderid).Select(d => d.orderId).FirstOrDefault();
                                     if (dborderid > 0)
                                         gvd.OrderExistsInDB = "Yes";
                                     else
@@ -278,7 +280,7 @@ namespace HL7MessageServer
                                 {
                                     gvd.OrderExistsInDB = "No";
                                 }
-                                
+
                             }
                             int dborderStatusid = wcs.Order_tbl.Where(c => c.externalId == orderid).Select(d => d.orderStatusId).FirstOrDefault();
                             if (dborderStatusid > 0)
@@ -313,34 +315,34 @@ namespace HL7MessageServer
                         }
                         else
                         {
-                            
+
                             int admcheck = wcs.Admission_tbl.Where(c => c.externalId == admextid).Select(d => d.admissionId).FirstOrDefault();
-                            if(admcheck==0)
+                            if (admcheck == 0)
                             {
                                 HLMessageToDB hl7 = new HLMessageToDB();
-                                hl7.HL7MessageToDB(message,file);
-                                admcheck= wcs.Admission_tbl.Where(c => c.externalId == admextid).Select(d => d.admissionId).FirstOrDefault();
+                                hl7.HL7MessageToDB(message, file);
+                                admcheck = wcs.Admission_tbl.Where(c => c.externalId == admextid).Select(d => d.admissionId).FirstOrDefault();
                             }
                             int admissionstatsu = AdmissionStatusId(tst.Get("/PV1-41"));
-                            if(admissionstatsu == 0)
+                            if (admissionstatsu == 0)
                             {
                                 gvd.OrderID = tst.Get("/PV1-41");
                             }
-                            
+
                             gvd.admissionId = Convert.ToString(admcheck);
-                            gvd.admissionExtId = tst.Get("/PID-18"); 
+                            gvd.admissionExtId = tst.Get("/PID-18");
                         }
 
                         gridval.Add(gvd);
                     }
-                  
-                   
+
+
                 }
                 catch (Exception ex)
                 {
-                   
+
                     string innerexception = Convert.ToString(ex.InnerException);
-                    HL7messageToFile.Exceptionhandler(ex.Message + "Internal error" + innerexception, Convert.ToString(ex.StackTrace)+"File name:"+file);
+                    HL7messageToFile.Exceptionhandler(ex.Message + "Internal error" + innerexception, Convert.ToString(ex.StackTrace) + "File name:" + file);
                 }
             }
             totallit.Text = "Total In DB: " + gridval.Where(c => c.OrderExistsInDB == "Yes").Count() + " Total:" + gridval.Count() + " Total Not in DB: " + gridval.Where(d => d.OrderExistsInDB == "No").Count();
@@ -381,8 +383,82 @@ namespace HL7MessageServer
                     break;
             }
             statusId = Convert.ToInt32(wcs.tbl_AdmissionStatus.Where(ast => ast.status == status).Select(admst => admst.admissionStatusId).FirstOrDefault());
-            
+
             return statusId;
+        }
+
+        protected void btnBEdIdUpdate_Click(object sender, EventArgs e)
+        {
+            string folderPath = ddlfolderselect.SelectedValue;
+            WCSHL7Entities wcs = new WCSHL7Entities();
+            IList<Gridvalcheck> gridval = new List<Gridvalcheck>();
+            DirectoryInfo info = new DirectoryInfo(folderPath);
+            FileInfo[] files = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+            foreach (string file in Directory.EnumerateFiles(folderPath))
+            {
+                string message = File.ReadAllText(file);
+                try
+                {
+                    var parser = new PipeParser();
+                    var messageParsed = parser.Parse(message);
+                    Terser tst = new Terser(messageParsed);
+                    var admextid = tst.Get("/PID-18");
+                    string assignedpatientlocation = tst.Get("/PV1-3");
+                    var returntype = tst.Get("/MSH-9");
+
+
+                    Gridvalcheck gvd = new Gridvalcheck();
+                    gvd.filename = file;
+                    
+                    if (returntype == "ADT")
+                    {
+                        string admexternalId = tst.Get("/PID-18");
+                        Admission_tbl ad = wcs.Admission_tbl.First(i => i.externalId == admexternalId);
+                        if (ad != null)
+                        {
+                            ///////////Patient Bed ID////////////////////
+                            int patientBedid = PatientBed.PBed(tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
+                            if (patientBedid > 0)
+                            {
+                                ad.Bed_bedId = patientBedid;
+                            }
+                            gvd.admissionId = Convert.ToString(patientBedid);
+                        }
+                        gvd.MessageType = tst.Get("/PV1-3-3");
+                        gvd.DepLoc = tst.Get("/PV1-3-2");
+
+                       
+                    }
+                    gridval.Add(gvd);
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            GridView1.DataSource = gridval;
+            GridView1.DataBind();
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            totallit.Text = IsServerConnected("data source=.;initial catalog=WCS;integrated security=True;MultipleActiveResultSets=True;");
+        }
+        private static string IsServerConnected(string connectionString)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    return "Connected";
+                }
+                catch (SqlException ex)
+                {
+                    return ex.Message;
+                }
+            }
         }
     }
 }

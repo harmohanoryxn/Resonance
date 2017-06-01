@@ -1,8 +1,10 @@
-﻿using HL7MessageServer.Model;
+﻿using HL7MessageServer.ErrorHandler;
+using HL7MessageServer.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -14,10 +16,7 @@ namespace HL7MessageServer.Helpers
         public static void insertdata(string tblname,int recordid,string type)
         {
 
-            //DateTime currentdate = DateTime.Now;
-            //string content = "Table Effected: " + tblname + "              Record Id :" + recordid + "              DatetimeInserted:" + currentdate+"       Type: "+type;
-            //string directory = ConfigurationManager.AppSettings["Insertion"];
-            //System.IO.File.WriteAllText(directory + currentdate.ToString() + ".txt", content);
+            
             WCSHL7Entities wcs = new WCSHL7Entities();
             Update up = new Update();
             up.type = type;
@@ -41,7 +40,27 @@ namespace HL7MessageServer.Helpers
                     ad.value = tblname;
                 }
                 ad.dateCreated = DateTime.Now;
-                wcs.SaveChanges();
+                try
+                {
+                    wcs.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult entityValidationError in ex.EntityValidationErrors)
+                    {
+                        string message = "Entity of type " + entityValidationError.Entry.Entity.GetType().Name + " in state " + (object)entityValidationError.Entry.State + "has the following validation errors:";
+                        foreach (DbValidationError validationError in (IEnumerable<DbValidationError>)entityValidationError.ValidationErrors)
+                        {
+                            ErrorMessage err = new ErrorMessage();
+                            err.Innermessage = message;
+                            err.StackTrace = validationError.ErrorMessage;
+                            err.Ordernumber = recordid.ToString();
+                            err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                        }
+
+                    }
+                }
+
             }
             else
             {
@@ -56,8 +75,28 @@ namespace HL7MessageServer.Helpers
                     up.value = tblname;
                 }
                 up.dateCreated = DateTime.Now;
-                wcs.Updates.Add(up);
-                wcs.SaveChanges();
+                try
+                {
+                    wcs.Updates.Add(up);
+
+                    wcs.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult entityValidationError in ex.EntityValidationErrors)
+                    {
+                        string message = "Entity of type " + entityValidationError.Entry.Entity.GetType().Name + " in state " + (object)entityValidationError.Entry.State + "has the following validation errors:";
+                        foreach (DbValidationError validationError in (IEnumerable<DbValidationError>)entityValidationError.ValidationErrors)
+                        {
+                            ErrorMessage err = new ErrorMessage();
+                            err.Innermessage = message;
+                            err.StackTrace = validationError.ErrorMessage;
+                            err.Ordernumber = recordid.ToString();
+                            err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                        }
+                            
+                    }
+                }
             }
             
             

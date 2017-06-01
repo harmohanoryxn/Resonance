@@ -73,43 +73,6 @@ namespace H7Message
             
             
         }
-        //public static int AdmissionTypeId(Terser tst)
-        //{
-        //    WCSHL7Entities wcs = new WCSHL7Entities();
-        //    string admissiontype = tst.Get("/PV1-18");
-        //    if (admissiontype == "" || admissiontype == null)
-        //    {
-
-        //    }
-        //    else
-        //    {
-        //        int admissionTypecheck = Convert.ToInt32(wcs.tbl_AdmissionType.Where(a => a.type == admissiontype).Select(ad => ad.admissionTypeId).FirstOrDefault());
-        //        if (admissionTypecheck <= 0)
-        //        {
-        //            tbl_AdmissionType admtype = new tbl_AdmissionType();
-        //            admtype.type = admissiontype;
-        //            wcs.tbl_AdmissionType.Add(admtype);
-        //            try
-        //            {
-        //                wcs.SaveChanges();
-        //            }
-        //            catch (DbEntityValidationException e)
-        //            {
-
-        //                foreach (var eve in e.EntityValidationErrors)
-        //                {
-        //                    var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
-        //                    foreach (var ve in eve.ValidationErrors)
-        //                    {
-        //                        var errors = " Property: " + ve.PropertyName + ", Error: " + ve.ErrorMessage;
-        //                    }
-        //                }
-        //                throw;
-        //            }
-        //        }
-        //    }
-        //    int admissionTypeId = Convert.ToInt32(wcs.tbl_AdmissionType.Where(a => a.type == admissiontype).Select(ad => ad.admissionTypeId).FirstOrDefault());
-        //    return admissionTypeId;
-        //}
+     
     }
 }

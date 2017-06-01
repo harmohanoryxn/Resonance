@@ -222,6 +222,8 @@
     <Compile Include="DeviceAddition.aspx.designer.cs">
       <DependentUpon>DeviceAddition.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorHandler\ErrorMessage.cs" />
+    <Compile Include="ErrorHandler\XMLCreator.cs" />
     <Compile Include="ErrorReader.aspx.cs">
       <DependentUpon>ErrorReader.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -236,8 +238,10 @@
     <Compile Include="Helpers\AllergenDetails.cs" />
     <Compile Include="Helpers\HL7messageToFile.cs" />
     <Compile Include="Helpers\Insertionhelper.cs" />
+    <Compile Include="Helpers\PatientBed.cs" />
     <Compile Include="Helpers\PatientInfo.cs" />
     <Compile Include="Helpers\PatientLocation.cs" />
+    <Compile Include="Helpers\PatientRoom.cs" />
     <Compile Include="Hl7Filereader.cs" />
     <Compile Include="Messageparser.aspx.cs">
       <DependentUpon>Messageparser.aspx</DependentUpon>

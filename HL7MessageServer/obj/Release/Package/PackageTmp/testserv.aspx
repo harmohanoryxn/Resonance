@@ -26,7 +26,8 @@
                 <asp:ListItem Text="No" Value="No"></asp:ListItem>
             </asp:DropDownList>
             <asp:Button ID="btnparsemessages" runat="server" Text="Show Messages" OnClick="btnparsemessages_Click"/>
-           
+           <asp:Button ID="btnBEdIdUpdate" runat="server" Text="Update Bed Id" OnClick="btnBEdIdUpdate_Click"/>
+             <asp:Button ID="Button2" runat="server" Text="Test SQL"  OnClick="Button2_Click"/>
         </div>
     <div>
         <div style="margin:10px;">

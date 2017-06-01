@@ -74,12 +74,6 @@ namespace H7Message
             else
             {
                 Patient_tbl pd = wcs.Patient_tbl.First(p => p.patientId == patientIdCheck);
-                pd.givenName = tst.Get("/PID-5-2");
-                pd.surname = tst.Get("/PID-5");
-
-                var dob = DateTime.ParseExact(tst.Get("/PID-7"), "yyyyMMdd", null).ToString("yyyy-MM-dd HH:mm");
-                pd.dob = Convert.ToDateTime(dob);
-                pd.sex = tst.Get("/PID-8");
                 ////Needs to be checked///
                 pd.isAssistanceRequired = AllergenDetails.HasAllergy(tst, obxrep, "Assistance"); ;
                 pd.isFallRisk = AllergenDetails.HasAllergy(tst, obxrep, "PCS.NDADM111"); ;
