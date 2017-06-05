@@ -206,7 +206,7 @@ namespace HL7MessageServer.Classes
 
                     }
                 }
-                throw;
+                
             }
 
 

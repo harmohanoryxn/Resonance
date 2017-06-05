@@ -1,4 +1,5 @@
 ﻿using H7Message;
+using HL7Messages;
 using HL7MessageServer.Model;
 using NHapi.Base.Parser;
 using NHapi.Base.Util;
@@ -37,77 +38,95 @@ namespace HL7MessageServer
                 var parser = new PipeParser();
                 var messageParsed = parser.Parse(message);
                 Terser tst = new Terser(messageParsed);
+                var returntype = tst.Get("/MSH-9");
                 try
                 {
-                    HLMessageToDB hl7 = new HLMessageToDB();
-                    hl7.HL7MessageToDB(message, file);
-                    System.IO.File.WriteAllText(ConfigurationManager.AppSettings["Recieved"] + file, message);
+                    if(Convert.ToString(ddlShoworUpdate.SelectedValue)=="0")
+                    {
 
-                    Gridvalcheck gvd = new Gridvalcheck();
-                    var returntype = tst.Get("/MSH-9");
+                    }
+                    else
+                    {
+                        if(returntype==ddlreturntype.SelectedValue)
+                        {
+                            HLMessageToDB hl7 = new HLMessageToDB();
 
-                    string externalPId = tst.Get("/PID-3");
+                            hl7.HL7MessageToDB(message);
+                        }
+                       
+                    }
                    
 
 
-                        if (externalPId == txtMRnumber.Text || Convert.ToString(txtMRnumber.Text)!=null || Convert.ToString(txtMRnumber.Text)!="")
-                        {
-                            if (returntype == "ORM")
-                            {
-                                gvd.filename = file;
-                                gvd.admissionExtId = externalPId;
-                                if (returntype == "ORM")
-                                {
-                                    gvd.OrderID = tst.Get("/ORC-2");
-                                    gvd.DBORDERSTATUS = AdmissionStatusId(tst.Get("/PV1-41"));
+                    Gridvalcheck gvd = new Gridvalcheck();
+                   
+
+                    string externalPId = tst.Get("/PID-3");
+                    string mrnumber = txtMRnumber.Text;
 
 
-                                }
-                                else
-                                {
-                                    gvd.admissionExtId = tst.Get("/PID-18");
-                                }
-                                gvd.filetime = File.GetLastWriteTime(file);
-                                gvd.MessageType = message;
-                                string orderNumber = tst.Get("/ORC-2");
-                                int orderId = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
-                                gvd.OrderExistsInDB = Convert.ToString(orderId);
-                                gridval.Add(gvd);
-                            }
-                        }
-                        else
+                    if (externalPId == mrnumber || mrnumber != null || mrnumber != "")
                     {
+
+                        gvd.filename = file;
+                        gvd.admissionExtId = externalPId;
                         if (returntype == "ORM")
                         {
-                            gvd.filename = file;
-                            gvd.admissionExtId = externalPId;
-                            if (returntype == "ORM")
-                            {
-                                gvd.OrderID = tst.Get("/ORC-2");
-                                gvd.DBORDERSTATUS = AdmissionStatusId(tst.Get("/PV1-41"));
-
-
-                            }
-                            else
-                            {
-                                gvd.admissionExtId = tst.Get("/PID-18");
-                            }
-                            gvd.filetime = File.GetLastWriteTime(file);
-                            gvd.MessageType = message;
+                            gvd.OrderID = tst.Get("/ORC-2");
+                            gvd.DBORDERSTATUS = AdmissionStatusId(tst.Get("/PV1-41"));
                             string orderNumber = tst.Get("/ORC-2");
                             int orderId = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
                             gvd.OrderExistsInDB = Convert.ToString(orderId);
-                            gridval.Add(gvd);
                         }
+                        else
+                        {
+                            gvd.admissionExtId = tst.Get("/PID-18");
+                        }
+                        gvd.filetime = File.GetLastWriteTime(file);
+                        gvd.MessageType = returntype;
+                       
+                       
+                        gridval.Add(gvd);
+
+                    }
+                    else
+                    {
+
+                        gvd.filename = file;
+                        gvd.admissionExtId = externalPId;
+                        if (returntype == "ORM")
+                        {
+                            gvd.OrderID = tst.Get("/ORC-2");
+                            gvd.DBORDERSTATUS = AdmissionStatusId(tst.Get("/PV1-41"));
+
+                            string orderNumber = tst.Get("/ORC-2");
+                            int orderId = wcs.Order_tbl.Where(c => c.orderNumber == orderNumber).Select(d => d.orderId).FirstOrDefault();
+                            gvd.OrderExistsInDB = Convert.ToString(orderId);
+                        }
+                        else
+                        {
+                            gvd.admissionExtId = tst.Get("/PID-18");
+                        }
+                        gvd.filetime = File.GetLastWriteTime(file);
+                        gvd.MessageType = returntype;
+                       
+                        
+                        gridval.Add(gvd);
+
                     }
 
                     
                    
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    Gridvalcheck gvd = new Gridvalcheck();
+                    gvd.filetime = File.GetLastWriteTime(file);
+                    gvd.MessageType = returntype;
+                    gvd.filename = file;
+                    gvd.FileOrderStatus = ex.Message;
+                    gridval.Add(gvd);
                 }
                 GridView1.DataSource = gridval;
                 GridView1.DataBind();
@@ -116,7 +135,7 @@ namespace HL7MessageServer
         }
         protected void ddlselect()
         {
-            string querystring = ConfigurationManager.AppSettings["MessageFolder"]; ;
+            string querystring = ConfigurationManager.AppSettings["Root"]; ;
             var directories = Directory.GetDirectories(querystring);
             ddlfolderselect.DataSource = directories;
             ddlfolderselect.DataBind();

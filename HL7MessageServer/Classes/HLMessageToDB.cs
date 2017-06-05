@@ -26,13 +26,14 @@ namespace H7Message
     public class HLMessageToDB
     {
 
-        public void HL7MessageToDB(string message,string filename)
+        public void HL7MessageToDB(string message)
         {
             var parser = new PipeParser();
             var messageParsed = parser.Parse(message);
             Terser tst = new Terser(messageParsed);
             var MessageType = tst.Get("/MSH-9");
-
+            string mrcode = tst.Get("/PID-3");
+            string filename = HL7messageToFile.writecontent(message, MessageType, mrcode);
             string regexOBX = @"\bOBX\b";
             string regexROL = @"\bROL\b";
             int OBXRep = Regex.Matches(message, regexOBX).Count;
@@ -220,7 +221,7 @@ namespace H7Message
                 string assignedpatientlocation = tst.Get("/PV1-3");
                 if (assignedpatientlocation == "ER" || assignedpatientlocation == "A&E" || assignedpatientlocation == "AE")
                 {
-                    string resultadm = admissiontypeupdate(admissionId, 1, patitentlocationid, admissiontype, tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
+                    string resultadm = admissiontypeupdate(admissionId, 1, patitentlocationid, admissiontype, tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"),filename);
 
                     TimeSpan ts = new TimeSpan(00, 00, 00);
                     DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts);
@@ -230,7 +231,7 @@ namespace H7Message
 
                 else
                 {
-                    string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid, 0,tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
+                    string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid, 0,tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"),filename);
                     if (admissiontypeid == 1)
                     {
 
@@ -346,7 +347,18 @@ namespace H7Message
                     }
                     else if (admissionId == 0)
                     {
-                        HL7messageToFile.Exceptionhandler("AdmissionID not found with addmission external id as :"+ admextid + "File Name: " + filename, message);
+                        ErrorMessage err = new ErrorMessage();
+                        err.Innermessage = "AdmissionID not found with addmission external id as :";
+                        err.StackTrace = message;
+                        err.Ordernumber = orderNumber;
+                        err.AdmissionNumber = admextid;
+                        err.EntityError = "ADT missing error";
+                        err.FileName = filename;
+                        err.Messagetype = "ORM";
+                        err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                        err.MRCode = pid;
+                        XMLCreator.xmlwriter(err);
+                       
                     }
                     else
                     {
@@ -722,57 +734,75 @@ namespace H7Message
 
             return statusId;
         }
-        private string admissiontypeupdate(int admissionid, int admtype, int patientlocationid,int historicaldata,string BedNumber,string RoomNumber)
+        private string admissiontypeupdate(int admissionid, int admtype, int patientlocationid,int historicaldata,string BedNumber,string RoomNumber,string filename)
         {
             string result = "";
-            WCSHL7Entities wcs = new WCSHL7Entities();
-            Admission_tbl adm = wcs.Admission_tbl.First(c => c.admissionId == admissionid);
-
-            int presentadmtype = adm.AdmissionType_admissionTypeId;
-            if (admtype > 0)
-            {
-                adm.AdmissionType_admissionTypeId = admtype;
-            }
-            if (patientlocationid > 0)
-            {
-                adm.Location_locationId = patientlocationid;
-            }
-            int patientBedid = PatientBed.PBed(BedNumber, RoomNumber);
-            if (patientBedid > 0)
-            {
-                adm.Bed_bedId = patientBedid;
-            }
             try
             {
-                wcs.Admission_tbl.Attach(adm);
-                wcs.Entry(adm).State = EntityState.Modified;
-                wcs.SaveChanges();
 
-                Insertionhelper.insertdata(Convert.ToString(admissionid), admissionid, "Admission Updated");
-            }
-            catch (DbEntityValidationException e)
-            {
+                WCSHL7Entities wcs = new WCSHL7Entities();
+                Admission_tbl adm = wcs.Admission_tbl.First(c => c.admissionId == admissionid);
 
-                foreach (var eve in e.EntityValidationErrors)
+                int presentadmtype = adm.AdmissionType_admissionTypeId;
+                if (admtype > 0)
                 {
-                    var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        ErrorMessage err = new ErrorMessage();
-                        err.Innermessage = ve.PropertyName;
-                        err.StackTrace = ve.ErrorMessage;
-                        err.Ordernumber = "";
-                        err.AdmissionNumber = "";
-                        err.EntityError = exception;
-                        err.FileName = "ADmUpdate"+ admissionid;
-                        err.Messagetype = "ADT";
-                        err.ErrorDatetime = DateTime.Now.ToShortDateString();
-                        err.MRCode = "";
-                        XMLCreator.xmlwriter(err);
-
-                    }
+                    adm.AdmissionType_admissionTypeId = admtype;
                 }
-                return "exception";
+                if (patientlocationid > 0)
+                {
+                    adm.Location_locationId = patientlocationid;
+                }
+                int patientBedid = PatientBed.PBed(BedNumber, RoomNumber);
+                if (patientBedid > 0)
+                {
+                    adm.Bed_bedId = patientBedid;
+                }
+                try
+                {
+                    wcs.Admission_tbl.Attach(adm);
+                    wcs.Entry(adm).State = EntityState.Modified;
+                    wcs.SaveChanges();
+
+                    Insertionhelper.insertdata(Convert.ToString(admissionid), admissionid, "Admission Updated");
+                }
+                catch (DbEntityValidationException e)
+                {
+
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        var exception = "Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State + "has the following validation errors:";
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            ErrorMessage err = new ErrorMessage();
+                            err.Innermessage = ve.PropertyName;
+                            err.StackTrace = ve.ErrorMessage;
+                            err.Ordernumber = "";
+                            err.AdmissionNumber = "";
+                            err.EntityError = exception;
+                            err.FileName = filename;
+                            err.Messagetype = "ADT";
+                            err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                            err.MRCode = "";
+                            XMLCreator.xmlwriter(err);
+
+                        }
+                    }
+                    return "exception";
+                }
+            }
+            catch(Exception ex)
+            {
+                ErrorMessage err = new ErrorMessage();
+                err.Innermessage = Convert.ToString(ex.InnerException);
+                err.StackTrace = Convert.ToString(ex.StackTrace);
+                err.Ordernumber = "";
+                err.AdmissionNumber = "";
+                err.EntityError = ex.Message;
+                err.FileName = filename;
+                err.Messagetype = "ADT";
+                err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                err.MRCode = "";
+                XMLCreator.xmlwriter(err);
             }
 
             return "success";

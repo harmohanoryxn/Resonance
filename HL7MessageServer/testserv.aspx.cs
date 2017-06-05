@@ -269,7 +269,7 @@ namespace HL7MessageServer
                                 if (admcheck > 0)
                                 {
                                     HLMessageToDB hl7 = new HLMessageToDB();
-                                    hl7.HL7MessageToDB(message, file);
+                                    //hl7.HL7MessageToDB(message, file);
                                     dborderid = wcs.Order_tbl.Where(c => c.externalId == orderid).Select(d => d.orderId).FirstOrDefault();
                                     if (dborderid > 0)
                                         gvd.OrderExistsInDB = "Yes";
@@ -320,7 +320,7 @@ namespace HL7MessageServer
                             if (admcheck == 0)
                             {
                                 HLMessageToDB hl7 = new HLMessageToDB();
-                                hl7.HL7MessageToDB(message, file);
+                                //hl7.HL7MessageToDB(message, file);
                                 admcheck = wcs.Admission_tbl.Where(c => c.externalId == admextid).Select(d => d.admissionId).FirstOrDefault();
                             }
                             int admissionstatsu = AdmissionStatusId(tst.Get("/PV1-41"));

@@ -8,15 +8,28 @@ namespace H7Message
 {
     public static class HL7messageToFile
     {
-        public static string writecontent(string message)
+        public static string writecontent(string message,string messagetype,string mrcode)
         {
             try
             {
                 Guid gid = Guid.NewGuid();
-                string currentdate = DateTime.Now.ToString("ddMMyyyyHHmm")+gid;
-                string directory = ConfigurationManager.AppSettings["MessageFolder"];
-                System.IO.File.WriteAllText(directory + currentdate.ToString()+".txt", message);
-                return currentdate.ToString() + ".txt";
+                string currentdateguid = DateTime.Now.ToString("ddMMyyyyHHmm")+gid;
+                string MessageRootDirectorty = ConfigurationManager.AppSettings["MessageFolder"];
+                string directoryname = "";
+                var currentdate = DateTime.Now.ToString("ddMMyyyy");
+                if (Convert.ToString(mrcode) == null || Convert.ToString(mrcode) == "")
+                {
+                    directoryname = MessageRootDirectorty +  messagetype + currentdate + "\\Unknown";
+                }
+                else
+                {
+                    directoryname = MessageRootDirectorty +  messagetype + "\\" + currentdate + "\\" + mrcode;
+                }
+
+                var directory = System.IO.Directory.CreateDirectory(directoryname);
+                string Recievedfilename = directoryname + "\\" + currentdateguid + ".txt";
+                System.IO.File.WriteAllText(Recievedfilename, message);
+                return currentdateguid;
             }
             catch(Exception ex)
             {

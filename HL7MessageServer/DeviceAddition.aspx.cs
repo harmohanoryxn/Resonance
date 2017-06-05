@@ -53,5 +53,19 @@ namespace HL7MessageServer
             DateTime updatedtime = Convert.ToDateTime(datecreated.Date + ts);
             lbl.Text = updatedtime.ToString();
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            WCSHL7Entities wcs = new WCSHL7Entities();
+            var locationval = wcs.Locations;
+            string s = "";
+            foreach(var l in locationval)
+            {
+                s += "case '"+l.code+"':" +
+                        "locvalue = '" + l.name + "';" +
+                "break; ";
+            }
+            lbl.Text = s;
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
+using System.Web.Http.Description;
 
 namespace HL7MessageServer.API
 {
@@ -27,11 +28,34 @@ namespace HL7MessageServer.API
         }
 
         // POST api/<controller>
-      
+
+        
         public void Post(HLMessage obj)
         {
-            testH7Message hl7 = new testH7Message();
-            hl7.HL7MessageToDB(obj);
+            HLMessageToDB hl7 = new HLMessageToDB();
+            
+            if(obj==null)
+            {
+                var resp = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("We cannot proccess empty HL7 message")),
+                    ReasonPhrase = "HL7 Message is empty",
+
+                };
+            }
+            else
+            {
+                hl7.HL7MessageToDB(obj.HL7Message);
+                var resp = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("User already enrolled for this course")),
+                    ReasonPhrase = "User already enrolled for this course",
+
+                };
+            }
+           
+
+            return;
         }
 
         // PUT api/<controller>/5

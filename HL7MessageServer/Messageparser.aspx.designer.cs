@@ -40,6 +40,24 @@ namespace HL7MessageServer {
         protected global::System.Web.UI.WebControls.DropDownList ddlfolderselect;
         
         /// <summary>
+        /// ddlShoworUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlShoworUpdate;
+        
+        /// <summary>
+        /// ddlreturntype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlreturntype;
+        
+        /// <summary>
         /// btnShow control.
         /// </summary>
         /// <remarks>
