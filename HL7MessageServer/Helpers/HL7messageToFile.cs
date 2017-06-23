@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HL7MessageServer.ErrorHandler;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -33,7 +34,18 @@ namespace H7Message
             }
             catch(Exception ex)
             {
-                return "error";
+                ErrorMessage err = new ErrorMessage();
+                err.Innermessage = Convert.ToString(ex.InnerException);
+                err.StackTrace = ex.StackTrace;
+                err.Ordernumber = "Unable to generate file";
+                err.AdmissionNumber = "Unable to generate file";
+                err.EntityError = message;
+                err.FileName = "";
+                err.Messagetype = "Unknown";
+                err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                err.MRCode = "NA";
+                XMLCreator.xmlwriter(err);
+                return "100";
             }
         }
         public static void Exceptionhandler(string message,string innerexception)

@@ -10,7 +10,7 @@
 namespace HL7MessageServer {
     
     
-    public partial class ErrorReader {
+    public partial class JsonExporter {
         
         /// <summary>
         /// form1 control.
@@ -22,39 +22,21 @@ namespace HL7MessageServer {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ddlErrorfolders control.
+        /// uploadcontent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlErrorfolders;
+        protected global::System.Web.UI.WebControls.Button uploadcontent;
         
         /// <summary>
-        /// btnShowerrors control.
+        /// bedtodb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnShowerrors;
-        
-        /// <summary>
-        /// parseagain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button parseagain;
-        
-        /// <summary>
-        /// griderror control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView griderror;
+        protected global::System.Web.UI.WebControls.Button bedtodb;
     }
 }

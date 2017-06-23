@@ -31,6 +31,15 @@ namespace HL7MessageServer {
         protected global::System.Web.UI.WebControls.TextBox txtMRnumber;
         
         /// <summary>
+        /// ddlreturntype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlreturntype;
+        
+        /// <summary>
         /// ddlfolderselect control.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace HL7MessageServer {
         protected global::System.Web.UI.WebControls.DropDownList ddlShoworUpdate;
         
         /// <summary>
-        /// ddlreturntype control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlreturntype;
-        
-        /// <summary>
         /// btnShow control.
         /// </summary>
         /// <remarks>
@@ -74,6 +74,33 @@ namespace HL7MessageServer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdateORM;
+        
+        /// <summary>
+        /// btnUpdateRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateRoom;
+        
+        /// <summary>
+        /// btnUpdateAllergens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateAllergens;
+        
+        /// <summary>
+        /// updateLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button updateLocation;
         
         /// <summary>
         /// GridView1 control.

@@ -20,6 +20,7 @@ using HL7Messages;
 using System.Reflection;
 using HL7MessageServer.Classes;
 using HL7MessageServer.ErrorHandler;
+using System.Configuration;
 
 namespace H7Message
 {
@@ -28,62 +29,80 @@ namespace H7Message
 
         public void HL7MessageToDB(string message)
         {
-            var parser = new PipeParser();
-            var messageParsed = parser.Parse(message);
-            Terser tst = new Terser(messageParsed);
-            var MessageType = tst.Get("/MSH-9");
-            string mrcode = tst.Get("/PID-3");
-            string filename = HL7messageToFile.writecontent(message, MessageType, mrcode);
-            string regexOBX = @"\bOBX\b";
-            string regexROL = @"\bROL\b";
-            int OBXRep = Regex.Matches(message, regexOBX).Count;
-            int ROLRep = Regex.Matches(message, regexROL).Count;
-
-
-            switch (MessageType)
+            try
             {
-                case "ORM":
-                    ormMessage(tst, message, OBXRep,filename);
-                    break;
-                case "ADT":
-                    adtMessage(tst, OBXRep, ROLRep,filename);
-                    break;
-                    //case "ORU":
-                    //    oruMessage(tst);
-                    //    break;
+                var parser = new PipeParser();
+                var messageParsed = parser.Parse(message);
+                Terser tst = new Terser(messageParsed);
+                var MessageType = tst.Get("/.MSH-9");
+                string mrcode = tst.Get("/.PID-3");
+                string filename = HL7messageToFile.writecontent(message, MessageType, mrcode);
+                string regexOBX = @"\bOBX\b";
+                string regexROL = @"\bROL\b";
+                int OBXRep = Regex.Matches(message, regexOBX).Count;
+                int ROLRep = Regex.Matches(message, regexROL).Count;
 
 
+                switch (MessageType)
+                {
+                    case "ORM":
+                        ormMessage(tst, message, OBXRep, filename);
+                        break;
+                    case "ADT":
+                        adtMessage(tst, OBXRep, ROLRep, filename);
+                        break;
+                        //case "ORU":
+                        //    oruMessage(tst);
+                        //    break;
+
+
+
+                }
 
             }
-
-
+            catch(Exception ex)
+            {
+                ErrorMessage err = new ErrorMessage();
+                err.Innermessage = Convert.ToString(ex.InnerException);
+                err.StackTrace = ex.StackTrace;
+                err.Ordernumber = "Unable to read message";
+                err.AdmissionNumber = "Unable to read message";
+                err.EntityError = message;
+                err.FileName = "";
+                err.Messagetype = "Unknown";
+                err.ErrorDatetime = DateTime.Now.ToShortDateString();
+                err.MRCode = "Unable to read message and generate file";
+                XMLCreator.xmlwriter(err);
+            }
         }
         protected string ormMessage(Terser tst, string message, int obxrep,string filename)
         {
             string result = "";
             WCSHL7Entities wcs = new WCSHL7Entities();
-            string patientlocationCheck = tst.Get("/PV1-3");
-            string deploccheck= tst.Get("/OBR-18");
+            string patientlocationCheck = tst.Get("/.PV1-3");
+            string deploccheck= tst.Get("/.OBR-18");
             if (patientlocationCheck == "LIMERICK" || deploccheck == "LIMERICK")
             {
 
             }
             else
             {
-
-
-                int admissiontypeid = AdmissionType.AdmissionTypeId(tst);
-                string pid = tst.Get("/PID-3");
-                string procedure = tst.Get("/OBR-4-2");
+                ///Calling patient info class for getting patient ID/////
+                //int patientId = PatientInfo.PatientinfoReturn(tst, obxrep);
+                string adm1 = tst.Get("/.PV1-18");
+                string adm2 = tst.Get("/.PV1-2");
+                int admissiontypeid = AdmissionType.AdmissionTypeId(adm1,adm2);
+                string pid = tst.Get("/.PID-3");
+                string procedure = tst.Get("/.OBR-4-2");
                 var procedureIdCheck = wcs.Procedures.Where(s => s.code == procedure).Select(p => p.procedureId).FirstOrDefault().ToString();
                 if (procedureIdCheck == "0" || procedureIdCheck == null)
                 {
                     Procedure pc = new Procedure();
                     pc.externalId = procedure + "1";
                     pc.code = procedure;
-                    pc.description = tst.Get("OBR-4-3");
+                    pc.description = tst.Get("/.OBR-4-3");
                     pc.externalSourceId = 1;
-                    string extID = tst.Get("/OBR-4");
+                    string extID = tst.Get("/.OBR-4");
                     var procedurecategory = wcs.ProcedureCategories.Where(procat => procat.externalId == extID).Select(r => r.procedureCategoryId).FirstOrDefault().ToString();
                     if (procedurecategory == "0")
                     {
@@ -106,19 +125,19 @@ namespace H7Message
 
 
                 string admitdatetime = DateTime.Now.ToShortDateString();
-                string extSource = tst.Get("/OBR-16");
+                string extSource = tst.Get("/.OBR-16");
 
-                string extId = tst.Get("/OBR-18-2");
-                string orderNumber = tst.Get("/ORC-2");
-                string clinicalIndicator = tst.Get("OBR-3-2");
+                string extId = tst.Get("/.OBR-18-2");
+                string orderNumber = tst.Get("/.ORC-2");
+                string clinicalIndicator = tst.Get(".OBR-3-2");
 
 
 
-                string ProcedureTimeduration = tst.Get("/OBR-6");
-                string ProcedureName = tst.Get("/OBR-4");
-                string status = tst.Get("/ORC-5");
-                string Department_location = tst.Get("/OBR-18");
-                Department_location = ReturnLocation.location(Department_location);
+                string ProcedureTimeduration = tst.Get("/.OBR-6");
+                string ProcedureName = tst.Get("/.OBR-4");
+                string status = tst.Get("/.ORC-5");
+                string Department_location = tst.Get("/.OBR-18");
+                Department_location = ReturnLocation.location(Department_location,procedureId);
                 switch (status)
                 {
                     case "L":
@@ -163,13 +182,13 @@ namespace H7Message
                     Insertionhelper.insertdata("Location", 0, "Location  Insertion");
                 }
                 int departmentLocationId = Convert.ToInt32(wcs.Locations.Where(l => l.name == Department_location || l.code == Department_location).Select(locId => locId.locationId).FirstOrDefault());
-                string admextid = tst.Get("/PID-18");
+                string admextid = tst.Get("/.PID-18");
                 int admissionId = Convert.ToInt32(wcs.Admission_tbl.Where(adm => adm.externalId == admextid).Select(ad => ad.admissionId).FirstOrDefault());
-                string OrderingDocFirstname = tst.Get("/OBR-16-3");
-                string OrderingDoclastname = tst.Get("/OBR-16-2");
-                string OrderingDocMiddle = tst.Get("/OBR-16-4");
-                string OrderingDocPrefx = tst.Get("/OBR-16-5");
-                string orderingDocMnemonic = tst.Get("/OBR-16");
+                string OrderingDocFirstname = tst.Get("/.OBR-16-3");
+                string OrderingDoclastname = tst.Get("/.OBR-16-2");
+                string OrderingDocMiddle = tst.Get("/.OBR-16-4");
+                string OrderingDocPrefx = tst.Get("/.OBR-16-5");
+                string orderingDocMnemonic = tst.Get("/.OBR-16");
                 int doctorNameCheck = Convert.ToInt32(wcs.Doctors.Where(d => d.externalId == orderingDocMnemonic).Select(doc => doc.doctorId).FirstOrDefault());
 
                 if (doctorNameCheck <= 0)
@@ -188,7 +207,7 @@ namespace H7Message
                 ordertbl.externalId = orderNumber;
                 ordertbl.orderNumber = orderNumber;
 
-                string proceduretimecheck = tst.Get("/OBR-27-4");
+                string proceduretimecheck = tst.Get("/.OBR-27-4");
                 var ProcedureTime = "";
                 if (proceduretimecheck != null || proceduretimecheck != "")
                 {
@@ -208,20 +227,25 @@ namespace H7Message
                 {
                     for (int i = 0; i < obxrep; i++)
                     {
-                        string value = tst.Get("/OBX(" + i + ")-3-2");
-                        if (value.Contains("Clinical Indication") || value.Contains("Clinical indication") || value.Contains("Clinical Indicator"))
+                        string value = tst.Get("/.OBX(" + i + ")-3-2");
+                        if (value.Contains("Clinical Indication") || value.Contains("Clinical indication") || value.Contains("Clinical Indicator") || value.Contains("Clinical Indications") || value.Contains("Clinical indications"))
                         {
-                            clinicalIndicator = tst.Get("/OBX(" + i + ")-5");
-                            clinicalIndicator += " " + tst.Get("/OBX(" + i + ")-5-2");
+                            clinicalIndicator = tst.Get("/.OBX(" + i + ")-5");
+                            clinicalIndicator += " " + tst.Get("/.OBX(" + i + ")-5-2");
+                            break;
                         }
                     }
                 }
-                int admissiontype = AdmissionType.AdmissionTypeId(tst);
-                int patitentlocationid = PatientLocation.PatientLocationId(tst);
-                string assignedpatientlocation = tst.Get("/PV1-3");
-                if (assignedpatientlocation == "ER" || assignedpatientlocation == "A&E" || assignedpatientlocation == "AE")
+               
+                int admissiontype = AdmissionType.AdmissionTypeId(adm1, adm2);
+                string plocation = tst.Get("/.PV1-3");
+                int patitentlocationid = PatientLocation.PatientLocationId(plocation);
+                string assignedpatientlocation = tst.Get("/.PV1-3");
+                string[] ER = Convert.ToString(ConfigurationManager.AppSettings["ActiveER"]).Split(',');
+
+                if (assignedpatientlocation ==ER[0] || assignedpatientlocation == ER[1])
                 {
-                    string resultadm = admissiontypeupdate(admissionId, 1, patitentlocationid, admissiontype, tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"),filename);
+                    string resultadm = admissiontypeupdate(admissionId, 1, patitentlocationid, admissiontype, tst.Get("/.PV1-3-3"), tst.Get("/.PV1-3-2"),filename);
 
                     TimeSpan ts = new TimeSpan(00, 00, 00);
                     DateTime dt = Convert.ToDateTime(Convert.ToDateTime(ProcedureTime).Date + ts);
@@ -231,7 +255,7 @@ namespace H7Message
 
                 else
                 {
-                    string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid, 0,tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"),filename);
+                    string resultadm = admissiontypeupdate(admissionId, admissiontype, patitentlocationid, 0,tst.Get("/.PV1-3-3"), tst.Get("/.PV1-3-2"),filename);
                     if (admissiontypeid == 1)
                     {
 
@@ -456,7 +480,8 @@ namespace H7Message
                 {
                     Admission_tbl ad = wcs.Admission_tbl.First(i => i.externalId == admexternalId);
                     ////Getting patient location id//////
-                    patientlocationId = PatientLocation.PatientLocationId(tst);
+                    string plocation = tst.Get("/.PV1-3");
+                    patientlocationId = PatientLocation.PatientLocationId(plocation);
                     ///////////Patient Bed ID////////////////////
                     int patientBedid = PatientBed.PBed(tst.Get("/PV1-3-3"), tst.Get("/PV1-3-2"));
                     if (patientBedid > 0)
@@ -464,7 +489,9 @@ namespace H7Message
                         ad.Bed_bedId = patientBedid;
                     }
                     //////Getting patient admission type id
-                    admissionTypeId = AdmissionType.AdmissionTypeId(tst);
+                    string adm1 = tst.Get("/PV1-18");
+                    string adm2 = tst.Get("/PV1-2");
+                    admissionTypeId = AdmissionType.AdmissionTypeId(adm1,adm2);
                     string assignedpatientlocation = tst.Get("/PV1-3");
                     if (assignedpatientlocation == "ER" || assignedpatientlocation == "A&E" || assignedpatientlocation == "AE")
                     {
@@ -559,7 +586,8 @@ namespace H7Message
                 else
                 {
                     ////Getting patient location id//////
-                    patientlocationId = PatientLocation.PatientLocationId(tst);
+                    string plocation = tst.Get("/.PV1-3");
+                    patientlocationId = PatientLocation.PatientLocationId(plocation);
                     if (patientlocationId > 0)
                     {
                         admissiontbl.Location_locationId = patientlocationId;
@@ -571,8 +599,9 @@ namespace H7Message
                         admissiontbl.Bed_bedId = patientBedid;
                     }
                     //////Getting patient admission type id
-
-                    admissionTypeId = AdmissionType.AdmissionTypeId(tst);
+                    string adm1 = tst.Get("/PV1-18");
+                    string adm2 = tst.Get("/PV1-2");
+                    admissionTypeId = AdmissionType.AdmissionTypeId(adm1,adm2);
                     if (admissionTypeId > 0)
                     {
                         admissiontbl.AdmissionType_admissionTypeId = admissionTypeId;
@@ -661,7 +690,7 @@ namespace H7Message
                 ErrorMessage err = new ErrorMessage();
                 err.Innermessage = Convert.ToString(ex.InnerException);
                 err.StackTrace = ex.StackTrace;
-                err.Ordernumber = "NA";
+                err.Ordernumber = ex.Source;
                 err.AdmissionNumber = "NA";
                 err.EntityError = ex.Message;
                 err.FileName = filename;

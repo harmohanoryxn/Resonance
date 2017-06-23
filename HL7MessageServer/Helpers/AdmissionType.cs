@@ -12,13 +12,13 @@ namespace H7Message
 {
     public static class AdmissionType
     {
-        public static int AdmissionTypeId(Terser tst)
+        public static int AdmissionTypeId(string adm1,string adm2)
         {
             WCSHL7Entities wcs = new WCSHL7Entities();
-            string admissiontype = tst.Get("/PV1-18");
+            string admissiontype = adm1;
             if (admissiontype == "" || admissiontype == null)
             {
-                admissiontype = tst.Get("/PV1-2");
+                admissiontype = adm2;
                 switch (admissiontype)
                 {
                     case "P":

@@ -184,6 +184,7 @@
     <Content Include="DeviceAddition.aspx" />
     <Content Include="ErrorReader.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="JsonExporter.aspx" />
     <Content Include="Messageparser.aspx" />
     <Content Include="Model\WCSHL7.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -207,7 +208,6 @@
     <Compile Include="Classes\HLMessageToDB.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\ReturnLocation.cs" />
-    <Compile Include="Classes\testH7Message.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,6 +243,13 @@
     <Compile Include="Helpers\PatientLocation.cs" />
     <Compile Include="Helpers\PatientRoom.cs" />
     <Compile Include="Hl7Filereader.cs" />
+    <Compile Include="JsonExporter.aspx.cs">
+      <DependentUpon>JsonExporter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JsonExporter.aspx.designer.cs">
+      <DependentUpon>JsonExporter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Messageparser.aspx.cs">
       <DependentUpon>Messageparser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

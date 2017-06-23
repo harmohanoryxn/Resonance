@@ -23,13 +23,24 @@ namespace HL7MessageServer.ErrorHandler
                 {
                     directoryname = ErrorRootDirectorty +  message.Messagetype +"\\" + currentdate + "\\Unknown";
                 }
+                else if(Convert.ToString(message.Messagetype)=="Unknown")
+                {
+                    directoryname = ErrorRootDirectorty + message.Messagetype + "\\" + currentdate ;
+                }
                 else
                 {
                     directoryname = ErrorRootDirectorty + message.Messagetype + "\\" + currentdate + "\\" + message.MRCode ;
                 }
 
                 var directory = System.IO.Directory.CreateDirectory(directoryname);
-                string errorfilename = directoryname + "\\" + message.FileName + ".xml";
+                string filename = message.FileName;
+                if(filename==""||filename==null)
+                {
+                    Guid gid = Guid.NewGuid();
+                    string currentdateguid = DateTime.Now.ToString("ddMMyyyyHHmm") + gid;
+                    filename = currentdateguid;
+                }
+                string errorfilename = directoryname + "\\" +filename+ ".xml";
                 //create the serialiser to create the xml
                 //XmlSerializer serialiser = new XmlSerializer(typeof(List<ErrorMessage>));
 

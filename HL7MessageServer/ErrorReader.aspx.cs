@@ -54,6 +54,10 @@ namespace HL7MessageServer
             ddlErrorfolders.DataBind();
         }
 
+        protected void parseagain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public class errorfeilds
     {

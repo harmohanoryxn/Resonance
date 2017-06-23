@@ -11,6 +11,7 @@
     <div style="margin:20px;">
     <asp:DropDownList ID="ddlErrorfolders" runat="server"></asp:DropDownList>
         <asp:Button ID="btnShowerrors" runat="server" Text="Show errors list" OnClick="btnShowerrors_Click" />
+        <asp:Button ID="parseagain" runat="server" Text="Parse and generate file again" OnClick="parseagain_Click"  />
     </div>
         <asp:GridView ID="griderror" runat="server"></asp:GridView>
     </form>

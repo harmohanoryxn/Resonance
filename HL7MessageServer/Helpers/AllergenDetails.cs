@@ -12,65 +12,140 @@ namespace H7Message
     {
         public static bool HasAllergy(Terser tst, int obxrep, string allergytype)
         {
-            ISegment segment = tst.getSegment("OBX");
+           
             bool latexallergy = false;
             bool found = false;
             string query = "";
-            bool segrepcount = segment.Message.IsRepeating("OBX");
            
-                for (int i = 0; i <= obxrep; i++)
+           
+                for (int i = 0; i < obxrep; i++)
                 {
-                    if (found == false)
+                
+                    string querytypefound = tst.Get("/.OBX(" + i + ")-3");
+                    string admallergy = tst.Get("/.OBX(" + i + ")-3-2");
+                    switch (allergytype)
                     {
-                        string querytypefound = tst.Get("/OBX(" + i + ")-3");
-                        string admallergy = tst.Get("/OBX(" + i + ")-3-2");
-                        switch (allergytype)
-                        {
-                            case "ADM.ALLERGY":
-                                query = "Latex";
-                                break;
-                            case "PCS.NDADM054D":
-                                query = "MRSA";
-                                break;
-                            case "PCS.NDADM111":
-                                query = "Fall";
-                                break;
-                        }
-
-
-                    if (admallergy == "" || admallergy == null ||admallergy!=query)
-                    {
-                        latexallergy = false;
-                    }
-                    else
-                    {
-                        int latexallergyExists = Regex.Matches(admallergy, query).Count;
-                        if (latexallergyExists > 0)
-                        {
-                            string allergyvalue = tst.Get("/OBX(" + i + ")-5");
-                            if (allergyvalue == "N")
+                        case "OELATEX":
+                            if (admallergy == "" || admallergy == "")
                             {
                                 latexallergy = false;
-                                break;
                             }
                             else
                             {
-                                latexallergy = true;
-                                break;
+                                int latexallergyExists = Regex.Matches(admallergy, allergytype).Count;
+                                if (latexallergyExists > 0)
+                                {
+                                    string allergyvalue = tst.Get("/.OBX(" + i + ")-5");
+                                    if (allergyvalue == "N")
+                                    {
+                                        latexallergy = false;
+                                       
+                                    }
+                                    else
+                                    {
+                                        latexallergy = true;
+                                       
+                                    }
+                                }
+                                else
+                                {
+                                    latexallergy = FromAL1Segment(tst, obxrep, allergytype);
+                                    
+                                }
                             }
-                        }
-                        else
-                        {
-                            latexallergy = FromAL1Segment(tst, obxrep, query);
                             break;
-                        }
+                        case "NURINF02":
+                            if (admallergy == "" || admallergy == "")
+                            {
+                                latexallergy = false;
+                            }
+                            else
+                            {
+                                int MRSAExists = Regex.Matches(admallergy, allergytype).Count;
+                                if (MRSAExists > 0)
+                                {
+                                    string allergyvalue = tst.Get("/.OBX(" + i + ")-5");
+                                    if (allergyvalue == "N")
+                                    {
+                                        latexallergy = false;
+                                        
+                                    }
+                                    else
+                                    {
+                                        latexallergy = true;
+
+                                    }
+                                }
+                                else
+                                {
+                                    latexallergy = FromAL1Segment(tst, obxrep, allergytype);
+
+                                }
+                            }
+                            break;
+                        case "PCS.NDADM111":
+                            if (admallergy == "" || admallergy == "")
+                            {
+                                latexallergy = false;
+                            }
+                            else
+                            {
+                                int FalssRiskExists = Regex.Matches(admallergy, allergytype).Count;
+                                if (FalssRiskExists > 0)
+                                {
+                                    string allergyvalue = tst.Get("/.OBX(" + i + ")-5");
+                                    if (allergyvalue == "N")
+                                    {
+                                        latexallergy = false;
+                                       
+                                    }
+                                    else
+                                    {
+                                        latexallergy = true;
+
+                                    }
+                                }
+                                else
+                                {
+                                    latexallergy = FromAL1Segment(tst, obxrep, allergytype);
+
+                                }
+                            }
+                            break;
+                        case "Assistance":
+                            if (admallergy == "" || admallergy == "")
+                            {
+                                latexallergy = false;
+                            }
+                            else
+                            {
+                                int AssistanceExists = Regex.Matches(admallergy, allergytype).Count;
+                                if (AssistanceExists > 0)
+                                {
+                                    string allergyvalue = tst.Get("/.OBX(" + i + ")-5");
+                                    if (allergyvalue == "N")
+                                    {
+                                        latexallergy = false;
+                                       
+                                    }
+                                    else
+                                    {
+                                        latexallergy = true;
+
+                                    }
+                                }
+                                else
+                                {
+                                    latexallergy = FromAL1Segment(tst, obxrep, allergytype);
+
+                                }
+                            }
+                            break;
                     }
-                    }
-                    else
-                    {
-                    latexallergy = false;
-                        break;
-                    }
+
+                
+
+              
               
 
             }
@@ -81,10 +156,10 @@ namespace H7Message
             bool hasalleregen = false;
             for (int i = 0; i < reps; i++)
             {
-                string allergencode = tst.Get("/AL1(" + i + ")-3-1");
+                string allergencode = tst.Get("/.AL1(" + i + ")-3-1");
                 if (allergencode == query)
                 {
-                    string severitycode = tst.Get("/AL1(" + i + ")-4");
+                    string severitycode = tst.Get("/.AL1(" + i + ")-4");
                     if (severitycode == "U")
                     {
                         hasalleregen = false;
@@ -97,5 +172,18 @@ namespace H7Message
             }
             return hasalleregen;
         }
+        public static bool regex(string query, string message)
+        {
+            int count1 = Regex.Matches(message, query).Count;
+            if (count1 > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
+
 }

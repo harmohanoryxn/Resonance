@@ -12,12 +12,11 @@ namespace H7Message
 {
     public static class PatientLocation
     {
-        public static int PatientLocationId(Terser tst)
+        public static int PatientLocationId(string location)
         {
             WCSHL7Entities wcs = new WCSHL7Entities();
-            string assignedpatientlocation = tst.Get("/PV1-3");
-            string assignedpatientroom = tst.Get("/PV1-3-2");
-            string assignedpatientBed = tst.Get("/PV1-3-3");
+            string assignedpatientlocation = location;
+            
             int patientlocationId = 1;
             if (assignedpatientlocation == null || assignedpatientlocation == "")
             {
@@ -25,7 +24,7 @@ namespace H7Message
             }
             else
             {
-                string patientlocation = ReturnLocation.location(assignedpatientlocation);
+                string patientlocation = ReturnLocation.location(assignedpatientlocation,0);
                 if (patientlocation == "" || patientlocation == null)
                 {
 

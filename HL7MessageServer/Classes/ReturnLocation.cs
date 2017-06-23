@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HL7MessageServer.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -8,9 +9,11 @@ namespace HL7MessageServer.Classes
 {
     public static class ReturnLocation
     {
-        public static string location(string loc)
+       
+        public static string location(string loc,int procedureid)
         {
             string ActiveHospital = ConfigurationManager.AppSettings["ActiveHospital"];
+            WCSHL7Entities wcs = new WCSHL7Entities();
             string locvalue = "";
             if (ActiveHospital == "Galway")
             {
@@ -131,7 +134,16 @@ namespace HL7MessageServer.Classes
                     case "OUTPATOR": locvalue = "ORTHOPAEDIC CLINIC"; break;
                     case "PAEDSOP": locvalue = "BEACON PAEDIATRIC OP SERVICE"; break;
                     case "PT": locvalue = "PHYSIOTHERAPY DEPARTMENT"; break;
-                    case "RAD": locvalue = "RADIOLOGY"; break;
+                    case "RAD":
+                        if (procedureid == 0)
+                        {
+                            locvalue = "Radiology";
+                        }
+                        else
+                        {
+                            locvalue = wcs.ProcedureCategories.Where(c => c.procedureCategoryId == (wcs.Procedures.Where(p => p.procedureId == procedureid).Select(pid => pid.ProcedureCategory_procedureCategoryId).FirstOrDefault())).Select(pcid => pcid.description).FirstOrDefault();
+                        }
+                        break;
                     case "RADIO": locvalue = "RADIOTHERAPY"; break;
                     case "RT": locvalue = "RESPIRATORY THERAPY"; break;
                     case "SLT": locvalue = "SPEECH AND LANGUAGE THERAPY"; break;
