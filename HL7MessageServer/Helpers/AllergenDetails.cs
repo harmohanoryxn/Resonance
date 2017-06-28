@@ -23,10 +23,8 @@ namespace H7Message
                 
                     string querytypefound = tst.Get("/.OBX(" + i + ")-3");
                     string admallergy = tst.Get("/.OBX(" + i + ")-3-2");
-                    switch (allergytype)
-                    {
-                        case "OELATEX":
-                            if (admallergy == "" || admallergy == "")
+                   
+                            if (allergytype == "" || admallergy == "")
                             {
                                 latexallergy = false;
                             }
@@ -53,99 +51,8 @@ namespace H7Message
                                     
                                 }
                             }
-                            break;
-                        case "NURINF02":
-                            if (admallergy == "" || admallergy == "")
-                            {
-                                latexallergy = false;
-                            }
-                            else
-                            {
-                                int MRSAExists = Regex.Matches(admallergy, allergytype).Count;
-                                if (MRSAExists > 0)
-                                {
-                                    string allergyvalue = tst.Get("/.OBX(" + i + ")-5");
-                                    if (allergyvalue == "N")
-                                    {
-                                        latexallergy = false;
-                                        
-                                    }
-                                    else
-                                    {
-                                        latexallergy = true;
-
-                                    }
-                                }
-                                else
-                                {
-                                    latexallergy = FromAL1Segment(tst, obxrep, allergytype);
-
-                                }
-                            }
-                            break;
-                        case "PCS.NDADM111":
-                            if (admallergy == "" || admallergy == "")
-                            {
-                                latexallergy = false;
-                            }
-                            else
-                            {
-                                int FalssRiskExists = Regex.Matches(admallergy, allergytype).Count;
-                                if (FalssRiskExists > 0)
-                                {
-                                    string allergyvalue = tst.Get("/.OBX(" + i + ")-5");
-                                    if (allergyvalue == "N")
-                                    {
-                                        latexallergy = false;
-                                       
-                                    }
-                                    else
-                                    {
-                                        latexallergy = true;
-
-                                    }
-                                }
-                                else
-                                {
-                                    latexallergy = FromAL1Segment(tst, obxrep, allergytype);
-
-                                }
-                            }
-                            break;
-                        case "Assistance":
-                            if (admallergy == "" || admallergy == "")
-                            {
-                                latexallergy = false;
-                            }
-                            else
-                            {
-                                int AssistanceExists = Regex.Matches(admallergy, allergytype).Count;
-                                if (AssistanceExists > 0)
-                                {
-                                    string allergyvalue = tst.Get("/.OBX(" + i + ")-5");
-                                    if (allergyvalue == "N")
-                                    {
-                                        latexallergy = false;
-                                       
-                                    }
-                                    else
-                                    {
-                                        latexallergy = true;
-
-                                    }
-                                }
-                                else
-                                {
-                                    latexallergy = FromAL1Segment(tst, obxrep, allergytype);
-
-                                }
-                            }
-                            break;
-                    }
-
-                
-
-              
+                          
+                       
               
 
             }

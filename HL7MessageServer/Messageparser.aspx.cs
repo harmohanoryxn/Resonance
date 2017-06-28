@@ -408,11 +408,11 @@ namespace HL7MessageServer
                     {
                         Patient_tbl pd1 = wcs.Patient_tbl.First(p => p.patientId == patientIdCheck);
                         ////Needs to be checked///
-                        pd1.isAssistanceRequired = regex("Assistance", message);
-                        pd1.isFallRisk = regex("FallRisk", message);
-                        pd1.isMrsaPositive = regex("MRSA", message);
+                        pd1.isAssistanceRequired = AllergenDetails.HasAllergy(tst, OBXRep, "Assistance"); 
+                        pd1.isFallRisk = AllergenDetails.HasAllergy(tst, OBXRep, "FallRisk"); 
+                        pd1.isMrsaPositive = AllergenDetails.HasAllergy(tst, OBXRep, "MRSA");
                         pd1.assistanceDescription = "";
-                        pd1.hasLatexAllergy = regex("Latex", message);
+                        pd1.hasLatexAllergy = AllergenDetails.HasAllergy(tst, OBXRep, "Latex");
                         try
                         {
                             wcs.SaveChanges();

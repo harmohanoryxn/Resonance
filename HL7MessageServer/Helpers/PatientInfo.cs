@@ -76,10 +76,10 @@ namespace H7Message
                 Patient_tbl pd = wcs.Patient_tbl.First(p => p.patientId == patientIdCheck);
                 ////Needs to be checked///
                 pd.isAssistanceRequired = AllergenDetails.HasAllergy(tst, obxrep, "Assistance"); ;
-                pd.isFallRisk = AllergenDetails.HasAllergy(tst, obxrep, "PCS.NDADM111"); ;
-                pd.isMrsaPositive = AllergenDetails.HasAllergy(tst, obxrep, "PCS.NDADM054D"); ;
+                pd.isFallRisk = AllergenDetails.HasAllergy(tst, obxrep, "Fallrisk"); ;
+                pd.isMrsaPositive = AllergenDetails.HasAllergy(tst, obxrep, "MRSA"); ;
                 pd.assistanceDescription = "";
-                pd.hasLatexAllergy = AllergenDetails.HasAllergy(tst, obxrep, "ADM.Allergy");
+                pd.hasLatexAllergy = AllergenDetails.HasAllergy(tst, obxrep, "Latex");
 
                 try
                 {
